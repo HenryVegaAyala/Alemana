@@ -1,59 +1,90 @@
 <?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="language" content="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="es" charset="UTF-8">
+        <meta description="http://iconogen.com/ and http://fontawesome.io and http://www.w3schools.com/ and http://www.jqwidgets.com/">
+        <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico"/> 
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    </head>
 
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
-	<![endif]-->
+    <body class="body">
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
+        <div class="container">
+            <div>
+                <?php
+                $this->widget(
+                        'booster.widgets.TbNavbar', array(
+                    'collapse' => true, // requires bootstrap-responsive.css 
+                    'fluid' => true,
+                    'brand' => 'Panadería Alemana',
+//                    'brand' => '<img src ="' . Yii::app()->request->baseUrl . '/images/lg.png" />' . " Belcorp",
+//                    'fixed' => false,
+                    'items' => array(
+                        array(
+                            'class' => 'booster.widgets.TbMenu',
+                            'type' => 'navbar',
+                            'items' => array(
+                                array('label' => 'Inicio', 'url' => array('/site/index'), 'visible' => Yii::app()->user->isGuest),
+                                array(
+                                    'label' => 'O/C',
+                                    'items' => array(
+                                        array('label' => 'Registrar O/C', 'url' => array('/site/contact')),
+                                        array('label' => 'Listar O/C', 'url' => array('/site/contact')),
+                                        '---',
+                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+                                    ), 'visible' => !Yii::app()->user->isGuest
+                                ),
+                                array(
+                                    'label' => 'Guía',
+                                    'items' => array(
+                                        array('label' => 'Listar Guia', 'url' => array('/site/contact')),
+                                        '---',
+                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+                                    ), 'visible' => !Yii::app()->user->isGuest
+                                ),
+                                array(
+                                    'label' => 'Factura',
+                                    'items' => array(
+                                        array('label' => 'Listar Factura', 'url' => array('/site/contact')),
+                                        '---',
+                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+                                    ), 'visible' => !Yii::app()->user->isGuest
+                                ),
+//                                array('label' => 'Acerca', 'url' => array('/site/page', 'view' => 'about'), 'visible' => !Yii::app()->user->isGuest),
+                                array('label' => 'Iniciar Sesión', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+                                array('label' => 'Cerrar Sesión (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+                            ),
+                        )
+                    )
+                        )
+                );
+                ?>
+            </div>
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-</head>
+            <?php if (isset($this->breadcrumbs)): ?>
+                <?php
+                $this->widget('ext.bootstrap.widgets.TbBreadcrumbs', array(
+                    'links' => $this->breadcrumbs,
+                ));
+                ?><!-- breadcrumbs -->
+            <?php endif ?>
 
-<body>
+            <?php echo $content; ?>
 
-<div class="container" id="page">
+            <div class="clear"></div>
 
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
+        </div><!-- page -->
+    <center>
+        <div id="footer">
 
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+            Copyright &copy; <?php echo date('Y'); ?> Derechos Reservados por Panadería Alemana.
 
-	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
-</div><!-- page -->
-
+        </div><!-- footer -->
+        <br>
+    </center>
 </body>
 </html>
