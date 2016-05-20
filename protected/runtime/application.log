@@ -1,0 +1,33 @@
+2016/05/20 04:29:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "login.php" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('login.php')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('login.php')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login.php')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/login.php
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---
+2016/05/20 04:29:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "login.php" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('login.php')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('login.php')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login.php')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/login.php
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---
+2016/05/20 04:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "login.php" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('login.php')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('login.php')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login.php')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/login.php
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---

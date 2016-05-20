@@ -9,7 +9,6 @@
 </div>
 
 <?php
-
 $user = Yii::app()->getComponent('user');
 
 $user->setFlash(
@@ -18,7 +17,7 @@ $user->setFlash(
 
 $this->widget('booster.widgets.TbAlert', array(
     'fade' => true,
-    'closeText' => '&times;', 
+    'closeText' => '&times;',
     'events' => array(),
     'htmlOptions' => array(),
     'userComponentId' => 'user',
