@@ -4,32 +4,6 @@
 </center>
 <br>
 
-<?php
-$this->widget(
-        'booster.widgets.TbCarousel', array(
-    'items' => array(
-        array(
-            'image' => ('images/ms-icon-310x310.png'),
-            'label' => 'First Thumbnail label',
-            'caption' => 'First Caption.'
-        ),
-        array(
-            'image' => ('images/ms-icon-310x310.png'),
-            'label' => 'Second Thumbnail label',
-            'caption' => 'Cras justo odio, dapis ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-        ),
-        array(
-            'image' => ('images/ms-icon-310x310.png'),
-            'label' => 'Third Thumbnail label',
-            'caption' => 'Cras justo odio, dapis ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-        ),
-    ),
-        )
-);
-
-echo '<br>';
-echo '<br>';
-?>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -42,14 +16,16 @@ echo '<br>';
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <center>
-                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/pagina-en-construccion.gif' ?>">
+                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/ms-icon-310x310.png' ?>">
             </center>
             <div class="carousel-caption">
                 ...
             </div>
         </div>
         <div class="item">
-            <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/pagina-en-construccion.gif' ?>">
+            <center>
+                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/ms-icon-310x310.png' ?>">
+            </center>
             <div class="carousel-caption">
                 ...
             </div>
@@ -67,3 +43,4 @@ echo '<br>';
         <span class="sr-only">Next</span>
     </a>
 </div>
+<br>
