@@ -411,3 +411,1072 @@ Stack trace:
 REQUEST_URI=/Alemana/index.php/site/page?view=graphs
 HTTP_REFERER=http://localhost/Alemana/index.php/site/page?view=forms
 ---
+2016/05/20 18:40:53 [error] [exception.CException] exception 'CException' with message 'La propiedad "CUrlManager"."urlSufix" no se encuentra definida.' in C:\wamp\www\Alemana\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\YiiBase.php(220): CComponent->__set('urlSufix', 'jsp')
+#1 C:\wamp\www\Alemana\framework\base\CModule.php(393): YiiBase::createComponent(Array)
+#2 C:\wamp\www\Alemana\framework\base\CApplication.php(531): CModule->getComponent('urlManager')
+#3 C:\wamp\www\Alemana\framework\web\CWebApplication.php(140): CApplication->getUrlManager()
+#4 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/Alemana/site/contact
+HTTP_REFERER=http://localhost/Alemana/site/contact
+---
+2016/05/20 18:58:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/20 18:58:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/20 18:58:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/20 18:58:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/20 18:58:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/20 18:58:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/20 19:25:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/loading.gif"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/loading.gif')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/close.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/close.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/close.png
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:25:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home5
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/close.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/close.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/close.png
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/loading.gif"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/loading.gif')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/login.jsp
+---
+2016/05/20 19:26:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/close.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/close.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/close.png
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/loading.gif"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/loading.gif')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/
+---
+2016/05/20 19:26:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=about
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=pricing-tables
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-modal.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-modal.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-alert.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-alert.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-tooltip.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-tooltip.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-button.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-button.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-scrollspy.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-scrollspy.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-popover.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-popover.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "themes/hebo/js/bootstrap-typeahead.js"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/hebo/js/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/themes/hebo/js/bootstrap-typeahead.js
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/loadin...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/loading.gif
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "img" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/img/close....')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/img/close.png
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=home6
+---
+2016/05/20 19:28:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'La vista solicitada "home6" no fue encontrada.' in C:\wamp\www\Alemana\framework\web\actions\CViewAction.php:112
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\actions\CViewAction.php(123): CViewAction->resolveView('home6')
+#1 C:\wamp\www\Alemana\framework\web\actions\CAction.php(76): CViewAction->run()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(308): CAction->runWithParams(Array)
+#3 C:\wamp\www\Alemana\framework\web\CController.php(286): CController->runAction(Object(CViewAction))
+#4 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('page')
+#6 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Alemana/site/page.jsp?view=home6
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=columns
+---
+2016/05/20 19:28:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'La vista solicitada "columns" no fue encontrada.' in C:\wamp\www\Alemana\framework\web\actions\CViewAction.php:112
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\actions\CViewAction.php(123): CViewAction->resolveView('columns')
+#1 C:\wamp\www\Alemana\framework\web\actions\CAction.php(76): CViewAction->run()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(308): CAction->runWithParams(Array)
+#3 C:\wamp\www\Alemana\framework\web\CController.php(286): CController->runAction(Object(CViewAction))
+#4 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('page')
+#6 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Alemana/site/page.jsp?view=columns
+HTTP_REFERER=http://localhost/Alemana/site/page.jsp?view=elements
+---
+2016/05/20 19:28:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'La vista solicitada "index" no fue encontrada.' in C:\wamp\www\Alemana\framework\web\actions\CViewAction.php:112
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\actions\CViewAction.php(123): CViewAction->resolveView('index')
+#1 C:\wamp\www\Alemana\framework\web\actions\CAction.php(76): CViewAction->run()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(308): CAction->runWithParams(Array)
+#3 C:\wamp\www\Alemana\framework\web\CController.php(286): CController->runAction(Object(CViewAction))
+#4 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('page')
+#6 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Alemana/site/page.jsp
+---
+2016/05/20 19:28:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('img/login-bg-ov...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/style.css
+---
