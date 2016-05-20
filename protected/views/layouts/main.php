@@ -18,6 +18,7 @@
                 <?php
                 $this->widget(
                         'booster.widgets.TbNavbar', array(
+                    'type' => 'inverse',
                     'collapse' => true, // requires bootstrap-responsive.css 
                     'fluid' => true,
                     'brand' => 'Panadería Alemana',
@@ -28,7 +29,7 @@
                             'class' => 'booster.widgets.TbMenu',
                             'type' => 'navbar',
                             'items' => array(
-                                array('label' => 'Inicio', 'url' => array('/site/index'), 'visible' => Yii::app()->user->isGuest),
+//                                array('label' => 'Inicio', 'url' => array('/site/index'), 'visible' => Yii::app()->user->isGuest),
                                 array(
                                     'label' => 'O/C',
                                     'items' => array(

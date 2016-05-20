@@ -31,3 +31,289 @@ Stack trace:
 REQUEST_URI=/Alemana/index.php/site/login.php
 HTTP_REFERER=http://localhost/Alemana/index.php/site/login
 ---
+2016/05/20 04:51:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:52:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:53:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:53:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:53:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:58:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:58:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:58:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:58:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:59:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:59:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:59:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:59:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:59:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 04:59:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "images" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ms-...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/images/ms-icon-310x310.png
+HTTP_REFERER=http://localhost/Alemana/index.php/site/index
+---
+2016/05/20 05:53:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "sign-up.html" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('sign-up.html')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('sign-up.html')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/sign-up.ht...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/sign-up.html
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---
+2016/05/20 05:58:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "sign-up.html" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('sign-up.html')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('sign-up.html')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/sign-up.ht...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/sign-up.html
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---
+2016/05/20 05:59:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "contact.php" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('contact.php')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('contact.php')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contact.ph...')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/contact.php
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---
+2016/05/20 05:59:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "prueba.php" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('prueba.php')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('prueba.php')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/prueba.php')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/index.php/site/prueba.php
+HTTP_REFERER=http://localhost/Alemana/index.php/site/login
+---

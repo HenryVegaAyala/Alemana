@@ -36,7 +36,7 @@
 
 
                         <div class="login-links"> 
-                            <a href="sign-up.html">¿No tienes cuenta? <strong>INICIA SESIÓN</strong>
+                            <a href="">¿Recupera tu cuenta? <strong>INGRESA AQUÍ</strong>
                             </a>
                         </div>      		
                     </div> 			        	
