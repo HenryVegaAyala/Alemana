@@ -1,7 +1,7 @@
 
 html{
 
-	background: radial-gradient(circle, #000000, #F3F3F3) repeat scroll 0 0 rgba(233, 168, 111, 0);
+	background: #E7921B;
 }
 body{
 	background: transparent url(../img/login-bg-overlay.png) repeat;

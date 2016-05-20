@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">
 <center><h1><i>Página en Construcción</i></h1></center>
 
 <div class="container-fluid">

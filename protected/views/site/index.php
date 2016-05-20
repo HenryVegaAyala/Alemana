@@ -5,18 +5,18 @@
 <br>
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
+    
+<!--    <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
+    </ol>-->
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <center>
-                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/ms-icon-310x310.png' ?>">
+                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/android-chrome-192x192.png' ?>">
             </center>
             <div class="carousel-caption">
                 ...
@@ -24,7 +24,7 @@
         </div>
         <div class="item">
             <center>
-                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/ms-icon-310x310.png' ?>">
+                <img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/android-chrome-192x192.png' ?>">
             </center>
             <div class="carousel-caption">
                 ...

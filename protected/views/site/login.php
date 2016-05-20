@@ -20,7 +20,7 @@
                 <div class="login-box clearfix animated flipInY">
                     <div class="login-logo">
                         <center>
-                            <a href=""><img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/apple-icon-144x144.png' ?>"></a>
+                            <a href=""><img align="center" hspace="10" src="<?php echo Yii:: app()->baseUrl . '/images/apple-touch-icon-114x114.png' ?>"></a>
                         </center>
                     </div> 
 

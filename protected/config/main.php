@@ -8,7 +8,7 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Panaderia-Pasteleria',
     'language' => 'es',
-//    'theme'=>'yigum',
+    'theme'=>'classic',
     // preloading 'log' component
     'preload' => array('bootstrap', 'log'),
     // autoloading model and component classes
