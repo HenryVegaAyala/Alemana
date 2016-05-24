@@ -3314,3 +3314,149 @@ Stack trace:
 REQUEST_URI=/Alemana/img/login-bg-overlay.png
 HTTP_REFERER=http://localhost/Alemana/css/stylev2.css
 ---
+2016/05/24 05:39:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "contact" solicitada.' in C:\wamp\www\Alemana\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(270): CController->missingAction('contact')
+#1 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('contact')
+#2 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contact')
+#3 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/Alemana/site/contact.jsp
+HTTP_REFERER=http://localhost/Alemana/site/register.jsp
+---
+2016/05/24 05:44:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/24 05:44:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:44:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:44:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/24 05:44:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:44:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:44:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/24 05:44:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:44:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:45:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/24 05:45:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:45:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:45:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/img/login-bg-overlay.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/img/login-b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/img/login-bg-overlay.png
+HTTP_REFERER=http://localhost/Alemana/css/login/login.css
+---
+2016/05/24 05:45:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
+2016/05/24 05:45:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/login/bootstrap.css
+---
