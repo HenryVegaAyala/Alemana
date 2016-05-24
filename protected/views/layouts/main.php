@@ -6,7 +6,7 @@
         <meta name="language" content="es" charset="UTF-8">
         <meta description="http://iconogen.com/ and http://fontawesome.io and http://www.w3schools.com/ and http://www.jqwidgets.com/ and http://www.favicon-generator.org/">
         <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>

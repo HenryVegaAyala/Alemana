@@ -37,6 +37,12 @@ class SEGUSUAR extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
+            
+            array('USE_USUA', 'required'),
+            array('PAS_USUA', 'required'),
+            
+            array('USE_USUA', 'unique'),
+            
             array('COD_USUA', 'length', 'max' => 6),
             array('COD_LOCA', 'length', 'max' => 2),
             array('NOM_USUA, APE_USUA', 'length', 'max' => 60),

@@ -58,7 +58,7 @@ body{
 
 h1{
     font-family: arial, sans-serif; 
-    color: #F5F5F5;
+    color: #000000;
     font-size: 50px;
     font-weight: bold;
     font-style: italic;
@@ -71,14 +71,6 @@ h1{
 
 /*-----------------------------------------------*/
 
-html{
-
-    background: #E7921B;
-}
-body{
-    background: transparent url(../img/login-bg-overlay.png) repeat;
-    min-height:100%; 
-}
 h1 {
     font: bold italic 393% georgia, times new roman, serif;
     -webkit-transition-duration: .5s;

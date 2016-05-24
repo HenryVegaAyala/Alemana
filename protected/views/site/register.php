@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
 <?php
 /* @var $this SiteController */
 /* @var $model Usuario */

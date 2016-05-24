@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 /* @var $this SiteController */
 /* @var $model ChangeForm */
@@ -28,7 +30,7 @@ $this->breadcrumbs = array(
 <?php endif ?>
 
 
-<div class="form-horizontal">
+<div class="container-fluid">
     <?php
     $form = $this->beginWidget('CActiveForm', array(
         'id' => 'login-form',
@@ -39,44 +41,38 @@ $this->breadcrumbs = array(
     ));
     ?>
 
-    <div class="container-fluid " style="text-align: center;">
+        <div class="fieldset">
+            <div class="form-group ir">
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->labelEx($model, 'password'); ?>
+                    <?php echo $form->passwordField($model, 'password', array('class' => 'form-control', 'placeholder' => 'Ingrese el Nombre del Analista')); ?>
+                    <?php echo $form->error($model, 'password'); ?>
+                </div>
 
-        <div class="form-group">
-            <div class="col-xs-7 col-sm-2 col-md-2 col-lg-2 control-label">
-                <?php echo $form->labelEx($model, 'password'); ?>
-            </div>
-            <div class="col-xs-5 col-sm-7 col-md-6 col-lg-6">
-                <?php echo $form->textField($model, 'password', array('class' => 'form-control')); ?>
-                <?php echo $form->error($model, 'password'); ?>
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->labelEx($model, 'password_new'); ?>
+                    <?php echo $form->passwordField($model, 'password_new', array('class' => 'form-control', 'placeholder' => 'Ingrese el Correo Electrónico')); ?>
+                    <?php echo $form->error($model, 'password_new'); ?>
+                </div>
+                
+                                <div class="col-sm-4 control-label">
+                    <?php echo $form->labelEx($model, 'password_new_repeat'); ?>
+                    <?php echo $form->passwordField($model, 'password_new_repeat', array('class' => 'form-control', 'placeholder' => 'Ingrese el Correo Electrónico')); ?>
+                    <?php echo $form->error($model, 'password_new_repeat'); ?>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-xs-7 col-sm-2 col-md-2 col-lg-2 control-label">
-                <?php echo $form->labelEx($model, 'password_new', array('class' => 'form-label')); ?>
-            </div>
-            <div class="col-xs-5 col-sm-7 col-md-6 col-lg-6">
-                <?php echo $form->passwordField($model, 'password_new', array('class' => 'form-control')); ?>
-                <?php echo $form->error($model, 'password_new'); ?>
-            </div>
         </div>
+                <div class="container-fluid">
+                <p class="note invisible">Aqui va un salto de linea invisible</p>
+            </div>
+    
+                    <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <?php echo CHtml::submitButton('Cambiar Contraseña' , array('class' => 'btn btn-default btn-md')); ?>
+                    </div>
+                </div>  
 
-        <div class="form-group">
-            <div class="col-xs-7 col-sm-2 col-md-2 col-lg-2 control-label">
-                <?php echo $form->labelEx($model, 'password_new_repeat', array('class' => 'form-label')); ?>
-            </div>
-            <div class="col-xs-5 col-sm-7 col-md-6 col-lg-6">
-                <?php echo $form->passwordField($model, 'password_new_repeat', array('class' => 'form-control')); ?>
-                <?php echo $form->error($model, 'password_new_repeat'); ?>
-            </div>
-        </div>
-
-        <div class="form-group buttons">
-            <div class="controls">
-                <?php echo CHtml::submitButton('Cambiar Contraseña', array('class' => 'btn btn-primary', 'icon' => 'ICON_HEART')); ?>
-            </div>
-        </div>
-    </div>
 
     <?php $this->endWidget(); ?>
 </div><!-- form -->
