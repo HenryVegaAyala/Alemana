@@ -29,7 +29,7 @@
                             'class' => 'booster.widgets.TbMenu',
                             'type' => 'navbar',
                             'items' => array(
-//                                array('label' => 'Inicio', 'url' => array('/site/index'), 'visible' => Yii::app()->user->isGuest),
+                                array('label' => 'Inicio', 'url' => array('/site/index'), 'visible' => Yii::app()->user->isGuest),
                                 array(
                                     'label' => 'O/C',
                                     'items' => array(
@@ -53,6 +53,13 @@
                                         array('label' => 'Listar Factura', 'url' => array('/site/contact')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
+                                    ), 'visible' => !Yii::app()->user->isGuest
+                                ),
+                                array(
+                                    'label' => 'Usuario',
+                                    'items' => array(
+                                        array('label' => 'Registrar', 'url' => array('/site/register')),
+                                        array('label' => 'Cambiar Contraseña', 'url' => array('/site/change')),
                                     ), 'visible' => !Yii::app()->user->isGuest
                                 ),
 //                                array('label' => 'Acerca', 'url' => array('/site/page', 'view' => 'about'), 'visible' => !Yii::app()->user->isGuest),
