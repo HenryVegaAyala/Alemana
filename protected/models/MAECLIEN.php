@@ -46,6 +46,9 @@ class MAECLIEN extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+                    
+                        
+                    
 			array('COD_CLIE', 'required'),
 			array('COD_CLIE', 'length', 'max'=>6),
 			array('DES_CLIE, DIR_FISC, DIR_WEB, DIR_EMA1, DIR_EMA2, DIR_EMA3', 'length', 'max'=>100),
@@ -154,4 +157,9 @@ class MAECLIEN extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getSelectName(){
+            return $this->DES_CLIE;
+             
+        }
 }

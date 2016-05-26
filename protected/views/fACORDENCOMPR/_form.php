@@ -28,7 +28,7 @@
             <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
         </div>
 
-        <?php // echo $form->errorSummary($model); ?>
+        <?php echo $form->errorSummary($model); ?>
 
         <!--<div class="col-sm-3 control-label">-->
         <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
@@ -42,25 +42,38 @@
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'NUM_ORDE'); ?>
                     <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 6, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
-                    <?php echo $form->error($model, 'NUM_ORDE'); ?>
+                    <?php // echo $form->error($model, 'NUM_ORDE'); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
+                    
+                    <?php
+                        $htmlOptions=array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("ClienteByTienda"),
+                                "type" => "POST",
+                                "update"=> "#FACORDENCOMPR_COD_TIEN"
+                            ),
+                            'class' => 'form-control',
+                            'empty' => 'Seleccionar Cliente',
+                        );
+                    
+                    ?>
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), array('class' => 'form-control', 'empty' => 'Seleccionar Cliente')); ?>
-                    <?php echo $form->error($model, 'COD_CLIE'); ?>
+                    <?php echo $form->dropDownList($model, 'COD_CLIE',$model->ListaCliente(),$htmlOptions); ?>
+                    <?php // echo $form->error($model, 'COD_CLIE'); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
                     <?php echo $form->dropDownList($model, 'COD_TIEN',$model->ListaTienda(), array('class' => 'form-control', 'empty' => 'Seleccionar Tienda')); ?>
-                    <?php echo $form->error($model, 'COD_TIEN'); ?>
+                    <?php // echo $form->error($model, 'COD_TIEN'); ?>
                 </div>                
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
                     <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control', 'empty' => 'Seleccionar Moneda')); ?>
-                    <?php echo $form->error($model, 'TIP_MONE'); ?>
+                    <?php // echo $form->error($model, 'TIP_MONE'); ?>
                 </div>               
             </div>
 
@@ -91,7 +104,7 @@
                         ),
                     ));
                     ?>
-                    <?php echo $form->error($model, 'FEC_INGR'); ?>
+                    <?php // echo $form->error($model, 'FEC_INGR'); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
@@ -120,7 +133,7 @@
                         ),
                     ));
                     ?>
-                    <?php echo $form->error($model, 'FEC_ENVI'); ?>
+                    <?php // echo $form->error($model, 'FEC_ENVI'); ?>
                 </div>
 
             </div>
