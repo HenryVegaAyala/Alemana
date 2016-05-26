@@ -16,6 +16,7 @@ $user->setFlash(
         'error', '<center><strong>No se puede conectar a la base de datos, Asegúrese que esté conectada</center>'
 );
 
+
 $this->widget('booster.widgets.TbAlert', array(
     'fade' => true,
     'closeText' => '&times;',
@@ -26,4 +27,8 @@ $this->widget('booster.widgets.TbAlert', array(
         'error' => array('closeText' => false)
     ),
 ));
+
+
+
 ?>
+<br><br><br>

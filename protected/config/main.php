@@ -30,6 +30,13 @@ return array(
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
+            'loginUrl'=>array('site/login'),
+        ),
+        'session' => array(
+            'class' => 'CDbHttpSession',
+            'autoStart' => 'false',
+            'cookieMode' => 'only',
+            'timeout' => 1000
         ),
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Booster',

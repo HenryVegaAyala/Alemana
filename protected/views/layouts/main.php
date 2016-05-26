@@ -33,8 +33,8 @@
                                 array(
                                     'label' => 'O/C',
                                     'items' => array(
-                                        array('label' => 'Registrar O/C', 'url' => array('/site/contact')),
-                                        array('label' => 'Listar O/C', 'url' => array('/site/contact')),
+                                        array('label' => 'Registrar O/C', 'url' => array('/fACORDENCOMPR/create')),
+                                        array('label' => 'Listar O/C', 'url' => array('/fACORDENCOMPR/index')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
@@ -55,13 +55,24 @@
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
                                 ),
-                                array(
-                                    'label' => 'Usuario',
-                                    'items' => array(
-                                        array('label' => 'Registrar', 'url' => array('/site/register')),
-                                        array('label' => 'Cambiar Contraseña', 'url' => array('/site/change')),
-                                    ), 'visible' => !Yii::app()->user->isGuest
-                                ),
+//                                array(
+//                                    'label' => 'Usuario',
+//                                    'items' => array(
+//                                        array('label' => 'Registrar', 'url' => array('/site/register')),
+//                                        array('label' => 'Cambiar Contraseña', 'url' => array('/site/change')),
+//                                    ), 'visible' => !Yii::app()->user->isGuest
+//                                ),
+//                                array(
+//                                    'label' => 'Cliente',
+//                                    'items' => array(
+//                                        array('label' => 'Registrar Cliente', 'url' => array('/mAECLIEN/create')),
+//                                        array('label' => 'Lista de Clientes', 'url' => array('/mAECLIEN/index')),
+//                                        '---',
+//                                        array('label' => 'Registrar Tienda', 'url' => array('/mAETIEND/create')),
+//                                        array('label' => 'Lista de Tienda', 'url' => array('/mAETIEND/index')),
+//                                        
+//                                    ), 'visible' => !Yii::app()->user->isGuest
+//                                ),
 //                                array('label' => 'Acerca', 'url' => array('/site/page', 'view' => 'about'), 'visible' => !Yii::app()->user->isGuest),
                                 array('label' => 'Iniciar Sesión', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
                                 array('label' => 'Cerrar Sesión (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
