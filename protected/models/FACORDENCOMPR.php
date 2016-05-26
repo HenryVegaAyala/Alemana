@@ -167,14 +167,17 @@ class FACORDENCOMPR extends CActiveRecord {
         );
         return cHtml::listData($model, 'COD_ORDE', 'value');
     }
-    
-        public function ListaCliente() {
+
+    public function ListaCliente() {
         $models = MAECLIEN::model()->findAll();
         $list = CHtml::listData($models, 'COD_CLIE', 'DES_CLIE');
         return ($list);
     }
-    
-    
-    
+
+    public function ListaTienda() {
+        $models = MAETIEND::model()->findAll();
+        $list = CHtml::listData($models, 'COD_TIEN', 'DES_TIEN');
+        return ($list);
+    }
 
 }

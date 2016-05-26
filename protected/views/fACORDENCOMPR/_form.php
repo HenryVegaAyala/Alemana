@@ -3,7 +3,7 @@
 /* @var $model FACORDENCOMPR */
 /* @var $form CActiveForm */
 ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
 
 
 <div class="container-fluid">
@@ -22,25 +22,22 @@
             'enableAjaxValidation' => false,
         ));
         ?>
- <br>
+        <br>
 
-    <div class="container-fluid">
-        <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
-    </div>
+        <div class="container-fluid">
+            <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
+        </div>
 
-            <?php // echo $form->errorSummary($model); ?>
+        <?php // echo $form->errorSummary($model); ?>
 
-                <!--<div class="col-sm-3 control-label">-->
-                    <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
-                    <?php // echo $form->textField($model, 'COD_ORDE', array('size' => 6, 'maxlength' => 6, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
-                    <?php // echo $form->error($model, 'COD_ORDE'); ?>
-                <!--</div>-->
-            
-            
-            
-            
+        <!--<div class="col-sm-3 control-label">-->
+        <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
+        <?php // echo $form->textField($model, 'COD_ORDE', array('size' => 6, 'maxlength' => 6, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
+        <?php // echo $form->error($model, 'COD_ORDE'); ?>
+        <!--</div>-->
+
         <div class="fieldset">
-            
+
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'NUM_ORDE'); ?>
@@ -50,27 +47,27 @@
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_CLIE',$model->ListaCliente(), array('class' => 'form-control', 'empty' => 'Seleccionar Cliente')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), array('class' => 'form-control', 'empty' => 'Seleccionar Cliente')); ?>
                     <?php echo $form->error($model, 'COD_CLIE'); ?>
                 </div>
-                
+
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
-                    <?php echo $form->textField($model, 'COD_TIEN', array('maxlength' => 12, 'class' => 'form-control', 'placeholder' => 'Ingrese el Nombre del Analista')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_TIEN',$model->ListaTienda(), array('class' => 'form-control', 'empty' => 'Seleccionar Tienda')); ?>
                     <?php echo $form->error($model, 'COD_TIEN'); ?>
                 </div>                
-                
-                 <div class="col-sm-3 control-label">
+
+                <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
-                    <?php echo $form->dropDownList($model, 'TIP_MONE',$model->Moneda(), array('class' => 'form-control', 'empty' => 'Seleccionar Moneda')); ?>
+                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control', 'empty' => 'Seleccionar Moneda')); ?>
                     <?php echo $form->error($model, 'TIP_MONE'); ?>
                 </div>               
             </div>
-            
-                        <div class="form-group ir">
+
+            <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
-                                        <?php
+                    <?php
                     $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'model' => $model,
                         'attribute' => 'FEC_INGR',
@@ -99,7 +96,7 @@
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_ENVI'); ?>
-                                        <?php
+                    <?php
                     $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'model' => $model,
                         'attribute' => 'FEC_ENVI',
@@ -125,30 +122,42 @@
                     ?>
                     <?php echo $form->error($model, 'FEC_ENVI'); ?>
                 </div>
-                            
+
             </div>
-            
+
         </div>
 
-                <br><br><br><br><br><br><br>   <br>         
-                <legend>Datos del Cliente</legend>
- 
+        <br><br><br><br><br><br><br><br>           
 
+        <fieldset>
+            <legend>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Cliente</legend>
+            <div class="form-group">
+                <div class="col-sm-4 control-label">
+                    <label>RUC:</label>
+                </div>
 
-            
-            
-           
+                <div class="col-sm-4 control-label">
+                    <label>RAZÓN SOCIAL:</label>
+                </div>
 
-                
-                
-                <br><br><br><br><br>   <br><br><br><br><br>  
-                
-                
-            
-        <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+                <div class="col-sm-4 control-label">
+                    <label>lUGAR DE ENTREGA:</label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
 
-<?php $this->endWidget(); ?>
+        <div class="panel-footer " style="overflow:hidden;text-align:right;">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
+                    <input type="reset" src="create" class="btn btn-default btn-md" onclick="abrir()" value="Cancelar">
+                </div>
+            </div>  
+        </div>
+
+        <?php $this->endWidget(); ?>
 
     </div><!-- form -->
+    
