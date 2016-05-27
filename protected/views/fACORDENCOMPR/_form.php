@@ -15,10 +15,6 @@
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'facordencompr-form',
-            // Please note: When you enable ajax validation, make sure the corresponding
-            // controller action is handling ajax validation correctly.
-            // There is a call to performAjaxValidation() commented in generated controller code.
-            // See class documentation of CActiveForm for details on this.
             'enableAjaxValidation' => false,
         ));
         ?>
@@ -46,27 +42,26 @@
                 </div>
 
                 <div class="col-sm-3 control-label">
-                    
+
                     <?php
-                        $htmlOptions=array(
-                            "ajax" => array(
-                                "url" => $this->createUrl("ClienteByTienda"),
-                                "type" => "POST",
-                                "update"=> "#FACORDENCOMPR_COD_TIEN"
-                            ),
-                            'class' => 'form-control',
-                            'empty' => 'Seleccionar Cliente',
-                        );
-                    
+                    $htmlOptions = array(
+                        "ajax" => array(
+                            "url" => $this->createUrl("ClienteByTienda"),
+                            "type" => "POST",
+                            "update" => "#FACORDENCOMPR_COD_TIEN"
+                        ),
+                        'class' => 'form-control',
+                        'empty' => 'Seleccionar Cliente',
+                    );
                     ?>
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_CLIE',$model->ListaCliente(),$htmlOptions); ?>
+                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), $htmlOptions); ?>
                     <?php // echo $form->error($model, 'COD_CLIE'); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_TIEN',$model->ListaTienda(), array('class' => 'form-control', 'empty' => 'Seleccionar Tienda')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTienda(), array('class' => 'form-control', 'empty' => 'Seleccionar Tienda')); ?>
                     <?php // echo $form->error($model, 'COD_TIEN'); ?>
                 </div>                
 
@@ -76,7 +71,6 @@
                     <?php // echo $form->error($model, 'TIP_MONE'); ?>
                 </div>               
             </div>
-
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
@@ -140,7 +134,18 @@
 
         </div>
 
-        <br><br><br><br><br><br><br><br>           
+        <br><br><br><br><br><br><br><br>    
+
+        <?php
+        
+        $connection = Yii::app()->db;
+        $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = 0";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+
+        foreach ($reader as $row)
+            echo $row['NRO_RUC'];
+        ?>
 
         <fieldset>
             <legend>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Cliente</legend>
@@ -158,19 +163,19 @@
                 </div>
             </div>
         </fieldset>
+
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
 
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
+<?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
                     <input type="reset" src="create" class="btn btn-default btn-md" onclick="abrir()" value="Cancelar">
                 </div>
             </div>  
         </div>
 
-        <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
 
     </div><!-- form -->
-    

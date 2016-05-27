@@ -1,6 +1,6 @@
 <?php
 
-class FACORDENCOMPRController extends Controller {
+class MAEPRODUController extends Controller {
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -23,20 +23,14 @@ class FACORDENCOMPRController extends Controller {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda'),
+            array('allow', // allow authenticated 
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
-    }
-
-    public function actionClienteByTienda() {
-        $list = MAETIEND::model()->findAll("COD_CLIE = ?", array($_POST["FACORDENCOMPR"]["COD_CLIE"]));
-        foreach ($list as $data)
-            echo "<option value=\"{$data->COD_TIEN}\">{$data->DES_TIEN}</option>";
     }
 
     /**
@@ -54,15 +48,15 @@ class FACORDENCOMPRController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new FACORDENCOMPR;
+        $model = new MAEPRODU;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['FACORDENCOMPR'])) {
-            $model->attributes = $_POST['FACORDENCOMPR'];
+        if (isset($_POST['MAEPRODU'])) {
+            $model->attributes = $_POST['MAEPRODU'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_ORDE));
+                $this->redirect(array('view', 'id' => $model->COD_PROD));
         }
 
         $this->render('create', array(
@@ -81,10 +75,10 @@ class FACORDENCOMPRController extends Controller {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['FACORDENCOMPR'])) {
-            $model->attributes = $_POST['FACORDENCOMPR'];
+        if (isset($_POST['MAEPRODU'])) {
+            $model->attributes = $_POST['MAEPRODU'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_ORDE));
+                $this->redirect(array('view', 'id' => $model->COD_PROD));
         }
 
         $this->render('update', array(
@@ -109,9 +103,13 @@ class FACORDENCOMPRController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('FACORDENCOMPR');
+        $model = new MAEPRODU('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_GET['MAEPRODU']))
+            $model->attributes = $_GET['MAEPRODU'];
+
         $this->render('index', array(
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ));
     }
 
@@ -119,10 +117,10 @@ class FACORDENCOMPRController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
-        $model = new FACORDENCOMPR('search');
+        $model = new MAEPRODU('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['FACORDENCOMPR']))
-            $model->attributes = $_GET['FACORDENCOMPR'];
+        if (isset($_GET['MAEPRODU']))
+            $model->attributes = $_GET['MAEPRODU'];
 
         $this->render('admin', array(
             'model' => $model,
@@ -133,11 +131,11 @@ class FACORDENCOMPRController extends Controller {
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.
      * @param integer $id the ID of the model to be loaded
-     * @return FACORDENCOMPR the loaded model
+     * @return MAEPRODU the loaded model
      * @throws CHttpException
      */
     public function loadModel($id) {
-        $model = FACORDENCOMPR::model()->findByPk($id);
+        $model = MAEPRODU::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -145,10 +143,10 @@ class FACORDENCOMPRController extends Controller {
 
     /**
      * Performs the AJAX validation.
-     * @param FACORDENCOMPR $model the model to be validated
+     * @param MAEPRODU $model the model to be validated
      */
     protected function performAjaxValidation($model) {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'facordencompr-form') {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'maeprodu-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
