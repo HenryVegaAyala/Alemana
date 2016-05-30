@@ -79,17 +79,17 @@ class MAEPRODU extends CActiveRecord {
      */
     public function attributeLabels() {
         return array(
-            'COD_PROD' => 'Cod Prod',
-            'COD_LINE' => 'Cod Line',
-            'DES_LARG' => 'Des Larg',
+            'COD_PROD' => 'Codigo Producto',
+            'COD_LINE' => 'Codigo Linea',
+            'DES_LARG' => 'Descripción',
             'DES_CORT' => 'Des Cort',
-            'COD_ESTA' => 'Cod Esta',
-            'COD_MEDI' => 'Cod Medi',
+            'COD_ESTA' => 'Estado',
+            'COD_MEDI' => 'Medida',
             'VAL_PESO' => 'Val Peso',
             'VAL_PROD' => 'Val Prod',
             'VAL_CONV' => 'Val Conv',
             'VAL_PORC' => 'Val Porc',
-            'VAL_COST' => 'Val Cost',
+            'VAL_COST' => 'Costo',
             'VAL_REPO' => 'Val Repo',
             'COD_LOTE' => 'Cod Lote',
             'USU_DIGI' => 'Usu Digi',

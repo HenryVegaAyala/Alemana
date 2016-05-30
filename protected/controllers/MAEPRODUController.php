@@ -24,7 +24,7 @@ class MAEPRODUController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete','agregar'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users

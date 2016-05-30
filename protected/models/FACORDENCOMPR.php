@@ -50,11 +50,9 @@ class FACORDENCOMPR extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            
             array('NUM_ORDE', 'required'),
             array('FEC_INGR', 'required'),
             array('FEC_ENVI', 'required'),
-            
             array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
             array('COD_CLIE, COD_TIEN', 'length', 'max' => 6),
             array('COD_ORDE, NUM_ORDE', 'length', 'max' => 12),
@@ -176,16 +174,23 @@ class FACORDENCOMPR extends CActiveRecord {
     public function ListaCliente() {
 
 //        return CHtml::listData(MAECLIEN::model()->findAll("COD_ESTA=?",array(1)), 'COD_CLIE', 'SelectName');
-        $Cliente = MAECLIEN::model()->findAll("COD_ESTA=?",array(1));
-        return CHtml::listData($Cliente,"COD_CLIE", "SelectName"); 
-        
-        
+        $Cliente = MAECLIEN::model()->findAll("COD_ESTA=?", array(1));
+        return CHtml::listData($Cliente, "COD_CLIE", "SelectName");
     }
 
     public function ListaTienda($defaultTienda = 1) {
-        
-        $Tienda = MAETIEND::model()->findAll("COD_ESTA=? AND COD_CLIE=?",array(1,$defaultTienda));
-        return CHtml::listData($Tienda,"COD_TIEN", "DES_TIEN"); 
+
+        $Tienda = MAETIEND::model()->findAll("COD_ESTA=? AND COD_CLIE=?", array(1, $defaultTienda));
+        return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
+    }
+
+    public function au() {
+
+        $max = Yii::app()->db->createCommand()->select('max(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
+
+        $id = ($max + 1);
+
+        return $id;
     }
 
 }

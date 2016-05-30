@@ -10,4 +10,4 @@ $this->breadcrumbs = array(
 
 <h1>Nuevo Orden de Compra</h1>
 
-<?php $this->renderPartial('_form', array('model' => $model)); ?>
+<?php $this->renderPartial('_form', array('model' => $model,'modelOC' => $modelOC)); ?>

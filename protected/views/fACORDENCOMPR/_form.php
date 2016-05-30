@@ -26,12 +26,6 @@
 
         <?php echo $form->errorSummary($model); ?>
 
-        <!--<div class="col-sm-3 control-label">-->
-        <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
-        <?php // echo $form->textField($model, 'COD_ORDE', array('size' => 6, 'maxlength' => 6, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
-        <?php // echo $form->error($model, 'COD_ORDE'); ?>
-        <!--</div>-->
-
         <div class="fieldset">
 
             <div class="form-group ir">
@@ -84,12 +78,12 @@
                         'options' => array(
                             'autoSize' => true,
                             'defaultDate' => $model->FEC_INGR,
-                            'dateFormat' => 'dd-mm-yy',
+                            'dateFormat' => 'yy/mm/dd',
                             'buttonImage' => Yii::app()->baseUrl . '/images/calendario.gif',
                             'buttonImageOnly' => true,
                             'buttonText' => 'FEC_INGR',
                             'selectOtherMonths' => true,
-                            'showAnim' => 'slide',
+                            'showAnim' => 'fadeIn', //'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
                             'showOtherMonths' => true,
                             'changeMonth' => 'true',
                             'changeYear' => 'true',
@@ -113,8 +107,7 @@
                         'options' => array(
                             'autoSize' => true,
                             'defaultDate' => $model->FEC_ENVI,
-                            'dateFormat' => 'dd-mm-yy',
-                            'buttonImage' => Yii::app()->baseUrl . '/images/calendario.gif',
+                            'dateFormat' => 'yy/mm/dd',
                             'buttonImageOnly' => true,
                             'buttonText' => 'FEC_ENVI',
                             'selectOtherMonths' => true,
@@ -129,7 +122,11 @@
                     ?>
                     <?php // echo $form->error($model, 'FEC_ENVI'); ?>
                 </div>
-
+                <div class="col-sm-3 control-label">
+                    <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
+                    <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
+                    <?php // echo $form->error($model, 'COD_ORDE'); ?>
+                </div>
             </div>
 
         </div>
@@ -137,14 +134,13 @@
         <br><br><br><br><br><br><br><br>    
 
         <?php
-        
-        $connection = Yii::app()->db;
-        $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = 0";
-        $command = $connection->createCommand($sqlStatement);
-        $reader = $command->query();
-
-        foreach ($reader as $row)
-            echo $row['NRO_RUC'];
+//        $connection = Yii::app()->db;
+//        $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = 1";
+//        $command = $connection->createCommand($sqlStatement);
+//        $reader = $command->query();
+//
+//        foreach ($reader as $row)
+//            echo $row['NRO_RUC'];
         ?>
 
         <fieldset>
@@ -159,7 +155,7 @@
                 </div>
 
                 <div class="col-sm-4 control-label">
-                    <label>lUGAR DE ENTREGA:</label>
+                    <label>LUGAR DE ENTREGA:</label>
                 </div>
             </div>
         </fieldset>
@@ -167,15 +163,38 @@
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
 
+        <?php
+        $url = Yii::app()->request->baseUrl;
+        echo CHtml::button('Agregar Nuevo Producto', array(
+            'name' => 'Agregar Nuevo Producto',
+            'onclick' => "window.open ('?r=mAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=400, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
+        ));
+        ?>
+
+        <script type="text/javascript">
+            function refreshList()
+            {
+                $.fn.yiiGridView.update("facdetalordencompr-grid");
+            }
+            var interval = setInterval("refreshList()", 6000);
+        </script>
+
+        <p class="note">Porfavor espere los productos estan cargando...</p>
+        <?php
+        $this->renderPartial('/fACDETALORDENCOMPR/admin', array(
+            'model' => $modelOC
+        ));
+        ?>
+
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-<?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
+                    <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
                     <input type="reset" src="create" class="btn btn-default btn-md" onclick="abrir()" value="Cancelar">
                 </div>
             </div>  
         </div>
 
-<?php $this->endWidget(); ?>
+        <?php $this->endWidget(); ?>
 
     </div><!-- form -->
