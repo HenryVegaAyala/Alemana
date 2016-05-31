@@ -54,10 +54,36 @@
                 </div>
 
                 <div class="col-sm-3 control-label">
+                    <?php
+                    $htmlOption = array(
+                        "ajax" => array(
+                            "url" => $this->createUrl("ValorTienda"),
+                            "type" => "POST",
+                            "data" => array('COD_TIEN' => 'js:this.value'),
+                            "success" => "function(data){     
+                               alert(data);
+                            var selID=document.getElementById('FACORDENCOMPR_COD_TIEN');
+                           var text=selID.options[selID.selectedIndex].value;
+                           
+                            var seltienda=document.getElementById('tienda');
+                            seltienda.value= text;
+
+                                    
+                            }
+                            "
+                        ),
+                        'class' => 'form-control',
+                        'empty' => 'Seleccionar Tienda'
+                    );
+                    ?>
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTienda(), array('class' => 'form-control', 'empty' => 'Seleccionar Tienda')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTienda(), $htmlOption); ?>
                     <?php // echo $form->error($model, 'COD_TIEN'); ?>
+
                 </div>                
+
+                <input type="text" name="tienda" id="tienda" value=""/>
+
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
@@ -148,6 +174,7 @@
             <div class="form-group">
                 <div class="col-sm-4 control-label">
                     <label>RUC:</label>
+
                 </div>
 
                 <div class="col-sm-4 control-label">
@@ -167,25 +194,27 @@
         $url = Yii::app()->request->baseUrl;
         echo CHtml::button('Agregar Nuevo Producto', array(
             'name' => 'Agregar Nuevo Producto',
-            'onclick' => "window.open ('?r=mAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=400, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
+            'class' => 'btn btn-link btn-md',
+            'onclick' => "window.open ('?r=TEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=400, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
         ));
         ?>
 
         <script type="text/javascript">
             function refreshList()
             {
-                $.fn.yiiGridView.update("facdetalordencompr-grid");
+                $.fn.yiiGridView.update("tempmaeprodu-grid");
             }
             var interval = setInterval("refreshList()", 6000);
         </script>
 
         <p class="note">Porfavor espere los productos estan cargando...</p>
+
         <?php
-        $this->renderPartial('/fACDETALORDENCOMPR/admin', array(
+        $this->renderPartial('/TEMPMAEPRODU/admin', array(
             'model' => $modelOC
         ));
         ?>
-
+        <br>
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">

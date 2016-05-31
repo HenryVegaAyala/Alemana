@@ -1,12 +1,11 @@
 <?php
-/* @var $this MAEPRODUController */
-/* @var $model MAEPRODU */
+/* @var $this TEMPMAEPRODUController */
+/* @var $model TEMPMAEPRODU */
 
 $this->breadcrumbs = array(
     'Productos',
 );
 ?>
-
 
 <?php
 $this->widget('ext.bootstrap.widgets.TbGridView', array(

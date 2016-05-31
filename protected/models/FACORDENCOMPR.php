@@ -178,7 +178,7 @@ class FACORDENCOMPR extends CActiveRecord {
         return CHtml::listData($Cliente, "COD_CLIE", "SelectName");
     }
 
-    public function ListaTienda($defaultTienda = 1) {
+    public function ListaTienda($defaultTienda = 0) {
 
         $Tienda = MAETIEND::model()->findAll("COD_ESTA=? AND COD_CLIE=?", array(1, $defaultTienda));
         return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
