@@ -227,13 +227,13 @@
         <script type="text/javascript">
             function refreshList()
             {
-                $.fn.yiiGridView.update("tempmaeprodu-grid");
+                $.fn.yiiGridView.update("tempfacdetalordencompr-grid");
             }
             var interval = setInterval("refreshList()", 6000);
         </script>
 
         <?php
-        $this->renderPartial('/TEMPMAEPRODU/admin', array(
+        $this->renderPartial('/TEMPFACDETALORDENCOMPR/admin', array(
             'model' => $modelOC
         ));
         ?>

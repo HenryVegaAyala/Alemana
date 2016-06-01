@@ -71,13 +71,19 @@ class TEMPMAEPRODUController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
-
+        $connection = Yii::app()->db;
+//        $sqlStatement = "CALL Productos('$id');";
+//        $command = $connection->createCommand($sqlStatement);
+//        $command->execute();
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+         $this->performAjaxValidation($model);
 
         if (isset($_POST['TEMPMAEPRODU'])) {
             $model->attributes = $_POST['TEMPMAEPRODU'];
             if ($model->save())
+                        $sqlStatement = "CALL ProductoCP('$id');";
+                        $command = $connection->createCommand($sqlStatement);
+                        $command->execute();
                 $this->redirect(array('view', 'id' => $model->COD_PROD));
         }
 

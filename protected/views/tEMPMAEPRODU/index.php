@@ -17,9 +17,10 @@ $this->widget('ext.bootstrap.widgets.TbGridView', array(
         'COD_PROD',
         'DES_LARG',
         array(
-            'header' => 'Unidad de Medida',
+            'header' => 'Linea',
             'value' => '$data->cODLINE->DES_LARG',
-            ),
+            'htmlOptions'=>array('style'=>'word-wrap:break-word; width:300px; table-layout:fixed; '),
+        ),
         array(
             'header' => 'Opción',
             'class' => 'ext.bootstrap.widgets.TbButtonColumn',

@@ -144,4 +144,12 @@ class TEMPMAEPRODU extends CActiveRecord {
         return parent::model($className);
     }
 
+    public function getLinea() {
+        $models = MAELINEAPRODU::model()->findAll();
+        $list = CHtml::textField($models, 'COD_LINE', 'DES_LARG');
+        return ($list);
+    }
+        
+    
+
 }
