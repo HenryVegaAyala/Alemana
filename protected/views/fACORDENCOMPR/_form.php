@@ -67,15 +67,18 @@
                         "ajax" => array(
                             "url" => $this->createUrl("ClienteByTienda"),
                             "type" => "POST",
+//                            "data" => array('COD_CLIE' => 'js:this.value'),
                             "update" => "#FACORDENCOMPR_COD_TIEN"
                         ),
+                        
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Cliente',
                     );
+                     
                     ?>
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
                     <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), $htmlOptions); ?>
-                    <?php // echo $form->error($model, 'COD_CLIE'); ?>
+                   
                 </div>
 
                 <div class="col-sm-3 control-label">
@@ -84,16 +87,14 @@
                         "ajax" => array(
                             "url" => $this->createUrl("ValorTienda"),
                             "type" => "POST",
-                            "data" => array('COD_TIEN' => 'js:this.value'),
-                            "success" => "function(data){     
-                            var selID=document.getElementById('FACORDENCOMPR_COD_TIEN');
-                           var text=selID.options[selID.selectedIndex].value;
-                           
-                            var seltienda=document.getElementById('tienda');
-                            seltienda.value= text;
-
+                             "update" => "#txtruc",
+                           // "data" => array('COD_TIEN' => 'js:this.value'),
+                           "success" => "function(data){     
+                           var ruc=document.getElementById('txtruc');
+                          
+                            ruc.value= data;
                                     
-                            }
+                           }
                             "
                         ),
                         'class' => 'form-control',
@@ -199,7 +200,7 @@
             <div class="form-group">
                 <div class="col-sm-4 control-label">
                     <label>RUC:</label>
-
+                    <input type="text" id="txtruc" />
                 </div>
 
                 <div class="col-sm-4 control-label">
