@@ -3,8 +3,8 @@
 /* @var $model FACORDENCOMPR */
 /* @var $form CActiveForm */
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
 
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
 
 <div class="container-fluid">
     <div class="panel panel-default">
@@ -24,7 +24,32 @@
             <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
         </div>
 
-        <?php echo $form->errorSummary($model); ?>
+        <?php
+        echo $form->errorSummary($model);
+        ?>
+        
+        <?php
+        $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+            'id' => 'midialogo',
+            // Opciones adicionales javascript
+            'options' => array(
+                'title' => 'Porfavor Ingresar los aspectos requeridos. ',
+                'autoOpen' => false,
+                'resizable' => false,
+                'modal' => true,
+                'width' => 'auto',
+                'height' => 'auto',
+                'closeOnEscape' => true,
+            ),
+        ));
+
+        $this->endWidget('zii.widgets.jui.CJuiDialog');
+
+        // Link que abre la ventana de diálogo
+//        echo CHtml::link('Abrir ventana', '#', array(
+//            'onclick' => '$("#midialogo").dialog("open"); return false;',
+//        ));
+        ?>
 
         <div class="fieldset">
 
@@ -61,7 +86,6 @@
                             "type" => "POST",
                             "data" => array('COD_TIEN' => 'js:this.value'),
                             "success" => "function(data){     
-                               alert(data);
                             var selID=document.getElementById('FACORDENCOMPR_COD_TIEN');
                            var text=selID.options[selID.selectedIndex].value;
                            
@@ -82,15 +106,13 @@
 
                 </div>                
 
-                <input type="text" name="tienda" id="tienda" value=""/>
-
-
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
                     <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control', 'empty' => 'Seleccionar Moneda')); ?>
                     <?php // echo $form->error($model, 'TIP_MONE'); ?>
                 </div>               
             </div>
+
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
@@ -148,17 +170,20 @@
                     ?>
                     <?php // echo $form->error($model, 'FEC_ENVI'); ?>
                 </div>
+
                 <div class="col-sm-3 control-label">
                     <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
                     <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
                     <?php // echo $form->error($model, 'COD_ORDE'); ?>
                 </div>
+
+                <div class="col-sm-3 control-label">
+                    <input type="hidden" name="tienda" id="tienda" value="" class="form-control"/>
+                </div>
             </div>
 
         </div>
-
-        <br><br><br><br><br><br><br><br>    
-
+        <br><br><br><br><br><br><br><br>
         <?php
 //        $connection = Yii::app()->db;
 //        $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = 1";
@@ -195,7 +220,7 @@
         echo CHtml::button('Agregar Nuevo Producto', array(
             'name' => 'Agregar Nuevo Producto',
             'class' => 'btn btn-link btn-md',
-            'onclick' => "window.open ('?r=TEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=400, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
+            'onclick' => "window.open ('?r=TEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=420, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
         ));
         ?>
 
@@ -207,8 +232,6 @@
             var interval = setInterval("refreshList()", 6000);
         </script>
 
-        <p class="note">Porfavor espere los productos estan cargando...</p>
-
         <?php
         $this->renderPartial('/TEMPMAEPRODU/admin', array(
             'model' => $modelOC
@@ -219,7 +242,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
-                    <input type="reset" src="create" class="btn btn-default btn-md" onclick="abrir()" value="Cancelar">
+                    <input type="reset" src="create.php" class="btn btn-default btn-md" value="Cancelar">
                 </div>
             </div>  
         </div>

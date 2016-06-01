@@ -1,29 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "TEMP_FAC_DETAL_ORDEN_COMPR".
+ * This is the model class for table "MAE_LINEA_PRODU".
  *
- * The followings are the available columns in table 'TEMP_FAC_DETAL_ORDEN_COMPR':
- * @property string $COD_ORDE
- * @property string $COD_PROD
- * @property integer $NRO_UNID
- * @property string $VAL_PREC
- * @property string $VAL_IGV
- * @property string $VAL_MONT_UNID
- * @property string $VAL_MONT_IGV
+ * The followings are the available columns in table 'MAE_LINEA_PRODU':
+ * @property string $COD_LINE
+ * @property string $DES_LARG
+ * @property string $DES_CORT
  * @property string $USU_DIGI
  * @property string $FEC_DIGI
  * @property string $USU_MODI
  * @property string $FEC_MODI
+ *
+ * The followings are the available model relations:
+ * @property MAEPRODU[] $mAEPRODUs
+ * @property TEMPMAEPRODU[] $tEMPMAEPRODUs
  */
-class TEMPFACDETALORDENCOMPR extends CActiveRecord
+class MAELINEAPRODU extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'TEMP_FAC_DETAL_ORDEN_COMPR';
+		return 'MAE_LINEA_PRODU';
 	}
 
 	/**
@@ -34,16 +34,14 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('COD_ORDE, COD_PROD', 'required'),
-			array('NRO_UNID', 'numerical', 'integerOnly'=>true),
-			array('COD_ORDE, COD_PROD', 'length', 'max'=>12),
-			array('VAL_PREC, VAL_MONT_UNID, VAL_MONT_IGV', 'length', 'max'=>10),
-			array('VAL_IGV', 'length', 'max'=>5),
+			array('COD_LINE', 'required'),
+			array('COD_LINE', 'length', 'max'=>2),
+			array('DES_LARG, DES_CORT', 'length', 'max'=>100),
 			array('USU_DIGI, USU_MODI', 'length', 'max'=>20),
 			array('FEC_DIGI, FEC_MODI', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('COD_ORDE, COD_PROD, NRO_UNID, VAL_PREC, VAL_IGV, VAL_MONT_UNID, VAL_MONT_IGV, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI', 'safe', 'on'=>'search'),
+			array('COD_LINE, DES_LARG, DES_CORT, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,6 +53,8 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'mAEPRODUs' => array(self::HAS_MANY, 'MAEPRODU', 'COD_LINE'),
+			'tEMPMAEPRODUs' => array(self::HAS_MANY, 'TEMPMAEPRODU', 'COD_LINE'),
 		);
 	}
 
@@ -64,13 +64,9 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'COD_ORDE' => 'Cod Orde',
-			'COD_PROD' => 'Cod Prod',
-			'NRO_UNID' => 'Nro Unid',
-			'VAL_PREC' => 'Val Prec',
-			'VAL_IGV' => 'Val Igv',
-			'VAL_MONT_UNID' => 'Val Mont Unid',
-			'VAL_MONT_IGV' => 'Val Mont Igv',
+			'COD_LINE' => 'Cod Line',
+			'DES_LARG' => 'Des Larg',
+			'DES_CORT' => 'Des Cort',
 			'USU_DIGI' => 'Usu Digi',
 			'FEC_DIGI' => 'Fec Digi',
 			'USU_MODI' => 'Usu Modi',
@@ -96,13 +92,9 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('COD_ORDE',$this->COD_ORDE,true);
-		$criteria->compare('COD_PROD',$this->COD_PROD,true);
-		$criteria->compare('NRO_UNID',$this->NRO_UNID);
-		$criteria->compare('VAL_PREC',$this->VAL_PREC,true);
-		$criteria->compare('VAL_IGV',$this->VAL_IGV,true);
-		$criteria->compare('VAL_MONT_UNID',$this->VAL_MONT_UNID,true);
-		$criteria->compare('VAL_MONT_IGV',$this->VAL_MONT_IGV,true);
+		$criteria->compare('COD_LINE',$this->COD_LINE,true);
+		$criteria->compare('DES_LARG',$this->DES_LARG,true);
+		$criteria->compare('DES_CORT',$this->DES_CORT,true);
 		$criteria->compare('USU_DIGI',$this->USU_DIGI,true);
 		$criteria->compare('FEC_DIGI',$this->FEC_DIGI,true);
 		$criteria->compare('USU_MODI',$this->USU_MODI,true);
@@ -117,7 +109,7 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TEMPFACDETALORDENCOMPR the static model class
+	 * @return MAELINEAPRODU the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

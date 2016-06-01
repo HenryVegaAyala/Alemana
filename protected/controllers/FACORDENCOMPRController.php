@@ -41,11 +41,11 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionValorTienda() {
-        
+
         $model = new MAETIEND;
         $model->COD_TIEN;
-     
-        
+
+
         $connection = Yii::app()->db;
         $sqlStatement = "Select * from MAE_TIEND WHERE COD_TIEN = 1";
         $command = $connection->createCommand($sqlStatement);
@@ -71,7 +71,7 @@ class FACORDENCOMPRController extends Controller {
      */
     public function actionCreate() {
         $model = new FACORDENCOMPR;
-        $modelOC = new TEMPMAEPRODU();
+        $modelOC = new TEMPFACDETALORDENCOMPR();
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
@@ -172,4 +172,5 @@ class FACORDENCOMPRController extends Controller {
     }
 
 }
+
 ?>

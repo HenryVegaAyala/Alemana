@@ -53,6 +53,10 @@ class FACORDENCOMPR extends CActiveRecord {
             array('NUM_ORDE', 'required'),
             array('FEC_INGR', 'required'),
             array('FEC_ENVI', 'required'),
+            
+            array('NUM_ORDE', 'unique'),
+            array('NUM_ORDE', 'numerical', 'integerOnly'=>true),
+            
             array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
             array('COD_CLIE, COD_TIEN', 'length', 'max' => 6),
             array('COD_ORDE, NUM_ORDE', 'length', 'max' => 12),

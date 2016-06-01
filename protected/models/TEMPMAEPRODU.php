@@ -22,6 +22,9 @@
  * @property string $USU_MODI
  * @property string $FEC_MODI
  * @property integer $NRO_UNID
+ *
+ * The followings are the available model relations:
+ * @property MAELINEAPRODU $cODLINE
  */
 class TEMPMAEPRODU extends CActiveRecord {
 
@@ -60,6 +63,7 @@ class TEMPMAEPRODU extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+            'cODLINE' => array(self::BELONGS_TO, 'MAELINEAPRODU', 'COD_LINE'),
         );
     }
 
@@ -85,6 +89,7 @@ class TEMPMAEPRODU extends CActiveRecord {
             'FEC_DIGI' => 'Fec Digi',
             'USU_MODI' => 'Usu Modi',
             'FEC_MODI' => 'Fec Modi',
+            'NRO_UNID' => 'Nro Unid',
         );
     }
 
