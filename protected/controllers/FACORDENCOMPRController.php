@@ -9,8 +9,8 @@ class FACORDENCOMPRController extends Controller {
     /**
      * @return array action filters
      */
-    
-    public $clie ; 
+    public $clie;
+
     public function filters() {
         return array(
             'accessControl', // perform access control for CRUD operations
@@ -36,18 +36,18 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionClienteByTienda() {
-        $clie= $_POST["FACORDENCOMPR"]["COD_CLIE"];
+        $clie = $_POST["FACORDENCOMPR"]["COD_CLIE"];
         $list = MAETIEND::model()->findAll("COD_CLIE = ?", array($_POST["FACORDENCOMPR"]["COD_CLIE"]));
-        echo "<option value=\"\">{$clie}</option>";
+        echo "<option value=\"\">Seleccionar Tienda</option>";
         foreach ($list as $data)
             echo "<option value=\"{$data->COD_TIEN}\">{$data->DES_TIEN}</option>";
     }
 
     public function actionValorTienda() {
-       $clie= $_POST["FACORDENCOMPR"]["COD_CLIE"];
-       $tienda= $_POST["FACORDENCOMPR"]["COD_TIEN"];
+        $clie = $_POST["FACORDENCOMPR"]["COD_CLIE"];
+        $tienda = $_POST["FACORDENCOMPR"]["COD_TIEN"];
 //          echo "{$clie}." - ".{$tienda}";
-      
+
         $connection = Yii::app()->db;
         $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = $clie";
         $command = $connection->createCommand($sqlStatement);

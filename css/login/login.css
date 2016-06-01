@@ -4,7 +4,7 @@ html{
 	background: #E7921B;
 }
 body{
-	background: transparent url(../img/login-bg-overlay.png) repeat;
+	background: transparent /*url(../img/login-bg-overlay.png)*/ repeat;
 	min-height:100%; 
 }
 
