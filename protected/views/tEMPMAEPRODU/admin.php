@@ -1,4 +1,5 @@
 <?php
+
 $this->widget('ext.bootstrap.widgets.TbGridView', array(
     'type' => 'striped bordered condensed',
 	'id'=>'tempmaeprodu-grid',

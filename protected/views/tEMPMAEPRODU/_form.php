@@ -37,7 +37,7 @@
 
                 <div class="col-xs-4 control-label">
                     <?php echo $form->labelEx($model, 'COD_MEDI'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_MEDI',$model->getLinea(), array('class' => 'form-control', 'readonly' => 'true')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_MEDI',$model->getLinea(), array('class' => 'form-control','disabled'=>'disabled')); ?>
                     <?php echo $form->error($model, 'COD_MEDI'); ?>
                 </div>
             </div>

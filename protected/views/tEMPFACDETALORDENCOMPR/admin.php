@@ -6,10 +6,21 @@ $this->widget('ext.bootstrap.widgets.TbGridView', array(
     'dataProvider' => $model->search(),
 //    'filter' => $model,
     'columns' => array(
+        array(
+            'id' => 'COD_ORDE',
+            'class' => 'CCheckBoxColumn',
+            'selectableRows' => '50',
+        ),
 //        'COD_ORDE',
         'COD_PROD',
         'DES_LARG',
         'NRO_UNID',
+        array(
+            'name' => 'NRO_UNID',
+            'type' => 'raw',
+            'value' => 'CHtml::textField("NRO_UNID[$data->NRO_UNID]",$data->NRO_UNID,array("style"=>"width:50px;"))',
+            'htmlOptions' => array("width" => "50px"),
+        ),
         'VAL_PREC',
 //        'VAL_MONT_UNID',
 //        'VAL_MONT_IGV',
@@ -23,3 +34,14 @@ $this->widget('ext.bootstrap.widgets.TbGridView', array(
     ),
 ));
 ?>
+<script>
+    function reloadGrid(data) {
+        $.fn.yiiGridView.update('TEMPFACDETALORDENCOMPR-grid');
+    }
+</script>
+<?php // echo CHtml::ajaxSubmitButton('Filter', array('TEMPFACDETALORDENCOMPR/ajaxupdate'), array(), array("style" => "display:none;")); ?>
+<?php // echo CHtml::ajaxSubmitButton('Activate', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doActive'), array('success' => 'reloadGrid')); ?>
+<?php // echo CHtml::ajaxSubmitButton('In Activate', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doInactive'), array('success' => 'reloadGrid')); ?>
+<?php // echo CHtml::ajaxSubmitButton('Delete', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+<?php // echo CHtml::ajaxSubmitButton('Update sort order', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doSortOrder'), array('success' => 'reloadGrid')); ?>
+<?php // $this->endWidget(); ?>

@@ -24,7 +24,7 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -150,6 +150,38 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    public function actionAjaxupdate() {
+//
+//        $act = $_GET['act'];
+//        if ($act == 'doSortOrder') {
+//            $sortOrderAll = $_POST['sortOrder'];
+//            if (count($sortOrderAll) > 0) {
+//                foreach ($sortOrderAll as $menuId => $sortOrder) {
+//                    $model = $this->loadModel($menuId);
+//                    $model->sortOrder = $sortOrder;
+//                    $model->save();
+//                }
+//            }
+//        } else {
+//            $autoIdAll = $_POST['autoId'];
+//            if (count($autoIdAll) > 0) {
+//                foreach ($autoIdAll as $autoId) {
+//                    $model = $this->loadModel($autoId);
+//                    if ($act == 'doDelete')
+//                        $model->isDeleted = '1';
+//                    if ($act == 'doActive')
+//                        $model->isActive = '1';
+//                    if ($act == 'doInactive')
+//                        $model->isActive = '0';
+//                    if ($model->save())
+//                        echo 'ok';
+//                    else
+//                        throw new Exception("Sorry", 500);
+//                }
+//            }
+//        }
     }
 
 }
