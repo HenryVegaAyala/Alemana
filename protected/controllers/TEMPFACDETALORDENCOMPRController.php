@@ -1,11 +1,11 @@
 <?php
 
 class TEMPFACDETALORDENCOMPRController extends Controller {
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
+
     /**
      * @return array action filters
      */
@@ -155,17 +155,17 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
     public function actionAjaxupdate() {
 //
 //        $act = $_GET['act'];
-//        if ($act == 'doSortOrder') {
-//            $sortOrderAll = $_POST['sortOrder'];
+//        if ($act == 'NRO_UNID') {
+//            $sortOrderAll = $_POST['NRO_UNID'];
 //            if (count($sortOrderAll) > 0) {
 //                foreach ($sortOrderAll as $menuId => $sortOrder) {
 //                    $model = $this->loadModel($menuId);
-//                    $model->sortOrder = $sortOrder;
+//                    $model->NRO_UNID = $sortOrder;
 //                    $model->save();
 //                }
 //            }
 //        } else {
-//            $autoIdAll = $_POST['autoId'];
+//            $autoIdAll = $_POST['COD_ORDE'];
 //            if (count($autoIdAll) > 0) {
 //                foreach ($autoIdAll as $autoId) {
 //                    $model = $this->loadModel($autoId);

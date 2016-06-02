@@ -19,7 +19,6 @@
         ));
         ?>
         <br>
-
         <div class="container-fluid">
             <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
         </div>
@@ -115,7 +114,7 @@
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
-                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control', 'empty' => 'Seleccionar Moneda')); ?>
+                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control')); ?>
                     <?php // echo $form->error($model, 'TIP_MONE'); ?>
                 </div>               
             </div>
@@ -183,35 +182,30 @@
                     <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
                     <?php // echo $form->error($model, 'COD_ORDE'); ?>
                 </div>
-
-                <div class="col-sm-3 control-label">
-                    <input type="hidden" name="tienda" id="tienda" value="" class="form-control"/>
-                </div>
             </div>
 
         </div>
-        <br><br><br><br><br><br><br><br>
-
-        <fieldset>
+  
+        <div class="container-fluid">
             <legend>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Cliente</legend>
-            <div class="form-group">
+            <div class="form-group ir">
                 <div class="col-sm-4 control-label">
                     <label >RUC:</label>
-                    <input type="text" id="txtruc" />
+                    <input type="text" id="txtruc" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
                 </div>
 
                 <div class="col-sm-4 control-label">
                     <label>RAZÓN SOCIAL:</label>
-                    <input type="text" id="txtRaZo" />
+                    <input type="text" id="txtRaZo" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
                 </div>
 
                 <div class="col-sm-4 control-label">
                     <label>LUGAR DE ENTREGA:</label>
-                    <input type="text" id="txtDIRE" />
+                    <input type="text" id="txtDIRE" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
                 </div>
             </div>
-        </fieldset>
-
+        </div>
+        <br>
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
 
