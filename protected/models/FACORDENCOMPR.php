@@ -169,10 +169,10 @@ class FACORDENCOMPR extends CActiveRecord {
 
     public function Moneda() {
         $model = array(
-            array('COD_ORDE' => '0', 'value' => 'PE – Nuevo Soles'),
-            array('COD_ORDE' => '1', 'value' => 'US –Dólares Americanos'),
+            array('TIP_MONE' => '0', 'value' => 'PE – Nuevo Soles'),
+            array('TIP_MONE' => '1', 'value' => 'US –Dólares Americanos'),
         );
-        return cHtml::listData($model, 'COD_ORDE', 'value');
+        return cHtml::listData($model, 'TIP_MONE', 'value');
     }
 
     public function ListaCliente() {

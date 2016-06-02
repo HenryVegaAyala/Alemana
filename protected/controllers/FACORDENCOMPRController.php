@@ -49,12 +49,16 @@ class FACORDENCOMPRController extends Controller {
 //          echo "{$clie}." - ".{$tienda}";
 
         $connection = Yii::app()->db;
-        $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = $clie";
+        $sqlStatement = "Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = $clie and MT.COD_TIEN = $tienda;";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
 
         foreach ($reader as $row)
-            echo $row['NRO_RUC'];
+            echo $row['NRO_RUC'] ;
+            echo "/";
+            echo $row['DES_CLIE'];
+            echo "/";
+            echo $row['DIR_TIEN'];
     }
 
     /**

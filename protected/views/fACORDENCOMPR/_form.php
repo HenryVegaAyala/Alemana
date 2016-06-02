@@ -27,7 +27,7 @@
         <?php
         echo $form->errorSummary($model);
         ?>
-        
+
         <?php
         $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
             'id' => 'midialogo',
@@ -70,15 +70,13 @@
 //                            "data" => array('COD_CLIE' => 'js:this.value'),
                             "update" => "#FACORDENCOMPR_COD_TIEN"
                         ),
-                        
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Cliente',
                     );
-                     
                     ?>
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
                     <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), $htmlOptions); ?>
-                   
+
                 </div>
 
                 <div class="col-sm-3 control-label">
@@ -87,13 +85,21 @@
                         "ajax" => array(
                             "url" => $this->createUrl("ValorTienda"),
                             "type" => "POST",
-                             "update" => "#txtruc",
-                           // "data" => array('COD_TIEN' => 'js:this.value'),
-                           "success" => "function(data){     
+//                            "update" => "#txtruc, txtRaZo,txtDIRE",
+                            // "data" => array('COD_TIEN' => 'js:this.value'),
+                            "success" => "function(data){   
+                                
+                            cadena = data.split('/');    
+
                            var ruc=document.getElementById('txtruc');
-                          
-                            ruc.value= data;
-                                    
+                           ruc.value= cadena[0];
+
+                           var razo=document.getElementById('txtRaZo');
+                           razo.value= cadena[1];
+                           
+                            var dire=document.getElementById('txtDIRE');
+                           dire.value= cadena[2];     
+
                            }
                             "
                         ),
@@ -173,7 +179,7 @@
                 </div>
 
                 <div class="col-sm-3 control-label">
-                    <?php // echo $form->labelEx($model, 'COD_ORDE'); ?>
+                    <?php // echo $form->labelEx($model, 'COD_ORDE');  ?>
                     <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
                     <?php // echo $form->error($model, 'COD_ORDE'); ?>
                 </div>
@@ -185,30 +191,23 @@
 
         </div>
         <br><br><br><br><br><br><br><br>
-        <?php
-//        $connection = Yii::app()->db;
-//        $sqlStatement = "Select * from MAE_CLIEN WHERE COD_CLIE = 1";
-//        $command = $connection->createCommand($sqlStatement);
-//        $reader = $command->query();
-//
-//        foreach ($reader as $row)
-//            echo $row['NRO_RUC'];
-        ?>
 
         <fieldset>
             <legend>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Cliente</legend>
             <div class="form-group">
                 <div class="col-sm-4 control-label">
-                    <label>RUC:</label>
+                    <label >RUC:</label>
                     <input type="text" id="txtruc" />
                 </div>
 
                 <div class="col-sm-4 control-label">
                     <label>RAZÓN SOCIAL:</label>
+                    <input type="text" id="txtRaZo" />
                 </div>
 
                 <div class="col-sm-4 control-label">
                     <label>LUGAR DE ENTREGA:</label>
+                    <input type="text" id="txtDIRE" />
                 </div>
             </div>
         </fieldset>
