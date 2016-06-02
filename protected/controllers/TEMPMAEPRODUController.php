@@ -24,13 +24,27 @@ class TEMPMAEPRODUController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Arreglo'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionArreglo() {
+        $model = new TEMPMAEPRODU;
+        
+        $valor = $_POST["TEMPMAEPRODU"]["COD_MEDI"];
+        $valor1 = $_POST["TEMPMAEPRODU"]["COD_PROD"];
+        $valor2 = $_POST["TEMPMAEPRODU"]["DES_LARG"];
+        $valor3 = $_POST["TEMPMAEPRODU"]["NRO_UNID"];
+        $valor4 = $_POST["TEMPMAEPRODU"]["VAL_PROD"];
+        
+        
+        
+            echo "{$valor} ". "-" ." {$valor1} ". "-" ." {$valor2} ". "-" ." {$valor3} ". "-" ." {$valor4}";
     }
 
     /**
@@ -76,15 +90,15 @@ class TEMPMAEPRODUController extends Controller {
 //        $command = $connection->createCommand($sqlStatement);
 //        $command->execute();
         // Uncomment the following line if AJAX validation is needed
-         $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if (isset($_POST['TEMPMAEPRODU'])) {
             $model->attributes = $_POST['TEMPMAEPRODU'];
             if ($model->save())
-                        $sqlStatement = "CALL ProductoCP('$id');";
-                        $command = $connection->createCommand($sqlStatement);
-                        $command->execute();
-                $this->redirect(array('view', 'id' => $model->COD_PROD));
+                $sqlStatement = "CALL ProductoCP('$id');";
+            $command = $connection->createCommand($sqlStatement);
+            $command->execute();
+            $this->redirect(array('index'));
         }
 
         $this->render('update', array(

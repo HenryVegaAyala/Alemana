@@ -7,21 +7,21 @@
         'dataProvider' => $model->search(),
 //    'filter' => $model,
         'columns' => array(
-            array(
-                'id' => 'COD_ORDE',
-                'class' => 'CCheckBoxColumn',
-                'selectableRows' => '50',
-            ),
+//            array(
+//                'id' => 'COD_ORDE',
+//                'class' => 'CCheckBoxColumn',
+//                'selectableRows' => '50',
+//            ),
 //        'COD_ORDE',
             'COD_PROD',
             'DES_LARG',
             'NRO_UNID',
-            array(
-                'name' => 'NRO_UNID',
-                'type' => 'raw',
-                'value' => 'CHtml::textField("NRO_UNID[$data->NRO_UNID]",$data->NRO_UNID,array("style"=>"width:50px;"))',
-                'htmlOptions' => array("width" => "50px"),
-            ),
+//            array(
+//                'name' => 'NRO_UNID',
+//                'type' => 'raw',
+//                'value' => 'CHtml::textField("NRO_UNID[$data->NRO_UNID]",$data->NRO_UNID,array("style"=>"width:50px;"))',
+//                'htmlOptions' => array("width" => "50px"),
+//            ),
             'VAL_PREC',
 //        'VAL_MONT_UNID',
 //        'VAL_MONT_IGV',

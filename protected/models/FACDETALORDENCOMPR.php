@@ -81,13 +81,13 @@ class FACDETALORDENCOMPR extends CActiveRecord {
             'NRO_UNID' => 'Nro Unid',
             'VAL_PREC' => 'Val Prec',
             'VAL_IGV' => 'Val Igv',
-            'VAL_MONT_UNID' => 'Val Mont Unid',
-            'VAL_MONT_IGV' => 'Val Mont Igv',
+            'VAL_MONT_UNID' => 'Sub Total',
+            'VAL_MONT_IGV' => 'IGV 0.18%',
             'USU_DIGI' => 'Usu Digi',
             'FEC_DIGI' => 'Fec Digi',
             'USU_MODI' => 'Usu Modi',
             'FEC_MODI' => 'Fec Modi',
-            'VAL_TOTAL' => 'Val Total',
+            'VAL_TOTAL' => 'Total',
         );
     }
 

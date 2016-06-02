@@ -100,9 +100,9 @@ class FACORDENCOMPR extends CActiveRecord {
             'IND_TIPO' => 'Ind Tipo',
             'TIP_MONE' => 'Moneda',
             'TOT_UNID_SOLI' => 'Tot Unid Soli',
-            'TOT_MONT_ORDE' => 'Tot Mont Orde',
-            'TOT_MONT_IGV' => 'Tot Mont Igv',
-            'TOT_FACT' => 'Tot Fact',
+            'TOT_MONT_ORDE' => 'Sub Total',
+            'TOT_MONT_IGV' => 'IGV',
+            'TOT_FACT' => 'Total',
             'FEC_PAGO' => 'Fec Pago',
             'IND_ESTA' => 'Ind Esta',
             'FEC_INGR' => 'Fecha de Ingreso',
@@ -196,5 +196,14 @@ class FACORDENCOMPR extends CActiveRecord {
 
         return $id;
     }
+    
+        public function SubTotal() {
 
+        $max = Yii::app()->db->createCommand()->select('round (sum(((NRO_UNID * VAL_PREC) - (NRO_UNID * VAL_PREC)*(0.18))),2) as SUBTOTAL')->from('TEMP_FAC_DETAL_ORDEN_COMPR')->queryScalar();
+
+        $id = ($max);
+
+        return $id;
+    }
+    
 }

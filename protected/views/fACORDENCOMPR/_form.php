@@ -185,7 +185,7 @@
             </div>
 
         </div>
-  
+
         <div class="container-fluid">
             <legend>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Cliente</legend>
             <div class="form-group ir">
@@ -231,7 +231,69 @@
             'model' => $modelOC
         ));
         ?>
-        <br>
+
+        <div class="container-fluid">
+            <table align="right">
+                <tbody>
+                    <tr>
+                        <td class="col-sm-4">
+                            <?php echo $form->labelEx($model, 'TOT_MONT_ORDE'); ?>
+                        </td>
+                        <td>         
+                            <?php
+                            echo $form->textField($model, 'TOT_MONT_ORDE', array(
+                                'value' => $model->SubTotal(),
+                                'size' => 6,
+                                'maxlength' => 6,
+                                'class' => 'form-control',
+                                'style' => 'background-color: transparent;',
+                                'disabled' => 'true'
+                            ));
+                            ?>
+                            <?php echo $form->error($model, 'TOT_MONT_ORDE'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-4">
+                            <?php echo $form->labelEx($model, 'TOT_MONT_IGV'); ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo $form->textField($model, 'TOT_MONT_IGV', array(
+                                'value' => $model->au(),
+                                'size' => 6, 
+                                'maxlength' => 6,
+                                'class' => 'form-control',
+                                'style' => 'background-color: transparent;',
+                                'disabled' => 'true'
+                            ));
+                            ?>
+                            <?php echo $form->error($model, 'TOT_MONT_IGV'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-4">
+                            <?php echo $form->labelEx($model, 'TOT_FACT'); ?>
+                        </td>
+                        <td>                
+                            <?php
+                            echo $form->textField($model, 'TOT_FACT', array(
+                                'value' => $model->au(),
+                                'size' => 6,
+                                'maxlength' => 6,
+                                'class' => 'form-control',
+                                'style' => 'background-color: transparent;',
+                                'disabled' => 'true'
+                            ))
+                            ?>
+                            <?php echo $form->error($model, 'TOT_FACT'); ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clear"> </div>
+
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
