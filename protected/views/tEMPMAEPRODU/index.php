@@ -6,7 +6,12 @@ $this->breadcrumbs = array(
     'Productos',
 );
 ?>
-
+        <?php
+        
+        $VALORRE = Yii::app()->session['PRODUCTO'];
+        
+        echo "Nombre de usuario recuperado de la variable de sesión:" . $VALORRE;
+        ?>
 <?php
 $this->widget('ext.bootstrap.widgets.TbGridView', array(
     'id' => 'maeprodu-grid',

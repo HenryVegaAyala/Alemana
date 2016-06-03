@@ -1,10 +1,12 @@
 <?php
 
 class TEMPMAEPRODUController extends Controller {
+
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
+    public $valor, $valor1, $valor2, $valor3, $valor4;
 
     /**
      * @return array action filters
@@ -34,17 +36,29 @@ class TEMPMAEPRODUController extends Controller {
     }
 
     public function actionArreglo() {
+        
         $model = new TEMPMAEPRODU;
         
-        $valor = $_POST["TEMPMAEPRODU"]["COD_MEDI"];
-        $valor1 = $_POST["TEMPMAEPRODU"]["COD_PROD"];
-        $valor2 = $_POST["TEMPMAEPRODU"]["DES_LARG"];
+        $valor = $_POST["TEMPMAEPRODU"]["COD_PROD"];
+        $valor1 = $_POST["TEMPMAEPRODU"]["DES_LARG"];
+        $valor2 = $_POST["TEMPMAEPRODU"]["COD_MEDI"];
         $valor3 = $_POST["TEMPMAEPRODU"]["NRO_UNID"];
         $valor4 = $_POST["TEMPMAEPRODU"]["VAL_PROD"];
         
-        
-        
-            echo "{$valor} ". "-" ." {$valor1} ". "-" ." {$valor2} ". "-" ." {$valor3} ". "-" ." {$valor4}";
+        Yii::app()->session['PRODUCTO'] = $valor;
+
+        $datos[] = array(
+            "COD_PROD" => "" . $valor . "",
+            "DES_LARG" => "" . $valor1 . "",
+        );
+
+        foreach ($datos as $d) {
+            echo $d["COD_PROD"]. "<br>"; 
+            echo $d["DES_LARG"];
+        }
+
+
+//        echo "{$valor} " . "-" . " {$valor1} " . "-" . " {$valor2} " . "-" . " {$valor3} " . "-" . " {$valor4}";
     }
 
     /**

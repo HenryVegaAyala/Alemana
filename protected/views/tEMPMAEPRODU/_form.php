@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="col-xs-4 control-label">
-                                                <?php
+                        <?php
                         $htmlOptions = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
@@ -66,7 +66,7 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'DES_LARG'); ?>
-                        <?php echo $form->textField($model, 'DES_LARG',$htmlOptions); ?>
+                        <?php echo $form->textField($model, 'DES_LARG', $htmlOptions); ?>
                         <?php echo $form->error($model, 'DES_LARG'); ?>
                     </div>
 
@@ -94,7 +94,7 @@
 
                 <div class="form-group ir">
                     <div class="col-xs-4 control-label">
-                                                <?php
+                        <?php
                         $htmlOption = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
@@ -111,12 +111,12 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'NRO_UNID'); ?>
-                        <?php echo $form->textField($model, 'NRO_UNID',$htmlOption); ?>
+                        <?php echo $form->textField($model, 'NRO_UNID', $htmlOption); ?>
                         <?php echo $form->error($model, 'NRO_UNID'); ?>
                     </div>
 
                     <div class="col-xs-4 control-label">
-                                                <?php
+                        <?php
                         $htmlOption = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
@@ -133,7 +133,7 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'VAL_PROD'); ?>
-                        <?php echo $form->textField($model, 'VAL_PROD',$htmlOption); ?>
+                        <?php echo $form->textField($model, 'VAL_PROD', $htmlOption); ?>
                         <?php echo $form->error($model, 'VAL_PROD'); ?>
                     </div>
 
@@ -148,8 +148,16 @@
         </div>
 
         <div class="container-fluid col-sm-12">
-            <input type="text" name="txtvalor" id="txtvalor" />
+            <!--<input type="text" name="txtvalor" id="txtvalor" />-->
         </div>   
+
+        <div class="container-fluid">
+            <textarea id="txtvalor" name="txtvalor">
+                
+            </textarea>
+        </div>
+
+
         <div class="container-fluid">
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
