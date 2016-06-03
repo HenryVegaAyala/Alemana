@@ -199,11 +199,13 @@ class FACORDENCOMPR extends CActiveRecord {
     
         public function SubTotal() {
 
+        $UDP = Yii::app()->session['ACTUPD'];    
+            
         $max = Yii::app()->db->createCommand()->select('round (sum(((NRO_UNID * VAL_PREC) - (NRO_UNID * VAL_PREC)*(0.18))),2) as SUBTOTAL')->from('TEMP_FAC_DETAL_ORDEN_COMPR')->queryScalar();
 
         $id = ($max);
 
-        return $id;
+        return $UDP;
     }
     
 }

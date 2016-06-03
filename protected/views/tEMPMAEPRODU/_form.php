@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Registrar Nuevo O/C</h3>
+            <h3 class="panel-title">Registrar Productos del O/C</h3>
         </div>
 
         <?php
@@ -26,7 +26,7 @@
                 <div class="form-group ir">
                     <div class="col-xs-4 control-label">
                         <?php
-                        $htmlOptions = array(
+                        $htmlOption1 = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
                                 "type" => "POST",
@@ -43,13 +43,13 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'COD_PROD'); ?>
-                        <?php echo $form->textField($model, 'COD_PROD', $htmlOptions); ?>
+                        <?php echo $form->textField($model, 'COD_PROD', $htmlOption1); ?>
                         <?php echo $form->error($model, 'COD_PROD'); ?>
                     </div>
 
                     <div class="col-xs-4 control-label">
                         <?php
-                        $htmlOptions = array(
+                        $htmlOption2 = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
                                 "type" => "POST",
@@ -66,13 +66,13 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'DES_LARG'); ?>
-                        <?php echo $form->textField($model, 'DES_LARG', $htmlOptions); ?>
+                        <?php echo $form->textField($model, 'DES_LARG', $htmlOption2); ?>
                         <?php echo $form->error($model, 'DES_LARG'); ?>
                     </div>
 
                     <div class="col-xs-4 control-label">
                         <?php
-                        $htmlOption = array(
+                        $htmlOption3 = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
                                 "type" => "POST",
@@ -84,18 +84,20 @@
                            }
                             "
                             ),
+                            'class' => 'form-control',
+//                            'disabled' => 'disabled',
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'COD_MEDI'); ?>
-                        <?php echo $form->dropDownList($model, 'COD_MEDI', $model->getLinea(), $htmlOption); ?>
+                        <?php echo $form->dropDownList($model, 'COD_MEDI', $model->getLinea(), $htmlOption3); ?>
                         <?php echo $form->error($model, 'COD_MEDI'); ?>
                     </div>
                 </div>
 
-                <div class="form-group ir">
+                <div class="form-group container-fluid">
                     <div class="col-xs-4 control-label">
                         <?php
-                        $htmlOption = array(
+                        $htmlOption4 = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
                                 "type" => "POST",
@@ -111,13 +113,13 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'NRO_UNID'); ?>
-                        <?php echo $form->textField($model, 'NRO_UNID', $htmlOption); ?>
+                        <?php echo $form->textField($model, 'NRO_UNID', $htmlOption4); ?>
                         <?php echo $form->error($model, 'NRO_UNID'); ?>
                     </div>
 
                     <div class="col-xs-4 control-label">
                         <?php
-                        $htmlOption = array(
+                        $htmlOption5 = array(
                             "ajax" => array(
                                 "url" => $this->createUrl("Arreglo"),
                                 "type" => "POST",
@@ -133,31 +135,36 @@
                         );
                         ?>
                         <?php echo $form->labelEx($model, 'VAL_PROD'); ?>
-                        <?php echo $form->textField($model, 'VAL_PROD', $htmlOption); ?>
+                        <?php echo $form->textField($model, 'VAL_PROD', $htmlOption5); ?>
                         <?php echo $form->error($model, 'VAL_PROD'); ?>
                     </div>
-
+                    
                     <div class="col-xs-4 control-label">
-                        <?php // echo $form->labelEx($model, 'VAL_TOTAL');  ?>
-                        <?php echo $form->textField($model, 'VAL_TOTAL', array('class' => 'form-control', 'readonly' => 'true', 'style' => 'visibility: hidden')); ?>
-                        <?php // echo $form->error($model, 'VAL_TOTAL'); ?>
+                                                <?php
+                        $htmlOption6 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
+
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+                            'value'=>$model->au(),
+                            'style' => 'visibility: hidden'
+                        );
+                        ?>
+                        <?php echo $form->textField($model, 'N_ORDEN',$htmlOption6); ?>
                     </div>
 
                 </div>
             </div>
         </div>
-
-        <div class="container-fluid col-sm-12">
-            <!--<input type="text" name="txtvalor" id="txtvalor" />-->
-        </div>   
-
-        <div class="container-fluid">
-            <textarea id="txtvalor" name="txtvalor">
-                
-            </textarea>
-        </div>
-
-
+        <br>
         <div class="container-fluid">
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
@@ -167,6 +174,9 @@
                 </div>
             </div>
         </div>
+        
+    </div>
+</div>
         <?php $this->endWidget(); ?>
 
     </div><!-- form -->

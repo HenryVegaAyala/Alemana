@@ -21,7 +21,9 @@
  * @property string $FEC_DIGI
  * @property string $USU_MODI
  * @property string $FEC_MODI
- * @property integer $NRO_UNID
+ * @property string $NRO_UNID
+ * @property string $VAL_TOTAL
+ * @property string $N_ORDEN
  *
  * The followings are the available model relations:
  * @property MAELINEAPRODU $cODLINE
@@ -42,17 +44,18 @@ class TEMPMAEPRODU extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('COD_PROD, COD_LINE', 'required'),
-            array('VAL_PESO, VAL_CONV, VAL_REPO, COD_LOTE, NRO_UNID', 'numerical', 'integerOnly' => true),
-            array('COD_PROD, VAL_PROD, VAL_PORC, VAL_COST', 'length', 'max' => 12),
+            array('COD_LINE', 'required'),
+            array('VAL_PESO, VAL_CONV, VAL_REPO, COD_LOTE', 'numerical', 'integerOnly' => true),
+            array('COD_PROD, VAL_PROD, VAL_PORC, VAL_COST, NRO_UNID, VAL_TOTAL', 'length', 'max' => 12),
             array('COD_LINE', 'length', 'max' => 2),
             array('DES_LARG, DES_CORT', 'length', 'max' => 100),
             array('COD_ESTA, COD_MEDI', 'length', 'max' => 1),
             array('USU_DIGI, USU_MODI', 'length', 'max' => 20),
+            array('N_ORDEN', 'length', 'max' => 10),
             array('FEC_DIGI, FEC_MODI', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('COD_PROD, COD_LINE, DES_LARG, DES_CORT, COD_ESTA, COD_MEDI, VAL_PESO, VAL_PROD, VAL_CONV, VAL_PORC, VAL_COST, VAL_REPO, COD_LOTE, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI, NRO_UNID', 'safe', 'on' => 'search'),
+            array('COD_PROD, COD_LINE, DES_LARG, DES_CORT, COD_ESTA, COD_MEDI, VAL_PESO, VAL_PROD, VAL_CONV, VAL_PORC, VAL_COST, VAL_REPO, COD_LOTE, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI, NRO_UNID, VAL_TOTAL, N_ORDEN', 'safe', 'on' => 'search'),
         );
     }
 
@@ -72,17 +75,17 @@ class TEMPMAEPRODU extends CActiveRecord {
      */
     public function attributeLabels() {
         return array(
-            'COD_PROD' => 'Codigo Producto',
-            'COD_LINE' => 'Codigo Linea',
-            'DES_LARG' => 'Descripción',
+            'COD_PROD' => 'Cod Prod',
+            'COD_LINE' => 'Cod Line',
+            'DES_LARG' => 'Des Larg',
             'DES_CORT' => 'Des Cort',
-            'COD_ESTA' => 'Estado',
-            'COD_MEDI' => 'Medida',
+            'COD_ESTA' => 'Cod Esta',
+            'COD_MEDI' => 'Cod Medi',
             'VAL_PESO' => 'Val Peso',
             'VAL_PROD' => 'Val Prod',
             'VAL_CONV' => 'Val Conv',
             'VAL_PORC' => 'Val Porc',
-            'VAL_COST' => 'Costo',
+            'VAL_COST' => 'Val Cost',
             'VAL_REPO' => 'Val Repo',
             'COD_LOTE' => 'Cod Lote',
             'USU_DIGI' => 'Usu Digi',
@@ -90,6 +93,8 @@ class TEMPMAEPRODU extends CActiveRecord {
             'USU_MODI' => 'Usu Modi',
             'FEC_MODI' => 'Fec Modi',
             'NRO_UNID' => 'Nro Unid',
+            'VAL_TOTAL' => 'Val Total',
+            'N_ORDEN' => 'N Orden',
         );
     }
 
@@ -127,7 +132,9 @@ class TEMPMAEPRODU extends CActiveRecord {
         $criteria->compare('FEC_DIGI', $this->FEC_DIGI, true);
         $criteria->compare('USU_MODI', $this->USU_MODI, true);
         $criteria->compare('FEC_MODI', $this->FEC_MODI, true);
-        $criteria->compare('NRO_UNID', $this->NRO_UNID);
+        $criteria->compare('NRO_UNID', $this->NRO_UNID, true);
+        $criteria->compare('VAL_TOTAL', $this->VAL_TOTAL, true);
+        $criteria->compare('N_ORDEN', $this->N_ORDEN, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -149,7 +156,14 @@ class TEMPMAEPRODU extends CActiveRecord {
         $list = CHtml::listData($models, 'COD_LINE', 'DES_LARG');
         return ($list);
     }
-        
-    
+
+    public function au() {
+
+        $max = Yii::app()->db->createCommand()->select('max(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
+
+        $id = ($max + 1);
+
+        return $id;
+    }
 
 }

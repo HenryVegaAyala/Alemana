@@ -178,9 +178,7 @@
                 </div>
 
                 <div class="col-sm-3 control-label">
-                    <?php // echo $form->labelEx($model, 'COD_ORDE');  ?>
                     <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
-                    <?php // echo $form->error($model, 'COD_ORDE'); ?>
                 </div>
             </div>
 
@@ -217,14 +215,14 @@
             'onclick' => "window.open ('?r=TEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=420, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
         ));
         ?>
-
+<!--
         <script type="text/javascript">
             function refreshList()
             {
                 $.fn.yiiGridView.update("tempfacdetalordencompr-grid");
             }
             var interval = setInterval("refreshList()", 6000);
-        </script>
+        </script>-->
 
         <?php
         $this->renderPartial('/TEMPFACDETALORDENCOMPR/admin', array(

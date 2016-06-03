@@ -6,7 +6,7 @@ class TEMPMAEPRODUController extends Controller {
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
-    public $valor, $valor1, $valor2, $valor3, $valor4;
+    public $valor, $valor1, $valor2, $valor3, $valor4, $valor5;
 
     /**
      * @return array action filters
@@ -44,21 +44,11 @@ class TEMPMAEPRODUController extends Controller {
         $valor2 = $_POST["TEMPMAEPRODU"]["COD_MEDI"];
         $valor3 = $_POST["TEMPMAEPRODU"]["NRO_UNID"];
         $valor4 = $_POST["TEMPMAEPRODU"]["VAL_PROD"];
+        $valor5 = $_POST["TEMPMAEPRODU"]["N_ORDEN"];
         
-        Yii::app()->session['PRODUCTO'] = $valor;
+        
+        Yii::app()->session['XXX'] = $valor5;    
 
-        $datos[] = array(
-            "COD_PROD" => "" . $valor . "",
-            "DES_LARG" => "" . $valor1 . "",
-        );
-
-        foreach ($datos as $d) {
-            echo $d["COD_PROD"]. "<br>"; 
-            echo $d["DES_LARG"];
-        }
-
-
-//        echo "{$valor} " . "-" . " {$valor1} " . "-" . " {$valor2} " . "-" . " {$valor3} " . "-" . " {$valor4}";
     }
 
     /**
@@ -98,7 +88,11 @@ class TEMPMAEPRODUController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+        
         $model = $this->loadModel($id);
+        
+//        Yii::app()->session['CODIGO'] = $id; /////////////////Session de COD_PRO
+        
         $connection = Yii::app()->db;
 //        $sqlStatement = "CALL Productos('$id');";
 //        $command = $connection->createCommand($sqlStatement);
@@ -112,7 +106,7 @@ class TEMPMAEPRODUController extends Controller {
                 $sqlStatement = "CALL ProductoCP('$id');";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
-            $this->redirect(array('index'));
+            $this->redirect(array('index', 'id' => $model->COD_PROD));
         }
 
         $this->render('update', array(

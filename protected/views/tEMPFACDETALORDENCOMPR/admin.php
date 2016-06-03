@@ -1,51 +1,50 @@
-<div class="table-responsive">
+<div class="table-responsive container-fluid">
+
     <?php
-    $this->widget('ext.bootstrap.widgets.TbGridView', array(
-        'type' => 'striped bordered condensed',
-        'itemsCssClass' => 'table-bordered items',
-        'id' => 'tempfacdetalordencompr-grid',
-        'dataProvider' => $model->search(),
-//    'filter' => $model,
-        'columns' => array(
-//            array(
-//                'id' => 'COD_ORDE',
-//                'class' => 'CCheckBoxColumn',
-//                'selectableRows' => '50',
-//            ),
-//        'COD_ORDE',
-            'COD_PROD',
-            'DES_LARG',
-            'NRO_UNID',
-//            array(
-//                'name' => 'NRO_UNID',
-//                'type' => 'raw',
-//                'value' => 'CHtml::textField("NRO_UNID[$data->NRO_UNID]",$data->NRO_UNID,array("style"=>"width:50px;"))',
-//                'htmlOptions' => array("width" => "50px"),
-//            ),
-            'VAL_PREC',
-//        'VAL_MONT_UNID',
-//        'VAL_MONT_IGV',
-            'VAL_MONT_UNID',
-            array(
-                'class' => 'CButtonColumn',
-                'header' => 'Quitar',
-                'deleteButtonUrl' => 'Yii::app()->createUrl("TEMPFACDETALORDENCOMPR/delete",array("id"=>$data["COD_ORDE"]))',
-                'template' => '{delete}',
-            )
-        ),
-    ));
+    $UDP = Yii::app()->session['XXX'];
+
+//        $UDP = "0";
+
+    echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP;
+
+    function valor($COD) {
+        if ($COD >= 0) {
+            
+            if($COD) {
+                $connection = Yii::app()->db;
+                $sqlStatement = "select COD_PROD, DES_LARG, NRO_UNID, VAL_PREC,VAL_MONT_UNID from TEMP_FAC_DETAL_ORDEN_COMPR where N_ORDEN = " . $COD;
+                $command = $connection->createCommand($sqlStatement);
+                $reader = $command->query();
+
+                while ($resu = $reader->read()) {
+                    echo '<tr>';
+                    echo '<td>' . $resu['COD_PROD'] . '</td>';
+                    echo '<td>' . $resu['DES_LARG'] . '</td>';
+                    echo '<td>' . $resu['NRO_UNID'] . '</td>';
+                    echo '<td>' . $resu['VAL_PREC'] . '</td>';
+                    echo '<td>' . $resu['VAL_MONT_UNID'] . '</td>';
+                    echo '</tr>';
+                }
+            }else{
+                echo "no hay";
+            }
+        } else {
+            echo "no hay";
+        }
+    }
     ?>
 
-    <script>
-        function reloadGrid(data) {
-            $.fn.yiiGridView.update('tempfacdetalordencompr-grid');
-        }
-    </script>
+    <?php
+    echo '<table>';
+    echo '<tr>';
+    echo '<th>Codigo Producto</th>';
+    echo '<th>Descripción</th>';
+    echo '<th>Cantidad</th>';
+    echo '<th>Precio</th>';
+    echo '<th>Total</th>';
+    echo '</tr>';
+    echo '<tbody>';
 
-    <?php // echo CHtml::ajaxSubmitButton('Filter', array('TEMPFACDETALORDENCOMPR/ajaxupdate'), array(), array("style" => "display:none;"));  ?>
-    <?php // echo CHtml::ajaxSubmitButton('Activate', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doActive'), array('success' => 'reloadGrid')); ?>
-    <?php // echo CHtml::ajaxSubmitButton('In Activate', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doInactive'), array('success' => 'reloadGrid')); ?>
-    <?php // echo CHtml::ajaxSubmitButton('Delete', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
-    <?php // echo CHtml::ajaxSubmitButton('Update sort order', array('TEMPFACDETALORDENCOMPR/ajaxupdate', 'act' => 'NRO_UNID'), array('success' => 'reloadGrid')); ?>
-    <?php // $this->endWidget(); ?>
+    valor($UDP);
+    ?>
 </div>
