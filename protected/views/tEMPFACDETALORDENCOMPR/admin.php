@@ -2,15 +2,16 @@
 
     <?php
     $UDP = Yii::app()->session['XXX'];
-
-//        $UDP = "0";
+   
+    
+//    $UDP = 9;
 
     echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP;
 
     function valor($COD) {
         if ($COD >= 0) {
-            
-            if($COD) {
+
+            if ($COD) {
                 $connection = Yii::app()->db;
                 $sqlStatement = "select COD_PROD, DES_LARG, NRO_UNID, VAL_PREC,VAL_MONT_UNID from TEMP_FAC_DETAL_ORDEN_COMPR where N_ORDEN = " . $COD;
                 $command = $connection->createCommand($sqlStatement);
@@ -25,7 +26,7 @@
                     echo '<td>' . $resu['VAL_MONT_UNID'] . '</td>';
                     echo '</tr>';
                 }
-            }else{
+            } else {
                 echo "no hay";
             }
         } else {
@@ -35,7 +36,7 @@
     ?>
 
     <?php
-    echo '<table>';
+    echo '<table id="tempfacdetalordencompr-grid" name="tempfacdetalordencompr-grid">';
     echo '<tr>';
     echo '<th>Codigo Producto</th>';
     echo '<th>Descripción</th>';

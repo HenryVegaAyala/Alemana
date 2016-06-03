@@ -215,14 +215,14 @@
             'onclick' => "window.open ('?r=TEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=420, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
         ));
         ?>
-<!--
+
         <script type="text/javascript">
             function refreshList()
             {
                 $.fn.yiiGridView.update("tempfacdetalordencompr-grid");
             }
             var interval = setInterval("refreshList()", 6000);
-        </script>-->
+        </script>
 
         <?php
         $this->renderPartial('/TEMPFACDETALORDENCOMPR/admin', array(
@@ -259,7 +259,7 @@
                             <?php
                             echo $form->textField($model, 'TOT_MONT_IGV', array(
                                 'value' => $model->au(),
-                                'size' => 6, 
+                                'size' => 6,
                                 'maxlength' => 6,
                                 'class' => 'form-control',
                                 'style' => 'background-color: transparent;',

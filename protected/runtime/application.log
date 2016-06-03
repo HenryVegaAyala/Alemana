@@ -115,3 +115,25 @@ Stack trace:
 REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
 HTTP_REFERER=http://localhost/Alemana/site/login.php
 ---
+2016/06/03 22:53:26 [error] [php] Undefined variable: UDP (C:\wamp\www\Alemana\protected\views\tEMPFACDETALORDENCOMPR\admin.php:19)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(869): TEMPFACDETALORDENCOMPRController->renderFile()
+#1 C:\wamp\www\Alemana\framework\web\CController.php(782): TEMPFACDETALORDENCOMPRController->renderPartial()
+#2 C:\wamp\www\Alemana\protected\controllers\TEMPFACDETALORDENCOMPRController.php(127): TEMPFACDETALORDENCOMPRController->render()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): TEMPFACDETALORDENCOMPRController->actionAdmin()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): TEMPFACDETALORDENCOMPRController->runAction()
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): TEMPFACDETALORDENCOMPRController->filterAccessControl()
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): TEMPFACDETALORDENCOMPRController->runActionWithFilters()
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): TEMPFACDETALORDENCOMPRController->run()
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/tEMPFACDETALORDENCOMPR/admin.php
+in C:\wamp\www\Alemana\protected\views\tEMPFACDETALORDENCOMPR\admin.php (19)
+in C:\wamp\www\Alemana\protected\controllers\TEMPFACDETALORDENCOMPRController.php (127)
+in C:\wamp\www\Alemana\index.php (13)
