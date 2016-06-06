@@ -155,12 +155,14 @@
                             ),
                             'class' => 'form-control',
                             'value'=>$model->au(),
-                            'style' => 'visibility: hidden'
+//                            'style' => 'visibility: hidden'
                         );
                         ?>
                         <?php echo $form->textField($model, 'N_ORDEN',$htmlOption6); ?>
                     </div>
 
+                    <input id="txtvalor" name="txtvalor" />
+                    
                 </div>
             </div>
         </div>

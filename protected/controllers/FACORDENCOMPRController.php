@@ -43,9 +43,8 @@ class FACORDENCOMPRController extends Controller {
         echo "<option value=\"\">Seleccionar Tienda</option>";
         foreach ($list as $data)
             echo "<option value=\"{$data->COD_TIEN}\">{$data->DES_TIEN}</option>";
-            
-        Yii::app()->session['CODIGO'] = $COD;    
-            
+
+        Yii::app()->session['CODIGO'] = $COD;
     }
 
     public function actionValorTienda() {
@@ -59,11 +58,11 @@ class FACORDENCOMPRController extends Controller {
         $reader = $command->query();
 
         foreach ($reader as $row)
-            echo $row['NRO_RUC'] ;
-            echo "/";
-            echo $row['DES_CLIE'];
-            echo "/";
-            echo $row['DIR_TIEN'];
+            echo $row['NRO_RUC'];
+        echo "/";
+        echo $row['DES_CLIE'];
+        echo "/";
+        echo $row['DIR_TIEN'];
     }
 
     /**
@@ -89,7 +88,7 @@ class FACORDENCOMPRController extends Controller {
         if (isset($_POST['FACORDENCOMPR'])) {
             $model->attributes = $_POST['FACORDENCOMPR'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_ORDE));
+                $this->redirect(array('view', 'id' => $model->COD_ORDE),Yii::app()->session['USU'] = " ", Yii::app()->session['PCIP'] = " ");
         }
 
         $this->render('create', array(
@@ -137,9 +136,13 @@ class FACORDENCOMPRController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('FACORDENCOMPR');
+        $model = new FACORDENCOMPR('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_GET['FACORDENCOMPR']))
+            $model->attributes = $_GET['FACORDENCOMPR'];
+
         $this->render('index', array(
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ));
     }
 

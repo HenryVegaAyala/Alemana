@@ -1,51 +1,106 @@
-<div class="table-responsive container-fluid">
+
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV3.css">
+
+<?php
+$usuario = Yii::app()->user->name;
+
+$ip = getenv("REMOTE_ADDR");
+$pc = @gethostbyaddr($ip);
+
+$pcip = $pc . ' - ' . $ip;
+
+Yii::app()->session['USU'] = $usuario;
+Yii::app()->session['PCIP'] = $pcip;
+?>
+
+<a  id="agregarCampo" class="btn btn-link alt" >+ Agregar Campos de Productos</a>
+
+<form method="post" >
+    <div id="contenedor">
+        <div class="contenedor">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="center">Codigo de Producto&nbsp&nbsp</th>
+                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Descripción &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Cantidad</th>
+                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Precio</th>
+                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Total</th>
+                    </tr>
+                </thead>
+            </table>
+
+
+            <input type="text" name="COD_PROD[]" id="campo_COD_PROD" />
+            <input type="text" name="DES_LARG[]" id="campo_DES_LARG" />
+            <input type="text" name="NRO_UNID[]" id="campo_NRO_UNID" />
+            <input type="text" name="VAL_PREC[]" id="campo_VAL_PREC"  />
+            <input type="text" name="VAL_MONT_UNID[]" id="campo_VAL_MONT_UNID" />
+
+            <a href="#" class="eliminar alt2" >Eliminar &times;</a>
+        </div>
+    </div>
+
+    <input type="submit" name="submit" value="Guardar Productos" class="btn btn-success"/>
 
     <?php
-    $UDP = Yii::app()->session['XXX'];
-   
-    
-//    $UDP = 9;
+    $connection = Yii::app()->db;
 
-    echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP;
+    if (isset($_POST['submit'])) {
 
-    function valor($COD) {
-        if ($COD >= 0) {
+        $nombre = $_POST['COD_PROD'];
+        $apellido = $_POST['DES_LARG'];
+        $carrera = $_POST['NRO_UNID'];
+        $ciclo = $_POST['VAL_PREC'];
+        $ponderado = $_POST['VAL_MONT_UNID'];
 
-            if ($COD) {
-                $connection = Yii::app()->db;
-                $sqlStatement = "select COD_PROD, DES_LARG, NRO_UNID, VAL_PREC,VAL_MONT_UNID from TEMP_FAC_DETAL_ORDEN_COMPR where N_ORDEN = " . $COD;
-                $command = $connection->createCommand($sqlStatement);
-                $reader = $command->query();
-
-                while ($resu = $reader->read()) {
-                    echo '<tr>';
-                    echo '<td>' . $resu['COD_PROD'] . '</td>';
-                    echo '<td>' . $resu['DES_LARG'] . '</td>';
-                    echo '<td>' . $resu['NRO_UNID'] . '</td>';
-                    echo '<td>' . $resu['VAL_PREC'] . '</td>';
-                    echo '<td>' . $resu['VAL_MONT_UNID'] . '</td>';
-                    echo '</tr>';
-                }
-            } else {
-                echo "no hay";
-            }
-        } else {
-            echo "no hay";
+        for ($i = 0; $i < count($nombre); $i++) {
+            $sqlStatement = "call prueba('" . $nombre[$i] . "', '" . $carrera[$i] . "','" . $ciclo[$i] . "', '" . $ponderado[$i] . "','" . $apellido[$i] . "','" . $usuario . "','" . $pcip . "')";
+            $command = $connection->createCommand($sqlStatement);
+            $command->execute();
         }
     }
     ?>
 
-    <?php
-    echo '<table id="tempfacdetalordencompr-grid" name="tempfacdetalordencompr-grid">';
-    echo '<tr>';
-    echo '<th>Codigo Producto</th>';
-    echo '<th>Descripción</th>';
-    echo '<th>Cantidad</th>';
-    echo '<th>Precio</th>';
-    echo '<th>Total</th>';
-    echo '</tr>';
-    echo '<tbody>';
+</form>
 
-    valor($UDP);
-    ?>
-</div>
+<script>
+    $(document).ready(function () {
+
+        var MaxInputs = 50; //Número Maximo de Campos
+        var contenedor = $("#contenedor"); //ID del contenedor
+        var AddButton = $("#agregarCampo"); //ID del Botón Agregar
+        //var x = número de campos existentes en el contenedor
+        var x = $("#contenedor div").length + 1;
+        var FieldCount = x - 1; //para el seguimiento de los campos
+
+        $(AddButton).click(function (e) {
+            if (x <= MaxInputs) //max input box allowed
+            {
+                FieldCount++;
+                //agregar campo
+                $(contenedor).append(
+                        '<div>\n\
+\n\                     <input type="text" name="COD_PROD[]" id="campo_DES_LARG_' + FieldCount + '" placeholder="Texto ' + FieldCount + '"/>\n\
+\n\                     <input type="text" name="DES_LARG[]" id="campo_NRO_UNID_' + FieldCount + '"/>\n\
+\n\                     <input type="text" name="NRO_UNID[]" id="campo_VAL_PREC_' + FieldCount + '"/>\n\
+\n\                     <input type="text" name="VAL_PREC[]" id="campo_VAL_MONT_UNID_' + FieldCount + '"/>\n\
+\n\                     <input type="text" name="VAL_MONT_UNID[]" id="campo_VAL_MONT_UNID_' + FieldCount + '""/>\n\
+                        <a href="#" class="eliminar alt2" >Eliminar &times;</a></div>'
+                        );
+
+                x++; //text box increment
+            }
+            return false;
+        });
+
+        $("body").on("click", ".eliminar", function (e) { //click en eliminar campo
+            if (x > 1) {
+                $(this).parent('div').remove(); //eliminar el campo
+                x--;
+            }
+            return false;
+        });
+    });
+</script>

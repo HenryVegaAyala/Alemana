@@ -42,9 +42,14 @@
             ),
         ));
 
+        //        $this->renderPartial('/TEMPFACDETALORDENCOMPR/admin', array(
+//            'model' => $modelOC
+//        ));
+
+
         $this->endWidget('zii.widgets.jui.CJuiDialog');
 
-        // Link que abre la ventana de diálogo
+//         Link que abre la ventana de diálogo
 //        echo CHtml::link('Abrir ventana', '#', array(
 //            'onclick' => '$("#midialogo").dialog("open"); return false;',
 //        ));
@@ -211,24 +216,74 @@
         $url = Yii::app()->request->baseUrl;
         echo CHtml::button('Agregar Nuevo Producto', array(
             'name' => 'Agregar Nuevo Producto',
-            'class' => 'btn btn-link btn-md',
-            'onclick' => "window.open ('?r=TEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=420, width=750, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, directories=no, status=no')"
+            'class' => 'btn btn-link btn-md',                              
+            'onclick' => "window.open ('?r=tEMPFACDETALORDENCOMPR/admin', 'nom_interne_de_la_fenetre', config='height=420, width=995, scrollbars=yes, resizable=yes, location=no, directories=no, status=no')"
         ));
         ?>
 
         <script type="text/javascript">
-            function refreshList()
-            {
-                $.fn.yiiGridView.update("tempfacdetalordencompr-grid");
+            $(document).ready(function () {
+                refreshTable();
+            });
+
+            function refreshTable() {
+                $('#tableHolder').load('_form.php', function () {
+                    setTimeout(refreshTable, 1000);
+                });
             }
-            var interval = setInterval("refreshList()", 6000);
         </script>
 
-        <?php
-        $this->renderPartial('/TEMPFACDETALORDENCOMPR/admin', array(
-            'model' => $modelOC
-        ));
-        ?>
+        <div id="tableHolder" class="table-responsive container-fluid">
+
+            <?php
+            $UDP = Yii::app()->session['USU'];
+
+            $UDP2 = Yii::app()->session['PCIP'];
+
+//            echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP . $UDP2;
+
+            function valor($COD) {
+
+                $UDP2 = Yii::app()->session['PCIP'];
+
+                if ($COD !== '@') {
+
+                    if ($COD) {
+                        $connection = Yii::app()->db;
+                        $sqlStatement = "CALL Detalle_OC('" . $COD . "', '" . $UDP2 . "');";
+                        $command = $connection->createCommand($sqlStatement);
+                        $reader = $command->query();
+
+                        while ($resu = $reader->read()) {
+                            echo '<tr>';
+                            echo '<td>' . $resu['COD_PROD'] . '</td>';
+                            echo '<td>' . $resu['DES_LARG'] . '</td>';
+                            echo '<td>' . $resu['NRO_UNID'] . '</td>';
+                            echo '<td>' . $resu['VAL_PREC'] . '</td>';
+                            echo '<td>' . $resu['VAL_MONT_UNID'] . '</td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo "No se encuentra valores disponibles";
+                    }
+                } 
+            }
+            ?>
+
+            <?php
+            echo '<table class="table table-hover table-bordered table-condensed table-striped">';
+            echo '<tr>';
+            echo '<th style="text-align: center;" class="col-md-2">Codigo Producto</th>';
+            echo '<th style="text-align: center;" >Descripción</th>';
+            echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
+            echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
+            echo '<th style="text-align: center;" class="col-md-1">Total</th>';
+            echo '</tr>';
+            echo '<tbody>';
+
+            valor($UDP);
+            ?>
+        </div>
 
         <div class="container-fluid">
             <table align="right">
@@ -258,7 +313,7 @@
                         <td>
                             <?php
                             echo $form->textField($model, 'TOT_MONT_IGV', array(
-                                'value' => $model->au(),
+                                'value' => $model->Igv(),
                                 'size' => 6,
                                 'maxlength' => 6,
                                 'class' => 'form-control',
@@ -276,7 +331,7 @@
                         <td>                
                             <?php
                             echo $form->textField($model, 'TOT_FACT', array(
-                                'value' => $model->au(),
+                                'value' => $model->Total(),
                                 'size' => 6,
                                 'maxlength' => 6,
                                 'class' => 'form-control',
@@ -290,7 +345,9 @@
                 </tbody>
             </table>
         </div>
+
         <div class="clear"> </div>
+
 
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
             <div class="form-group">
@@ -304,3 +361,4 @@
         <?php $this->endWidget(); ?>
 
     </div><!-- form -->
+</div>

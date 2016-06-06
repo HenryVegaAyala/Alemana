@@ -53,10 +53,8 @@ class FACORDENCOMPR extends CActiveRecord {
             array('NUM_ORDE', 'required'),
             array('FEC_INGR', 'required'),
             array('FEC_ENVI', 'required'),
-            
             array('NUM_ORDE', 'unique'),
-            array('NUM_ORDE', 'numerical', 'integerOnly'=>true),
-            
+            array('NUM_ORDE', 'numerical', 'integerOnly' => true),
             array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
             array('COD_CLIE, COD_TIEN', 'length', 'max' => 6),
             array('COD_ORDE, NUM_ORDE', 'length', 'max' => 12),
@@ -190,22 +188,38 @@ class FACORDENCOMPR extends CActiveRecord {
 
     public function au() {
 
-        $max = Yii::app()->db->createCommand()->select('max(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
+        $max = Yii::app()->db->createCommand()->select('count(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
 
         $id = ($max + 1);
 
         return $id;
     }
-    
-        public function SubTotal() {
 
-        $UDP = Yii::app()->session['ACTUPD'];    
-            
+    public function SubTotal() {
+
         $max = Yii::app()->db->createCommand()->select('round (sum(((NRO_UNID * VAL_PREC) - (NRO_UNID * VAL_PREC)*(0.18))),2) as SUBTOTAL')->from('TEMP_FAC_DETAL_ORDEN_COMPR')->queryScalar();
 
         $id = ($max);
 
-        return $UDP;
+        return $max;
     }
-    
+
+    public function Igv() {
+
+        $max = Yii::app()->db->createCommand()->select('round (sum(((NRO_UNID * VAL_PREC)*(0.18))),2) as IGV')->from('TEMP_FAC_DETAL_ORDEN_COMPR')->queryScalar();
+
+        $id = ($max);
+
+        return $max;
+    }
+
+    public function Total() {
+
+        $max = Yii::app()->db->createCommand()->select('round (sum(((NRO_UNID * VAL_PREC))),2) as TOTAL')->from('TEMP_FAC_DETAL_ORDEN_COMPR')->queryScalar();
+
+        $id = ($max);
+
+        return $max;
+    }
+
 }

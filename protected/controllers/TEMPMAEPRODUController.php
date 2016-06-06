@@ -36,19 +36,20 @@ class TEMPMAEPRODUController extends Controller {
     }
 
     public function actionArreglo() {
-        
+
         $model = new TEMPMAEPRODU;
-        
+
         $valor = $_POST["TEMPMAEPRODU"]["COD_PROD"];
         $valor1 = $_POST["TEMPMAEPRODU"]["DES_LARG"];
         $valor2 = $_POST["TEMPMAEPRODU"]["COD_MEDI"];
         $valor3 = $_POST["TEMPMAEPRODU"]["NRO_UNID"];
         $valor4 = $_POST["TEMPMAEPRODU"]["VAL_PROD"];
         $valor5 = $_POST["TEMPMAEPRODU"]["N_ORDEN"];
-        
-        
-        Yii::app()->session['XXX'] = $valor5;    
 
+
+        Yii::app()->session['XXX'] = $valor5;
+
+        echo "{$valor} " . "-" . " {$valor1} " . "-" . " {$valor2} " . "-" . " {$valor3} " . "-" . " {$valor4}" . "-" . " {$valor5}";
     }
 
     /**
@@ -88,11 +89,11 @@ class TEMPMAEPRODUController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-        
+
         $model = $this->loadModel($id);
-        
+
 //        Yii::app()->session['CODIGO'] = $id; /////////////////Session de COD_PRO
-        
+
         $connection = Yii::app()->db;
 //        $sqlStatement = "CALL Productos('$id');";
 //        $command = $connection->createCommand($sqlStatement);
