@@ -94,7 +94,7 @@ class TEMPMAEPRODUController extends Controller {
 
 //        Yii::app()->session['CODIGO'] = $id; /////////////////Session de COD_PRO
 
-        $connection = Yii::app()->db;
+//        $connection = Yii::app()->db;
 //        $sqlStatement = "CALL Productos('$id');";
 //        $command = $connection->createCommand($sqlStatement);
 //        $command->execute();

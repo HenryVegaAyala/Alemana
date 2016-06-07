@@ -223,11 +223,11 @@
         ?>
 
 
-        <div class="container">
-        <?php
-        $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
-        ));
-        ?>
+        <div class="container-fluid">
+            <?php
+            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
+            ));
+            ?>
         </div>
 
         <div class="container-fluid">
@@ -240,10 +240,10 @@
                         <td>         
                             <?php
                             echo $form->textField($model, 'TOT_MONT_ORDE', array(
-//                                'value' => $model->SubTotal(),
+                                'value' => $model->SubTotal(),
                                 'class' => 'form-control',
                                 'style' => 'background-color: transparent;',
-//                                'disabled' => 'true'
+                                'readonly' => 'readonly'
                             ));
                             ?>
                             <?php echo $form->error($model, 'TOT_MONT_ORDE'); ?>
@@ -259,7 +259,7 @@
                                 'value' => $model->Igv(),
                                 'class' => 'form-control',
                                 'style' => 'background-color: transparent;',
-                                'disabled' => 'true'
+                                'readonly' => 'readonly'
                             ));
                             ?>
                             <?php echo $form->error($model, 'TOT_MONT_IGV'); ?>
@@ -275,7 +275,7 @@
                                 'value' => $model->Total(),
                                 'class' => 'form-control',
                                 'style' => 'background-color: transparent;',
-                                'disabled' => 'true'
+                                'readonly' => 'readonly'
                             ))
                             ?>
                             <?php echo $form->error($model, 'TOT_FACT'); ?>

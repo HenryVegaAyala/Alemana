@@ -9,8 +9,16 @@ $pc = @gethostbyaddr($ip);
 
 $pcip = $pc . ' - ' . $ip;
 
-Yii::app()->session['USU'] = $usuario;
+
 Yii::app()->session['PCIP'] = $pcip;
+
+function name() {
+    
+    $valor =" ";
+    
+    return Yii::app()->session['USU'] = $valor;
+    
+}
 ?>
 
 <a  id="agregarCampo" class="btn btn-link alt" >+ Agregar Campos de Productos</a>
@@ -41,7 +49,7 @@ Yii::app()->session['PCIP'] = $pcip;
         </div>
     </div>
 
-    <input type="submit" name="submit" value="Guardar Productos" class="btn btn-success"/>
+    <input type="submit" name="submit" value="Guardar Productos" class="btn btn-success" onclick="<?php name()?>"/>
 
     <?php
     $connection = Yii::app()->db;
@@ -65,7 +73,7 @@ Yii::app()->session['PCIP'] = $pcip;
 </form>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         var MaxInputs = 50; //Número Maximo de Campos
         var contenedor = $("#contenedor"); //ID del contenedor
@@ -74,7 +82,7 @@ Yii::app()->session['PCIP'] = $pcip;
         var x = $("#contenedor div").length + 1;
         var FieldCount = x - 1; //para el seguimiento de los campos
 
-        $(AddButton).click(function(e) {
+        $(AddButton).click(function (e) {
             if (x <= MaxInputs) //max input box allowed
             {
                 FieldCount++;
@@ -94,7 +102,7 @@ Yii::app()->session['PCIP'] = $pcip;
             return false;
         });
 
-        $("body").on("click", ".eliminar", function(e) { //click en eliminar campo
+        $("body").on("click", ".eliminar", function (e) { //click en eliminar campo
             if (x > 1) {
                 $(this).parent('div').remove(); //eliminar el campo
                 x--;

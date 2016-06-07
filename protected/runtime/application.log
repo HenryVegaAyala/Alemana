@@ -9,3 +9,531 @@ Stack trace:
 REQUEST_URI=/Alemana/fACORDENCOMPR/188.6.php
 HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
 ---
+2016/06/07 05:56:41 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (90)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 05:56:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(90): CActiveRecord->save()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 05:57:41 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (90)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 05:57:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(90): CActiveRecord->save()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:09:13 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (90)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 06:09:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(90): CActiveRecord->save()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:23:01 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (90)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 06:23:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`SIS_PANA`.`FAC_ORDEN_COMPR`, CONSTRAINT `FAC_ORDEN_COMPR_ibfk_1` FOREIGN KEY (`COD_CLIE`, `COD_TIEN`) REFERENCES `MAE_TIEND` (`COD_CLIE`, `COD_TIEN`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(90): CActiveRecord->save()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:28:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Inicio de sesión necesario' in C:\wamp\www\Alemana\framework\web\auth\CWebUser.php:394
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(180): CWebUser->loginRequired()
+#1 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:28:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Inicio de sesión necesario' in C:\wamp\www\Alemana\framework\web\auth\CWebUser.php:394
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(180): CWebUser->loginRequired()
+#1 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:28:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Inicio de sesión necesario' in C:\wamp\www\Alemana\framework\web\auth\CWebUser.php:394
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(180): CWebUser->loginRequired()
+#1 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:28:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Inicio de sesión necesario' in C:\wamp\www\Alemana\framework\web\auth\CWebUser.php:394
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(180): CWebUser->loginRequired()
+#1 C:\wamp\www\Alemana\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 06:49:29 [error] [php] header() expects parameter 3 to be long, string given (C:\wamp\www\Alemana\framework\web\CHttpRequest.php:889)
+Stack trace:
+#0 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(91): FACORDENCOMPRController->redirect()
+#1 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): FACORDENCOMPRController->runAction()
+#4 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): FACORDENCOMPRController->filterAccessControl()
+#7 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\wamp\www\Alemana\framework\web\CController.php(265): FACORDENCOMPRController->runActionWithFilters()
+#10 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): FACORDENCOMPRController->run()
+#11 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (91)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:09:23 [error] [php] Undefined variable: valor (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:91)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): FACORDENCOMPRController->runAction()
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): FACORDENCOMPRController->filterAccessControl()
+#4 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(265): FACORDENCOMPRController->runActionWithFilters()
+#7 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): FACORDENCOMPRController->run()
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (91)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:09:57 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '31' for key 'PRIMARY'. La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (90)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:09:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '31' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(90): CActiveRecord->save()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 07:10:14 [error] [system.db.CDbCommand] CDbCommand::() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. La sentencia SQL ejecutada fue: Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = 1 and MT.COD_TIEN = ;.
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (58)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:10:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = 1 and MT.COD_TIEN = ;' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(58): CDbCommand->query()
+#2 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionValorTienda()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('ValorTienda')
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/V...')
+#13 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/ValorTienda.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 07:10:33 [error] [php] Undefined variable: valor (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:91)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): FACORDENCOMPRController->runAction()
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): FACORDENCOMPRController->filterAccessControl()
+#4 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(265): FACORDENCOMPRController->runActionWithFilters()
+#7 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): FACORDENCOMPRController->run()
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (91)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:11:31 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '32' for key 'PRIMARY'. La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (90)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:11:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '32' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(90): CActiveRecord->save()
+#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
+#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
+#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 07:13:18 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:19 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/ClienteByTienda.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:23 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:28 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:30 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/ClienteByTienda.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:33 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:38 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:43 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:48 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:53 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:13:58 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:03 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:08 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:13 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:18 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:23 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:28 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:33 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:34 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/ClienteByTienda.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:38 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:43 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:46 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/ClienteByTienda.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:48 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:14:50 [error] [php] The use statement with non-compound name 'Yii' has no effect (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:3)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:15:27 [error] [system.db.CDbCommand] CDbCommand::() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. La sentencia SQL ejecutada fue: Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = 1 and MT.COD_TIEN = ;.
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (58)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:15:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = 1 and MT.COD_TIEN = ;' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(58): CDbCommand->query()
+#2 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionValorTienda()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('ValorTienda')
+#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/V...')
+#13 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/ValorTienda.php
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+---
+2016/06/07 07:22:05 [error] [php] Undefined variable: row (C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php:63)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): FACORDENCOMPRController->runAction()
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): FACORDENCOMPRController->filterAccessControl()
+#4 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(265): FACORDENCOMPRController->runActionWithFilters()
+#7 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): FACORDENCOMPRController->run()
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/ValorTienda.php
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (63)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/07 07:42:44 [error] [php] Undefined variable: usuario (C:\wamp\www\Alemana\protected\views\tEMPFACDETALORDENCOMPR\admin.php:16)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CBaseController.php(95): TEMPFACDETALORDENCOMPRController->renderInternal()
+#1 C:\wamp\www\Alemana\framework\web\CController.php(869): TEMPFACDETALORDENCOMPRController->renderFile()
+#2 C:\wamp\www\Alemana\framework\web\CController.php(782): TEMPFACDETALORDENCOMPRController->renderPartial()
+#3 C:\wamp\www\Alemana\protected\controllers\TEMPFACDETALORDENCOMPRController.php(138): TEMPFACDETALORDENCOMPRController->render()
+#4 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): TEMPFACDETALORDENCOMPRController->actionAdmin()
+#5 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): TEMPFACDETALORDENCOMPRController->runAction()
+#7 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): TEMPFACDETALORDENCOMPRController->filterAccessControl()
+#10 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\Alemana\framework\web\CController.php(265): TEMPFACDETALORDENCOMPRController->runActionWithFilters()
+#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): TEMPFACDETALORDENCOMPRController->run()
+#14 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/create.php?r=tEMPFACDETALORDENCOMPR/admin
+in C:\wamp\www\Alemana\protected\views\tEMPFACDETALORDENCOMPR\admin.php (16)
+in C:\wamp\www\Alemana\protected\views\tEMPFACDETALORDENCOMPR\admin.php (49)
+in C:\wamp\www\Alemana\protected\controllers\TEMPFACDETALORDENCOMPRController.php (138)
