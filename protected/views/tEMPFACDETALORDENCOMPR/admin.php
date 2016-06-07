@@ -3,7 +3,8 @@
 
 <script language="javascript">
     function cerrar(){
-    setTimeout("self.close();", 1000);
+        window.opener.jsload();
+    setTimeout("window.close();", 1000);
     }
 </script>
 

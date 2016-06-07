@@ -212,6 +212,10 @@
         <br>
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
+        
+        <script>
+
+            </script>
 
         <?php
         $url = Yii::app()->request->baseUrl;
