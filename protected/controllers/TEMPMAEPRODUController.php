@@ -104,9 +104,9 @@ class TEMPMAEPRODUController extends Controller {
         if (isset($_POST['TEMPMAEPRODU'])) {
             $model->attributes = $_POST['TEMPMAEPRODU'];
             if ($model->save())
-                $sqlStatement = "CALL ProductoCP('$id');";
-            $command = $connection->createCommand($sqlStatement);
-            $command->execute();
+//                $sqlStatement = "CALL ProductoCP('$id');";
+//            $command = $connection->createCommand($sqlStatement);
+//            $command->execute();
             $this->redirect(array('index', 'id' => $model->COD_PROD));
         }
 

@@ -1,88 +1,66 @@
-<!--[if lte IE 6]>
-<script type="text/javascript" src="js/supersleight-min.js"></script>
-<link href="css/ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('a.poplight[href^=#]').click(function () {
-            var popID = $(this).attr('rel');
-            var popURL = $(this).attr('href');
-            var query = popURL.split('?');
-            var dim = query[1].split('&');
-            var popWidth = dim[0].split('=')[1];
-            $('#' + popID).fadeIn().css({'width': Number(popWidth)}).prepend('<a href="#" class="close"><img src="imagenes/cerrarpopup.jpg" class="btn_close" title="Cerrar" alt="Cerrar" /></a>');
-            var popMargTop = ($('#' + popID).height() + 80) / 2;
-            var popMargLeft = ($('#' + popID).width() + 80) / 2;
-            $('#' + popID).css({
-                'margin-top': -popMargTop,
-                'margin-left': -popMargLeft
-            });
-            $('body').append('<div id="fade"></div>');
-            $('#fade').css({'filter': 'alpha(opacity=80)'}).fadeIn();
+<?php
+/* @var $this TEMPFACDETALORDENCOMPRController */
+/* @var $model TEMPFACDETALORDENCOMPR */
 
-            return false;
-        });
-        $('a.close, #fade').live('click', function () {
-            $('#fade , .popup_block').fadeOut(function () {
-                $('#fade, a.close').remove();
-            });
-            return false;
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".tab_content").hide();
-        $("ul.tabs li:first").addClass("active").show();
-        $(".tab_content:first").show();
-        $("ul.tabs li").click(function () {
-            $("ul.tabs li").removeClass("active");
-            $(this).addClass("active");
-            $(".tab_content").hide();
-            var activeTab = $(this).find("a").attr("href");
-            $(activeTab).fadeIn();
-            return false;
-        });
-    });
-</script>
-</head>
+$this->breadcrumbs = array(
+    'Tempfacdetalordencomprs' => array('index'),
+    'Manage',
+);
 
-<body>
+$this->menu = array(
+    array('label' => 'List TEMPFACDETALORDENCOMPR', 'url' => array('index')),
+    array('label' => 'Create TEMPFACDETALORDENCOMPR', 'url' => array('create')),
+);
 
-    <div class="tab_container">
-        <!-- Vinos Tintos -->
-        <div id="vinos_tintos" class="tab_content">
-            <div class="titulos_productos"><img src="imagenes/titulo_vinostintos.png" width="117" height="24" alt="Vinos Tintos" /></div>
-            <?php include("tintos.php"); ?>
-        </div>
-        <!-- Vinos Blancos -->
-        <div id="vinos_blancos" class="tab_content">
-            <div class="titulos_productos"><img src="imagenes/titulo_vinosblancos.png" width="139" height="24" alt="Vinos Blancos" /></div>
-            <?php include("blancos.php"); ?>
-        </div>
-        <!-- Vinos Rosados -->
-        <div id="vinos_rosados" class="tab_content">
-            <div class="titulos_productos"><img src="imagenes/titulo_vinosrosados.png" width="138" height="24" alt="Vinos Rosados" /></div>
-            <?php include("rosados.php"); ?>
-        </div>
-        <!-- Vinos Espumantes -->
-        <div id="vinos_espumantes" class="tab_content">
-            <div class="titulos_productos"><img src="imagenes/titulo_vinosespumantes.png" width="170" height="34" alt="Vinos Espumantes" /></div>
-            <?php include("espumantes.php"); ?>
-        </div>
-        <!-- Whisky -->
-        <div id="whisky" class="tab_content">
-            <div class="titulos_productos"><img src="imagenes/titulo_whisky.png" width="76" height="32" alt="Whisky" /></div>
-            <?php include("whisky.php"); ?>
-        </div>
-        <!-- Destilados y Aperitivos -->
-        <div id="destilados_aperitivos" class="tab_content">
-            <div class="titulos_productos"><img src="imagenes/titulo_destiladosaperitivos.png" width="231" height="37" alt="Destilados y Aperitivos" /></div>
-                <?php include("destilados.php"); ?>
-        </div>
-    </div>                  
-</div>
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$('#tempfacdetalordencompr-grid').yiiGridView('update', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
+?>
 
-</body>
-</html>
+<h1>Manage Tempfacdetalordencomprs</h1>
+
+<p>
+    You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+    or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+</p>
+
+<?php echo CHtml::link('Advanced Search', '#', array('class' => 'search-button')); ?>
+<div class="search-form" style="display:none">
+    <?php
+    $this->renderPartial('_search', array(
+        'model' => $model,
+    ));
+    ?>
+</div><!-- search-form -->
+
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'tempfacdetalordencompr-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        'COD_ORDE',
+        'COD_PROD',
+        'NRO_UNID',
+        'VAL_PREC',
+        'VAL_MONT_UNID',
+        'DES_LARG',
+        /*
+          'VAL_USU',
+          'VAL_PCIP',
+         */
+        array(
+            'class' => 'CButtonColumn',
+        ),
+    ),
+));
+?>

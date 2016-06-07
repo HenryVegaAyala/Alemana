@@ -31,7 +31,6 @@ Yii::app()->session['PCIP'] = $pcip;
                 </thead>
             </table>
 
-
             <input type="text" name="COD_PROD[]" id="campo_COD_PROD" />
             <input type="text" name="DES_LARG[]" id="campo_DES_LARG" />
             <input type="text" name="NRO_UNID[]" id="campo_NRO_UNID" />
@@ -49,14 +48,14 @@ Yii::app()->session['PCIP'] = $pcip;
 
     if (isset($_POST['submit'])) {
 
-        $nombre = $_POST['COD_PROD'];
-        $apellido = $_POST['DES_LARG'];
-        $carrera = $_POST['NRO_UNID'];
-        $ciclo = $_POST['VAL_PREC'];
-        $ponderado = $_POST['VAL_MONT_UNID'];
+        $CODPRO = $_POST['COD_PROD'];
+        $DESCRI = $_POST['DES_LARG'];
+        $UND = $_POST['NRO_UNID'];
+        $VALPRE = $_POST['VAL_PREC'];
+        $VALMOTUND = $_POST['VAL_MONT_UNID'];
 
-        for ($i = 0; $i < count($nombre); $i++) {
-            $sqlStatement = "call prueba('" . $nombre[$i] . "', '" . $carrera[$i] . "','" . $ciclo[$i] . "', '" . $ponderado[$i] . "','" . $apellido[$i] . "','" . $usuario . "','" . $pcip . "')";
+        for ($i = 0; $i < count($CODPRO); $i++) {
+            $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
         }
@@ -66,7 +65,7 @@ Yii::app()->session['PCIP'] = $pcip;
 </form>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         var MaxInputs = 50; //Número Maximo de Campos
         var contenedor = $("#contenedor"); //ID del contenedor
@@ -75,7 +74,7 @@ Yii::app()->session['PCIP'] = $pcip;
         var x = $("#contenedor div").length + 1;
         var FieldCount = x - 1; //para el seguimiento de los campos
 
-        $(AddButton).click(function (e) {
+        $(AddButton).click(function(e) {
             if (x <= MaxInputs) //max input box allowed
             {
                 FieldCount++;
@@ -95,7 +94,7 @@ Yii::app()->session['PCIP'] = $pcip;
             return false;
         });
 
-        $("body").on("click", ".eliminar", function (e) { //click en eliminar campo
+        $("body").on("click", ".eliminar", function(e) { //click en eliminar campo
             if (x > 1) {
                 $(this).parent('div').remove(); //eliminar el campo
                 x--;

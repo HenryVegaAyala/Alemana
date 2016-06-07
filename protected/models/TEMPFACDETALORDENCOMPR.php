@@ -8,14 +8,10 @@
  * @property string $COD_PROD
  * @property integer $NRO_UNID
  * @property string $VAL_PREC
- * @property string $VAL_IGV
  * @property string $VAL_MONT_UNID
- * @property string $VAL_MONT_IGV
- * @property string $USU_DIGI
- * @property string $FEC_DIGI
- * @property string $USU_MODI
- * @property string $FEC_MODI
  * @property string $DES_LARG
+ * @property string $VAL_USU
+ * @property string $VAL_PCIP
  */
 class TEMPFACDETALORDENCOMPR extends CActiveRecord
 {
@@ -35,17 +31,15 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('COD_PROD', 'required'),
+			array('COD_PROD, VAL_USU, VAL_PCIP', 'required'),
 			array('NRO_UNID', 'numerical', 'integerOnly'=>true),
 			array('COD_PROD', 'length', 'max'=>12),
-			array('VAL_PREC, VAL_MONT_UNID, VAL_MONT_IGV', 'length', 'max'=>10),
-			array('VAL_IGV', 'length', 'max'=>5),
-			array('USU_DIGI, USU_MODI', 'length', 'max'=>20),
-			array('DES_LARG', 'length', 'max'=>60),
-			array('FEC_DIGI, FEC_MODI', 'safe'),
+			array('VAL_PREC, VAL_MONT_UNID', 'length', 'max'=>10),
+			array('DES_LARG, VAL_PCIP', 'length', 'max'=>60),
+			array('VAL_USU', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('COD_ORDE, COD_PROD, NRO_UNID, VAL_PREC, VAL_IGV, VAL_MONT_UNID, VAL_MONT_IGV, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI, DES_LARG', 'safe', 'on'=>'search'),
+			array('COD_ORDE, COD_PROD, NRO_UNID, VAL_PREC, VAL_MONT_UNID, DES_LARG, VAL_USU, VAL_PCIP', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,17 +61,13 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 	{
 		return array(
 			'COD_ORDE' => 'Cod Orde',
-			'COD_PROD' => 'Codigo Producto',
-			'NRO_UNID' => 'Cantidad',
-			'VAL_PREC' => 'Precio',
-			'VAL_IGV' => 'Val Igv',
-			'VAL_MONT_UNID' => 'Total',
-			'VAL_MONT_IGV' => 'Val Mont Igv',
-			'USU_DIGI' => 'Usu Digi',
-			'FEC_DIGI' => 'Fec Digi',
-			'USU_MODI' => 'Usu Modi',
-			'FEC_MODI' => 'Fec Modi',
-			'DES_LARG' => 'Descripción',
+			'COD_PROD' => 'Cod Prod',
+			'NRO_UNID' => 'Nro Unid',
+			'VAL_PREC' => 'Val Prec',
+			'VAL_MONT_UNID' => 'Val Mont Unid',
+			'DES_LARG' => 'Des Larg',
+			'VAL_USU' => 'Val Usu',
+			'VAL_PCIP' => 'Val Pcip',
 		);
 	}
 
@@ -103,14 +93,10 @@ class TEMPFACDETALORDENCOMPR extends CActiveRecord
 		$criteria->compare('COD_PROD',$this->COD_PROD,true);
 		$criteria->compare('NRO_UNID',$this->NRO_UNID);
 		$criteria->compare('VAL_PREC',$this->VAL_PREC,true);
-		$criteria->compare('VAL_IGV',$this->VAL_IGV,true);
 		$criteria->compare('VAL_MONT_UNID',$this->VAL_MONT_UNID,true);
-		$criteria->compare('VAL_MONT_IGV',$this->VAL_MONT_IGV,true);
-		$criteria->compare('USU_DIGI',$this->USU_DIGI,true);
-		$criteria->compare('FEC_DIGI',$this->FEC_DIGI,true);
-		$criteria->compare('USU_MODI',$this->USU_MODI,true);
-		$criteria->compare('FEC_MODI',$this->FEC_MODI,true);
 		$criteria->compare('DES_LARG',$this->DES_LARG,true);
+		$criteria->compare('VAL_USU',$this->VAL_USU,true);
+		$criteria->compare('VAL_PCIP',$this->VAL_PCIP,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
