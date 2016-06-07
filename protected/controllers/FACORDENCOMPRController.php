@@ -88,10 +88,10 @@ class FACORDENCOMPRController extends Controller {
         if (isset($_POST['FACORDENCOMPR'])) {
             $model->attributes = $_POST['FACORDENCOMPR'];
             if ($model->save())
-                $this->redirect(array('create'), Yii::app()->session['USU'] = " ");
+                $this->redirect(array('view', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
         }
 
-        $this->render('view', array(
+        $this->render('create', array(
             'model' => $model,
             'modelOC' => $modelOC,
         ));
