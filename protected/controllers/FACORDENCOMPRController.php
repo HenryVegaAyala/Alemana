@@ -91,7 +91,7 @@ class FACORDENCOMPRController extends Controller {
                 $this->redirect(array('create'), Yii::app()->session['USU'] = " ");
         }
 
-        $this->render('create', array(
+        $this->render('view', array(
             'model' => $model,
             'modelOC' => $modelOC,
         ));
