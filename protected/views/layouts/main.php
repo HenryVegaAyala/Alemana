@@ -34,7 +34,7 @@
                                     'label' => 'O/C',
                                     'items' => array(
                                         array('label' => 'Registrar O/C', 'url' => array('/fACORDENCOMPR/create')),
-                                        array('label' => 'Listar O/C', 'url' => array('/fACORDENCOMPR/index')),
+                                        array('label' => 'Listar O/C', 'url' => array('/fACORDENCOMPR/view')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
@@ -74,7 +74,7 @@
 //                                    ), 'visible' => !Yii::app()->user->isGuest
 //                                ),
 //                                array('label' => 'Acerca', 'url' => array('/site/page', 'view' => 'about'), 'visible' => !Yii::app()->user->isGuest),
-                                array('label' => 'Pruebas', 'url' => array('/TEMPFACDETALORDENCOMPR/index'), 'visible' => !Yii::app()->user->isGuest),
+                                array('label' => 'Pruebas', 'url' => array('/TEMPFACDETALORDENCOMPR/admin'), 'visible' => !Yii::app()->user->isGuest),
                                 array('label' => 'Iniciar Sesión', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
                                 array('label' => 'Cerrar Sesión (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
                             ),
