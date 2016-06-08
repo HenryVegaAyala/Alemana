@@ -5,7 +5,7 @@
 
 					 $("#div1").load(location.href + " #div1>*", "");
         }
-//setInterval( "jsload()", 500 );
+     setInterval( "jsload()", 500 );
     </script>
 </head>
 
