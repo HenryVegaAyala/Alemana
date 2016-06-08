@@ -2,9 +2,12 @@
     <script>
 
         function jsload() {
-            $("#div1").load(location.href + " #div1>*", "")
+//            f
+  //         alert("hola "+ location.href + " #div1>*");
+   // $("#div1").load(location.href + " #div1>*", "")
+ $("#div1").load(location.href + " #div1>*", "");
         }
-
+setInterval( "jsload()", 500 );
     </script>
 </head>
 

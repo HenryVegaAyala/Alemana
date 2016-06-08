@@ -28,34 +28,6 @@
         echo $form->errorSummary($model);
         ?>
 
-        <?php
-        $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-            'id' => 'midialogo',
-            // Opciones adicionales javascript
-            'options' => array(
-                'title' => 'Porfavor Ingresar los aspectos requeridos. ',
-                'autoOpen' => false,
-                'resizable' => false,
-                'modal' => true,
-                'width' => 'auto',
-                'height' => 'auto',
-                'closeOnEscape' => true,
-            ),
-        ));
-
-        //        $this->renderPartial('/TEMPFACDETALORDENCOMPR/admin', array(
-//            'model' => $modelOC
-//        ));
-
-
-        $this->endWidget('zii.widgets.jui.CJuiDialog');
-
-//         Link que abre la ventana de diálogo
-//        echo CHtml::link('Abrir ventana', '#', array(
-//            'onclick' => '$("#midialogo").dialog("open"); return false;',
-//        ));
-        ?>
-
         <div class="fieldset">
 
             <div class="form-group ir">
@@ -212,10 +184,6 @@
         <br>
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
-        
-        <script>
-
-            </script>
 
         <?php
         $url = Yii::app()->request->baseUrl;
@@ -225,7 +193,6 @@
             'onclick' => "window.open ('?r=tEMPFACDETALORDENCOMPR/admin', 'nom_interne_de_la_fenetre', config='height=420, width=995, scrollbars=yes, resizable=yes, location=no, directories=no, status=no')"
         ));
         ?>
-
 
         <div class="container-fluid">
             <?php
@@ -288,8 +255,6 @@
                 </tbody>
             </table>
         </div>
-
-
 
         <div class="panel-footer container-fluid" style="overflow:hidden;text-align:right;">
             <div class="form-group">
