@@ -1,13 +1,11 @@
 <head>
-    <script>
+<script language="javascript" type="text/javascript">
 
         function jsload() {
-//            f
-  //         alert("hola "+ location.href + " #div1>*");
-   // $("#div1").load(location.href + " #div1>*", "")
- $("#div1").load(location.href + " #div1>*", "");
+
+					 $("#div1").load(location.href + " #div1>*", "");
         }
-setInterval( "jsload()", 500 );
+//setInterval( "jsload()", 500 );
     </script>
 </head>
 
@@ -41,6 +39,8 @@ setInterval( "jsload()", 500 );
             } else {
                 echo "No se encuentra valores disponibles";
             }
+        }else{
+        	echo "No se grabo, volver a intentar";
         }
     }
     ?>

@@ -1,25 +1,35 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV3.css">
 
-<script language="javascript">
+<script language="javascript" type="text/javascript">
+
     function cerrar() {
+    	  var f= document.forms[0];
+    	  f.submit();
         window.opener.jsload();
-        setTimeout("window.close();", 1000);
+        setTimeout("window.close()", 1000);
     }
 
     
     function stopRKey(evt) {
         var evt = (evt) ? evt : ((event) ? event : null);
         var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-        if ((evt.keyCode == 13) ) {
-            var AddButton = document.getElementById("#agregarCampo");
-                alert("GOl");
-            AddButton.onclick()
+        if ((evt.keyCode == 13) && (node.type=="text") ) {
+           
             return false;
         }
     }
     document.onkeypress = stopRKey;
 
+   function jsAgregar(evt){
+   	  var evt = (evt) ? evt : ((event) ? event : null);  
+ 		  if (evt.keyCode==13) {
+ 		 	 //alert ('Has pulsado enter');
+ 		     var AddButton = $("#agregarCampo");
+ 		     //alert ('Has pulsado enter '+AddButton);
+ 		     AddButton.click();
+ 		  }
+    }
 </script>
 
 <?php
@@ -55,21 +65,21 @@ Yii::app()->session['USU'] = $usuario;
 
             <input type="text" name="DES_LARG[]" id="campo_DES_LARG" />
             <input type="text" name="COD_PROD[]" id="campo_COD_PROD" readonly="true"/>
-            <input type="text" onchange="jsCalcular(this)" name="NRO_UNID[]" id="campo_NRO_UNID" value="0"/>
-            <input type="text" onchange="jsCalcular(this)" name="VAL_PREC[]" id="campo_VAL_PREC"  value="0"/>
+            <input type="text" onchange="jsCalcular(this)"   name="NRO_UNID[]" id="campo_NRO_UNID" value="0"/>
+            <input type="text" onchange="jsCalcular(this)" onkeypress="jsAgregar(event);" name="VAL_PREC[]" id="campo_VAL_PREC"  value="0"/>
             <input type="text"  name="VAL_MONT_UNID[]" id="campo_VAL_MONT_UNID" readonly="true" />
 
             <a href="#" class="eliminar alt2" >Eliminar &times;</a>
         </div>
     </div>
 
-    <input type="submit" name="submit" value="Guardar Productos" class="btn btn-success" onclick="cerrar()"/>
+    <input type="button" name="btnsubmit" value="Guardar Productos" class="btn btn-success" onclick="cerrar()"/>
 
     <?php
     $connection = Yii::app()->db;
 
-    if (isset($_POST['submit'])) {
-
+    //if (isset($_POST['btnsubmit'])) {
+     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $CODPRO = $_POST['COD_PROD'];
         $DESCRI = $_POST['DES_LARG'];
         $UND = $_POST['NRO_UNID'];
@@ -81,12 +91,13 @@ Yii::app()->session['USU'] = $usuario;
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
         }
-    }
+      }
     ?>
 
 </form>
 
-<script>
+<script language="javascript" type="text/javascript">
+
 
     function jsCalcular(ele) {
 
@@ -137,7 +148,7 @@ Yii::app()->session['USU'] = $usuario;
 \n\                     <input type="text" name="DES_LARG[]" id="campo_DES_LARG_' + FieldCount + '"/>\n\
 \n\                     <input type="text" readonly="true" name="COD_PROD[]" id="campo_NRO_UNID_' + FieldCount + '"/>\n\
 \n\                     <input type="text" onchange="jsCalcular(this)" name="NRO_UNID[]"  value="0" id="campo_VAL_PREC_' + FieldCount + '"/>\n\
-\n\                     <input type="text" onchange="jsCalcular(this)" name="VAL_PREC[]" value="0" id="campo_VAL_MONT_UNID_' + FieldCount + '"/>\n\
+\n\                     <input type="text" onchange="jsCalcular(this)" onkeypress="jsAgregar(event);" name="VAL_PREC[]" value="0" id="campo_VAL_MONT_UNID_' + FieldCount + '"/>\n\
 \n\                     <input type="text" name="VAL_MONT_UNID[]" id="campo_VAL_MONT_UNID_' + FieldCount + '""/>\n\
                         <a href="#" class="eliminar alt2" >Eliminar &times;</a></div>'
                         );
