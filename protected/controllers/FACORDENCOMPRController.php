@@ -190,5 +190,3 @@ class FACORDENCOMPRController extends Controller {
     }
 
 }
-
-?>
