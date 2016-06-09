@@ -1,12 +1,17 @@
+<?php
+Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/jqueryui.css');
+//Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/bootstrapm.css');
 
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV3.css">
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1102.js');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1103.js');
+?>
 
 <script language="javascript" type="text/javascript">
 
     function cerrar() {
         var f = document.forms[0];
         f.submit();
-        window.opener.jsload();
+//        window.opener.jsload();
         setTimeout("window.close()", 1000);
     }
 
@@ -32,98 +37,6 @@
     }
 </script>
 
-<?php
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/js/jquery-1.8.0.min.js');
-?>
-
-<script type="text/javascript">
-    $(function () {
-        $(".search").keyup(function ()
-        {
-            var searchid = $(this).val();
-            var dataString = 'search=' + searchid;
-            if (searchid != '')
-            {
-                $.ajax({
-                    type: "POST",
-                    url: "search.php",
-                    data: dataString,
-                    cache: false,
-                    success: function (html)
-                    {
-                        $("#result").html(html).show();
-                    }
-                });
-            }
-            return false;
-        });
-
-        jQuery("#result").live("click", function (e) {
-            var $clicked = $(e.target);
-            var $name = $clicked.find('.name').html();
-            var decoded = $("<div/>").html($name).text();
-            $('#searchid').val(decoded);
-        });
-        jQuery(document).live("click", function (e) {
-            var $clicked = $(e.target);
-            if (!$clicked.hasClass("search")) {
-                jQuery("#result").fadeOut();
-            }
-        });
-        $('#searchid').click(function () {
-            jQuery("#result").fadeIn();
-        });
-    });
-</script>
-
-<style type="text/css">
-    body{ 
-        font-family:Tahoma, Geneva, sans-serif;
-        font-size:18px;
-    }
-    .content{
-        width:900px;
-        margin:0 auto;
-    }
-    #searchid
-    {
-        width:500px;
-        border:solid 1px #000;
-        padding:10px;
-        font-size:14px;
-    }
-    #result
-    {
-        position:absolute;
-        width:500px;
-        padding:10px;
-        display:none;
-        margin-top:-1px;
-        border-top:0px;
-        overflow:hidden;
-        border:1px #CCC solid;
-        background-color: white;
-    }
-    .show
-    {
-        padding:10px; 
-        border-bottom:1px #999 dashed;
-        font-size:15px; 
-        height:50px;
-    }
-    .show:hover
-    {
-        background:#4c66a4;
-        color:#FFF;
-        cursor:pointer;
-    }
-</style>
-
-<div class="content">
-    <input type="text" class="search" id="searchid" placeholder="Search for people" />&nbsp; &nbsp; Ex:arunkumar, shanmu, vicky<br /> 
-    <div id="result">
-    </div>
-</div>
 
 <?php
 $usuario = Yii::app()->user->name;
@@ -138,40 +51,38 @@ Yii::app()->session['PCIP'] = $pcip;
 Yii::app()->session['USU'] = $usuario;
 ?>
 
-<a  id="agregarCampo" class="btn btn-link alt" >+ Agregar Campos de Productos</a>
+<form id='students' method='post' name='students'>
 
-<form name="form1" method="post" >
-    <div id="contenedor">
-        <div class="contenedor">
-
-            <table>
-                <thead>
-                    <tr>
-                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp  Descripción &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Codigo &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Cantidad</th>
-                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Precio</th>
-                        <th class="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Total</th>
-                    </tr>
-                </thead>
-            </table>
-
-            <input type="text" name="DES_LARG[]" id="campo_DES_LARG" />
-            <input type="text" name="COD_PROD[]" id="campo_COD_PROD" readonly="true"/>
-            <input type="text" onchange="jsCalcular(this)"   name="NRO_UNID[]" id="campo_NRO_UNID" value="0"/>
-            <input type="text" onchange="jsCalcular(this)" onkeypress="jsAgregar(event);" name="VAL_PREC[]" id="campo_VAL_PREC"  value="0"/>
-            <input type="text"  name="VAL_MONT_UNID[]" id="campo_VAL_MONT_UNID" readonly="true" />
-
-            <a href="#" class="eliminar alt2" >Eliminar &times;</a>
-        </div>
-    </div>
-
+    <button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore'>+ Agregar Campos de Productos</button>
+    <br><br>
+    <table class="table table-bordered table-condensed table-responsive table-striped table-hover table-wrapper">
+        <tr>
+            <th><input class='check_all' type='checkbox' onclick="select_all()"/></th>
+            <th>#</th>
+            <th>Descripción</th>
+            <th>Codigo</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td><input type='checkbox' class='case'/></td>
+            <td><span id='snum'>1</span></td>
+            <td><input type="text" id='campo_DES_LARG' name='DES_LARG[]' size="45" class="form-control"/></td>
+            <td><input type="text" id='campo_COD_PROD' name='COD_PROD[]' size="10" class="form-control" readonly="true"/></td>
+            <td><input type="text" onchange="jsCalcular(this)"  id='campo_NRO_UNID' name='NRO_UNID[]' value="0" size="10" class="form-control" /></td>
+            <td><input type="text" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" id='campo_VAL_PREC' name='VAL_PREC[]' value="0" size="10" class="form-control" readonly="true"/> </td>
+            <td><input type="text" id='campo_VAL_MONT_UNID' name='VAL_MONT_UNID[]' size="10" class="form-control" readonly="true"/> </td>
+        </tr>
+    </table>
+    <br>
+    <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
     <input type="button" name="btnsubmit" value="Guardar Productos" class="btn btn-success" onclick="cerrar()"/>
 
     <?php
     $connection = Yii::app()->db;
 
-    //if (isset($_POST['btnsubmit'])) {
+//    if (isset($_POST['btnsubmit'])) {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $CODPRO = $_POST['COD_PROD'];
         $DESCRI = $_POST['DES_LARG'];
@@ -186,10 +97,19 @@ Yii::app()->session['USU'] = $usuario;
         }
     }
     ?>
-
 </form>
 
-<script language="javascript" type="text/javascript">
+
+
+<script>
+
+    function redondear2decimales(numero)
+    {
+        var original = parseFloat(numero);
+        var result = Math.round(original * 100) / 100;
+        return result;
+    }
+    
 
 
     function jsCalcular(ele) {
@@ -197,66 +117,331 @@ Yii::app()->session['USU'] = $usuario;
         var arr_uni = document.getElementsByName("NRO_UNID[]");
         var arr_pre = document.getElementsByName("VAL_PREC[]");
         var arr_total = document.getElementsByName("VAL_MONT_UNID[]");
-
-//        alert("HOl " + arr_uni.length);
-
-//        var cantidad = 0, precunit = 0, totalitem = 0;
-//        var tr = ele.parentNode.parentNode;
-//        var nodes = tr.childNodes;
-
-//        alert(nodes.length);
         for (var x = 0; x < arr_uni.length; x++) {
-//            alert(arr_uni[x].value);
 
-
-            cantidad = parseFloat(arr_uni[x].value, 10);
-
-            precunit = parseFloat(arr_pre[x].value, 10);
-
-
-            totalitem = parseFloat((precunit * cantidad), 10);
-            arr_total[x].value = totalitem;
-
+            cantidad = parseFloat(arr_uni[x].value, 2);
+            precunit = parseFloat(arr_pre[x].value, 2);
+            totalitem = parseFloat((precunit * cantidad), 2);
+            arr_total[x].value = redondear2decimales(totalitem);
         }
     }
 
 
-
-    $(document).ready(function () {
-
-        var MaxInputs = 50; //Número Maximo de Campos
-        var contenedor = $("#contenedor"); //ID del contenedor
-        var AddButton = $("#agregarCampo"); //ID del Botón Agregar
-        //var x = número de campos existentes en el contenedor
-        var x = $("#contenedor div").length + 1;
-        var FieldCount = x - 1; //para el seguimiento de los campos
-
-        $(AddButton).click(function (e) {
-            if (x <= MaxInputs) //max input box allowed
-            {
-                FieldCount++;
-                //agregar campo
-                $(contenedor).append(
-                        '<div>\n\
-\n\                     <input type="text" name="DES_LARG[]" id="campo_DES_LARG_' + FieldCount + '"/>\n\
-\n\                     <input type="text" readonly="true" name="COD_PROD[]" id="campo_NRO_UNID_' + FieldCount + '"/>\n\
-\n\                     <input type="text" onchange="jsCalcular(this)" name="NRO_UNID[]"  value="0" id="campo_VAL_PREC_' + FieldCount + '"/>\n\
-\n\                     <input type="text" onchange="jsCalcular(this)" onkeypress="jsAgregar(event);" name="VAL_PREC[]" value="0" id="campo_VAL_MONT_UNID_' + FieldCount + '"/>\n\
-\n\                     <input type="text" name="VAL_MONT_UNID[]" id="campo_VAL_MONT_UNID_' + FieldCount + '""/>\n\
-                        <a href="#" class="eliminar alt2" >Eliminar &times;</a></div>'
-                        );
-
-                x++; //text box increment
+    $(".delete").on('click', function() {
+        $('.case:checkbox:checked').parents("tr").remove();
+        $('.check_all').prop("checked", false);
+        check();
+    });
+    var i = $('table tr').length;
+    $(".addmore").on('click', function() {
+        count = $('table tr').length;
+        var data = "<tr><td><input type='checkbox' class='case'/></td><td><span id='snum" + i + "'>" + count + ".</span></td>";
+        data += '\n\\n\
+                                <td>\n\
+                                    <input type="text" id="DES_LARG_' + i + '" name="DES_LARG[]" size="45" class="form-control" />\n\
+                                </td> \n\
+                                <td>\n\
+                                    <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control" readonly="true"/>\n\
+                                </td>\n\
+                                <td>\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)" value="0" />\n\
+                                </td>   \n\
+                                <td>\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" value="0" readonly="true"/>\n\
+                                </td>\n\
+                                <td>\n\
+                                    <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control" readonly="true"/>\n\
+                                </td>\n\
+                                </tr>';
+        $('table').append(data);
+        row = i;
+        $('#DES_LARG_' + i).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: 'ajax.php',
+                    dataType: "json",
+                    data: {
+                        nombre_producto: request.term,
+                        type: 'produc_tiend',
+                        row_num: row
+                    },
+                    success: function(data) {
+                        response($.map(data, function(item) {
+                            var code = item.split("|");
+                            return {
+                                label: code[0],
+                                value: code[0],
+                                data: item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 0,
+            select: function(event, ui) {
+                var names = ui.item.data.split("|");
+                console.log(names[1], names[2], names[3]);
+                $('#COD_PROD_' + row).val(names[1]);
+                $('#NRO_UNID_' + row).val(names[2]);
+                $('#VAL_PREC_' + row).val(names[3]);
             }
-            return false;
         });
-
-        $("body").on("click", ".eliminar", function (e) { //click en eliminar campo
-            if (x > 1) {
-                $(this).parent('div').remove(); //eliminar el campo
-                x--;
+        $('#VAL_PREC_' + i).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: 'ajax.php',
+                    dataType: "json",
+                    data: {
+                        nombre_producto: request.term,
+                        type: 'produc_tiend',
+                        row_num: row
+                    },
+                    success: function(data) {
+                        response($.map(data, function(item) {
+                            var code = item.split("|");
+                            return {
+                                label: code[3],
+                                value: code[3],
+                                data: item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 0,
+            select: function(event, ui) {
+                var names = ui.item.data.split("|");
+                $('#COD_PROD_' + row).val(names[1]);
+                $('#NRO_UNID_' + row).val(names[2]);
+                $('#DES_LARG_' + row).val(names[0]);
             }
-            return false;
         });
+        $('#NRO_UNID_' + i).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: 'ajax.php',
+                    dataType: "json",
+                    data: {
+                        nombre_producto: request.term,
+                        type: 'produc_tiend',
+                        row_num: row
+                    },
+                    success: function(data) {
+                        response($.map(data, function(item) {
+                            var code = item.split("|");
+                            return {
+                                label: code[2],
+                                value: code[2],
+                                data: item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 0,
+            select: function(event, ui) {
+                var names = ui.item.data.split("|");
+                $('#COD_PROD_' + row).val(names[1]);
+                $('#VAL_PREC_' + row).val(names[3]);
+                $('#DES_LARG_' + row).val(names[0]);
+            }
+        });
+        $('#COD_PROD_' + i).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: 'ajax.php',
+                    dataType: "json",
+                    data: {
+                        nombre_producto: request.term,
+                        type: 'produc_tiend',
+                        row_num: row
+                    },
+                    success: function(data) {
+                        response($.map(data, function(item) {
+                            var code = item.split("|");
+                            return {
+                                label: code[1],
+                                value: code[1],
+                                data: item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 0,
+            select: function(event, ui) {
+                var names = ui.item.data.split("|");
+                $('#VAL_PREC_' + row).val(names[3]);
+                $('#NRO_UNID_' + row).val(names[2]);
+                $('#DES_LARG_' + row).val(names[0]);
+            }
+        });
+        i++;
+    });
+    function select_all() {
+        $('input[class=case]:checkbox').each(function() {
+            if ($('input[class=check_all]:checkbox:checked').length == 0) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
+        });
+    }
+
+    function check() {
+        obj = $('table tr').find('span');
+        $.each(obj, function(key, value) {
+            id = value.id;
+            $('#' + id).html(key + 1);
+        });
+    }
+
+
+    $('#campo_DES_LARG').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: 'ajax.php',
+                dataType: "json",
+                data: {
+                    nombre_producto: request.term,
+                    type: 'produc_tiend',
+                    row_num: 1
+                },
+                success: function(data) {
+                    response($.map(data, function(item) {
+                        var code = item.split("|");
+                        return {
+                            label: code[0],
+                            value: code[0],
+                            data: item
+                        }
+                    }));
+                }
+            });
+        },
+        autoFocus: true,
+        minLength: 0,
+        select: function(event, ui) {
+            var names = ui.item.data.split("|");
+            console.log(names[1], names[2], names[3]);
+            $('#campo_COD_PROD').val(names[1]);
+            $('#campo_NRO_UNID').val(names[2]);
+            $('#campo_VAL_PREC').val(names[3]);
+        }
+    });
+    $('#campo_VAL_PREC').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: 'ajax.php',
+                dataType: "json",
+                data: {
+                    nombre_producto: request.term,
+                    type: 'VAL_PREC',
+                    row_num: 1
+                },
+                success: function(data) {
+                    response($.map(data, function(item) {
+                        var code = item.split("|");
+                        return {
+                            label: code[3],
+                            value: code[3],
+                            data: item
+                        }
+                    }));
+                }
+            });
+        },
+        autoFocus: true,
+        minLength: 0,
+        select: function(event, ui) {
+            var names = ui.item.data.split("|");
+            $('#campo_COD_PROD').val(names[1]);
+            $('#campo_NRO_UNID').val(names[2]);
+            $('#campo_DES_LARG').val(names[0]);
+        },
+        open: function() {
+            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function() {
+            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        }
+    });
+    $('#campo_COD_PROD').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: 'ajax.php',
+                dataType: "json",
+                data: {
+                    nombre_producto: request.term,
+                    type: 'COD_PROD',
+                    row_num: 1
+                },
+                success: function(data) {
+                    response($.map(data, function(item) {
+                        var code = item.split("|");
+                        return {
+                            label: code[1],
+                            value: code[1],
+                            data: item
+                        }
+                    }));
+                }
+            });
+        },
+        autoFocus: true,
+        minLength: 0,
+        select: function(event, ui) {
+            var names = ui.item.data.split("|");
+            $('#campo_VAL_PREC ').val(names[3]);
+            $('#campo_NRO_UNID').val(names[2]);
+            $('#campo_DES_LARG').val(names[0]);
+        },
+        open: function() {
+            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function() {
+            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        }
+    });
+    $('#campo_NRO_UNID').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: 'ajax.php',
+                dataType: "json",
+                data: {
+                    nombre_producto: request.term,
+                    type: 'NRO_UNID',
+                    row_num: 1
+                },
+                success: function(data) {
+                    response($.map(data, function(item) {
+                        var code = item.split("|");
+                        return {
+                            label: code[2],
+                            value: code[2],
+                            data: item
+                        }
+                    }));
+                }
+            });
+        },
+        autoFocus: true,
+        minLength: 0,
+        select: function(event, ui) {
+            var names = ui.item.data.split("|");
+            $('#campo_VAL_PREC ').val(names[3]);
+            $('#campo_COD_PROD ').val(names[1]);
+            $('#campo_DES_LARG').val(names[0]);
+        },
+        open: function() {
+            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function() {
+            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        }
     });
 </script>

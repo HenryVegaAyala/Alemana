@@ -26,7 +26,7 @@ class FACORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -37,6 +37,52 @@ class FACORDENCOMPRController extends Controller {
 
     public function actionSearch() {
         $this->render('/tEMPFACDETALORDENCOMPR/search');
+    }
+
+    public function actionAjax() {
+//        $servername = "localhost";
+//        $username = "root";
+//        $password = "";
+//        $dbname = "autocomplete";
+//
+//        $con = new mysqli($servername, $username, $password, $dbname);
+//
+//        if ($con->connect_error) {
+//            die("Connection failed: " . $con->connect_error);
+//        }
+
+        $con = mysqli_connect('sispaal.cnjv4vhhy3or.us-west-2.rds.amazonaws.com', 'root', 'root2016', 'SIS_PANA', '3306');
+        if (!$con) {
+            die('Could not connect to MySQL: ' . mysqli_connect_error());
+        }
+        mysqli_query($con, 'SET NAMES \'utf8\'');
+
+        if ($_GET['type'] == 'produc_tiend') {
+            $row_num = $_GET['row_num'];
+            $result = mysqli_query($con, "SELECT DES_LARG,COD_PROD,NRO_UNID,VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'");
+            $data = array();
+            while ($row = mysqli_fetch_array($result)) {
+                $name = $row['DES_LARG'] . '|' . $row['COD_PROD'] . '|' . $row['NRO_UNID'] . '|' . $row['VAL_PROD'] . '|' . $row_num;
+                array_push($data, $name);
+            }
+            echo json_encode($data);
+        }
+
+        ////________SI QUIERO BUSCAR POR CODIGO________////      
+//        if ($_GET['type'] == 'phone_code') {
+//            $row_num = $_GET['row_num'];
+//            $result = mysqli_query($con, "SELECT name, numcode, phonecode, iso3 FROM country where phonecode LIKE '" . $_GET['nombre_producto'] . "%'");
+//            $data = array();
+//            while ($row = mysqli_fetch_array($result)) {
+//                $name = $row['name'] . '|' . $row['numcode'] . '|' . $row['phonecode'] . '|' . $row['iso3'] . '|' . $row_num;
+//                array_push($data, $name);
+//            }
+//            echo json_encode($data);
+//        }
+    }
+
+    public function actionRespaldo() {
+        $this->render('/tEMPFACDETALORDENCOMPR/Respaldo');
     }
 
     public function actionClienteByTienda() {
