@@ -59,7 +59,7 @@ class LoginForm extends CFormModel {
             $this->_identity->authenticate();
         }
         if ($this->_identity->errorCode === UserIdentity::ERROR_NONE) {
-            $duration = $this->rememberMe; // 30 days
+            $duration = $this->rememberMe ? 60 * 1 : 0; // 30 days
             Yii::app()->user->login($this->_identity, $duration);
             return true;
         }

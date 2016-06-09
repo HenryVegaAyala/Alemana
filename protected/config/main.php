@@ -29,7 +29,7 @@ return array(
     'components' => array(
         'user' => array(
             // enable cookie-based authentication
-            'allowAutoLogin' => false,
+            'allowAutoLogin' => true,
             'loginUrl'=>array('site/login'),
         ),
         'session' => array(

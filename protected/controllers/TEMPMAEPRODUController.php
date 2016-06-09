@@ -1,10 +1,12 @@
 <?php
 
 class TEMPMAEPRODUController extends Controller {
+
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
+    public $valor, $valor1, $valor2, $valor3, $valor4, $valor5;
 
     /**
      * @return array action filters
@@ -24,13 +26,30 @@ class TEMPMAEPRODUController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate', 'Consulta', 'Respaldo', 'ajax'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Arreglo'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionArreglo() {
+
+        $model = new TEMPMAEPRODU;
+
+        $valor = $_POST["TEMPMAEPRODU"]["COD_PROD"];
+        $valor1 = $_POST["TEMPMAEPRODU"]["DES_LARG"];
+        $valor2 = $_POST["TEMPMAEPRODU"]["COD_MEDI"];
+        $valor3 = $_POST["TEMPMAEPRODU"]["NRO_UNID"];
+        $valor4 = $_POST["TEMPMAEPRODU"]["VAL_PROD"];
+        $valor5 = $_POST["TEMPMAEPRODU"]["N_ORDEN"];
+
+
+        Yii::app()->session['XXX'] = $valor5;
+
+        echo "{$valor} " . "-" . " {$valor1} " . "-" . " {$valor2} " . "-" . " {$valor3} " . "-" . " {$valor4}" . "-" . " {$valor5}";
     }
 
     /**
@@ -70,15 +89,25 @@ class TEMPMAEPRODUController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+
         $model = $this->loadModel($id);
 
+//        Yii::app()->session['CODIGO'] = $id; /////////////////Session de COD_PRO
+
+//        $connection = Yii::app()->db;
+//        $sqlStatement = "CALL Productos('$id');";
+//        $command = $connection->createCommand($sqlStatement);
+//        $command->execute();
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if (isset($_POST['TEMPMAEPRODU'])) {
             $model->attributes = $_POST['TEMPMAEPRODU'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_PROD));
+//                $sqlStatement = "CALL ProductoCP('$id');";
+//            $command = $connection->createCommand($sqlStatement);
+//            $command->execute();
+            $this->redirect(array('index', 'id' => $model->COD_PROD));
         }
 
         $this->render('update', array(
@@ -108,6 +137,10 @@ class TEMPMAEPRODUController extends Controller {
         if (isset($_GET['TEMPMAEPRODU']))
             $model->attributes = $_GET['TEMPMAEPRODU'];
 
+        $connection = Yii::app()->db;
+        $sqlStatement = "CALL OcByFac();";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
         $this->render('index', array(
             'model' => $model,
         ));

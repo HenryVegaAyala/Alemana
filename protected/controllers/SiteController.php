@@ -7,12 +7,10 @@ class SiteController extends Controller {
      */
     public function actions() {
         return array(
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda'),
-                'users' => array('@'),
-            ),
-            array('deny', // deny all users
-                'users' => array('*'),
+            // page action renders "static" pages stored under 'protected/views/site/pages'
+            // They can be accessed via: index.php?r=site/page&view=FileName
+            'page' => array(
+                'class' => 'CViewAction',
             ),
         );
     }
@@ -104,7 +102,6 @@ class SiteController extends Controller {
      * Logs out the current user and redirect to homepage.
      */
     public function actionLogout() {
-        Yii::app()->session->destroy();
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }

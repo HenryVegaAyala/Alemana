@@ -2,49 +2,40 @@
 /* @var $this TEMPMAEPRODUController */
 /* @var $model TEMPMAEPRODU */
 
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-
-");
+$this->breadcrumbs = array(
+    'Productos',
+);
 ?>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" >
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'tempmaeprodu-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'COD_PROD',
-		'COD_LINE',
-		'DES_LARG',
-		'DES_CORT',
-		'COD_ESTA',
-		'COD_MEDI',
-		/*
-		'VAL_PESO',
-		'VAL_PROD',
-		'VAL_CONV',
-		'VAL_PORC',
-		'VAL_COST',
-		'VAL_REPO',
-		'COD_LOTE',
-		'USU_DIGI',
-		'FEC_DIGI',
-		'USU_MODI',
-		'FEC_MODI',
-		'NRO_UNID',
-		*/
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+<?php
+$this->widget('ext.bootstrap.widgets.TbGridView', array(
+    'id' => 'maeprodu-grid',
+    'type' => 'bordered condensed striped',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        'COD_PROD',
+        'DES_LARG',
+        array(
+            'header' => 'Linea',
+            'value' => '$data->cODLINE->DES_LARG',
+            'htmlOptions'=>array('style'=>'word-wrap:break-word; width:300px; table-layout:fixed; '),
+        ),
+        array(
+            'header' => 'Opción',
+            'class' => 'ext.bootstrap.widgets.TbButtonColumn',
+            'htmlOptions' => array('style' => 'width: 50px; text-align: center;'),
+//            'template' => '{view}{update}{delete}{migrar}',
+            'template' => '{update}{migrar}',
+            'buttons' => array(
+                'migrar' => array(
+                    'icon' => 'CHECK',
+                    'htmlOptions' => array('style' => 'width: 50px'),
+                    'url' => 'Yii::app()->controller->createUrl("/Presupuesto/migrar", array("id"=>$data->COD_PROD))',
+                ),
+            ),
+        ),
+    ),
+));
+?>
+<br>

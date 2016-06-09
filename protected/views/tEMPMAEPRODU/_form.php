@@ -4,133 +4,181 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'tempmaeprodu-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Registrar Productos del O/C</h3>
+        </div>
 
-	<?php echo $form->errorSummary($model); ?>
+        <?php
+        $form = $this->beginWidget('CActiveForm', array(
+            'id' => 'tempmaeprodu-form',
+            'enableAjaxValidation' => false,
+        ));
+        ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'COD_PROD'); ?>
-		<?php echo $form->textField($model,'COD_PROD',array('size'=>12,'maxlength'=>12)); ?>
-		<?php echo $form->error($model,'COD_PROD'); ?>
-	</div>
+        <div class="container-fluid">
+            <div class="fieldset">
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'COD_LINE'); ?>
-		<?php echo $form->textField($model,'COD_LINE',array('size'=>2,'maxlength'=>2)); ?>
-		<?php echo $form->error($model,'COD_LINE'); ?>
-	</div>
+                <div class="form-group ir">
+                    <div class="col-xs-4 control-label">
+                        <?php
+                        $htmlOption1 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'DES_LARG'); ?>
-		<?php echo $form->textField($model,'DES_LARG',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'DES_LARG'); ?>
-	</div>
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+                            'readonly' => true,
+                        );
+                        ?>
+                        <?php echo $form->labelEx($model, 'COD_PROD'); ?>
+                        <?php echo $form->textField($model, 'COD_PROD', $htmlOption1); ?>
+                        <?php echo $form->error($model, 'COD_PROD'); ?>
+                    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'DES_CORT'); ?>
-		<?php echo $form->textField($model,'DES_CORT',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'DES_CORT'); ?>
-	</div>
+                    <div class="col-xs-4 control-label">
+                        <?php
+                        $htmlOption2 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'COD_ESTA'); ?>
-		<?php echo $form->textField($model,'COD_ESTA',array('size'=>1,'maxlength'=>1)); ?>
-		<?php echo $form->error($model,'COD_ESTA'); ?>
-	</div>
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+                            'readonly' => true,
+                        );
+                        ?>
+                        <?php echo $form->labelEx($model, 'DES_LARG'); ?>
+                        <?php echo $form->textField($model, 'DES_LARG', $htmlOption2); ?>
+                        <?php echo $form->error($model, 'DES_LARG'); ?>
+                    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'COD_MEDI'); ?>
-		<?php echo $form->textField($model,'COD_MEDI',array('size'=>1,'maxlength'=>1)); ?>
-		<?php echo $form->error($model,'COD_MEDI'); ?>
-	</div>
+                    <div class="col-xs-4 control-label">
+                        <?php
+                        $htmlOption3 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'VAL_PESO'); ?>
-		<?php echo $form->textField($model,'VAL_PESO'); ?>
-		<?php echo $form->error($model,'VAL_PESO'); ?>
-	</div>
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+//                            'disabled' => 'disabled',
+                        );
+                        ?>
+                        <?php echo $form->labelEx($model, 'COD_MEDI'); ?>
+                        <?php echo $form->dropDownList($model, 'COD_MEDI', $model->getLinea(), $htmlOption3); ?>
+                        <?php echo $form->error($model, 'COD_MEDI'); ?>
+                    </div>
+                </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'VAL_PROD'); ?>
-		<?php echo $form->textField($model,'VAL_PROD',array('size'=>12,'maxlength'=>12)); ?>
-		<?php echo $form->error($model,'VAL_PROD'); ?>
-	</div>
+                <div class="form-group container-fluid">
+                    <div class="col-xs-4 control-label">
+                        <?php
+                        $htmlOption4 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'VAL_CONV'); ?>
-		<?php echo $form->textField($model,'VAL_CONV'); ?>
-		<?php echo $form->error($model,'VAL_CONV'); ?>
-	</div>
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+                        );
+                        ?>
+                        <?php echo $form->labelEx($model, 'NRO_UNID'); ?>
+                        <?php echo $form->textField($model, 'NRO_UNID', $htmlOption4); ?>
+                        <?php echo $form->error($model, 'NRO_UNID'); ?>
+                    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'VAL_PORC'); ?>
-		<?php echo $form->textField($model,'VAL_PORC',array('size'=>12,'maxlength'=>12)); ?>
-		<?php echo $form->error($model,'VAL_PORC'); ?>
-	</div>
+                    <div class="col-xs-4 control-label">
+                        <?php
+                        $htmlOption5 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'VAL_COST'); ?>
-		<?php echo $form->textField($model,'VAL_COST',array('size'=>12,'maxlength'=>12)); ?>
-		<?php echo $form->error($model,'VAL_COST'); ?>
-	</div>
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+                        );
+                        ?>
+                        <?php echo $form->labelEx($model, 'VAL_PROD'); ?>
+                        <?php echo $form->textField($model, 'VAL_PROD', $htmlOption5); ?>
+                        <?php echo $form->error($model, 'VAL_PROD'); ?>
+                    </div>
+                    
+                    <div class="col-xs-4 control-label">
+                                                <?php
+                        $htmlOption6 = array(
+                            "ajax" => array(
+                                "url" => $this->createUrl("Arreglo"),
+                                "type" => "POST",
+                                "success" => "function(data){   
+                                
+                           var valor1=document.getElementById('txtvalor');
+                           valor1.value= data;  
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'VAL_REPO'); ?>
-		<?php echo $form->textField($model,'VAL_REPO'); ?>
-		<?php echo $form->error($model,'VAL_REPO'); ?>
-	</div>
+                           }
+                            "
+                            ),
+                            'class' => 'form-control',
+                            'value'=>$model->au(),
+//                            'style' => 'visibility: hidden'
+                        );
+                        ?>
+                        <?php echo $form->textField($model, 'N_ORDEN',$htmlOption6); ?>
+                    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'COD_LOTE'); ?>
-		<?php echo $form->textField($model,'COD_LOTE'); ?>
-		<?php echo $form->error($model,'COD_LOTE'); ?>
-	</div>
+                    <input id="txtvalor" name="txtvalor" />
+                    
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="panel-footer " style="overflow:hidden;text-align:right;">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+        <?php $this->endWidget(); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'USU_DIGI'); ?>
-		<?php echo $form->textField($model,'USU_DIGI',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'USU_DIGI'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'FEC_DIGI'); ?>
-		<?php echo $form->textField($model,'FEC_DIGI'); ?>
-		<?php echo $form->error($model,'FEC_DIGI'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'USU_MODI'); ?>
-		<?php echo $form->textField($model,'USU_MODI',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'USU_MODI'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'FEC_MODI'); ?>
-		<?php echo $form->textField($model,'FEC_MODI'); ?>
-		<?php echo $form->error($model,'FEC_MODI'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'NRO_UNID'); ?>
-		<?php echo $form->textField($model,'NRO_UNID',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'NRO_UNID'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-
-</div><!-- form -->
+    </div><!-- form -->

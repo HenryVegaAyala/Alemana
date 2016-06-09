@@ -1,12 +1,8 @@
 <head>
-    <script language="javascript" type="text/javascript">
-
-        function jsload() {
-
+    <script>
+        setInterval(function() {
             $("#div1").load(location.href + " #div1>*", "");
-        }
-        setInterval("jsload()", 500);
-    </script>
+        }, 5000);</script>
 </head>
 
 <div class="div1 container-fluid" id="div1" >
@@ -15,11 +11,13 @@
 
     $UDP2 = Yii::app()->session['PCIP'];
 
-//    echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP . ' - ' . $UDP2;
+            echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP .' - '. $UDP2;
 
     function valor($COD) {
+
         $UDP2 = Yii::app()->session['PCIP'];
-        if ($COD !== 'abx') {
+
+        if ($COD !== '@') {
 
             if ($COD) {
                 $connection = Yii::app()->db;
@@ -39,8 +37,6 @@
             } else {
                 echo "No se encuentra valores disponibles";
             }
-        } else {
-            echo "No se grabo, volver a intentar";
         }
     }
     ?>
