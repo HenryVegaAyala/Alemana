@@ -1,4 +1,3 @@
-<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login/bootstrap.css">-->
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login/login.css">
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login/animate-custom.css">
 
@@ -27,9 +26,10 @@
                     <div class="login-form">
 
                         <?php echo $form->textField($model, 'username', array('maxlength' => 10, 'class' => 'form-control', 'placeholder' => 'Usuario', 'required' => true)); ?>
-
+                        <?php echo $form->error($model,'username'); ?>
+                        
                         <?php echo $form->passwordField($model, 'password', array('maxlength' => 10, 'class' => 'form-control', 'placeholder' => 'Contraseña', 'required' => true)); ?>
-
+                        <?php echo $form->error($model,'password'); ?>
                         <button type="submit" name="btn-login" class="btn btn-block btn-red">
                             <i class="glyphicon glyphicon-log-in"></i>&nbsp;Inicia Sesión
                         </button>
