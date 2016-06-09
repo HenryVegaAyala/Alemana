@@ -50,12 +50,12 @@ class FACORDENCOMPR extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-//            array('NUM_ORDE', 'required'),
-//            array('FEC_INGR', 'required'),
-//            array('FEC_ENVI', 'required'),
-//            array('NUM_ORDE', 'unique'),
+            array('NUM_ORDE', 'required'),
+            array('FEC_INGR', 'required'),
+            array('FEC_ENVI', 'required'),
+            array('NUM_ORDE', 'unique'),
             array('NUM_ORDE', 'numerical', 'integerOnly' => true),
-//            array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
+            array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
             array('COD_CLIE, COD_TIEN', 'length', 'max' => 6),
             array('COD_ORDE, NUM_ORDE', 'length', 'max' => 12),
             array('IND_TIPO, TIP_MONE, IND_ESTA', 'length', 'max' => 1),
