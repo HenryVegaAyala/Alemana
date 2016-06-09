@@ -26,13 +26,17 @@ class FACORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionSearch() {
+        $this->render('/tEMPFACDETALORDENCOMPR/search');
     }
 
     public function actionClienteByTienda() {
