@@ -190,7 +190,7 @@
         echo CHtml::button('Agregar Nuevo Producto', array(
             'name' => 'Agregar Nuevo Producto',
             'class' => 'btn btn-link btn-md',
-            'onclick' => "window.open ('?r=tEMPFACDETALORDENCOMPR/admin', 'nom_interne_de_la_fenetre', config='height=420, width=995, scrollbars=yes, resizable=yes, location=no, directories=no, status=no')"
+            'onclick' => "window.open ('?r=tEMPMAEPRODU/index', 'nom_interne_de_la_fenetre', config='height=420, width=995, scrollbars=yes, resizable=yes, location=no, directories=no, status=no')"
         ));
         ?>
 

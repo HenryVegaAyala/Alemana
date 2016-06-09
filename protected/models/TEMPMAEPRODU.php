@@ -22,148 +22,131 @@
  * @property string $USU_MODI
  * @property string $FEC_MODI
  * @property string $NRO_UNID
- * @property string $VAL_TOTAL
- * @property string $N_ORDEN
  *
  * The followings are the available model relations:
  * @property MAELINEAPRODU $cODLINE
  */
-class TEMPMAEPRODU extends CActiveRecord {
+class TEMPMAEPRODU extends CActiveRecord
+{
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'TEMP_MAE_PRODU';
+	}
 
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName() {
-        return 'TEMP_MAE_PRODU';
-    }
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('COD_PROD, COD_LINE', 'required'),
+			array('VAL_PESO, VAL_CONV, VAL_REPO, COD_LOTE', 'numerical', 'integerOnly'=>true),
+			array('COD_PROD, VAL_PROD, VAL_PORC, VAL_COST', 'length', 'max'=>12),
+			array('COD_LINE', 'length', 'max'=>2),
+			array('DES_LARG, DES_CORT', 'length', 'max'=>100),
+			array('COD_ESTA, COD_MEDI', 'length', 'max'=>1),
+			array('USU_DIGI, USU_MODI, NRO_UNID', 'length', 'max'=>20),
+			array('FEC_DIGI, FEC_MODI', 'safe'),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('COD_PROD, COD_LINE, DES_LARG, DES_CORT, COD_ESTA, COD_MEDI, VAL_PESO, VAL_PROD, VAL_CONV, VAL_PORC, VAL_COST, VAL_REPO, COD_LOTE, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI, NRO_UNID', 'safe', 'on'=>'search'),
+		);
+	}
 
-    /**
-     * @return array validation rules for model attributes.
-     */
-    public function rules() {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
-        return array(
-            array('COD_LINE', 'required'),
-            array('VAL_PESO, VAL_CONV, VAL_REPO, COD_LOTE', 'numerical', 'integerOnly' => true),
-            array('COD_PROD, VAL_PROD, VAL_PORC, VAL_COST, NRO_UNID, VAL_TOTAL', 'length', 'max' => 12),
-            array('COD_LINE', 'length', 'max' => 2),
-            array('DES_LARG, DES_CORT', 'length', 'max' => 100),
-            array('COD_ESTA, COD_MEDI', 'length', 'max' => 1),
-            array('USU_DIGI, USU_MODI', 'length', 'max' => 20),
-            array('N_ORDEN', 'length', 'max' => 10),
-            array('FEC_DIGI, FEC_MODI', 'safe'),
-            // The following rule is used by search().
-            // @todo Please remove those attributes that should not be searched.
-            array('COD_PROD, COD_LINE, DES_LARG, DES_CORT, COD_ESTA, COD_MEDI, VAL_PESO, VAL_PROD, VAL_CONV, VAL_PORC, VAL_COST, VAL_REPO, COD_LOTE, USU_DIGI, FEC_DIGI, USU_MODI, FEC_MODI, NRO_UNID, VAL_TOTAL, N_ORDEN', 'safe', 'on' => 'search'),
-        );
-    }
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'cODLINE' => array(self::BELONGS_TO, 'MAELINEAPRODU', 'COD_LINE'),
+		);
+	}
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations() {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return array(
-            'cODLINE' => array(self::BELONGS_TO, 'MAELINEAPRODU', 'COD_LINE'),
-        );
-    }
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'COD_PROD' => 'Cod Prod',
+			'COD_LINE' => 'Cod Line',
+			'DES_LARG' => 'Des Larg',
+			'DES_CORT' => 'Des Cort',
+			'COD_ESTA' => 'Cod Esta',
+			'COD_MEDI' => 'Cod Medi',
+			'VAL_PESO' => 'Val Peso',
+			'VAL_PROD' => 'Val Prod',
+			'VAL_CONV' => 'Val Conv',
+			'VAL_PORC' => 'Val Porc',
+			'VAL_COST' => 'Val Cost',
+			'VAL_REPO' => 'Val Repo',
+			'COD_LOTE' => 'Cod Lote',
+			'USU_DIGI' => 'Usu Digi',
+			'FEC_DIGI' => 'Fec Digi',
+			'USU_MODI' => 'Usu Modi',
+			'FEC_MODI' => 'Fec Modi',
+			'NRO_UNID' => 'Nro Unid',
+		);
+	}
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
-    public function attributeLabels() {
-        return array(
-            'COD_PROD' => 'Cod Prod',
-            'COD_LINE' => 'Cod Line',
-            'DES_LARG' => 'Des Larg',
-            'DES_CORT' => 'Des Cort',
-            'COD_ESTA' => 'Cod Esta',
-            'COD_MEDI' => 'Cod Medi',
-            'VAL_PESO' => 'Val Peso',
-            'VAL_PROD' => 'Val Prod',
-            'VAL_CONV' => 'Val Conv',
-            'VAL_PORC' => 'Val Porc',
-            'VAL_COST' => 'Val Cost',
-            'VAL_REPO' => 'Val Repo',
-            'COD_LOTE' => 'Cod Lote',
-            'USU_DIGI' => 'Usu Digi',
-            'FEC_DIGI' => 'Fec Digi',
-            'USU_MODI' => 'Usu Modi',
-            'FEC_MODI' => 'Fec Modi',
-            'NRO_UNID' => 'Nro Unid',
-            'VAL_TOTAL' => 'Val Total',
-            'N_ORDEN' => 'N Orden',
-        );
-    }
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     *
-     * Typical usecase:
-     * - Initialize the model fields with values from filter form.
-     * - Execute this method to get CActiveDataProvider instance which will filter
-     * models according to data in model fields.
-     * - Pass data provider to CGridView, CListView or any similar widget.
-     *
-     * @return CActiveDataProvider the data provider that can return the models
-     * based on the search/filter conditions.
-     */
-    public function search() {
-        // @todo Please modify the following code to remove attributes that should not be searched.
+		$criteria=new CDbCriteria;
 
-        $criteria = new CDbCriteria;
+		$criteria->compare('COD_PROD',$this->COD_PROD,true);
+		$criteria->compare('COD_LINE',$this->COD_LINE,true);
+		$criteria->compare('DES_LARG',$this->DES_LARG,true);
+		$criteria->compare('DES_CORT',$this->DES_CORT,true);
+		$criteria->compare('COD_ESTA',$this->COD_ESTA,true);
+		$criteria->compare('COD_MEDI',$this->COD_MEDI,true);
+		$criteria->compare('VAL_PESO',$this->VAL_PESO);
+		$criteria->compare('VAL_PROD',$this->VAL_PROD,true);
+		$criteria->compare('VAL_CONV',$this->VAL_CONV);
+		$criteria->compare('VAL_PORC',$this->VAL_PORC,true);
+		$criteria->compare('VAL_COST',$this->VAL_COST,true);
+		$criteria->compare('VAL_REPO',$this->VAL_REPO);
+		$criteria->compare('COD_LOTE',$this->COD_LOTE);
+		$criteria->compare('USU_DIGI',$this->USU_DIGI,true);
+		$criteria->compare('FEC_DIGI',$this->FEC_DIGI,true);
+		$criteria->compare('USU_MODI',$this->USU_MODI,true);
+		$criteria->compare('FEC_MODI',$this->FEC_MODI,true);
+		$criteria->compare('NRO_UNID',$this->NRO_UNID,true);
 
-        $criteria->compare('COD_PROD', $this->COD_PROD, true);
-        $criteria->compare('COD_LINE', $this->COD_LINE, true);
-        $criteria->compare('DES_LARG', $this->DES_LARG, true);
-        $criteria->compare('DES_CORT', $this->DES_CORT, true);
-        $criteria->compare('COD_ESTA', $this->COD_ESTA, true);
-        $criteria->compare('COD_MEDI', $this->COD_MEDI, true);
-        $criteria->compare('VAL_PESO', $this->VAL_PESO);
-        $criteria->compare('VAL_PROD', $this->VAL_PROD, true);
-        $criteria->compare('VAL_CONV', $this->VAL_CONV);
-        $criteria->compare('VAL_PORC', $this->VAL_PORC, true);
-        $criteria->compare('VAL_COST', $this->VAL_COST, true);
-        $criteria->compare('VAL_REPO', $this->VAL_REPO);
-        $criteria->compare('COD_LOTE', $this->COD_LOTE);
-        $criteria->compare('USU_DIGI', $this->USU_DIGI, true);
-        $criteria->compare('FEC_DIGI', $this->FEC_DIGI, true);
-        $criteria->compare('USU_MODI', $this->USU_MODI, true);
-        $criteria->compare('FEC_MODI', $this->FEC_MODI, true);
-        $criteria->compare('NRO_UNID', $this->NRO_UNID, true);
-        $criteria->compare('VAL_TOTAL', $this->VAL_TOTAL, true);
-        $criteria->compare('N_ORDEN', $this->N_ORDEN, true);
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-        ));
-    }
-
-    /**
-     * Returns the static model of the specified AR class.
-     * Please note that you should have this exact method in all your CActiveRecord descendants!
-     * @param string $className active record class name.
-     * @return TEMPMAEPRODU the static model class
-     */
-    public static function model($className = __CLASS__) {
-        return parent::model($className);
-    }
-
-    public function getLinea() {
-        $models = MAELINEAPRODU::model()->findAll();
-        $list = CHtml::listData($models, 'COD_LINE', 'DES_LARG');
-        return ($list);
-    }
-
-    public function au() {
-
-        $max = Yii::app()->db->createCommand()->select('max(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
-
-        $id = ($max + 1);
-
-        return $id;
-    }
-
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return TEMPMAEPRODU the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
 }

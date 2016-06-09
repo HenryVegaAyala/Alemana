@@ -1,11 +1,11 @@
 <head>
-<script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
 
         function jsload() {
 
-					 $("#div1").load(location.href + " #div1>*", "");
+            $("#div1").load(location.href + " #div1>*", "");
         }
-     setInterval( "jsload()", 500 );
+        setInterval("jsload()", 500);
     </script>
 </head>
 
@@ -39,8 +39,8 @@
             } else {
                 echo "No se encuentra valores disponibles";
             }
-        }else{
-        	echo "No se grabo, volver a intentar";
+        } else {
+            echo "No se grabo, volver a intentar";
         }
     }
     ?>

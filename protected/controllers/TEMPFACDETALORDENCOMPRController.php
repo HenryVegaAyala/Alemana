@@ -24,7 +24,7 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate','Consulta'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate','Consulta','Respaldo','ajax'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -37,8 +37,13 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
-    public function actionConsulta() {
-        $this->render('Consulta');
+    
+    public function actionAjax() {
+        $this->render('tEMPFACDETALORDENCOMPR/ajax');
+    }
+    
+    public function actionRespaldo() {
+        $this->render('Respaldo');
     }
 
     public function actionView($id) {
