@@ -2,7 +2,7 @@
     <script>
         setInterval(function() {
             $("#div1").load(location.href + " #div1>*", "");
-        }, 3000);</script>
+        }, 5000);</script>
 </head>
 
 <div class="div1 container-fluid" id="div1" >
@@ -12,6 +12,8 @@
 
     $UDP2 = Yii::app()->session['PCIP'];
 
+    echo $UDP;
+    
     echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP . ' - ' . $UDP2;
 
     function valor($COD) {

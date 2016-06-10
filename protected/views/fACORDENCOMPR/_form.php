@@ -222,81 +222,79 @@
         ));
         ?>
 
+            <div class="container-fluid">
+                <?php
+                $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
+                ));
+                ?>
+            </div>
 
-        <div class="container-fluid">
-            <?php
-            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
-            ));
-            ?>
-        </div>
-
-        <div class="container-fluid">
-            <table align="right">
-                <tbody>
-                    <tr>
-                        <td class="col-sm-4">
-                            <?php echo $form->labelEx($model, 'TOT_MONT_ORDE'); ?>
-                        </td>
-                        <td>         
-                            <?php
-                            echo $form->textField($model, 'TOT_MONT_ORDE', array(
-                                'value' => $model->SubTotal(),
-                                'class' => 'form-control',
-                                'style' => 'background-color: transparent;',
-                                'readonly' => 'readonly'
-                            ));
-                            ?>
-                            <?php echo $form->error($model, 'TOT_MONT_ORDE'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-4">
-                            <?php echo $form->labelEx($model, 'TOT_MONT_IGV'); ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $form->textField($model, 'TOT_MONT_IGV', array(
-                                'value' => $model->Igv(),
-                                'class' => 'form-control',
-                                'style' => 'background-color: transparent;',
-                                'readonly' => 'readonly'
-                            ));
-                            ?>
-                            <?php echo $form->error($model, 'TOT_MONT_IGV'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-4">
-                            <?php echo $form->labelEx($model, 'TOT_FACT'); ?>
-                        </td>
-                        <td>                
-                            <?php
-                            echo $form->textField($model, 'TOT_FACT', array(
-                                'value' => $model->Total(),
-                                'class' => 'form-control',
-                                'style' => 'background-color: transparent;',
-                                'readonly' => 'readonly'
-                            ))
-                            ?>
-                            <?php echo $form->error($model, 'TOT_FACT'); ?>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+            <div class="container-fluid">
+                <table align="right">
+                    <tbody>
+                        <tr>
+                            <td class="col-sm-4">
+                                <?php echo $form->labelEx($model, 'TOT_MONT_ORDE'); ?>
+                            </td>
+                            <td>         
+                                <?php
+                                echo $form->textField($model, 'TOT_MONT_ORDE', array(
+                                    'value' => $model->SubTotal(),
+                                    'class' => 'form-control',
+                                    'style' => 'background-color: transparent;',
+                                    'readonly' => 'readonly'
+                                ));
+                                ?>
+                                <?php echo $form->error($model, 'TOT_MONT_ORDE'); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-4">
+                                <?php echo $form->labelEx($model, 'TOT_MONT_IGV'); ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo $form->textField($model, 'TOT_MONT_IGV', array(
+                                    'value' => $model->Igv(),
+                                    'class' => 'form-control',
+                                    'style' => 'background-color: transparent;',
+                                    'readonly' => 'readonly'
+                                ));
+                                ?>
+                                <?php echo $form->error($model, 'TOT_MONT_IGV'); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-4">
+                                <?php echo $form->labelEx($model, 'TOT_FACT'); ?>
+                            </td>
+                            <td>                
+                                <?php
+                                echo $form->textField($model, 'TOT_FACT', array(
+                                    'value' => $model->Total(),
+                                    'class' => 'form-control',
+                                    'style' => 'background-color: transparent;',
+                                    'readonly' => 'readonly'
+                                ))
+                                ?>
+                                <?php echo $form->error($model, 'TOT_FACT'); ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
-        <div class="panel-footer container-fluid" style="overflow:hidden;text-align:right;">
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
-                    <input type="reset" src="create.php" class="btn btn-default btn-md" value="Cancelar">
-                </div>
-            </div>  
-        </div>
+            <div class="panel-footer container-fluid" style="overflow:hidden;text-align:right;">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
+                        <input type="reset" src="create.php" class="btn btn-default btn-md" value="Cancelar">
+                    </div>
+                </div>  
+            </div>
 
-        <?php $this->endWidget(); ?>
+            <?php $this->endWidget(); ?>
 
-    </div><!-- form -->
-</div>
+        </div><!-- form -->
+    </div>

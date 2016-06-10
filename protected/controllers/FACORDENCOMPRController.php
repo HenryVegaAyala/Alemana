@@ -54,25 +54,6 @@ class FACORDENCOMPRController extends Controller {
             }
             echo json_encode($data);
         }
-
-
-
-//        $con = mysqli_connect('sispaal.cnjv4vhhy3or.us-west-2.rds.amazonaws.com', 'root', 'root2016', 'SIS_PANA', '3306');
-//        if (!$con) {
-//            die('Could not connect to MySQL: ' . mysqli_connect_error());
-//        }
-//        mysqli_query($con, 'SET NAMES \'utf8\'');
-//
-//        if ($_GET['type'] == 'produc_tiend') {
-//            $row_num = $_GET['row_num'];
-//            $result = mysqli_query($con, "SELECT DES_LARG,COD_PROD,NRO_UNID,VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'");
-//            $data = array();
-//            while ($row = mysqli_fetch_array($result)) {
-//                $name = $row['DES_LARG'] . '|' . $row['COD_PROD'] . '|' . $row['NRO_UNID'] . '|' . $row['VAL_PROD'] . '|' . $row_num;
-//                array_push($data, $name);
-//            }
-//            echo json_encode($data);
-//        }
     }
 
     public function actionRespaldo() {
