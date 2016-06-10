@@ -93,7 +93,7 @@ class FACORDENCOMPR extends CActiveRecord {
         return array(
             'COD_CLIE' => 'Cliente',
             'COD_TIEN' => 'Tienda',
-            'COD_ORDE' => 'Codigo de Orden',
+            'COD_ORDE' => 'Código de Orden',
             'NUM_ORDE' => 'N° de Orden',
             'IND_TIPO' => 'Ind Tipo',
             'TIP_MONE' => 'Moneda',
@@ -102,7 +102,7 @@ class FACORDENCOMPR extends CActiveRecord {
             'TOT_MONT_IGV' => 'IGV',
             'TOT_FACT' => 'Total',
             'FEC_PAGO' => 'Fec Pago',
-            'IND_ESTA' => 'Ind Esta',
+            'IND_ESTA' => 'Estado',
             'FEC_INGR' => 'Fecha de Ingreso',
             'FEC_ENVI' => 'Fecha de Envio',
             'FEC_ANUL' => 'Fec Anul',

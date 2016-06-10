@@ -24,7 +24,7 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate', 'Respaldo','ajax'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate', 'Respaldo', 'ajax'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -37,9 +37,22 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
         $this->render('Respaldo');
     }
 
-//    public function actionAjax() {
-//        $this->render('ajax');
-//    }
+    public function actionAjax() {
+
+        if ($_GET['type'] == 'produc_tiend') {
+            $row_num = $_GET['row_num'];
+            $connection = Yii::app()->db;
+            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
+            $command = $connection->createCommand($sqlStatement);
+            $reader = $command->query();
+            $data = array();
+            while ($row = $reader->read()) {
+                $name = $row['DES_LARG'] . '|' . $row['COD_PROD'] . '|' . $row['NRO_UNID'] . '|' . $row['VAL_PROD'] . '|' . $row_num;
+                array_push($data, $name);
+            }
+            echo json_encode($data);
+        }
+    }
 
     /**
      * Displays a particular model.

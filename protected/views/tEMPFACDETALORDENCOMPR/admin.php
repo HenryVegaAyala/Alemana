@@ -71,7 +71,7 @@ Yii::app()->session['USU'] = $usuario;
             <td><input type="text" id='campo_DES_LARG' name='DES_LARG[]' size="45" class="form-control"/></td>
             <td><input type="text" id='campo_COD_PROD' name='COD_PROD[]' size="10" class="form-control" readonly="true"/></td>
             <td><input type="text" onchange="jsCalcular(this)"  id='campo_NRO_UNID' name='NRO_UNID[]' value="0" size="10" class="form-control" /></td>
-            <td><input type="text" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" id='campo_VAL_PREC' name='VAL_PREC[]' value="0" size="10" class="form-control" readonly="true"/> </td>
+            <td><input type="text" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" id='campo_VAL_PREC' name='VAL_PREC[]' value="0" size="10" class="form-control"/> </td>
             <td><input type="text" id='campo_VAL_MONT_UNID' name='VAL_MONT_UNID[]' size="10" class="form-control" readonly="true"/> </td>
         </tr>
     </table>
@@ -147,7 +147,7 @@ Yii::app()->session['USU'] = $usuario;
                                     <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)" value="0" />\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" value="0" readonly="true"/>\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" value="0"/>\n\
                                 </td>\n\
                                 <td>\n\
                                     <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control" readonly="true"/>\n\

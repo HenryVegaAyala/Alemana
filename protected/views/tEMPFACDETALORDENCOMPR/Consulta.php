@@ -12,9 +12,9 @@
 
     $UDP2 = Yii::app()->session['PCIP'];
 
-    echo $UDP;
-    
-    echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP . ' - ' . $UDP2;
+//    echo $UDP;
+//    
+//    echo "Nombre de usuario recuperado de la variable de sesión:" . $UDP . ' - ' . $UDP2;
 
     function valor($COD) {
 

@@ -1,15 +1,11 @@
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 /* @var $this FACORDENCOMPRController */
 /* @var $model FACORDENCOMPR */
 
-$this->breadcrumbs=array(
-	'Facordencomprs'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List FACORDENCOMPR', 'url'=>array('index')),
-	array('label'=>'Create FACORDENCOMPR', 'url'=>array('create')),
+$this->breadcrumbs = array(
+    'Lista de O/C',
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,48 +22,48 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Facordencomprs</h1>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Búsqueda O/C</h3>
+        </div>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+        <div class="mar">
+            <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+        </div>
+        <div class="search-form" style="display:none">
+            <?php
+            $this->renderPartial('_search', array(
+                'model' => $model,
+            ));
+            ?>
+        </div><!-- search-form -->
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'facordencompr-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'COD_CLIE',
-		'COD_TIEN',
-		'COD_ORDE',
-		'NUM_ORDE',
-		'IND_TIPO',
-		'TIP_MONE',
-		/*
-		'TOT_UNID_SOLI',
-		'TOT_MONT_ORDE',
-		'TOT_MONT_IGV',
-		'TOT_FACT',
-		'FEC_PAGO',
-		'IND_ESTA',
-		'FEC_INGR',
-		'FEC_ENVI',
-		'FEC_ANUL',
-		'USU_DIGI',
-		'FEC_DIGI',
-		'USU_MODI',
-		'FEC_MODI',
-		*/
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+        <div class="table-responsive">
+            <?php
+            $this->widget('ext.bootstrap.widgets.TbGridView', array(
+                'id' => 'facordencompr-grid',
+                'type' => 'bordered condensed striped',
+                'dataProvider' => $model->search(),
+                'columns' => array(
+                    'COD_ORDE',
+                    array(
+                        'header' => 'Tienda',
+                        'value' => '$data->cODTIEN->DES_TIEN'
+                    ),
+                    'FEC_INGR',
+                    'FEC_ENVI',
+                    'TOT_FACT',
+                    'IND_ESTA',
+                    array(
+                        'header' => 'Opciones',
+                        'class' => 'ext.bootstrap.widgets.TbButtonColumn',
+                        'htmlOptions' => array('style' => 'width: 77px; text-align: center;'),
+                        'template' => '{view}{update}{delete}',
+                    ),
+                ),
+            ));
+            ?>
+        </div>
+    </div>
+</div>

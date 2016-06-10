@@ -26,13 +26,17 @@ class FACORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionConsulta() {
+        $this->render('/tEMPFACDETALORDENCOMPR/Consulta');
     }
 
     public function actionSearch() {
@@ -61,7 +65,7 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionClienteByTienda() {
-        $model = new FACORDENCOMPR;
+        $model = new  FACORDENCOMPR;
         $COD = $_POST["FACORDENCOMPR"]["NUM_ORDE"];
         $clie = $_POST["FACORDENCOMPR"]["COD_CLIE"];
         $list = MAETIEND::model()->findAll("COD_CLIE = ?", array($_POST["FACORDENCOMPR"]["COD_CLIE"]));
@@ -211,4 +215,5 @@ class FACORDENCOMPRController extends Controller {
     }
 
 }
+
 ?>
