@@ -92,8 +92,7 @@ Yii::app()->session['USU'] = $usuario;
 
         for ($i = 0; $i < count($CODPRO); $i++) {
             
-            if()
-            
+                   
             if($CODPRO[$i] <> ''){
              $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
              $command = $connection->createCommand($sqlStatement);
