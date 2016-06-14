@@ -54,6 +54,7 @@ class FACORDENCOMPR extends CActiveRecord {
             array('FEC_INGR', 'required'),
             array('FEC_ENVI', 'required'),
             array('NUM_ORDE', 'unique'),
+            
             array('NUM_ORDE', 'numerical', 'integerOnly' => true),
             array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
             array('COD_CLIE, COD_TIEN', 'length', 'max' => 6),
@@ -130,6 +131,8 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
+ 		$criteria->order="FEC_MODI,NUM_ORDE desc";
+
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('COD_TIEN', $this->COD_TIEN, true);
         $criteria->compare('COD_ORDE', $this->COD_ORDE, true);
@@ -173,6 +176,17 @@ class FACORDENCOMPR extends CActiveRecord {
         return cHtml::listData($model, 'TIP_MONE', 'value');
     }
 
+    public function Estado() {
+        $model = array(
+            array('IND_ESTA' => '1', 'value' => 'En Proceso'),
+            array('IND_ESTA' => '2', 'value' => 'Despachadado/Atendido'),
+            array('IND_ESTA' => '9', 'value' => 'Anulado'),
+            array('IND_ESTA' => '0', 'value' => 'Creado'),
+        );
+        return cHtml::listData($model, 'IND_ESTA', 'value');
+    }
+
+
     public function ListaCliente() {
 
 //        return CHtml::listData(MAECLIEN::model()->findAll("COD_ESTA=?",array(1)), 'COD_CLIE', 'SelectName');
@@ -185,7 +199,14 @@ class FACORDENCOMPR extends CActiveRecord {
         $Tienda = MAETIEND::model()->findAll("COD_ESTA=? AND COD_CLIE=?", array(1, $defaultTienda));
         return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
     }
-
+    
+        public function VistaTienda() {
+        $models = MAETIEND::model()->findAll();
+        $list = CHtml::listData($models, 'COD_TIEN', 'DES_TIEN');
+        return ($list);
+    }
+    
+    
     public function au() {
 
         $max = Yii::app()->db->createCommand()->select('count(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();

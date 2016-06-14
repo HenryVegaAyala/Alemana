@@ -1,6 +1,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
 
 <?php
+$form = $this->beginWidget('CActiveForm', array(
+    'action' => Yii::app()->createUrl($this->route),
+    'method' => 'get',
+        ));
+?>
+
+<?php
 /* @var $this FACORDENCOMPRController */
 /* @var $model FACORDENCOMPR */
 
@@ -46,7 +53,12 @@ $('.search-form form').submit(function(){
                 'type' => 'bordered condensed striped',
                 'dataProvider' => $model->search(),
                 'columns' => array(
-                    'COD_ORDE',
+                    array(
+                        'id' => 'COD_ORDE',
+                        'class' => 'CCheckBoxColumn',
+                        'selectableRows' => '50',
+                    ),
+                    'NUM_ORDE',
                     array(
                         'header' => 'Tienda',
                         'value' => '$data->cODTIEN->DES_TIEN'
@@ -54,7 +66,27 @@ $('.search-form form').submit(function(){
                     'FEC_INGR',
                     'FEC_ENVI',
                     'TOT_FACT',
-                    'IND_ESTA',
+                    array(
+                        'name' => 'Estado',
+                        'value' => function($data) {
+
+                            $variable = $data->__GET('IND_ESTA');
+                            switch ($variable) {
+                                case 1:
+                                    echo 'En Proceso';
+                                    break;
+                                case 2:
+                                    echo 'Despacho/Atendido';
+                                    break;
+                                case 9:
+                                    echo 'Anulado';
+                                    break;
+                                case 0:
+                                    echo 'Creado';
+                                    break;
+                            }
+                        },
+                    ),
                     array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
@@ -64,6 +96,30 @@ $('.search-form form').submit(function(){
                 ),
             ));
             ?>
+<!--            <script>
+                function reloadGrid(data) {
+                    $.fn.yiiGridView.update('facordencompr-grid');
+                }
+                var interval = setInterval("reloadGrid()", 6000);
+            </script>-->
+            <script>
+                function reloadGrid(data) {
+                    $.fn.yiiGridView.update('facordencompr-grid');
+                }
+            </script>
+
+            <div class="panel-footer " style="overflow:hidden;text-align:right;">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Generar Guias', array('class' => 'btn btn-success btn-md'), array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Vizualizar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Modificar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Eliminar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Nuevo', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                    </div>
+                </div>  
+            </div>
         </div>
     </div>
-</div>
+</div>    <?php $this->endWidget(); ?>
