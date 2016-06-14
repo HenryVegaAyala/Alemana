@@ -91,9 +91,14 @@ Yii::app()->session['USU'] = $usuario;
         $VALMOTUND = $_POST['VAL_MONT_UNID'];
 
         for ($i = 0; $i < count($CODPRO); $i++) {
-            $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
-            $command = $connection->createCommand($sqlStatement);
-            $command->execute();
+            
+            if()
+            
+            if($CODPRO[$i] <> ''){
+             $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
+             $command = $connection->createCommand($sqlStatement);
+             $command->execute();
+            }
         }
     }
     ?>
@@ -134,7 +139,26 @@ Yii::app()->session['USU'] = $usuario;
     });
     var i = $('table tr').length;
     $(".addmore").on('click', function() {
+        
+       //debe validar que no se ingrese registros duplicados
+       var x= document.getElementsByName("COD_PROD[]");
+       primeraFila=0;
+       ultimaFila =x.length-1;
+       
+       for( i=0; i<= ultimaFila;i++){
+           cod= x[i].value;
+              for( j=i+1; j<= ultimaFila;j++){
+                  cod2=x[j].value;
+                 // alert(cod + ' - '+cod2);
+                  if(cod === cod2){
+                      alert("Existen codigos de productos duplicados, por favor revisar");
+                      return;
+                  }
+               }
+       }
+      
         count = $('table tr').length;
+        
         var data = "<tr><td><input type='checkbox' class='case'/></td><td><span id='snum" + i + "'>" + count + ".</span></td>";
         data += '\n\\n\
                                 <td>\n\
