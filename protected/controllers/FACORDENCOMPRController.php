@@ -113,11 +113,13 @@ class FACORDENCOMPRController extends Controller {
         $modelOC = new TEMPFACDETALORDENCOMPR();
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
+        
+        $fi = $model->FEC_INGR = '2016/05/042';
 
         if (isset($_POST['FACORDENCOMPR'])) {
             $model->attributes = $_POST['FACORDENCOMPR'];
             if ($model->save())
-                $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
+                $this->redirect(array('index', 'id' => $model->COD_ORDE,$fi), Yii::app()->session['USU'] = " ");
         }
 
         $this->render('create', array(
