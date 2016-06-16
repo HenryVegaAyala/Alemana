@@ -53,8 +53,8 @@ class FACORDENCOMPR extends CActiveRecord {
             array('NUM_ORDE', 'required'),
             array('FEC_INGR', 'required'),
             array('FEC_ENVI', 'required'),
-            array('NUM_ORDE', 'unique'),
-            
+//            array('NUM_ORDE', 'Validacion'),
+            array('COD_ORDE', 'unique'),
             array('NUM_ORDE', 'numerical', 'integerOnly' => true),
             array('COD_CLIE, COD_TIEN, COD_ORDE', 'required'),
             array('COD_CLIE, COD_TIEN', 'length', 'max' => 6),
@@ -131,7 +131,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
- 		$criteria->order="FEC_MODI,NUM_ORDE desc";
+        $criteria->order = "FEC_MODI,NUM_ORDE desc";
 
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('COD_TIEN', $this->COD_TIEN, true);
@@ -186,7 +186,6 @@ class FACORDENCOMPR extends CActiveRecord {
         return cHtml::listData($model, 'IND_ESTA', 'value');
     }
 
-
     public function ListaCliente() {
 
 //        return CHtml::listData(MAECLIEN::model()->findAll("COD_ESTA=?",array(1)), 'COD_CLIE', 'SelectName');
@@ -199,14 +198,13 @@ class FACORDENCOMPR extends CActiveRecord {
         $Tienda = MAETIEND::model()->findAll("COD_ESTA=? AND COD_CLIE=?", array(1, $defaultTienda));
         return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
     }
-    
-        public function VistaTienda() {
+
+    public function VistaTienda() {
         $models = MAETIEND::model()->findAll();
         $list = CHtml::listData($models, 'COD_TIEN', 'DES_TIEN');
         return ($list);
     }
-    
-    
+
     public function au() {
 
         $max = Yii::app()->db->createCommand()->select('count(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
@@ -217,7 +215,7 @@ class FACORDENCOMPR extends CActiveRecord {
     }
 
     public function SubTotal() {
-        
+
         $UDP = Yii::app()->session['USU'];
         $UDP2 = Yii::app()->session['PCIP'];
 
@@ -227,14 +225,14 @@ class FACORDENCOMPR extends CActiveRecord {
                 ->where("VAL_USU = '" . $UDP . "' and VAL_PCIP = '" . $UDP2 . "';")
                 ->queryScalar();
 
-        $id = ($max+0);
+        $id = ($max + 0);
 
         return $id;
     }
 
     public function Igv() {
-        
-                $UDP = Yii::app()->session['USU'];
+
+        $UDP = Yii::app()->session['USU'];
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
@@ -249,8 +247,8 @@ class FACORDENCOMPR extends CActiveRecord {
     }
 
     public function Total() {
-        
-                $UDP = Yii::app()->session['USU'];
+
+        $UDP = Yii::app()->session['USU'];
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()

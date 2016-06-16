@@ -1,7 +1,6 @@
 <?php
 Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/jqueryui.css');
 //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/bootstrapm.css');
-
 //Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1102.js');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1103.js');
 ?>
@@ -54,6 +53,7 @@ Yii::app()->session['USU'] = $usuario;
 <html>
 
     <button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore'>+ Agregar Campos de Productos</button>
+    <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
     <br><br>
     <table class="table table-bordered table-condensed table-responsive table-striped table-hover table-wrapper" id="tableP">
         <tr>
@@ -76,7 +76,7 @@ Yii::app()->session['USU'] = $usuario;
         </tr>-->
     </table>
     <br>
-    <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
+
     <?php
 //    $connection = Yii::app()->db;
 //
@@ -111,7 +111,7 @@ Yii::app()->session['USU'] = $usuario;
         var result = Math.round(original * 100) / 100;
         return result;
     }
-    
+
 
 
     function jsCalcular(ele) {
@@ -136,27 +136,27 @@ Yii::app()->session['USU'] = $usuario;
     });
     var i = $('#tableP tr').length;
     $(".addmore").on('click', function() {
-        
-       //debe validar que no se ingrese registros duplicados
-       var x= document.getElementsByName("COD_PROD[]");
-       primeraFila=0;
-       ultimaFila =x.length-1;
-       //i=x.length+1;
-       //Calucalr Total/Subotal/IGV
-       
-       
-       for( k=0; k<= ultimaFila;k++){
-           cod= x[k].value;
-              for( j=k+1; j<= ultimaFila;j++){
-                  cod2=x[j].value;
-                 // alert(cod + ' - '+cod2);
-                  if(cod === cod2){
-                      alert("Existen codigos de productos duplicados xx, por favor revisar");
-                      return;
-                  }
-               }
-       }
-        
+
+        //debe validar que no se ingrese registros duplicados
+        var x = document.getElementsByName("COD_PROD[]");
+        primeraFila = 0;
+        ultimaFila = x.length - 1;
+        //i=x.length+1;
+        //Calucalr Total/Subotal/IGV
+
+
+        for (k = 0; k <= ultimaFila; k++) {
+            cod = x[k].value;
+            for (j = k + 1; j <= ultimaFila; j++) {
+                cod2 = x[j].value;
+                // alert(cod + ' - '+cod2);
+                if (cod === cod2) {
+                    alert("Existen codigos de productos duplicados xx, por favor revisar");
+                    return;
+                }
+            }
+        }
+
         count = $('#tableP tr').length;
         //alert(count);
         var data = "<tr><td><input type='checkbox' class='case'/></td><td><span id='snum" + i + "'>" + count + "</span></td>";
@@ -202,44 +202,44 @@ Yii::app()->session['USU'] = $usuario;
     }
 
 
-    function crearFunciones(i){
-      //  for(i=0; i< fila;i++){
-       //alert('crearFunciones '+i);
-         row = i;
+    function crearFunciones(i) {
+        //  for(i=0; i< fila;i++){
+        //alert('crearFunciones '+i);
+        row = i;
         $('#DES_LARG_' + i).autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: 'ajax.php',
-                dataType: "json",
-                data: {
-                    nombre_producto: request.term,
-                    type: 'produc_tiend',
+            source: function(request, response) {
+                $.ajax({
+                    url: 'ajax.php',
+                    dataType: "json",
+                    data: {
+                        nombre_producto: request.term,
+                        type: 'produc_tiend',
                         row_num: 2
-                },
-                success: function(data) {
-                    response($.map(data, function(item) {
-                             //alert(item)
-                        var code = item.split("|");
-                        return {
-                            label: code[0],
-                            value: code[0],
-                            data: item
-                        }
-                    }));
-                }
-            });
-        },
-        autoFocus: true,
-        minLength: 0,
-        select: function(event, ui) {
-            var names = ui.item.data.split("|");
-            console.log(names[1], names[2], names[3]);
+                    },
+                    success: function(data) {
+                        response($.map(data, function(item) {
+                            //alert(item)
+                            var code = item.split("|");
+                            return {
+                                label: code[0],
+                                value: code[0],
+                                data: item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 0,
+            select: function(event, ui) {
+                var names = ui.item.data.split("|");
+                console.log(names[1], names[2], names[3]);
                 $('#COD_PROD_' + row).val(names[1]);
                 $('#NRO_UNID_' + row).val(names[2]);
                 $('#VAL_PREC_' + row).val(names[3]);
-                }
-            });
-        }
+            }
+        });
+    }
 
     $('#DES_LARG').autocomplete({
         source: function(request, response) {
@@ -272,7 +272,7 @@ Yii::app()->session['USU'] = $usuario;
             $('#campo_NRO_UNID').val(names[2]);
             $('#campo_VAL_PREC ').val(names[3]);
         }
-     
-  
+
+
     });
 </script>

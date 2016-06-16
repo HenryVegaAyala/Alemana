@@ -17,9 +17,15 @@
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'facordencompr-form',
             'enableAjaxValidation' => true,
-            
         ));
         ?>
+
+        <?php if (Yii::app()->user->hasFlash('error')): ?>
+            <div class="alert">
+                <?php echo Yii::app()->user->getFlash('error'); ?>
+            </div>
+        <?php endif ?>
+
         <br>
         <div class="container-fluid">
             <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
@@ -30,27 +36,27 @@
         ?>
 
         <script>
-             $.datepicker.regional['es'] = {
-             closeText: 'Cerrar',
-             prevText: '<Ant',
-             nextText: 'Sig>',
-             currentText: 'Hoy',
-             monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-             monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-             dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-             dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-             dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-             weekHeader: 'Sm',
-             dateFormat: 'dd/mm/yy',
-             firstDay: 1,
-             isRTL: false,
-             showMonthAfterYear: false,
-             yearSuffix: ''
-             };
-             $.datepicker.setDefaults($.datepicker.regional['es']);
-        
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '<Ant',
+                nextText: 'Sig>',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+
         </script>
-        
+
         <div class="fieldset">
 
             <div class="form-group ir">
@@ -124,28 +130,28 @@
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
-                   
-                        <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>"/>
+
+                    <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>" required="true"/>
                     <script>
                         $(function() {
-                          $( "#FACORDENCOMPR_FEC_INGR" ).datepicker();
+                            $("#FACORDENCOMPR_FEC_INGR").datepicker();
                         });
-                        
-                        </script>
-                    <?php // echo $form->error($model, 'FEC_INGR'); ?>
+
+                    </script>
+                    <?php // echo $form->error($model, 'FEC_INGR');  ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_ENVI'); ?>
-                    
-                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>"/>
+
+                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>" required="true"/>
                     <script>
                         $(function() {
-                          $( "#FACORDENCOMPR_FEC_ENVI" ).datepicker();
+                            $("#FACORDENCOMPR_FEC_ENVI").datepicker();
                         });
-                        
-                        </script>
-                    <?php // echo $form->error($model, 'FEC_ENVI'); ?>
+
+                    </script>
+                    <?php // echo $form->error($model, 'FEC_ENVI');  ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
@@ -188,17 +194,16 @@
 
         <div id="add" >
             <?php
-            include __DIR__ .'/../tEMPFACDETALORDENCOMPR/admin.php';
-
+            include __DIR__ . '/../tEMPFACDETALORDENCOMPR/admin.php';
             ?>
         </div>
 
-<!--        <div class="container-fluid">
-            <?php
+        <!--        <div class="container-fluid">
+        <?php
 //            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
 //            ));
-            ?>
-        </div>-->
+        ?>
+                </div>-->
 
         <div class="container-fluid">
             <table align="right">

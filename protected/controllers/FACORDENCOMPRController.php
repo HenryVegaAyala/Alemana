@@ -65,7 +65,7 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionClienteByTienda() {
-        $model = new  FACORDENCOMPR;
+        $model = new FACORDENCOMPR;
         $COD = $_POST["FACORDENCOMPR"]["NUM_ORDE"];
         $clie = $_POST["FACORDENCOMPR"]["COD_CLIE"];
         $list = MAETIEND::model()->findAll("COD_CLIE = ?", array($_POST["FACORDENCOMPR"]["COD_CLIE"]));
@@ -113,27 +113,26 @@ class FACORDENCOMPRController extends Controller {
         $modelOC = new TEMPFACDETALORDENCOMPR();
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
-        
-       //   $fechaing = $_POST['FACORDENCOMPR']['FEC_INGR'];
+        //   $fechaing = $_POST['FACORDENCOMPR']['FEC_INGR'];
 
         if (isset($_POST['FACORDENCOMPR'])) {
-            
-               //variables de auditoria
+
+            //variables de auditoria
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $ip = getenv("REMOTE_ADDR");
             $pc = @gethostbyaddr($ip);
             $pcip = $pc . ' - ' . $ip;
-            
+
             $model->attributes = $_POST['FACORDENCOMPR'];
-           //date_format($model->FEC_INGR, 'Y-m-d'); 
-            $model->FEC_INGR = substr($model->FEC_INGR,6,4).'/'.substr($model->FEC_INGR,3,2).'/'.substr($model->FEC_INGR,0,2); //'2016-06-09' ;
-            $model->FEC_ENVI = substr($model->FEC_ENVI,6,4).'/'.substr($model->FEC_ENVI,3,2).'/'.substr($model->FEC_ENVI,0,2); //'2016-06-09' ;
+            //date_format($model->FEC_INGR, 'Y-m-d'); 
+            $model->FEC_INGR = substr($model->FEC_INGR, 6, 4) . '/' . substr($model->FEC_INGR, 3, 2) . '/' . substr($model->FEC_INGR, 0, 2); //'2016-06-09' ;
+            $model->FEC_ENVI = substr($model->FEC_ENVI, 6, 4) . '/' . substr($model->FEC_ENVI, 3, 2) . '/' . substr($model->FEC_ENVI, 0, 2); //'2016-06-09' ;
             $model->COD_ORDE = $model->au();
-            $model->USU_DIGI= $usuario;
-            
-            if (!isset($_POST['COD_PROD'])){
-                
+            $model->USU_DIGI = $usuario;
+
+            if (!isset($_POST['COD_PROD'])) {
+
                 die("Debe Ingresar Productos");
                 return;
             }
@@ -143,13 +142,24 @@ class FACORDENCOMPRController extends Controller {
             $UND = $_POST['NRO_UNID'];
             $VALPRE = $_POST['VAL_PREC'];
             $VALMOTUND = $_POST['VAL_MONT_UNID'];
-            if ($model->save()){
-              for ($i = 0; $i < count($CODPRO); $i++) {
-                if($CODPRO[$i] <> ''){
-                 $sqlStatement = "call PED_CREAR_DETAL_OC('" .$i . "',
-                     '" .$model->COD_ORDE . "',
-                     '" .$model->COD_TIEN . "',
-                     '" .$model->COD_CLIE . "',
+
+            $sqlStatement = "SELECT count(1) FROM FAC_ORDEN_COMPR where NUM_ORDE = '".$model->NUM_ORDE."' and COD_CLIE = '".$model->COD_CLIE."' and COD_TIEN = '".$model->COD_TIEN."';";
+            $command = $connection->createCommand($sqlStatement);
+            $reader = $command->query();
+            $resu = $reader->read();
+
+            if ($resu > 0) {
+                Yii::app()->user->setFlash('error', 'El valor ya ha sido ingresado');
+              
+            } else 
+
+            if ($model->save()) {
+                for ($i = 0; $i < count($CODPRO); $i++) {
+                    if ($CODPRO[$i] <> '') {
+                        $sqlStatement = "call PED_CREAR_DETAL_OC('" . $i . "',
+                     '" . $model->COD_ORDE . "',
+                     '" . $model->COD_TIEN . "',
+                     '" . $model->COD_CLIE . "',
                      '" . $CODPRO[$i] . "', 
                      '" . $UND[$i] . "',
                      '" . $VALPRE[$i] . "', 
@@ -157,13 +167,12 @@ class FACORDENCOMPRController extends Controller {
                      '" . $DESCRI[$i] . "',
                      '" . $usuario . "',
                      '" . $pcip . "')";
-                 $command = $connection->createCommand($sqlStatement);
-                 $command->execute();
-               }
-              }
+                        $command = $connection->createCommand($sqlStatement);
+                        $command->execute();
+                    }
+                }
                 $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
             }
-                
         }
 
         $this->render('create', array(
@@ -261,5 +270,4 @@ class FACORDENCOMPRController extends Controller {
     }
 
 }
-
 ?>
