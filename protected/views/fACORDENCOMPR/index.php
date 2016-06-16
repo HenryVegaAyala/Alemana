@@ -113,7 +113,10 @@ $('.search-form form').submit(function(){
                     <div class="col-sm-offset-2 col-sm-10">
                         <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
                         <?php echo CHtml::ajaxSubmitButton('Generar Guias', array('class' => 'btn btn-success btn-md'), array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
-                        
+                        <?php echo CHtml::ajaxSubmitButton('Vizualizar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Modificar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Eliminar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
+                        <?php echo CHtml::ajaxSubmitButton('Nuevo', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
                     </div>
                 </div>  
             </div>

@@ -1,8 +1,8 @@
 <head>
-    <script>
+<!--    <script>
         setInterval(function() {
             $("#div1").load(location.href + " #div1>*", "");
-        }, 5000);</script>
+        }, 5000);</script>-->
 </head>
 
 <div class="div1 container-fluid" id="div1" >

@@ -6,7 +6,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
-
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -16,7 +16,8 @@
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'facordencompr-form',
-            'enableAjaxValidation' => false,
+            'enableAjaxValidation' => true,
+            
         ));
         ?>
         <br>
@@ -28,6 +29,28 @@
         echo $form->errorSummary($model);
         ?>
 
+        <script>
+             $.datepicker.regional['es'] = {
+             closeText: 'Cerrar',
+             prevText: '<Ant',
+             nextText: 'Sig>',
+             currentText: 'Hoy',
+             monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+             monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+             dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+             dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+             dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+             weekHeader: 'Sm',
+             dateFormat: 'dd/mm/yy',
+             firstDay: 1,
+             isRTL: false,
+             showMonthAfterYear: false,
+             yearSuffix: ''
+             };
+             $.datepicker.setDefaults($.datepicker.regional['es']);
+        
+        </script>
+        
         <div class="fieldset">
 
             <div class="form-group ir">
@@ -101,58 +124,27 @@
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
-                    <?php
-                    $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                        'model' => $model,
-                        'attribute' => 'FEC_INGR',
-                        'value' => $model->FEC_INGR,
-                        'language' => 'es',
-                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Ingrese la Fecha Ingreso'),
-                        'options' => array(
-                            'autoSize' => true,
-                            'defaultDate' => $model->FEC_INGR,
-                            'dateFormat' => 'yy/mm/dd',
-                            'buttonImage' => Yii::app()->baseUrl . '/images/calendario.gif',
-                            'buttonImageOnly' => true,
-                            'buttonText' => 'FEC_INGR',
-                            'selectOtherMonths' => true,
-                            'showAnim' => 'fadeIn', //'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
-                            'showOtherMonths' => true,
-                            'changeMonth' => 'true',
-                            'changeYear' => 'true',
-                            'minDate' => 'date("Y-MM-DD")',
-                            'maxDate' => "+20Y",
-                        ),
-                    ));
-                    ?>
+                   
+                        <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>"/>
+                    <script>
+                        $(function() {
+                          $( "#FACORDENCOMPR_FEC_INGR" ).datepicker();
+                        });
+                        
+                        </script>
                     <?php // echo $form->error($model, 'FEC_INGR'); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_ENVI'); ?>
-                    <?php
-                    $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                        'model' => $model,
-                        'attribute' => 'FEC_ENVI',
-                        'value' => $model->FEC_ENVI,
-                        'language' => 'es',
-                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Ingrese la Fecha Envio'),
-                        'options' => array(
-                            'autoSize' => true,
-                            'defaultDate' => $model->FEC_ENVI,
-                            'dateFormat' => 'yy/mm/dd',
-                            'buttonImageOnly' => true,
-                            'buttonText' => 'FEC_ENVI',
-                            'selectOtherMonths' => true,
-                            'showAnim' => 'slide',
-                            'showOtherMonths' => true,
-                            'changeMonth' => 'true',
-                            'changeYear' => 'true',
-                            'minDate' => 'date("Y-MM-DD")',
-                            'maxDate' => "+20Y",
-                        ),
-                    ));
-                    ?>
+                    
+                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>"/>
+                    <script>
+                        $(function() {
+                          $( "#FACORDENCOMPR_FEC_ENVI" ).datepicker();
+                        });
+                        
+                        </script>
                     <?php // echo $form->error($model, 'FEC_ENVI'); ?>
                 </div>
 
@@ -194,9 +186,10 @@
             }
         </script>    
 
-        <div id="add" style="display: none">
+        <div id="add" >
             <?php
-            $url = Yii::app()->request->baseUrl;
+            include __DIR__ .'/../tEMPFACDETALORDENCOMPR/admin.php';
+         
             echo CHtml::button('Agregar Nuevo Producto', array(
                 'id' => 'add',
                 'name' => '+ Agregar Nuevo Producto',
@@ -206,12 +199,12 @@
             ?>
         </div>
 
-        <div class="container-fluid">
+<!--        <div class="container-fluid">
             <?php
-            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
-            ));
+//            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
+//            ));
             ?>
-        </div>
+        </div>-->
 
         <div class="container-fluid">
             <table align="right">

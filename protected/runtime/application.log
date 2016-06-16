@@ -59,3 +59,39 @@ Stack trace:
 REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
 HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
 ---
+2016/06/16 06:25:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
+HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+---
+2016/06/16 06:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_gloss-wave_35_f6a828_500x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/new/images/ui-bg_gloss-wave_35_f6a828_500x100.png
+HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+---
+2016/06/16 06:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-icons_ffffff_256x240.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/new/images/ui-icons_ffffff_256x240.png
+HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+---
+2016/06/16 07:38:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
+HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+---
