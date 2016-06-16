@@ -65,7 +65,7 @@ Yii::app()->session['USU'] = $usuario;
             <th>Precio</th>
             <th>Total</th>
         </tr>
-        <tr>
+<!--        <tr>
             <td><input type='checkbox' class='case'/></td>
             <td><span id='snum'>1</span></td>
             <td><input type="text" id='DES_LARG' name='DES_LARG[]' size="45" class="form-control"/></td>
@@ -73,31 +73,31 @@ Yii::app()->session['USU'] = $usuario;
             <td><input type="text" onchange="jsCalcular(this)"  id='campo_NRO_UNID' name='NRO_UNID[]' value="0" size="10" class="form-control" /></td>
             <td><input type="text" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" id='campo_VAL_PREC' name='VAL_PREC[]' value="0" size="10" class="form-control"/> </td>
             <td><input type="text" id='campo_VAL_MONT_UNID' name='VAL_MONT_UNID[]' size="10" class="form-control" readonly="true"/> </td>
-        </tr>
+        </tr>-->
     </table>
     <br>
     <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
     <?php
-    $connection = Yii::app()->db;
-
-//    if (isset($_POST['btnsubmit'])) {
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $CODPRO = $_POST['COD_PROD'];
-        $DESCRI = $_POST['DES_LARG'];
-        $UND = $_POST['NRO_UNID'];
-        $VALPRE = $_POST['VAL_PREC'];
-        $VALMOTUND = $_POST['VAL_MONT_UNID'];
-
-        for ($i = 0; $i < count($CODPRO); $i++) {
-            
-                   
-            if($CODPRO[$i] <> ''){
-             $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
-             $command = $connection->createCommand($sqlStatement);
-             $command->execute();
-            }
-        }
-    }
+//    $connection = Yii::app()->db;
+//
+////    if (isset($_POST['btnsubmit'])) {
+//    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+//        $CODPRO = $_POST['COD_PROD'];
+//        $DESCRI = $_POST['DES_LARG'];
+//        $UND = $_POST['NRO_UNID'];
+//        $VALPRE = $_POST['VAL_PREC'];
+//        $VALMOTUND = $_POST['VAL_MONT_UNID'];
+//
+//        for ($i = 0; $i < count($CODPRO); $i++) {
+//            
+//                   
+//            if($CODPRO[$i] <> ''){
+//             $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
+//             $command = $connection->createCommand($sqlStatement);
+//             $command->execute();
+//            }
+//        }
+//    }
     ?>
 </html>
 
