@@ -77,8 +77,6 @@ Yii::app()->session['USU'] = $usuario;
     </table>
     <br>
     <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
-    <input type="button" name="btnsubmit" value="Guardar Productos" class="btn btn-success" />
-
     <?php
     $connection = Yii::app()->db;
 
@@ -144,18 +142,20 @@ Yii::app()->session['USU'] = $usuario;
        primeraFila=0;
        ultimaFila =x.length-1;
        //i=x.length+1;
+       //Calucalr Total/Subotal/IGV
        
-//       for( k=0; k<= ultimaFila;k++){
-//           cod= x[k].value;
-//              for( j=k+1; j<= ultimaFila;j++){
-//                  cod2=x[j].value;
-//                 // alert(cod + ' - '+cod2);
-//                  if(cod === cod2){
-//                      alert("Existen codigos de productos duplicados xx, por favor revisar");
-//                      return;
-//                  }
-//               }
-//       }
+       
+       for( k=0; k<= ultimaFila;k++){
+           cod= x[k].value;
+              for( j=k+1; j<= ultimaFila;j++){
+                  cod2=x[j].value;
+                 // alert(cod + ' - '+cod2);
+                  if(cod === cod2){
+                      alert("Existen codigos de productos duplicados xx, por favor revisar");
+                      return;
+                  }
+               }
+       }
         
         count = $('#tableP tr').length;
         //alert(count);
@@ -204,7 +204,7 @@ Yii::app()->session['USU'] = $usuario;
 
     function crearFunciones(i){
       //  for(i=0; i< fila;i++){
-       alert('crearFunciones '+i);
+       //alert('crearFunciones '+i);
          row = i;
         $('#DES_LARG_' + i).autocomplete({
         source: function(request, response) {
