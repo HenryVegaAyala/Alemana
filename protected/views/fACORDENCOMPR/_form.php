@@ -21,7 +21,7 @@
         ?>
 
         <?php if (Yii::app()->user->hasFlash('error')): ?>
-            <div class="alert">
+            <div class="alert alert-danger">
                 <?php echo Yii::app()->user->getFlash('error'); ?>
             </div>
         <?php endif ?>

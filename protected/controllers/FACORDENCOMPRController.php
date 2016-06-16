@@ -149,7 +149,7 @@ class FACORDENCOMPRController extends Controller {
             $resu = $reader->read();
 
             if ($resu > 0) {
-                Yii::app()->user->setFlash('error', 'El valor ya ha sido ingresado');
+                Yii::app()->user->setFlash('error', 'La O/C ya ha sido ingresada para la relación cliente/tienda, por favor revisar');
               
             } else 
 
