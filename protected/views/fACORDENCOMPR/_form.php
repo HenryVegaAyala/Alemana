@@ -1,4 +1,3 @@
-
 <?php
 /* @var $this FACORDENCOMPRController */
 /* @var $model FACORDENCOMPR */
@@ -268,4 +267,5 @@
         <?php $this->endWidget(); ?>
 
     </div><!-- form -->
+
 </div>
