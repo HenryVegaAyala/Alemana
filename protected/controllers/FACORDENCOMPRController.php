@@ -122,34 +122,41 @@ class FACORDENCOMPRController extends Controller {
             $model->FEC_INGR = substr($model->FEC_INGR,6,4).'/'.substr($model->FEC_INGR,3,2).'/'.substr($model->FEC_INGR,0,2); //'2016-06-09' ;
             $model->FEC_ENVI = substr($model->FEC_ENVI,6,4).'/'.substr($model->FEC_ENVI,3,2).'/'.substr($model->FEC_ENVI,0,2); //'2016-06-09' ;
             $model->COD_ORDE = $model->au();
-        
+            //variables de auditoria
+            $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
-
             $ip = getenv("REMOTE_ADDR");
             $pc = @gethostbyaddr($ip);
-
             $pcip = $pc . ' - ' . $ip;
 
-
-        Yii::app()->session['PCIP'] = $pcip;
-        Yii::app()->session['USU'] = $usuario;
-        $CODPRO = $_POST['COD_PROD'];
-        $DESCRI = $_POST['DES_LARG'];
-        $UND = $_POST['NRO_UNID'];
-        $VALPRE = $_POST['VAL_PREC'];
-        $VALMOTUND = $_POST['VAL_MONT_UNID'];
-        $connection = Yii::app()->db;
-        for ($i = 0; $i < count($CODPRO); $i++) {
+       
+            $CODPRO = $_POST['COD_PROD'];
+            $DESCRI = $_POST['DES_LARG'];
+            $UND = $_POST['NRO_UNID'];
+            $VALPRE = $_POST['VAL_PREC'];
+            $VALMOTUND = $_POST['VAL_MONT_UNID'];
             
-                   
-            if($CODPRO[$i] <> ''){
-             $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
-             $command = $connection->createCommand($sqlStatement);
-             $command->execute();
-            }
-        }
-            if ($model->save())
+
+            if ($model->save()){
+              for ($i = 0; $i < count($CODPRO); $i++) {
+                if($CODPRO[$i] <> ''){
+                 $sqlStatement = "call PED_CREAR_DETAL_OC('" .$model->COD_ORDE . "',
+                     '" .$model->COD_TIEN . "',
+                     '" .$model->COD_CLIE . "',
+                     '" . $CODPRO[$i] . "', 
+                     '" . $UND[$i] . "',
+                     '" . $VALPRE[$i] . "', 
+                     '" . $VALMOTUND[$i] . "',
+                     '" . $DESCRI[$i] . "',
+                     '" . $usuario . "',
+                     '" . $pcip . "')";
+                 $command = $connection->createCommand($sqlStatement);
+                 $command->execute();
+               }
+              }
                 $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
+            }
+                
         }
 
         $this->render('create', array(
