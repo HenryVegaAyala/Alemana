@@ -189,22 +189,9 @@
         <div id="add" >
             <?php
             include __DIR__ .'/../tEMPFACDETALORDENCOMPR/admin.php';
-         
-            echo CHtml::button('Agregar Nuevo Producto', array(
-                'id' => 'add',
-                'name' => '+ Agregar Nuevo Producto',
-                'class' => 'btn btn-link btn-md',
-                'onclick' => "window.open ('?r=tEMPFACDETALORDENCOMPR/admin', 'nom_interne_de_la_fenetre', config='height=420, width=995, scrollbars=yes, resizable=yes, location=no, directories=no, status=no')"
-            ));
             ?>
         </div>
 
-<!--        <div class="container-fluid">
-            <?php
-//            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
-//            ));
-            ?>
-        </div>-->
 
         <div class="container-fluid">
             <table align="right">

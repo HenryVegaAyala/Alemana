@@ -54,6 +54,7 @@ Yii::app()->session['USU'] = $usuario;
 <html>
 
     <button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore'>+ Agregar Campos de Productos</button>
+        <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
     <br><br>
     <table class="table table-bordered table-condensed table-responsive table-striped table-hover table-wrapper" id="tableP">
         <tr>
@@ -76,8 +77,6 @@ Yii::app()->session['USU'] = $usuario;
         </tr>
     </table>
     <br>
-    <button type="button" class='btn btn-danger btn-sm delete'>- Eliminar</button>
-    <input type="button" name="btnsubmit" value="Guardar Productos" class="btn btn-success" />
 
     <?php
     $connection = Yii::app()->db;
