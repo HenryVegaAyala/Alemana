@@ -56,7 +56,7 @@
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'NUM_ORDE'); ?>
-                    <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 6, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
+                    <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 12, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
                     <?php // echo $form->error($model, 'NUM_ORDE'); ?>
                 </div>
 
