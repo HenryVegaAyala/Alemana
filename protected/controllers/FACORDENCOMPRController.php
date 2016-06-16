@@ -117,20 +117,20 @@ class FACORDENCOMPRController extends Controller {
        //   $fechaing = $_POST['FACORDENCOMPR']['FEC_INGR'];
 
         if (isset($_POST['FACORDENCOMPR'])) {
-            $model->attributes = $_POST['FACORDENCOMPR'];
-           //date_format($model->FEC_INGR, 'Y-m-d'); 
-            $model->FEC_INGR = substr($model->FEC_INGR,6,4).'/'.substr($model->FEC_INGR,3,2).'/'.substr($model->FEC_INGR,0,2); //'2016-06-09' ;
-            $model->FEC_ENVI = substr($model->FEC_ENVI,6,4).'/'.substr($model->FEC_ENVI,3,2).'/'.substr($model->FEC_ENVI,0,2); //'2016-06-09' ;
-            $model->COD_ORDE = $model->au();
-            //variables de auditoria
+            
+               //variables de auditoria
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $ip = getenv("REMOTE_ADDR");
             $pc = @gethostbyaddr($ip);
             $pcip = $pc . ' - ' . $ip;
-
-       
-     
+            
+            $model->attributes = $_POST['FACORDENCOMPR'];
+           //date_format($model->FEC_INGR, 'Y-m-d'); 
+            $model->FEC_INGR = substr($model->FEC_INGR,6,4).'/'.substr($model->FEC_INGR,3,2).'/'.substr($model->FEC_INGR,0,2); //'2016-06-09' ;
+            $model->FEC_ENVI = substr($model->FEC_ENVI,6,4).'/'.substr($model->FEC_ENVI,3,2).'/'.substr($model->FEC_ENVI,0,2); //'2016-06-09' ;
+            $model->COD_ORDE = $model->au();
+            $model->USU_DIGI= $usuario;
             
             if (!isset($_POST['COD_PROD'])){
                 
@@ -146,7 +146,8 @@ class FACORDENCOMPRController extends Controller {
             if ($model->save()){
               for ($i = 0; $i < count($CODPRO); $i++) {
                 if($CODPRO[$i] <> ''){
-                 $sqlStatement = "call PED_CREAR_DETAL_OC('" .$model->COD_ORDE . "',
+                 $sqlStatement = "call PED_CREAR_DETAL_OC('" .$i . "',
+                     '" .$model->COD_ORDE . "',
                      '" .$model->COD_TIEN . "',
                      '" .$model->COD_CLIE . "',
                      '" . $CODPRO[$i] . "', 
