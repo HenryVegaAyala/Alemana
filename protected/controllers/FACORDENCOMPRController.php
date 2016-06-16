@@ -130,13 +130,19 @@ class FACORDENCOMPRController extends Controller {
             $pcip = $pc . ' - ' . $ip;
 
        
+     
+            
+            if (!isset($_POST['COD_PROD'])){
+                
+                die("Debe Ingresar Productos");
+                return;
+            }
+
             $CODPRO = $_POST['COD_PROD'];
             $DESCRI = $_POST['DES_LARG'];
             $UND = $_POST['NRO_UNID'];
             $VALPRE = $_POST['VAL_PREC'];
             $VALMOTUND = $_POST['VAL_MONT_UNID'];
-            
-
             if ($model->save()){
               for ($i = 0; $i < count($CODPRO); $i++) {
                 if($CODPRO[$i] <> ''){
