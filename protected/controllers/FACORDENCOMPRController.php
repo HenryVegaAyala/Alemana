@@ -123,7 +123,7 @@ class FACORDENCOMPRController extends Controller {
             $ip = getenv("REMOTE_ADDR");
             $pc = @gethostbyaddr($ip);
             $pcip = $pc . ' - ' . $ip;
-
+            $valida= false;
             $model->attributes = $_POST['FACORDENCOMPR'];
             //date_format($model->FEC_INGR, 'Y-m-d'); 
             $model->FEC_INGR = substr($model->FEC_INGR, 6, 4) . '/' . substr($model->FEC_INGR, 3, 2) . '/' . substr($model->FEC_INGR, 0, 2); //'2016-06-09' ;
@@ -131,11 +131,29 @@ class FACORDENCOMPRController extends Controller {
             $model->COD_ORDE = $model->au();
             $model->USU_DIGI = $usuario;
 
-            if (!isset($_POST['COD_PROD'])) {
-
-                die("Debe Ingresar Productos");
-                return;
-            }
+             if(strlen($model->FEC_INGR) < 10){
+                Yii::app()->user->setFlash('error', 'Por favor ingresar Fecha Ingreso');
+                $this->render('create', array(
+                 'model' => $model,
+                 'modelOC' => $modelOC,
+                ));
+             }
+             
+             if(strlen($model->FEC_ENVI) < 10 ){
+                Yii::app()->user->setFlash('error', 'Por favor ingresar Fecha Envio');
+                $this->render('create', array(
+                 'model' => $model,
+                 'modelOC' => $modelOC,
+                ));
+             }
+            
+             if (!isset($_POST['COD_PROD'])) {
+                Yii::app()->user->setFlash('error', 'Por favor ingresar los productos');
+                $this->render('create', array(
+                 'model' => $model,
+                 'modelOC' => $modelOC,
+                ));
+             }
 
             $CODPRO = $_POST['COD_PROD'];
             $DESCRI = $_POST['DES_LARG'];
@@ -150,8 +168,11 @@ class FACORDENCOMPRController extends Controller {
 
             if ($resu > 0) {
                 Yii::app()->user->setFlash('error', 'La O/C ya ha sido ingresada para la relación cliente/tienda, por favor revisar');
-              
-            } else 
+                $this->render('create', array(
+                 'model' => $model,
+                 'modelOC' => $modelOC,
+                ));
+            }  
 
             if ($model->save()) {
                 for ($i = 0; $i < count($CODPRO); $i++) {
