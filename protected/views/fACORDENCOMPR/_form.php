@@ -131,7 +131,7 @@
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
 
-                    <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>" required="true"/>
+                    <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>" />
                     <script>
                         $(function() {
                             $("#FACORDENCOMPR_FEC_INGR").datepicker();
@@ -144,7 +144,7 @@
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'FEC_ENVI'); ?>
 
-                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>" required="true"/>
+                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>"/>
                     <script>
                         $(function() {
                             $("#FACORDENCOMPR_FEC_ENVI").datepicker();
