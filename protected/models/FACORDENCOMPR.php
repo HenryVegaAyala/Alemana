@@ -233,9 +233,11 @@ class FACORDENCOMPR extends CActiveRecord {
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
-                ->select('round (sum(((NRO_UNID * VAL_PREC) - (NRO_UNID * VAL_PREC)*(0.18))),2) as SUBTOTAL')
-                ->from('TEMP_FAC_DETAL_ORDEN_COMPR')
-                ->where("VAL_USU = '" . $UDP . "' and VAL_PCIP = '" . $UDP2 . "';")
+                ->select('round (VAL_MONT_UNID,2) as SUBTOTAL')
+                ->from('FAC_DETAL_ORDEN_COMPR')
+                ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
+                      and COD_TIEN = '" . $this->COD_TIEN . "' 
+                      and COD_ORDE = '" . $this->COD_ORDE . "';")
                 ->queryScalar();
 
         $id = ($max + 0);
@@ -249,9 +251,11 @@ class FACORDENCOMPR extends CActiveRecord {
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
-                ->select('round (sum(((NRO_UNID * VAL_PREC)*(0.18))),2) as IGV')
-                ->from('TEMP_FAC_DETAL_ORDEN_COMPR')
-                ->where("VAL_USU = '" . $UDP . "' and VAL_PCIP = '" . $UDP2 . "';")
+                ->select('round (VAL_MONT_IGV,2) as IGV')
+                ->from('FAC_DETAL_ORDEN_COMPR')
+                ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
+                      and COD_TIEN = '" . $this->COD_TIEN . "' 
+                      and COD_ORDE = '" . $this->COD_ORDE . "';")
                 ->queryScalar();
 
         $id = ($max);
@@ -265,9 +269,11 @@ class FACORDENCOMPR extends CActiveRecord {
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
-                ->select('round (sum(((NRO_UNID * VAL_PREC))),2) as TOTAL')
-                ->from('TEMP_FAC_DETAL_ORDEN_COMPR')
-                ->where("VAL_USU = '" . $UDP . "' and VAL_PCIP = '" . $UDP2 . "';")
+                ->select('round (VAL_TOTAL,2) as TOTAL')
+                ->from('FAC_DETAL_ORDEN_COMPR')
+                ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
+                      and COD_TIEN = '" . $this->COD_TIEN . "' 
+                      and COD_ORDE = '" . $this->COD_ORDE . "';")
                 ->queryScalar();
 
         $id = ($max);
