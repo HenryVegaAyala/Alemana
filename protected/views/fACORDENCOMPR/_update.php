@@ -50,56 +50,60 @@
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'NUM_ORDE'); ?>
-                    <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 12, 'class' => 'form-control', 'placeholder' => 'N° de Orden','readonly'=>'true')); ?>
+                    <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 12, 'class' => 'form-control', 'placeholder' => 'N° de Orden', 'readonly' => 'true')); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
 
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaClienteUpdate(),array('class' => 'form-control','disabled' => 'true')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaClienteUpdate(), array('class' => 'form-control', 'disabled' => 'true')); ?>
 
                 </div>
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTiendaUpdate(),array('class' => 'form-control','disabled' => 'true')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTiendaUpdate(), array('class' => 'form-control', 'disabled' => 'true')); ?>
                 </div>                
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
-                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control','readonly'=>'true')); ?>
+                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control', 'disabled' => 'true')); ?>
                 </div>               
             </div>
 
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
-                    <?php echo $form->labelEx($model, 'FEC_INGR'); ?>
+                    <?php echo $form->labelEx($model, 'FEC_INGR'); 
+                    $FI = $model->FEC_INGR;
+                    $FIC = date("dd-mm-YY", strtotime($FI) );
+                    ?>
 
-                    <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>" required="true"/>
-                    <script>
+                    <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php echo $model->FEC_INGR ?>" readonly="true"  />
+<!--                    <script>
                         $(function() {
-                            $("#FACORDENCOMPR_FEC_INGR").datepicker({ minDate: 0 });
+                            $("#FACORDENCOMPR_FEC_INGR").datepicker({minDate: 0});
                         });
 
-                    </script>
-                    <?php // echo $form->error($model, 'FEC_INGR');  ?>
+                    </script>-->
                 </div>
 
                 <div class="col-sm-3 control-label">
-                    <?php echo $form->labelEx($model, 'FEC_ENVI'); ?>
+                    <?php echo $form->labelEx($model, 'FEC_ENVI'); 
+                    $FE = $model->FEC_ENVI;
+                    $FEC = date("d-m-Y", strtotime($FE) );
+                    ?>
 
-                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>" required="true"/>
+                    <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php echo $model->FEC_ENVI ?>" required="true"/>
                     <script>
                         $(function() {
-                            $("#FACORDENCOMPR_FEC_ENVI").datepicker({ minDate: 0 });
+                            $("#FACORDENCOMPR_FEC_ENVI").datepicker({minDate: 0});
                         });
 
                     </script>
-                    <?php // echo $form->error($model, 'FEC_ENVI');  ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
-                    <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
+                    <?php echo $form->textField($model, 'COD_ORDE', array('size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
                 </div>
             </div>
 
@@ -108,19 +112,31 @@
         <div class="container-fluid">
             <legend>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Cliente</legend>
             <div class="form-group ir">
+                <?php
+                $clie = $model->COD_CLIE;
+                $tienda = $model->COD_TIEN;
+
+                $connection = Yii::app()->db;
+                $sqlStatement = "Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = $clie and MT.COD_TIEN = $tienda;";
+                $command = $connection->createCommand($sqlStatement);
+                $reader = $command->query();
+
+                foreach ($reader as $row)
+                ?>
+                
                 <div class="col-sm-4 control-label">
                     <label >RUC:</label>
-                    <input type="text" id="txtruc" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
+                    <input type="text" value="<?php echo $row['NRO_RUC']?>" id="txtruc" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
                 </div>
 
                 <div class="col-sm-4 control-label">
                     <label>RAZÓN SOCIAL:</label>
-                    <input type="text" id="txtRaZo" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
+                    <input type="text" value="<?php echo $row['DES_CLIE']?>" id="txtRaZo" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
                 </div>
 
                 <div class="col-sm-4 control-label">
                     <label>LUGAR DE ENTREGA:</label>
-                    <input type="text" id="txtDIRE" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
+                    <input type="text" value="<?php echo $row['DIR_TIEN']?>" id="txtDIRE" class="form-control" style="border:none; background-color: transparent;" disabled="true"/>
                 </div>
             </div>
         </div>
@@ -128,26 +144,11 @@
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
         </div>
 
-        <script>
-            function mostrar(id) {
-                if (id > 0) {
-                    $("#add").show();
-                }
-            }
-        </script>    
-
         <div id="add container-fluid" >
             <?php
             include __DIR__ . '/../tEMPFACDETALORDENCOMPR/admin.php';
             ?>
         </div>
-
-        <!--        <div class="container-fluid">
-        <?php
-//            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
-//            ));
-        ?>
-                </div>-->
 
         <div class="container-fluid">
             <table align="right">

@@ -188,12 +188,13 @@ class FACORDENCOMPRController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
-
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
-
         if (isset($_POST['FACORDENCOMPR'])) {
             $model->attributes = $_POST['FACORDENCOMPR'];
+       
+            if(strrpos($model->FEC_ENVI,"/")>0){
+                $model->FEC_ENVI = substr($model->FEC_ENVI, 6, 4) . '/' . substr($model->FEC_ENVI, 3, 2) . '/' . substr($model->FEC_ENVI, 0, 2); //'2016-06-09' ;
+            }
+                
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->COD_ORDE));
         }
