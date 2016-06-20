@@ -126,6 +126,18 @@ Yii::app()->session['USU'] = $usuario;
             totalitem = parseFloat((precunit * cantidad), 2);
             arr_total[x].value = redondear2decimales(totalitem);
         }
+        
+        sumaSubTotal=eval(0);
+         for (var x = 0; x < arr_total.length; x++) {
+             sumaSubTotal = parseFloat(sumaSubTotal,2) + parseFloat(arr_total[x].value,2);
+         }
+         //alert(sumaSubTotal);
+         montoIGV =  parseFloat(parseFloat(sumaSubTotal,2)* parseFloat(eval(0.18),2) , 2);
+         total = parseFloat(sumaSubTotal,2)+parseFloat(montoIGV,2);
+         
+         document.getElementById("FACORDENCOMPR_TOT_MONT_ORDE").value =redondear2decimales(sumaSubTotal);
+         document.getElementById("FACORDENCOMPR_TOT_MONT_IGV").value =redondear2decimales(montoIGV);
+         document.getElementById("FACORDENCOMPR_TOT_FACT").value =redondear2decimales(total);
     }
 
 
@@ -168,10 +180,10 @@ Yii::app()->session['USU'] = $usuario;
                                     <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control" readonly="true"/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)" value="0" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);"  value="0" />\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" value="0"/>\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0"/>\n\
                                 </td>\n\
                                 <td>\n\
                                     <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control" readonly="true"/>\n\
