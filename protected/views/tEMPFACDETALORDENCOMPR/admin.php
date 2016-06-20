@@ -201,7 +201,6 @@ Yii::app()->session['USU'] = $usuario;
 //        });
     }
 
-
     function crearFunciones(i) {
         //  for(i=0; i< fila;i++){
         //alert('crearFunciones '+i);

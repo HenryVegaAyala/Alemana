@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Registrar Nuevo O/C</h3>
+            <h3 class="panel-title">Modifica O/C</h3>
         </div>
 
         <?php
@@ -18,18 +18,7 @@
             'id' => 'facordencompr-form',
             'enableAjaxValidation' => true,
         ));
-        ?>
-        <br>
-        <?php if (Yii::app()->user->hasFlash('error')): ?>
-            <div class="alert alert-danger">
-                <?php echo Yii::app()->user->getFlash('error'); ?>
-            </div>
-        <?php endif ?>
-
-        <div class="container-fluid">
-            <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
-        </div>
-
+        ?>  
         <?php
         echo $form->errorSummary($model);
         ?>
@@ -61,68 +50,24 @@
             <div class="form-group ir">
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'NUM_ORDE'); ?>
-                    <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 12, 'class' => 'form-control', 'placeholder' => 'N° de Orden')); ?>
-                    <?php // echo $form->error($model, 'NUM_ORDE'); ?>
+                    <?php echo $form->textField($model, 'NUM_ORDE', array('maxlength' => 12, 'class' => 'form-control', 'placeholder' => 'N° de Orden','readonly'=>'true')); ?>
                 </div>
 
                 <div class="col-sm-3 control-label">
 
-                    <?php
-                    $htmlOptions = array(
-                        "ajax" => array(
-                            "url" => $this->createUrl("ClienteByTienda"),
-                            "type" => "POST",
-//                            "data" => array('COD_CLIE' => 'js:this.value'),
-                            "update" => "#FACORDENCOMPR_COD_TIEN"
-                        ),
-                        'class' => 'form-control',
-                        'empty' => 'Seleccionar Cliente',
-                    );
-                    ?>
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), $htmlOptions); ?>
+                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaClienteUpdate(),array('class' => 'form-control','disabled' => 'true')); ?>
 
                 </div>
 
                 <div class="col-sm-3 control-label">
-                    <?php
-                    $htmlOption = array(
-                        "ajax" => array(
-                            "url" => $this->createUrl("ValorTienda"),
-                            "type" => "POST",
-//                            "update" => "#txtruc, txtRaZo,txtDIRE",
-                            // "data" => array('COD_TIEN' => 'js:this.value'),
-                            "success" => "function(data){   
-                                
-                            cadena = data.split('/');    
-
-                           var ruc=document.getElementById('txtruc');
-                           ruc.value= cadena[0];
-
-                           var razo=document.getElementById('txtRaZo');
-                           razo.value= cadena[1];
-                           
-                            var dire=document.getElementById('txtDIRE');
-                           dire.value= cadena[2];     
-
-                           }
-                            "
-                        ),
-                        'class' => 'form-control',
-                        'empty' => 'Seleccionar Tienda',
-                        'onChange' => 'mostrar(this.value)'
-                    );
-                    ?>
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTienda(), $htmlOption); ?>
-                    <?php // echo $form->error($model, 'COD_TIEN'); ?>
-
+                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTiendaUpdate(),array('class' => 'form-control','disabled' => 'true')); ?>
                 </div>                
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
-                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control')); ?>
-                    <?php // echo $form->error($model, 'TIP_MONE'); ?>
+                    <?php echo $form->dropDownList($model, 'TIP_MONE', $model->Moneda(), array('class' => 'form-control','readonly'=>'true')); ?>
                 </div>               
             </div>
 

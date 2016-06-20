@@ -123,7 +123,7 @@ class FACORDENCOMPRController extends Controller {
             $ip = getenv("REMOTE_ADDR");
             $pc = @gethostbyaddr($ip);
             $pcip = $pc . ' - ' . $ip;
-            $valida= false;
+
             $model->attributes = $_POST['FACORDENCOMPR'];
             //date_format($model->FEC_INGR, 'Y-m-d'); 
             $model->FEC_INGR = substr($model->FEC_INGR, 6, 4) . '/' . substr($model->FEC_INGR, 3, 2) . '/' . substr($model->FEC_INGR, 0, 2); //'2016-06-09' ;
@@ -131,53 +131,28 @@ class FACORDENCOMPRController extends Controller {
             $model->COD_ORDE = $model->au();
             $model->USU_DIGI = $usuario;
 
-             if(strlen($model->FEC_INGR) < 10){
-                Yii::app()->user->setFlash('error', 'Por favor ingresar Fecha Ingreso');
-                $this->render('create', array(
-                 'model' => $model,
-                 'modelOC' => $modelOC,
-                ));
-             }
-             
-             if(strlen($model->FEC_ENVI) < 10 ){
-                Yii::app()->user->setFlash('error', 'Por favor ingresar Fecha Envio');
-                $this->render('create', array(
-                 'model' => $model,
-                 'modelOC' => $modelOC,
-                ));
-             }
-            
-             if (!isset($_POST['COD_PROD'])) {
-                Yii::app()->user->setFlash('error', 'Por favor ingresar los productos');
-                $this->render('create', array(
-                 'model' => $model,
-                 'modelOC' => $modelOC,
-                ));
-             }
+            if (isset($_POST['COD_PROD'])) {
 
-            $CODPRO = $_POST['COD_PROD'];
-            $DESCRI = $_POST['DES_LARG'];
-            $UND = $_POST['NRO_UNID'];
-            $VALPRE = $_POST['VAL_PREC'];
-            $VALMOTUND = $_POST['VAL_MONT_UNID'];
+                $CODPRO = $_POST['COD_PROD'];
+                $DESCRI = $_POST['DES_LARG'];
+                $UND = $_POST['NRO_UNID'];
+                $VALPRE = $_POST['VAL_PREC'];
+                $VALMOTUND = $_POST['VAL_MONT_UNID'];
 
-            $sqlStatement = "SELECT count(1) FROM FAC_ORDEN_COMPR where NUM_ORDE = '".$model->NUM_ORDE."' and COD_CLIE = '".$model->COD_CLIE."' and COD_TIEN = '".$model->COD_TIEN."';";
-            $command = $connection->createCommand($sqlStatement);
-            $reader = $command->query();
-            $resu = $reader->read();
+                $count = Yii::app()->db->createCommand()->select('count(*)')
+                        ->from('FAC_ORDEN_COMPR')
+                        ->where("NUM_ORDE = '" . $model->NUM_ORDE . "' and COD_CLIE = '" . $model->COD_CLIE . "' and COD_TIEN = '" . $model->COD_TIEN . "';")
+                        ->queryScalar();
 
-            if ($resu > 0) {
-                Yii::app()->user->setFlash('error', 'La O/C ya ha sido ingresada para la relación cliente/tienda, por favor revisar');
-                $this->render('create', array(
-                 'model' => $model,
-                 'modelOC' => $modelOC,
-                ));
-            }  
+                $id = ($count);
 
-            if ($model->save()) {
-                for ($i = 0; $i < count($CODPRO); $i++) {
-                    if ($CODPRO[$i] <> '') {
-                        $sqlStatement = "call PED_CREAR_DETAL_OC('" . $i . "',
+                if ($id > 0) {
+                    Yii::app()->user->setFlash('error', 'La O/C ya ha sido ingresada para la relación cliente/tienda, por favor revisar');
+                } else {
+                    if ($model->save()) {
+                        for ($i = 0; $i < count($CODPRO); $i++) {
+                            if ($CODPRO[$i] <> '') {
+                                $sqlStatement = "call PED_CREAR_DETAL_OC('" . $i . "',
                      '" . $model->COD_ORDE . "',
                      '" . $model->COD_TIEN . "',
                      '" . $model->COD_CLIE . "',
@@ -188,11 +163,15 @@ class FACORDENCOMPRController extends Controller {
                      '" . $DESCRI[$i] . "',
                      '" . $usuario . "',
                      '" . $pcip . "')";
-                        $command = $connection->createCommand($sqlStatement);
-                        $command->execute();
+                                $command = $connection->createCommand($sqlStatement);
+                                $command->execute();
+                            }
+                        }
+                        $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
                     }
                 }
-                $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
+            }else{
+                Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C');
             }
         }
 
@@ -291,4 +270,5 @@ class FACORDENCOMPRController extends Controller {
     }
 
 }
+
 ?>

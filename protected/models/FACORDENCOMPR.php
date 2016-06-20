@@ -199,6 +199,19 @@ class FACORDENCOMPR extends CActiveRecord {
         return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
     }
 
+    public function ListaClienteUpdate() {
+
+        $Cliente = MAECLIEN::model()->findAll();
+        return CHtml::listData($Cliente, "COD_CLIE", "DES_CLIE");
+    }
+
+    public function ListaTiendaUpdate() {
+
+        $Tienda = MAETIEND::model()->findAll();
+        return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
+    }
+    
+    
     public function VistaTienda() {
         $models = MAETIEND::model()->findAll();
         $list = CHtml::listData($models, 'COD_TIEN', 'DES_TIEN');
