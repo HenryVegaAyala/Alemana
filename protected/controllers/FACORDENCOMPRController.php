@@ -189,16 +189,65 @@ class FACORDENCOMPRController extends Controller {
     public function actionUpdate($id) {
         $modelOC = new TEMPFACDETALORDENCOMPR();
         $model = $this->loadModel($id);
-        if (isset($_POST['FACORDENCOMPR'])) {
-            $model->attributes = $_POST['FACORDENCOMPR'];
 
-            if (strrpos($model->FEC_ENVI, "/") > 0) {
+        if (isset($_POST['FACORDENCOMPR'])) {
+
+            //variables de auditoria
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            $ip = getenv("REMOTE_ADDR");
+            $pc = @gethostbyaddr($ip);
+            $pcip = $pc . ' - ' . $ip;
+
+            $model->attributes = $_POST['FACORDENCOMPR'];
+            //date_format($model->FEC_INGR, 'Y-m-d'); 
+           if (strrpos($model->FEC_ENVI, "/") > 0) {
                 $model->FEC_ENVI = substr($model->FEC_ENVI, 6, 4) . '/' . substr($model->FEC_ENVI, 3, 2) . '/' . substr($model->FEC_ENVI, 0, 2); //'2016-06-09' ;
             }
+            $model->USU_DIGI = $usuario;
 
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_ORDE));
+            if (isset($_POST['COD_PROD'])) {
+
+                $CODPRO = $_POST['COD_PROD'];
+                $DESCRI = $_POST['DES_LARG'];
+                $UND = $_POST['NRO_UNID'];
+                $VALPRE = $_POST['VAL_PREC'];
+                $VALMOTUND = $_POST['VAL_MONT_UNID'];
+
+                $count = Yii::app()->db->createCommand()->select('count(*)')
+                        ->from('FAC_ORDEN_COMPR')
+                        ->where("NUM_ORDE = '" . $model->NUM_ORDE . "' and COD_CLIE = '" . $model->COD_CLIE . "' and COD_TIEN = '" . $model->COD_TIEN . "';")
+                        ->queryScalar();
+
+                $id = ($count);
+
+            
+                    if ($model->update()) {
+                        for ($i = 0; $i < count($CODPRO); $i++) {
+                            if ($CODPRO[$i] <> '') {
+                                $sqlStatement = "call PED_ACTUA_DETAL_OC('" . $i . "',
+                     '" . $model->COD_ORDE . "',
+                     '" . $model->COD_TIEN . "',
+                     '" . $model->COD_CLIE . "',
+                     '" . $CODPRO[$i] . "', 
+                     '" . $UND[$i] . "',
+                     '" . $VALPRE[$i] . "', 
+                     '" . $VALMOTUND[$i] . "',
+                     '" . $DESCRI[$i] . "',
+                     '" . $usuario . "',
+                     '" . $pcip . "')";
+                                $command = $connection->createCommand($sqlStatement);
+                                $command->execute();
+                            }
+                        }
+                        $this->redirect(array('view', 'id' => $model->COD_ORDE));
+                    }
+               
+            } else {
+                Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C');
+            }
         }
+
 
         $this->render('update', array(
             'model' => $model,
