@@ -252,42 +252,7 @@ function crearFunciones(i) {
             }
         });
     }
-
-    $('#DES_LARG').autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: '/Alemana/fACORDENCOMPR/ajax.php',
-                dataType: "json",
-                data: {
-                    nombre_producto: request.term,
-                    type: 'produc_tiend',
-                    row_num: 1
-                },
-                success: function(data) {
-                    response($.map(data, function(item) {
-                        var code = item.split("|");
-                        return {
-                            label: code[0],
-                            value: code[0],
-                            data: item
-                        }
-                    }));
-                }
-            });
-        },
-        autoFocus: true,
-        minLength: 0,
-        select: function(event, ui) {
-            var names = ui.item.data.split("|");
-            console.log(names[1], names[2], names[3]);
-            $('#campo_COD_PROD').val(names[1]);
-            $('#campo_NRO_UNID').val(names[2]);
-            $('#campo_VAL_PREC ').val(names[3]);
-        }
-
-
-    });
-    
+ 
     $( document ).ready(function() {
     	 
     	   var arr_uni = document.getElementsByName("NRO_UNID[]");
