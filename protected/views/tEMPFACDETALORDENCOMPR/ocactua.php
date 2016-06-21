@@ -61,7 +61,7 @@ Yii::app()->session['USU'] = $usuario;
 
 
         
-        $sqlStatement = "SELECT DES_LARG,F.COD_PROD,F.NRO_UNID,VAL_PREC,VAL_MONT_UNID 
+        $sqlStatement = "SELECT X.DES_LARG,F.COD_PROD,F.NRO_UNID,VAL_PREC,VAL_MONT_UNID 
             FROM 
            FAC_DETAL_ORDEN_COMPR F, MAE_PRODU X WHERE X.COD_PROD=F.COD_PROD 
            and F.COD_ORDE = '" . $model->COD_ORDE . "' 
@@ -73,15 +73,19 @@ Yii::app()->session['USU'] = $usuario;
 
         foreach ($reader as $row){
             $count = 1;
+            $descripcion=$row['DES_LARG'];
+            //$iddescripcion="DES_LARG_". $count .""; 
             echo "<tr>
             <td><input type='checkbox' class='case'/></td>
             <td><span id='snum'>.$count.</span></td>
-            <td><input type='text' value=" . $row['DES_LARG'] . " id='DES_LARG_'$count name='DES_LARG[]' size='45' class='form-control'/></td>
-            <td><input type='text' value=" . $row['COD_PROD'] . " id='COD_PROD_'$count name='COD_PROD[]' size='10' class='form-control' readonly='true'/></td>
-            <td><input type='text' value=" . $row['NRO_UNID'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' id='NRO_UNID_'$count name='NRO_UNID[]' value='0' size='10' class='form-control' /></td>
-            <td><input type='text' value=" . $row['VAL_PREC'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' onkeypress='jsAgregar(event);' id='VAL_PREC_'$count name='VAL_PREC[]' value='0' size='10' class='form-control'/> </td>
-            <td><input type='text' value=" . $row['VAL_MONT_UNID'] . " id='campo_VAL_MONT_UNID_'$count name='VAL_MONT_UNID[]' size='10' class='form-control' readonly='true'/> </td>
+            <td><input type='text' value=' $descripcion ' id='DES_LARG_". $count ."' name='DES_LARG[]' size='45'  class='form-control'/></td>
+            <td><input type='text' value=" . $row['COD_PROD'] . " id='COD_PROD_". $count ."' name='COD_PROD[]' size='10' class='form-control' readonly='true'/></td>
+            <td><input type='text' value=" . $row['NRO_UNID'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' id='NRO_UNID_". $count ."' name='NRO_UNID[]' value='0' size='10' class='form-control' /></td>
+            <td><input type='text' value=" . $row['VAL_PREC'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' onkeypress='jsAgregar(event);' id='VAL_PREC_". $count ."' name='VAL_PREC[]' value='0' size='10' class='form-control'/> </td>
+            <td><input type='text' value=" . $row['VAL_MONT_UNID'] . " id='campo_VAL_MONT_UNID_". $count ."' name='VAL_MONT_UNID[]' size='10' class='form-control' readonly='true'/> </td>
         </tr>";
+           
+            "crearFunciones( $count )";
             $count++;
         }
         ?>
