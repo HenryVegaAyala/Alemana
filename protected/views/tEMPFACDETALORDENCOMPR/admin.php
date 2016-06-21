@@ -154,6 +154,7 @@ Yii::app()->session['USU'] = $usuario;
 
         //debe validar que no se ingrese registros duplicados
         var x = document.getElementsByName("COD_PROD[]");
+        var z= document.getElementsByName("DES_LARG[]");
         primeraFila = 0;
         ultimaFila = x.length - 1;
         //i=x.length+1;
@@ -195,7 +196,10 @@ Yii::app()->session['USU'] = $usuario;
         $('#tableP').append(data);
 
         crearFunciones(i);
+        $( '#DES_LARG_'+i ).focus();
         i++;
+        
+        
     });
     function select_all() {
         $('input[class=case]:checkbox').each(function() {
@@ -255,6 +259,7 @@ Yii::app()->session['USU'] = $usuario;
                 $('#COD_PROD_' + row).val(names[1]);
                 $('#NRO_UNID_' + row).val(names[2]);
                 $('#VAL_PREC_' + row).val(names[3]);
+                $('#NRO_UNID_'+row ).focus();
             }
         });
     }
