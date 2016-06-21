@@ -24,7 +24,7 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate', 'Respaldo', 'ajax'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'agregar', 'Ajaxupdate', 'Respaldo', 'ajax', 'ocactua', 'Consulta'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -37,6 +37,11 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
         $this->render('Respaldo');
     }
 
+    public function actionConsulta() {
+        $this->render('Consulta');
+    }
+    
+   
     public function actionAjax() {
 
         if ($_GET['type'] == 'produc_tiend') {
@@ -53,7 +58,7 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
             echo json_encode($data);
         }
     }
-
+    
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
@@ -137,16 +142,6 @@ class TEMPFACDETALORDENCOMPRController extends Controller {
     /**
      * Manages all models.
      */
-    public function actionAdmin() {
-        $model = new TEMPFACDETALORDENCOMPR('search');
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['TEMPFACDETALORDENCOMPR']))
-            $model->attributes = $_GET['TEMPFACDETALORDENCOMPR'];
-
-        $this->render('admin', array(
-            'model' => $model,
-        ));
-    }
 
     /**
      * Returns the data model based on the primary key given in the GET variable.

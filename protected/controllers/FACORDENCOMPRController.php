@@ -26,7 +26,7 @@ class FACORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta', 'ocactua'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -170,7 +170,7 @@ class FACORDENCOMPRController extends Controller {
                         $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
                     }
                 }
-            }else{
+            } else {
                 Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C');
             }
         }
@@ -187,20 +187,22 @@ class FACORDENCOMPRController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+        $modelOC = new TEMPFACDETALORDENCOMPR();
         $model = $this->loadModel($id);
         if (isset($_POST['FACORDENCOMPR'])) {
             $model->attributes = $_POST['FACORDENCOMPR'];
-       
-            if(strrpos($model->FEC_ENVI,"/")>0){
+
+            if (strrpos($model->FEC_ENVI, "/") > 0) {
                 $model->FEC_ENVI = substr($model->FEC_ENVI, 6, 4) . '/' . substr($model->FEC_ENVI, 3, 2) . '/' . substr($model->FEC_ENVI, 0, 2); //'2016-06-09' ;
             }
-                
+
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->COD_ORDE));
         }
 
         $this->render('update', array(
             'model' => $model,
+                        'modelOC' => $modelOC,
         ));
     }
 
@@ -241,6 +243,17 @@ class FACORDENCOMPRController extends Controller {
             $model->attributes = $_GET['FACORDENCOMPR'];
 
         $this->render('admin', array(
+            'model' => $model,
+        ));
+    }
+
+    public function actionOcactua() {
+        $model = new FACORDENCOMPR('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_GET['FACORDENCOMPR']))
+            $model->attributes = $_GET['FACORDENCOMPR'];
+
+        $this->render('ocactua', array(
             'model' => $model,
         ));
     }

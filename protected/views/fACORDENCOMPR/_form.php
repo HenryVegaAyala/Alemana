@@ -152,10 +152,6 @@
                     </script>
                     <?php // echo $form->error($model, 'FEC_ENVI');  ?>
                 </div>
-
-                <div class="col-sm-3 control-label">
-                    <?php echo $form->textField($model, 'COD_ORDE', array('value' => $model->au(), 'size' => 6, 'maxlength' => 6, 'style' => 'visibility: hidden')); ?>
-                </div>
             </div>
 
         </div>

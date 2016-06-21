@@ -146,7 +146,7 @@
 
         <div id="add container-fluid" >
             <?php
-            include __DIR__ . '/../tEMPFACDETALORDENCOMPR/admin.php';
+            include __DIR__ . '/../tEMPFACDETALORDENCOMPR/ocactua.php';
             ?>
         </div>
 

@@ -1,19 +1,9 @@
 <?php
 Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/jqueryui.css');
-//Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/bootstrapm.css');
-//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1102.js');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1103.js');
 ?>
 
 <script language="javascript" type="text/javascript">
-
-//    function cerrar() {
-//        var f = document.forms[0];
-//        f.submit();
-////        window.opener.jsload();
-//        setTimeout("window.close()", 1000);
-//    }
-
 
     function stopRKey(evt) {
         var evt = (evt) ? evt : ((event) ? event : null);
@@ -65,42 +55,40 @@ Yii::app()->session['USU'] = $usuario;
             <th>Precio</th>
             <th>Total</th>
         </tr>
+        <?php
+        $connection = Yii::app()->db;
+        //filtar por oc, cliente y tienda
+
+
         
+        $sqlStatement = "SELECT DES_LARG,F.COD_PROD,F.NRO_UNID,VAL_PREC,VAL_MONT_UNID 
+            FROM 
+           FAC_DETAL_ORDEN_COMPR F, MAE_PRODU X WHERE X.COD_PROD=F.COD_PROD 
+           and F.COD_ORDE = '" . $model->COD_ORDE . "' 
+           and F.COD_CLIE =  '".$model->COD_CLIE."' 
+           and  F.COD_TIEN = '".$model->COD_TIEN."';";
         
-<!--        <tr>
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+
+        foreach ($reader as $row){
+            $count = 1;
+            echo "<tr>
             <td><input type='checkbox' class='case'/></td>
-            <td><span id='snum'>1</span></td>
-            <td><input type="text" id='DES_LARG' name='DES_LARG[]' size="45" class="form-control"/></td>
-            <td><input type="text" id='campo_COD_PROD' name='COD_PROD[]' size="10" class="form-control" readonly="true"/></td>
-            <td><input type="text" onchange="jsCalcular(this)"  id='campo_NRO_UNID' name='NRO_UNID[]' value="0" size="10" class="form-control" /></td>
-            <td><input type="text" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" id='campo_VAL_PREC' name='VAL_PREC[]' value="0" size="10" class="form-control"/> </td>
-            <td><input type="text" id='campo_VAL_MONT_UNID' name='VAL_MONT_UNID[]' size="10" class="form-control" readonly="true"/> </td>
-        </tr>-->
+            <td><span id='snum'>.$count.</span></td>
+            <td><input type='text' value=" . $row['DES_LARG'] . " id='DES_LARG_'$count name='DES_LARG[]' size='45' class='form-control'/></td>
+            <td><input type='text' value=" . $row['COD_PROD'] . " id='COD_PROD_'$count name='COD_PROD[]' size='10' class='form-control' readonly='true'/></td>
+            <td><input type='text' value=" . $row['NRO_UNID'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' id='NRO_UNID_'$count name='NRO_UNID[]' value='0' size='10' class='form-control' /></td>
+            <td><input type='text' value=" . $row['VAL_PREC'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' onkeypress='jsAgregar(event);' id='VAL_PREC_'$count name='VAL_PREC[]' value='0' size='10' class='form-control'/> </td>
+            <td><input type='text' value=" . $row['VAL_MONT_UNID'] . " id='campo_VAL_MONT_UNID_'$count name='VAL_MONT_UNID[]' size='10' class='form-control' readonly='true'/> </td>
+        </tr>";
+            $count++;
+        }
+        ?>
     </table>
     <br>
 
-    <?php
-//    $connection = Yii::app()->db;
-//
-////    if (isset($_POST['btnsubmit'])) {
-//    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//        $CODPRO = $_POST['COD_PROD'];
-//        $DESCRI = $_POST['DES_LARG'];
-//        $UND = $_POST['NRO_UNID'];
-//        $VALPRE = $_POST['VAL_PREC'];
-//        $VALMOTUND = $_POST['VAL_MONT_UNID'];
-//
-//        for ($i = 0; $i < count($CODPRO); $i++) {
-//            
-//                   
-//            if($CODPRO[$i] <> ''){
-//             $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
-//             $command = $connection->createCommand($sqlStatement);
-//             $command->execute();
-//            }
-//        }
-//    }
-    ?>
+
 </html>
 
 
@@ -128,18 +116,18 @@ Yii::app()->session['USU'] = $usuario;
             totalitem = parseFloat((precunit * cantidad), 2);
             arr_total[x].value = redondear2decimales(totalitem);
         }
-        
-        sumaSubTotal=eval(0);
-         for (var x = 0; x < arr_total.length; x++) {
-             sumaSubTotal = parseFloat(sumaSubTotal,2) + parseFloat(arr_total[x].value,2);
-         }
-         //alert(sumaSubTotal);
-         montoIGV =  parseFloat(parseFloat(sumaSubTotal,2)* parseFloat(eval(0.18),2) , 2);
-         total = parseFloat(sumaSubTotal,2)+parseFloat(montoIGV,2);
-         
-         document.getElementById("FACORDENCOMPR_TOT_MONT_ORDE").value =redondear2decimales(sumaSubTotal);
-         document.getElementById("FACORDENCOMPR_TOT_MONT_IGV").value =redondear2decimales(montoIGV);
-         document.getElementById("FACORDENCOMPR_TOT_FACT").value =redondear2decimales(total);
+
+        sumaSubTotal = eval(0);
+        for (var x = 0; x < arr_total.length; x++) {
+            sumaSubTotal = parseFloat(sumaSubTotal, 2) + parseFloat(arr_total[x].value, 2);
+        }
+        //alert(sumaSubTotal);
+        montoIGV = parseFloat(parseFloat(sumaSubTotal, 2) * parseFloat(eval(0.18), 2), 2);
+        total = parseFloat(sumaSubTotal, 2) + parseFloat(montoIGV, 2);
+
+        document.getElementById("FACORDENCOMPR_TOT_MONT_ORDE").value = redondear2decimales(sumaSubTotal);
+        document.getElementById("FACORDENCOMPR_TOT_MONT_IGV").value = redondear2decimales(montoIGV);
+        document.getElementById("FACORDENCOMPR_TOT_FACT").value = redondear2decimales(total);
     }
 
 
@@ -182,10 +170,10 @@ Yii::app()->session['USU'] = $usuario;
                                     <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control" readonly="true"/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);"  value="0" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)" onkeyup="jsCalcular(this);" value="0" />\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0"/>\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)" onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0"/>\n\
                                 </td>\n\
                                 <td>\n\
                                     <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control" readonly="true"/>\n\

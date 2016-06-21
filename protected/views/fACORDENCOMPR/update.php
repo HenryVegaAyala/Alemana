@@ -10,4 +10,4 @@ $this->breadcrumbs=array(
 
 <h1>Actualizar Orden de Compra <?php $model->COD_ORDE; ?></h1>
 
-<?php $this->renderPartial('_update', array('model'=>$model)); ?>
+<?php $this->renderPartial('_update', array('model'=>$model,'modelOC' => $modelOC)); ?>
