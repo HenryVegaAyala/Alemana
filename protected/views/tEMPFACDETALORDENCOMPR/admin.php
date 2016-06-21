@@ -219,6 +219,8 @@ Yii::app()->session['USU'] = $usuario;
     function crearFunciones(i) {
         //  for(i=0; i< fila;i++){
         //alert('crearFunciones '+i);
+        psclient=document.getElementById('FACORDENCOMPR_COD_CLIE').value;
+        pstienda=document.getElementById('FACORDENCOMPR_COD_TIEN').value;
         row = i;
         $('#DES_LARG_' + i).autocomplete({
             source: function(request, response) {
@@ -228,6 +230,8 @@ Yii::app()->session['USU'] = $usuario;
                     data: {
                         nombre_producto: request.term,
                         type: 'produc_tiend',
+                        clie: psclient,
+                        tienda:  pstienda,      
                         row_num: row
                     },
                     success: function(data) {
