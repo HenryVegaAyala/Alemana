@@ -233,7 +233,7 @@ class FACORDENCOMPR extends CActiveRecord {
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
-                ->select('round (VAL_MONT_UNID,2) as SUBTOTAL')
+                ->select('round (SUM(VAL_MONT_UNID),2) as SUBTOTAL')
                 ->from('FAC_DETAL_ORDEN_COMPR')
                 ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
                       and COD_TIEN = '" . $this->COD_TIEN . "' 
@@ -251,7 +251,7 @@ class FACORDENCOMPR extends CActiveRecord {
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
-                ->select('round (VAL_MONT_IGV,2) as IGV')
+                ->select('round (SUM(VAL_MONT_IGV),2) as IGV')
                 ->from('FAC_DETAL_ORDEN_COMPR')
                 ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
                       and COD_TIEN = '" . $this->COD_TIEN . "' 
@@ -269,7 +269,7 @@ class FACORDENCOMPR extends CActiveRecord {
         $UDP2 = Yii::app()->session['PCIP'];
 
         $max = Yii::app()->db->createCommand()
-                ->select('round (VAL_TOTAL,2) as TOTAL')
+                ->select('round (SUM(VAL_TOTAL),2) as TOTAL')
                 ->from('FAC_DETAL_ORDEN_COMPR')
                 ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
                       and COD_TIEN = '" . $this->COD_TIEN . "' 
