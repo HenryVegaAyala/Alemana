@@ -210,8 +210,7 @@ class FACORDENCOMPR extends CActiveRecord {
         $Tienda = MAETIEND::model()->findAll();
         return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
     }
-    
-    
+
     public function VistaTienda() {
         $models = MAETIEND::model()->findAll();
         $list = CHtml::listData($models, 'COD_TIEN', 'DES_TIEN');
