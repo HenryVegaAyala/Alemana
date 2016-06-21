@@ -147,6 +147,7 @@ Yii::app()->session['USU'] = $usuario;
         $('.case:checkbox:checked').parents("tr").remove();
         $('.check_all').prop("checked", false);
         check();
+        jsCalcular();
     });
     var i = $('#tableP tr').length;
     $(".addmore").on('click', function() {

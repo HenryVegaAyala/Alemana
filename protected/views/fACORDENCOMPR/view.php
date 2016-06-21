@@ -46,28 +46,29 @@ $this->breadcrumbs = array(
                 $estado = "";
         }
 
+        $cli = $model->cODCLIE->COD_CLIE;
+
         $this->widget('ext.bootstrap.widgets.TbDetailView', array(
             'data' => $model,
             'type' => 'bordered condensed striped raw',
             'attributes' => array(
-                'COD_CLIE',
                 array(
-                    'name' => 'Cliente',
-                    'value' => $model->cODCLIE->COD_CLIE),
+                    'name' => 'Nombre del Cliente',
+                    'value' => $model->getCliente($cli)),
                 array(
                     'name' => 'Nombre de la Tienda',
                     'value' => $model->cODTIEN->DES_TIEN),
                 array(
                     'name' => 'Tipo de Moneda',
                     'value' => $moneda),
-                'TOT_MONT_ORDE',
-                'TOT_MONT_IGV',
-                'TOT_FACT',
+                'FEC_INGR',
+                'FEC_ENVI',
                 array(
                     'name' => 'Estado',
                     'value' => $estado),
-                'FEC_INGR',
-                'FEC_ENVI', 
+                'TOT_MONT_ORDE',
+                'TOT_MONT_IGV',
+                'TOT_FACT',
             ),
         ));
         ?>

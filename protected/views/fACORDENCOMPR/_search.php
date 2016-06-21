@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/stylev2.cs
                         'options' => array(
                             'autoSize' => true,
                             'defaultDate' => $model->FEC_INGR,
-                            'dateFormat' => 'yy-mm-dd',
+                            'dateFormat' => 'dd/mm/yy',
                             'buttonImageOnly' => true,
                             'buttonText' => 'FEC_INGR',
                             'selectOtherMonths' => true,
@@ -77,7 +77,7 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/stylev2.cs
                         'options' => array(
                             'autoSize' => true,
                             'defaultDate' => $model->FEC_ENVI,
-                            'dateFormat' => 'yy-mm-dd',
+                            'dateFormat' => 'dd/mm/yy',
                             'buttonImageOnly' => true,
                             'buttonText' => 'FEC_ENVI',
                             'selectOtherMonths' => true,
@@ -93,14 +93,14 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/stylev2.cs
             </div>
         </div>
         <br>
-<!--        <div class="panel-footer " style="overflow:hidden;text-align:right;">
-            <div class="form-group">
+        <div class="panel-footer " style="overflow:hidden;text-align:right;">
+<!--            <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <?php // echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
                     <input type="reset" src="create" class="btn btn-default btn-md" value="Cancelar">
                 </div>
-            </div>  
-        </div>-->
+            </div>  -->
+        </div>
 
     </div>
 

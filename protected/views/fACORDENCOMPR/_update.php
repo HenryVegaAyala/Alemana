@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Modifica O/C</h3>
+            <h3 class="panel-title">Modificar O/C</h3>
         </div>
 
         <?php

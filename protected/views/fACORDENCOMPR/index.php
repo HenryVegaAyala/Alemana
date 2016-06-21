@@ -60,14 +60,24 @@ $('.search-form form').submit(function(){
                     ),
                     'NUM_ORDE',
                     array(
+                        'header' => 'cODTIEN',
                         'header' => 'Tienda',
                         'value' => '$data->cODTIEN->DES_TIEN'
                     ),
-                    'FEC_INGR',
-                    'FEC_ENVI',
+                    array(
+                        'name' => 'FEC_INGR',
+                        'header' => 'Fecha de Ingreso',
+                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_INGR))'
+                    ),
+                    array(
+                        'name' => 'FEC_ENVI',
+                        'header' => 'Fecha de Envio',
+                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_ENVI))'
+                    ),
                     'TOT_FACT',
                     array(
-                        'name' => 'Estado',
+                        'name' => 'IND_ESTA',
+                        'header' => 'Estado',
                         'value' => function($data) {
 
                             $variable = $data->__GET('IND_ESTA');
@@ -90,8 +100,15 @@ $('.search-form form').submit(function(){
                     array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
-                        'htmlOptions' => array('style' => 'width: 77px; text-align: center;'),
-                        'template' => '{view}{update}{delete}',
+                        'htmlOptions' => array('style' => 'width: 80px; text-align: center;'),
+                        'template' => '{view}{update}{delete}{Guia}',
+                        'buttons' => array(
+                            'Guia' => array(
+                                'icon' => 'book',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Guia", array("id"=>$data->COD_ORDE))',
+                            ),
+                        ),
                     ),
                 ),
             ));
@@ -112,11 +129,6 @@ $('.search-form form').submit(function(){
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
-                        <?php echo CHtml::ajaxSubmitButton('Generar Guias', array('class' => 'btn btn-success btn-md'), array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
-                        <?php echo CHtml::ajaxSubmitButton('Vizualizar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
-                        <?php echo CHtml::ajaxSubmitButton('Modificar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
-                        <?php echo CHtml::ajaxSubmitButton('Eliminar', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
-                        <?php echo CHtml::ajaxSubmitButton('Nuevo', array('menu/ajaxupdate', 'act' => 'doDelete'), array('success' => 'reloadGrid')); ?>
                     </div>
                 </div>  
             </div>

@@ -131,6 +131,14 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
+        if (strrpos($this->FEC_ENVI, "/") > 0) {
+            $this->FEC_ENVI = substr($this->FEC_ENVI, 6, 4) . '-' . substr($this->FEC_ENVI, 3, 2) . '-' . substr($this->FEC_ENVI, 0, 2); //'2016-06-09' ;
+        }
+
+        if (strrpos($this->FEC_INGR, "/") > 0) {
+            $this->FEC_INGR = substr($this->FEC_INGR, 6, 4) . '-' . substr($this->FEC_INGR, 3, 2) . '-' . substr($this->FEC_INGR, 0, 2); //'2016-06-09' ;
+        }
+
         $criteria->order = "FEC_MODI,NUM_ORDE desc";
 
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
@@ -166,6 +174,18 @@ class FACORDENCOMPR extends CActiveRecord {
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
+    }
+
+    public function getCliente($var) {
+        
+        $max = Yii::app()->db->createCommand()
+                ->select('DES_CLIE')
+                ->from('MAE_CLIEN')
+                ->where("COD_CLIE = '" . $var. "';")
+                ->queryScalar();
+
+        $id = ($max);
+        return $id;
     }
 
     public function Moneda() {

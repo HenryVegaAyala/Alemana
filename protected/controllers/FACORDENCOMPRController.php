@@ -26,13 +26,23 @@ class FACORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta', 'ocactua'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta', 'ocactua', 'Guia'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionGuia($id) {
+        $connection = Yii::app()->db;
+        $sqlStatement = "CALL pres_migrar_fact('$id');";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
+        $this->render('_migrar', array(
+            'model' => $this->loadModel($id),
+        ));
     }
 
     public function actionConsulta() {
@@ -201,7 +211,7 @@ class FACORDENCOMPRController extends Controller {
 
             $model->attributes = $_POST['FACORDENCOMPR'];
             //date_format($model->FEC_INGR, 'Y-m-d'); 
-           if (strrpos($model->FEC_ENVI, "/") > 0) {
+            if (strrpos($model->FEC_ENVI, "/") > 0) {
                 $model->FEC_ENVI = substr($model->FEC_ENVI, 6, 4) . '/' . substr($model->FEC_ENVI, 3, 2) . '/' . substr($model->FEC_ENVI, 0, 2); //'2016-06-09' ;
             }
             $model->USU_DIGI = $usuario;
@@ -221,11 +231,11 @@ class FACORDENCOMPRController extends Controller {
 
                 $id = ($count);
 
-            
-                    if ($model->update()) {
-                        for ($i = 0; $i < count($CODPRO); $i++) {
-                            if ($CODPRO[$i] <> '') {
-                                $sqlStatement = "call PED_ACTUA_DETAL_OC('" . $i . "',
+
+                if ($model->update()) {
+                    for ($i = 0; $i < count($CODPRO); $i++) {
+                        if ($CODPRO[$i] <> '') {
+                            $sqlStatement = "call PED_ACTUA_DETAL_OC('" . $i . "',
                      '" . $model->COD_ORDE . "',
                      '" . $model->COD_TIEN . "',
                      '" . $model->COD_CLIE . "',
@@ -236,13 +246,12 @@ class FACORDENCOMPRController extends Controller {
                      '" . $DESCRI[$i] . "',
                      '" . $usuario . "',
                      '" . $pcip . "')";
-                                $command = $connection->createCommand($sqlStatement);
-                                $command->execute();
-                            }
+                            $command = $connection->createCommand($sqlStatement);
+                            $command->execute();
                         }
-                        $this->redirect(array('view', 'id' => $model->COD_ORDE));
                     }
-               
+                    $this->redirect(array('view', 'id' => $model->COD_ORDE));
+                }
             } else {
                 Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C');
             }
@@ -251,7 +260,7 @@ class FACORDENCOMPRController extends Controller {
 
         $this->render('update', array(
             'model' => $model,
-                        'modelOC' => $modelOC,
+            'modelOC' => $modelOC,
         ));
     }
 

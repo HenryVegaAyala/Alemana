@@ -85,7 +85,7 @@ Yii::app()->session['USU'] = $usuario;
             <td><input type='text' value=" . $row['VAL_MONT_UNID'] . " id='campo_VAL_MONT_UNID_". $count ."' name='VAL_MONT_UNID[]' size='10' class='form-control' readonly='true'/> </td>
         </tr>";
            
-            "crearFunciones( $count )";
+//            "crearFunciones( $count )";
             $count++;
         }
         ?>
@@ -139,6 +139,7 @@ Yii::app()->session['USU'] = $usuario;
         $('.case:checkbox:checked').parents("tr").remove();
         $('.check_all').prop("checked", false);
         check();
+        jsCalcular();
     });
     var i = $('#tableP tr').length;
     $(".addmore").on('click', function() {
