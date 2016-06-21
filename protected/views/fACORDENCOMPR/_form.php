@@ -182,23 +182,16 @@
         <script>
             function mostrar(id) {
                 if (id > 0) {
-                    $("#add").show();
+                    $("#add").show()();
                 }
             }
         </script>    
 
-        <div id="add container-fluid" >
+        <div id="add" style="display: none">
             <?php
             include __DIR__ . '/../tEMPFACDETALORDENCOMPR/admin.php';
             ?>
         </div>
-
-        <!--        <div class="container-fluid">
-        <?php
-//            $this->renderPartial('/tEMPFACDETALORDENCOMPR/Consulta', array(
-//            ));
-        ?>
-                </div>-->
 
         <div class="container-fluid">
             <table align="right">
