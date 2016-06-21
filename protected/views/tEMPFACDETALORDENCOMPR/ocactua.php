@@ -280,4 +280,14 @@ Yii::app()->session['USU'] = $usuario;
 
 
     });
+    
+    $( document ).ready(function() {
+    	 
+    	   var arr_uni = document.getElementsByName("NRO_UNID[]");
+         //alert('hi '+ arr_uni.length);
+         for (var x = 1; x <= arr_uni.length; x++) {
+           crearFunciones(x) ;
+         }
+    	
+    });
 </script>
