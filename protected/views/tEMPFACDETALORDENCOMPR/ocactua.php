@@ -185,8 +185,9 @@ Yii::app()->session['USU'] = $usuario;
                                 </td>\n\
                                 </tr>';
         $('#tableP').append(data);
-
+     
         crearFunciones(i);
+        $( '#DES_LARG_'+i ).focus();
         i++;
     });
     function select_all() {
@@ -247,6 +248,7 @@ function crearFunciones(i) {
                 $('#COD_PROD_' + row).val(names[1]);
                 $('#NRO_UNID_' + row).val(names[2]);
                 $('#VAL_PREC_' + row).val(names[3]);
+                $('#NRO_UNID_'+row ).focus();
             }
         });
     }
