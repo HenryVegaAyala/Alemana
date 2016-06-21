@@ -100,13 +100,21 @@ $('.search-form form').submit(function(){
                     array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
-                        'htmlOptions' => array('style' => 'width: 80px; text-align: center;'),
-                        'template' => '{view}{update}{delete}{Guia}',
+                        'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
+                        'template' => '{view} / {update} / {delete} / {Guia} / {Reporte}',
                         'buttons' => array(
                             'Guia' => array(
                                 'icon' => 'book',
                                 'htmlOptions' => array('style' => 'width: 50px'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Guia", array("id"=>$data->COD_ORDE))',
+                            ),
+                            'Reporte' => array(
+                                'icon' => 'file',
+                                'label' => 'Generar PDF',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+//                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Reporte", array("id"=>$data->COD_ORDE))',
+                                'url'=>'CHtml::normalizeUrl(array("Reporte", "id"=>$data->COD_ORDE))',
+                                'options' => array('class'=>'Reporte'),
                             ),
                         ),
                     ),

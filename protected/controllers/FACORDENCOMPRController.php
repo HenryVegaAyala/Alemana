@@ -26,7 +26,7 @@ class FACORDENCOMPRController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta', 'ocactua', 'Guia'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'ClienteByTienda', 'ValorTienda', 'search', 'Respaldo', 'ajax', 'Consulta', 'ocactua', 'Guia', 'Reporte'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -35,12 +35,18 @@ class FACORDENCOMPRController extends Controller {
         );
     }
 
+    public function actionReporte($id) {
+        $this->render('Reporte', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
+
     public function actionGuia($id) {
         $connection = Yii::app()->db;
-        $sqlStatement = "CALL pres_migrar_fact('$id');";
+        $sqlStatement = "SELECT * FROM FAC_ORDEN_COMPR where COD_ORDE = '$id' ;";
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
-        $this->render('_migrar', array(
+        $this->render('Guia', array(
             'model' => $this->loadModel($id),
         ));
     }
@@ -60,7 +66,7 @@ class FACORDENCOMPRController extends Controller {
             $tienda = $_GET["tienda"];
             $row_num = $_GET['row_num'];
             $connection = Yii::app()->db;
-            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,GET_VALOR_PRODU(COD_PROD, '".$tienda ."' ,'".$cliente ."') VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
+            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,GET_VALOR_PRODU(COD_PROD, '" . $tienda . "' ,'" . $cliente . "') VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
             $command = $connection->createCommand($sqlStatement);
             $reader = $command->query();
             $data = array();
