@@ -70,9 +70,9 @@ Yii::app()->session['USU'] = $usuario;
         
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-
+        $count = 1;
         foreach ($reader as $row){
-            $count = 1;
+           
             $descripcion=$row['DES_LARG'];
             //$iddescripcion="DES_LARG_". $count .""; 
             echo "<tr>
@@ -214,7 +214,7 @@ Yii::app()->session['USU'] = $usuario;
         $('#DES_LARG_' + i).autocomplete({
             source: function(request, response) {
                 $.ajax({
-                    url: 'ajax.php',
+                    url: '/Alemana/fACORDENCOMPR/ajax.php',
                     dataType: "json",
                     data: {
                         nombre_producto: request.term,
@@ -249,7 +249,7 @@ Yii::app()->session['USU'] = $usuario;
     $('#DES_LARG').autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: 'ajax.php',
+                url: '/Alemana/fACORDENCOMPR/ajax.php',
                 dataType: "json",
                 data: {
                     nombre_producto: request.term,
