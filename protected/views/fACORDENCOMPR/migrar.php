@@ -15,5 +15,5 @@ $this->widget('booster.widgets.TbAlert', array(
     'alerts' => array(// configurations per alert type
         // success, info, warning, error or danger
         'success' => array('closeText' => 'Ir a la Factura'),
-            ),
+    ),
 ));
