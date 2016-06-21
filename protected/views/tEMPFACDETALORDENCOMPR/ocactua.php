@@ -77,7 +77,7 @@ Yii::app()->session['USU'] = $usuario;
             //$iddescripcion="DES_LARG_". $count .""; 
             echo "<tr>
             <td><input type='checkbox' class='case'/></td>
-            <td><span id='snum'>.$count.</span></td>
+            <td><span id='snum'>$count</span></td>
             <td><input type='text' value=' $descripcion ' id='DES_LARG_". $count ."' name='DES_LARG[]' size='45'  class='form-control'/></td>
             <td><input type='text' value=" . $row['COD_PROD'] . " id='COD_PROD_". $count ."' name='COD_PROD[]' size='10' class='form-control' readonly='true'/></td>
             <td><input type='text' value=" . $row['NRO_UNID'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' id='NRO_UNID_". $count ."' name='NRO_UNID[]' value='0' size='10' class='form-control' /></td>
