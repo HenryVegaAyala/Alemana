@@ -48,6 +48,10 @@ $this->breadcrumbs = array(
 
         $cli = $model->cODCLIE->COD_CLIE;
 
+        $FEC_INGRE = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_INGR));
+
+        $FEC_ENVI = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_ENVI));
+
         $this->widget('ext.bootstrap.widgets.TbDetailView', array(
             'data' => $model,
             'type' => 'bordered condensed striped raw',
@@ -61,8 +65,16 @@ $this->breadcrumbs = array(
                 array(
                     'name' => 'Tipo de Moneda',
                     'value' => $moneda),
-                'FEC_INGR',
-                'FEC_ENVI',
+                array(
+                    'name' => 'FEC_INGR',
+                    'header' => 'Fecha de Ingreso',
+                    'value' => $FEC_INGRE,
+                ),
+                array(
+                    'name' => 'FEC_ENVI',
+                    'header' => 'Fecha de Envio',
+                    'value' => $FEC_ENVI,
+                ),
                 array(
                     'name' => 'Estado',
                     'value' => $estado),
@@ -73,4 +85,40 @@ $this->breadcrumbs = array(
         ));
         ?>
     </div>
+
+    <?php
+
+    function valor($a, $b, $c) {
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
+        inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+        where F.COD_CLIE = '" . $a . "' and F.COD_TIEN = '" . $b . "' and F.COD_ORDE = '" . $c . "';";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+
+        while ($resu = $reader->read()) {
+            echo '<tr>';
+            echo '<td>' . $resu['COD_PROD'] . '</td>';
+            echo '<td>' . $resu['DES_LARG'] . '</td>';
+            echo '<td>' . $resu['NRO_UNID'] . '</td>';
+            echo '<td>' . $resu['VAL_PREC'] . '</td>';
+            echo '</tr>';
+        }
+    }
+    ?>
+
+    <?php
+    echo '<table class="table table-hover table-bordered table-condensed table-striped">';
+    echo '<tr>';
+    echo '<th style="text-align: center;" class="col-md-2">Codigo Producto</th>';
+    echo '<th style="text-align: center;" >Descripción</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
+    echo '</tr>';
+    echo '<tbody>';
+
+    valor($model->COD_CLIE, $model->COD_TIEN, $model->COD_ORDE);
+    ?>
+
 </div>

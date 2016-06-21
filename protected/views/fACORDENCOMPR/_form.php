@@ -133,7 +133,7 @@
                     <input type="text" id="FACORDENCOMPR_FEC_INGR" name="FACORDENCOMPR[FEC_INGR]" class="form-control" placeholder="Ingrese la Fecha Ingreso" value=" <?php $model->FEC_INGR ?>" required="true"/>
                     <script>
                         $(function() {
-                            $("#FACORDENCOMPR_FEC_INGR").datepicker({ minDate: 0 });
+                            $("#FACORDENCOMPR_FEC_INGR").datepicker({minDate: 0});
                         });
 
                     </script>
@@ -146,7 +146,7 @@
                     <input type="text" id="FACORDENCOMPR_FEC_ENVI" name="FACORDENCOMPR[FEC_ENVI]" class="form-control" placeholder="Ingrese la Fecha Envio" value=" <?php $model->FEC_ENVI ?>" required="true"/>
                     <script>
                         $(function() {
-                            $("#FACORDENCOMPR_FEC_ENVI").datepicker({ minDate: 0 });
+                            $("#FACORDENCOMPR_FEC_ENVI").datepicker({minDate: 0});
                         });
 
                     </script>
@@ -260,7 +260,16 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
-                    <input type="reset" src="create.php" class="btn btn-default btn-md" value="Cancelar">
+                        <?php
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => 'Regresar',
+                            'size' => 'default',
+                            'buttonType' => 'link',
+                            'url' => array('index')
+                        ));
+                        ?>
                 </div>
             </div>  
         </div>

@@ -113,17 +113,6 @@ $('.search-form form').submit(function(){
                 ),
             ));
             ?>
-<!--            <script>
-                function reloadGrid(data) {
-                    $.fn.yiiGridView.update('facordencompr-grid');
-                }
-                var interval = setInterval("reloadGrid()", 6000);
-            </script>-->
-            <script>
-                function reloadGrid(data) {
-                    $.fn.yiiGridView.update('facordencompr-grid');
-                }
-            </script>
 
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">

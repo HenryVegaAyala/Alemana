@@ -210,7 +210,16 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
-                    <input type="reset" src="create.php" class="btn btn-default btn-md" value="Cancelar">
+                                            <?php
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => 'Regresar',
+                            'size' => 'default',
+                            'buttonType' => 'link',
+                            'url' => array('index')
+                        ));
+                        ?>
                 </div>
             </div>  
         </div>
