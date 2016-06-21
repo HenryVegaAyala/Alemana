@@ -56,9 +56,11 @@ class FACORDENCOMPRController extends Controller {
     public function actionAjax() {
 
         if ($_GET['type'] == 'produc_tiend') {
+            $cliente = $_GET["clie"];
+            $tienda = $_GET["tienda"];
             $row_num = $_GET['row_num'];
             $connection = Yii::app()->db;
-            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
+            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,GET_VALOR_PRODU(COD_PROD, '".$tienda ."' ,'".$cliente ."') VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
             $command = $connection->createCommand($sqlStatement);
             $reader = $command->query();
             $data = array();
