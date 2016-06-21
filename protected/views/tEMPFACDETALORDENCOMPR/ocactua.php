@@ -175,7 +175,7 @@ Yii::app()->session['USU'] = $usuario;
                                     <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control" readonly="true"/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)" onkeyup="jsCalcular(this);" value="0" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)" onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
                                 </td>   \n\
                                 <td>\n\
                                     <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)" onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0"/>\n\
@@ -185,8 +185,9 @@ Yii::app()->session['USU'] = $usuario;
                                 </td>\n\
                                 </tr>';
         $('#tableP').append(data);
-
+     
         crearFunciones(i);
+        $( '#DES_LARG_'+i ).focus();
         i++;
     });
     function select_all() {
@@ -247,45 +248,11 @@ function crearFunciones(i) {
                 $('#COD_PROD_' + row).val(names[1]);
                 $('#NRO_UNID_' + row).val(names[2]);
                 $('#VAL_PREC_' + row).val(names[3]);
+                $('#NRO_UNID_'+row ).focus();
             }
         });
     }
-
-    $('#DES_LARG').autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: '/Alemana/fACORDENCOMPR/ajax.php',
-                dataType: "json",
-                data: {
-                    nombre_producto: request.term,
-                    type: 'produc_tiend',
-                    row_num: 1
-                },
-                success: function(data) {
-                    response($.map(data, function(item) {
-                        var code = item.split("|");
-                        return {
-                            label: code[0],
-                            value: code[0],
-                            data: item
-                        }
-                    }));
-                }
-            });
-        },
-        autoFocus: true,
-        minLength: 0,
-        select: function(event, ui) {
-            var names = ui.item.data.split("|");
-            console.log(names[1], names[2], names[3]);
-            $('#campo_COD_PROD').val(names[1]);
-            $('#campo_NRO_UNID').val(names[2]);
-            $('#campo_VAL_PREC ').val(names[3]);
-        }
-
-
-    });
-    
+ 
     $( document ).ready(function() {
     	 
     	   var arr_uni = document.getElementsByName("NRO_UNID[]");
