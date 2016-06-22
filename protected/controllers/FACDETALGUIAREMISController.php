@@ -1,6 +1,6 @@
 <?php
 
-class FACGUIAREMISController extends Controller {
+class FACDETALGUIAREMISController extends Controller {
 
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -48,15 +48,15 @@ class FACGUIAREMISController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new FACGUIAREMIS;
+        $model = new FACDETALGUIAREMIS;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['FACGUIAREMIS'])) {
-            $model->attributes = $_POST['FACGUIAREMIS'];
+        if (isset($_POST['FACDETALGUIAREMIS'])) {
+            $model->attributes = $_POST['FACDETALGUIAREMIS'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_GUIA));
+                $this->redirect(array('view', 'id' => $model->GUIA_DET));
         }
 
         $this->render('create', array(
@@ -75,10 +75,10 @@ class FACGUIAREMISController extends Controller {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['FACGUIAREMIS'])) {
-            $model->attributes = $_POST['FACGUIAREMIS'];
+        if (isset($_POST['FACDETALGUIAREMIS'])) {
+            $model->attributes = $_POST['FACDETALGUIAREMIS'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->COD_GUIA));
+                $this->redirect(array('view', 'id' => $model->GUIA_DET));
         }
 
         $this->render('update', array(
@@ -103,10 +103,10 @@ class FACGUIAREMISController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $model = new FACGUIAREMIS('search');
+           $model = new FACDETALGUIAREMIS('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['FACGUIAREMIS']))
-            $model->attributes = $_GET['FACGUIAREMIS'];
+        if (isset($_GET['FACDETALGUIAREMIS']))
+            $model->attributes = $_GET['FACDETALGUIAREMIS'];
 
         $this->render('index', array(
             'model' => $model,
@@ -117,10 +117,10 @@ class FACGUIAREMISController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
-        $model = new FACGUIAREMIS('search');
+        $model = new FACDETALGUIAREMIS('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['FACGUIAREMIS']))
-            $model->attributes = $_GET['FACGUIAREMIS'];
+        if (isset($_GET['FACDETALGUIAREMIS']))
+            $model->attributes = $_GET['FACDETALGUIAREMIS'];
 
         $this->render('admin', array(
             'model' => $model,
@@ -131,11 +131,11 @@ class FACGUIAREMISController extends Controller {
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.
      * @param integer $id the ID of the model to be loaded
-     * @return FACGUIAREMIS the loaded model
+     * @return FACDETALGUIAREMIS the loaded model
      * @throws CHttpException
      */
     public function loadModel($id) {
-        $model = FACGUIAREMIS::model()->findByPk($id);
+        $model = FACDETALGUIAREMIS::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -143,10 +143,10 @@ class FACGUIAREMISController extends Controller {
 
     /**
      * Performs the AJAX validation.
-     * @param FACGUIAREMIS $model the model to be validated
+     * @param FACDETALGUIAREMIS $model the model to be validated
      */
     protected function performAjaxValidation($model) {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'facguiaremis-form') {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'facdetalguiaremis-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }

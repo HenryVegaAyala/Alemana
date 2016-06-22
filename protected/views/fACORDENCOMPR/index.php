@@ -3,7 +3,7 @@
 <?php
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
-    'method' => 'get',
+    'method' => 'post',
         ));
 ?>
 
@@ -103,9 +103,18 @@ $('.search-form form').submit(function(){
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
                         'template' => '{view} / {update} / {delete} / {Guia} / {Reporte}',
                         'buttons' => array(
+//                            'delete' => array(
+//                                'icon' => 'user',
+//                                'label' => 'Delete',
+//                                'htmlOptions' => array('style' => 'width: 50px'),
+////                                'visible' => 'array("$data->IND_ESTA") < 1',
+//                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/delete", array("id"=>$data->COD_ORDE))',
+//                            ),
                             'Guia' => array(
                                 'icon' => 'book',
+                                'label' => 'Generar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
+//                                'visible' => 'array("$data->IND_ESTA") < 1',
                                 'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Guia", array("id"=>$data->COD_ORDE))',
                             ),
                             'Reporte' => array(
@@ -113,8 +122,8 @@ $('.search-form form').submit(function(){
                                 'label' => 'Generar PDF',
                                 'htmlOptions' => array('style' => 'width: 50px'),
 //                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Reporte", array("id"=>$data->COD_ORDE))',
-                                'url'=>'CHtml::normalizeUrl(array("Reporte", "id"=>$data->COD_ORDE))',
-                                'options' => array('class'=>'Reporte'),
+                                'url' => 'CHtml::normalizeUrl(array("Reporte", "id"=>$data->COD_ORDE))',
+                                'options' => array('class' => 'Reporte'),
                             ),
                         ),
                     ),
@@ -126,6 +135,8 @@ $('.search-form form').submit(function(){
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
+                        <?php echo CHtml::submitButton('Eliminar', array('class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::link('Delete', "#", array("submit" => array('/FACORDENCOMPR/delete', 'id' => $model->COD_ORDE), 'confirm' => 'Are you sure?')); ?>
                     </div>
                 </div>  
             </div>

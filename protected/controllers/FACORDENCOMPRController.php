@@ -291,8 +291,8 @@ class FACORDENCOMPRController extends Controller {
     public function actionIndex() {
         $model = new FACORDENCOMPR('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['FACORDENCOMPR']))
-            $model->attributes = $_GET['FACORDENCOMPR'];
+        if (isset($_POST['FACORDENCOMPR']))
+            $model->attributes = $_POST['FACORDENCOMPR'];
 
         $this->render('index', array(
             'model' => $model,
