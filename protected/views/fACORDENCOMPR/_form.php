@@ -16,7 +16,7 @@
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'facordencompr-form',
-            'enableAjaxValidation' => true,
+            'enableAjaxValidation' => false,
         ));
         ?>
         <br>
