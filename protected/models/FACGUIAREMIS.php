@@ -147,16 +147,4 @@ class FACGUIAREMIS extends CActiveRecord {
         return parent::model($className);
     }
 
-    public function getCliente($var) {
-
-        $max = Yii::app()->db->createCommand()
-                ->select('DES_CLIE')
-                ->from('MAE_CLIEN')
-                ->where("COD_CLIE = '" . $var . "';")
-                ->queryScalar();
-
-        $id = ($max);
-        return $id;
-    }
-
 }

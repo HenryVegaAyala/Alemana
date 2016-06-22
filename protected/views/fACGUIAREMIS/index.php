@@ -41,10 +41,6 @@ $('.search-form form').submit(function(){
 
         <div class="table-responsive">
             <?php
-            
-            $var = $model->COD_CLIE;
-            
-            
             $this->widget('ext.bootstrap.widgets.TbGridView', array(
                 'id' => 'facguiaremis-grid',
                 'type' => 'bordered condensed striped',
@@ -56,11 +52,20 @@ $('.search-form form').submit(function(){
                         'header' => 'N° de Orden',
                         'value' => '$data->cODORDE->NUM_ORDE'
                     ),
-//                    'COD_TIEN',
                     array(
                         'name' => 'COD_TIEN',
                         'header' => 'Tienda',
-                        'value' => $var
+                        'value' => function($data) {
+                            $tienda = $data->__GET('COD_TIEN');
+                            $max = Yii::app()->db->createCommand()
+                                    ->select('DES_TIEN')
+                                    ->from('MAE_TIEND')
+                                    ->where("COD_TIEN = '" . $tienda . "';")
+                                    ->queryScalar();
+
+                            $id = ($max);
+                            return $id;
+                        }
                     ),
                     array(
                         'name' => 'FEC_EMIS',
