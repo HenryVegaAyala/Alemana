@@ -108,6 +108,9 @@ class FACDETALORDENCOMPR extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
+
+        $criteria->order = "FEC_MODI,NUM_ORDE desc";
+        
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('COD_TIEN', $this->COD_TIEN, true);
         $criteria->compare('COD_ORDE', $this->COD_ORDE, true);

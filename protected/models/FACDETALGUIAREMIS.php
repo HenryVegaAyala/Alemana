@@ -103,6 +103,7 @@ class FACDETALGUIAREMIS extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+                 
 		$criteria->compare('COD_GUIA',$this->COD_GUIA,true);
 		$criteria->compare('COD_PROD',$this->COD_PROD,true);
 		$criteria->compare('PES_PROD',$this->PES_PROD,true);

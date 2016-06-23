@@ -42,7 +42,7 @@
                                 array(
                                     'label' => 'Guía',
                                     'items' => array(
-                                        array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/index')),
+                                        array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/index1')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest

@@ -1,11 +1,11 @@
 <?php
 
 class FACGUIAREMISController extends Controller {
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
+
     /**
      * @return array action filters
      */
@@ -24,7 +24,7 @@ class FACGUIAREMISController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'index1'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -102,13 +102,33 @@ class FACGUIAREMISController extends Controller {
     /**
      * Lists all models.
      */
-    public function actionIndex() {
+    public function actionIndex($id) {
         $model = new FACGUIAREMIS('search');
         $model->unsetAttributes();  // clear any default values
+
         if (isset($_GET['FACGUIAREMIS']))
             $model->attributes = $_GET['FACGUIAREMIS'];
 
+        $usuario = Yii::app()->user->name;
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
+
         $this->render('index', array(
+            'model' => $model,
+        ));
+    }
+
+    public function actionIndex1() {
+        $model = new FACGUIAREMIS('search');
+        $model->unsetAttributes();  // clear any default values
+
+        if (isset($_GET['FACGUIAREMIS']))
+            $model->attributes = $_GET['FACGUIAREMIS'];
+
+        $this->render('index1', array(
             'model' => $model,
         ));
     }

@@ -1,18 +1,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
-
 <?php
-$form = $this->beginWidget('CActiveForm', array(
-    'action' => Yii::app()->createUrl($this->route),
-    'method' => 'post',
-        ));
-?>
-
-<?php
-/* @var $this FACORDENCOMPRController */
-/* @var $model FACORDENCOMPR */
+/* @var $this FACGUIAREMISController */
+/* @var $model FACGUIAREMIS */
 
 $this->breadcrumbs = array(
-    'Lista de O/C',
+    'Guia' => array('index1'),
+    'Buscar',
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -21,7 +14,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#facordencompr-grid').yiiGridView('update', {
+	$('#facguiaremis-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -32,7 +25,7 @@ $('.search-form form').submit(function(){
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Búsqueda O/C</h3>
+            <h3 class="panel-title">Buscar Guias</h3>
         </div>
 
         <div class="mar">
@@ -49,32 +42,36 @@ $('.search-form form').submit(function(){
         <div class="table-responsive">
             <?php
             $this->widget('ext.bootstrap.widgets.TbGridView', array(
-                'id' => 'facordencompr-grid',
+                'id' => 'facguiaremis-grid',
                 'type' => 'bordered condensed striped',
                 'dataProvider' => $model->search(),
                 'columns' => array(
+                    'COD_GUIA',
                     array(
-                        'id' => 'COD_ORDE',
-                        'class' => 'CCheckBoxColumn',
-                        'selectableRows' => '50',
+                        'name' => 'COD_ORDE',
+                        'header' => 'N° de Orden',
+                        'value' => '$data->cODORDE->NUM_ORDE'
                     ),
-                    'NUM_ORDE',
                     array(
-                        'header' => 'cODTIEN',
+                        'name' => 'COD_TIEN',
                         'header' => 'Tienda',
-                        'value' => '$data->cODTIEN->DES_TIEN'
+                        'value' => function($data) {
+                            $tienda = $data->__GET('COD_TIEN');
+                            $max = Yii::app()->db->createCommand()
+                                    ->select('DES_TIEN')
+                                    ->from('MAE_TIEND')
+                                    ->where("COD_TIEN = '" . $tienda . "';")
+                                    ->queryScalar();
+
+                            $id = ($max);
+                            return $id;
+                        }
                     ),
                     array(
-                        'name' => 'FEC_INGR',
-                        'header' => 'Fecha de Ingreso',
-                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_INGR))'
-                    ),
-                    array(
-                        'name' => 'FEC_ENVI',
+                        'name' => 'FEC_EMIS',
                         'header' => 'Fecha de Envio',
-                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_ENVI))'
+                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_EMIS))'
                     ),
-                    'TOT_FACT',
                     array(
                         'name' => 'IND_ESTA',
                         'header' => 'Estado',
@@ -83,10 +80,10 @@ $('.search-form form').submit(function(){
                             $variable = $data->__GET('IND_ESTA');
                             switch ($variable) {
                                 case 1:
-                                    echo 'En Proceso';
+                                    echo 'Emitida / Pendiente de cobro';
                                     break;
                                 case 2:
-                                    echo 'Despacho/Atendido';
+                                    echo 'Cobrada / Cerrada';
                                     break;
                                 case 9:
                                     echo 'Anulado';
@@ -101,22 +98,8 @@ $('.search-form form').submit(function(){
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {delete} / {Guia} / {Reporte}',
+                        'template' => '{view} / {update} / {delete} / {Reporte}',
                         'buttons' => array(
-//                            'delete' => array(
-//                                'icon' => 'user',
-//                                'label' => 'Delete',
-//                                'htmlOptions' => array('style' => 'width: 50px'),
-////                                'visible' => 'array("$data->IND_ESTA") < 1',
-//                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/delete", array("id"=>$data->COD_ORDE))',
-//                            ),
-                            'Guia' => array(
-                                'icon' => 'book',
-                                'label' => 'Generar Guia',
-                                'htmlOptions' => array('style' => 'width: 50px'),
-//                                'visible' => 'array("$data->IND_ESTA") < 1',
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/index", array("id"=>$data->COD_ORDE))',
-                            ),
                             'Reporte' => array(
                                 'icon' => 'file',
                                 'label' => 'Generar PDF',
@@ -130,16 +113,14 @@ $('.search-form form').submit(function(){
                 ),
             ));
             ?>
-
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
-                        <?php echo CHtml::submitButton('Eliminar', array('class' => 'btn btn-default btn-md')); ?>
-                        <?php echo CHtml::link('Delete', "#", array("submit" => array('/FACORDENCOMPR/delete', 'id' => $model->COD_ORDE), 'confirm' => 'Are you sure?')); ?>
+
                     </div>
                 </div>  
             </div>
         </div>
-    </div>
-</div>    <?php $this->endWidget(); ?>
+    </div>    
+</div>

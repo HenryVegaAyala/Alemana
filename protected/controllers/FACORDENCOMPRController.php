@@ -42,10 +42,14 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionGuia($id) {
-        $connection = Yii::app()->db;
-        $sqlStatement = "SELECT * FROM FAC_ORDEN_COMPR where COD_ORDE = '$id' ;";
-        $command = $connection->createCommand($sqlStatement);
-        $command->execute();
+        
+        
+//            $usuario = Yii::app()->user->name;
+//            
+//        $connection = Yii::app()->db;
+//        $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+//        $command = $connection->createCommand($sqlStatement);
+//        $command->execute();
         $this->render('Guia', array(
             'model' => $this->loadModel($id),
         ));

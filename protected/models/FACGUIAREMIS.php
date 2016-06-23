@@ -115,6 +115,7 @@ class FACGUIAREMIS extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
+        $criteria->order = "COD_GUIA DESC";
         $criteria->compare('COD_GUIA', $this->COD_GUIA, true);
         $criteria->compare('COD_ORDE', $this->COD_ORDE, true);
         $criteria->compare('COD_TIEN', $this->COD_TIEN, true);
