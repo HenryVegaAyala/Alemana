@@ -101,21 +101,86 @@ $('.search-form form').submit(function(){
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {delete} / {Guia} / {Reporte}',
+                        'template' => '{view} / {update} / {Anular} / {Guia} / {Reporte}',
                         'buttons' => array(
-//                            'delete' => array(
-//                                'icon' => 'user',
-//                                'label' => 'Delete',
-//                                'htmlOptions' => array('style' => 'width: 50px'),
-////                                'visible' => 'array("$data->IND_ESTA") < 1',
-//                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/delete", array("id"=>$data->COD_ORDE))',
-//                            ),
+                                'update' => array(
+                                'icon' => 'pencil',
+                                'label' => 'Actualizar O/C',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/update", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 1 || id == 2 || id == 9){
+                                        alert ('Este N° de O/C no puede ser actualizado debe estar en estado creado');
+                                        return false
+                                    }
+                                     if (confirm ('¿ Estas Seguro de actualizar la O/C ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    
+                               
+                                }",
+                            ),
+                            'Anular' => array(
+                                'icon' => 'trash',
+                                'label' => 'Anular O/C',
+//                                'visible' => 'false',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Anular", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 1 || id == 2){
+                                        alert ('Este N° de O/C no puede ser anulado debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 9 ){
+                                        alert ('Este N° de O/C ya fue Anulado');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de Anular la O/C ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
+                            ),
                             'Guia' => array(
                                 'icon' => 'book',
                                 'label' => 'Generar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
 //                                'visible' => 'array("$data->IND_ESTA") < 1',
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/index", array("id"=>$data->COD_ORDE))',
+                                                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Anular", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 2 ||  id == 9){
+                                        alert ('No puede generarse la Guia,la O/C debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 1 ){
+                                        alert ('En este N° de O/C ya fue generado la Guia, por favor revisar');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de generar Guia para esta O/C ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
                             ),
                             'Reporte' => array(
                                 'icon' => 'file',
@@ -135,8 +200,6 @@ $('.search-form form').submit(function(){
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
-                        <?php echo CHtml::submitButton('Eliminar', array('class' => 'btn btn-default btn-md')); ?>
-                        <?php echo CHtml::link('Delete', "#", array("submit" => array('/FACORDENCOMPR/delete', 'id' => $model->COD_ORDE), 'confirm' => 'Are you sure?')); ?>
                     </div>
                 </div>  
             </div>

@@ -54,7 +54,6 @@
                 </div>
 
                 <div class="col-sm-3 control-label">
-
                     <?php echo $form->labelEx($model, 'COD_CLIE'); ?>
                     <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaClienteUpdate(), array('class' => 'form-control', 'disabled' => 'true')); ?>
 

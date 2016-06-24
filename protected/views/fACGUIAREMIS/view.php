@@ -2,40 +2,62 @@
 /* @var $this FACGUIAREMISController */
 /* @var $model FACGUIAREMIS */
 
-$this->breadcrumbs=array(
-	'Facguiaremises'=>array('index'),
-	$model->COD_GUIA,
-);
-
-$this->menu=array(
-	array('label'=>'List FACGUIAREMIS', 'url'=>array('index')),
-	array('label'=>'Create FACGUIAREMIS', 'url'=>array('create')),
-	array('label'=>'Update FACGUIAREMIS', 'url'=>array('update', 'id'=>$model->COD_GUIA)),
-	array('label'=>'Delete FACGUIAREMIS', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->COD_GUIA),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage FACGUIAREMIS', 'url'=>array('admin')),
+$this->breadcrumbs = array(
+    'Detalle Guia' => array('index'),
 );
 ?>
 
-<h1>View FACGUIAREMIS #<?php echo $model->COD_GUIA; ?></h1>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3 class="panel-title">Vista Detallada del N° de Guia: <big><strong><?php echo $model->COD_GUIA; ?></strong></big></h3>
+            </center>
+        </div>
+        <?php
+        $estado = "";
+        switch ($model->IND_ESTA) {
+            case '1':
+                $estado = 'Emitida / Pendiente de cobro';
+                break;
+            case '2':
+                $estado = 'Cobrada / Cerrada';
+                break;
+            case '9':
+                $estado = 'Anulado';
+                break;
+            case '0':
+                $estado = 'Creado';
+                break;
+            default :
+                $estado = "";
+        }
+        $FEC_INGRE = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_EMIS));
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'COD_GUIA',
-		'COD_ORDE',
-		'COD_TIEN',
-		'COD_CLIE',
-		'FEC_EMIS',
-		'DIR_PART',
-		'FEC_TRAS',
-		'COS_FLET',
-		'COD_EMPR_TRAN',
-		'COD_UNID_TRAN',
-		'COD_MOTI_TRAS',
-		'IND_ESTA',
-		'USU_DIGI',
-		'FEC_DIGI',
-		'USU_MODI',
-		'FEC_MODI',
-	),
-)); ?>
+        $FEC_ENVI = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_TRAS));
+        ?>
+
+        <?php
+        $this->widget('ext.bootstrap.widgets.TbDetailView', array(
+            'data' => $model,
+            'type' => 'bordered condensed striped raw',
+            'attributes' => array(
+                'COD_ORDE',
+                'COD_TIEN',
+                'COD_CLIE',
+                array(
+                    'name' => 'FEC_EMIS',
+                    'header' => 'Fecha de Ingreso',
+                    'value' => $FEC_INGRE,
+                ),
+                array(
+                    'name' => 'FEC_TRAS',
+                    'header' => 'Fecha de Envio',
+                    'value' => $FEC_ENVI,
+                ),
+                array(
+                    'name' => 'Estado',
+                    'value' => $estado),
+            ),
+        ));
+        ?>

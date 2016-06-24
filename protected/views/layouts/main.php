@@ -42,7 +42,7 @@
                                 array(
                                     'label' => 'Guía',
                                     'items' => array(
-                                        array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/index1')),
+                                        array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/Lista')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
@@ -74,7 +74,7 @@
 //                                    ), 'visible' => !Yii::app()->user->isGuest
 //                                ),
 //                                array('label' => 'Acerca', 'url' => array('/site/page', 'view' => 'about'), 'visible' => !Yii::app()->user->isGuest),
-//                                array('label' => 'Pruebas', 'url' => array('/TEMPFACDETALORDENCOMPR/ocactua'), 'visible' => !Yii::app()->user->isGuest),
+//                                array('label' => 'Pruebas', 'url' => array('/fACORDENCOMPR/view'), 'visible' => !Yii::app()->user->isGuest),
                                 array('label' => 'Iniciar Sesión', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
                                 array('label' => 'Cerrar Sesión (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
                             ),

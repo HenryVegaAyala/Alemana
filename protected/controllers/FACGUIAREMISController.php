@@ -24,7 +24,7 @@ class FACGUIAREMISController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'index1'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'Lista'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -121,14 +121,14 @@ class FACGUIAREMISController extends Controller {
         ));
     }
 
-    public function actionIndex1() {
+    public function actionLista() {
         $model = new FACGUIAREMIS('search');
         $model->unsetAttributes();  // clear any default values
 
         if (isset($_GET['FACGUIAREMIS']))
             $model->attributes = $_GET['FACGUIAREMIS'];
 
-        $this->render('index1', array(
+        $this->render('Lista', array(
             'model' => $model,
         ));
     }

@@ -82,10 +82,10 @@ class FACGUIAREMIS extends CActiveRecord {
             'COD_GUIA' => 'N° de Guia',
             'COD_ORDE' => 'N° de O/C',
             'COD_TIEN' => 'Tienda',
-            'COD_CLIE' => 'Cod Clie',
+            'COD_CLIE' => 'Cliente',
             'FEC_EMIS' => 'Fecha de Envio',
             'DIR_PART' => 'Dir Part',
-            'FEC_TRAS' => 'Fec Tras',
+            'FEC_TRAS' => 'Fecha de Transporte',
             'COS_FLET' => 'Cos Flet',
             'COD_EMPR_TRAN' => 'Cod Empr Tran',
             'COD_UNID_TRAN' => 'Cod Unid Tran',
@@ -147,5 +147,15 @@ class FACGUIAREMIS extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
+    public function ListaClienteUpdate() {
 
+        $Cliente = MAECLIEN::model()->findAll();
+        return CHtml::listData($Cliente, "COD_CLIE", "DES_CLIE");
+    }
+    
+        public function ListaTiendaUpdate() {
+
+        $Tienda = MAETIEND::model()->findAll();
+        return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
+    }
 }
