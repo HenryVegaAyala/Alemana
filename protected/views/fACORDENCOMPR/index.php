@@ -200,6 +200,42 @@ $('.search-form form').submit(function(){
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
+                          <?php echo CHtml::SubmitButton('Eliminar',array('onclick'=>'return validation();','class' => 'btn btn-default btn-md'));?>
+                        <script>
+                            function validation(){
+                                
+                                var item = $("form input:checkbox:checked");
+                               
+                               // alert('Plese select checkbox! ' + item.length);
+                              
+                               for(i=0;i<item.length;i++) {
+                                    $.ajax({
+                                     url: 'ajax.php',
+                                     dataType: "json",
+                                       data: {
+                                           type: 'id_sele', 
+                                           id: item[i].value
+                                       },
+                                     succes: function (data) {
+                                        
+                                      response($.map(data, function(item) {
+
+                                        alert(item);
+                                        return {
+                                            label: item,
+                                            value: item,
+                                            data: item
+                                        }
+                                     }));
+                                         
+                                         
+                                     }
+                                   });
+                               }
+                              
+                                return true;
+                             }
+                        </script>
                     </div>
                 </div>  
             </div>
