@@ -55,6 +55,14 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionAjax() {
+        if ($_GET['type'] == 'id_sele') {
+                $id = $_GET["id"];
+                $connection = Yii::app()->db;
+                $usuario = Yii::app()->user->name;
+                $sqlStatement = "call PED_ANULA_OC ('" . $id . "' ,'" . $usuario . "') ;";
+                $command = $connection->createCommand($sqlStatement);
+                $command->execute();
+         }
 
         if ($_GET['type'] == 'produc_tiend') {
             $cliente = $_GET["clie"];
