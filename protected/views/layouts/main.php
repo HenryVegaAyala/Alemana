@@ -75,7 +75,7 @@
 //                                ),
 //                                array('label' => 'Acerca', 'url' => array('/site/page', 'view' => 'about'), 'visible' => !Yii::app()->user->isGuest),
 //                                array('label' => 'Pruebas', 'url' => array('/fACORDENCOMPR/view'), 'visible' => !Yii::app()->user->isGuest),
-                                array('label' => 'Iniciar Sesión','url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+                                array('label' => 'Iniciar Sesión', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
                                 array('label' => 'Cerrar Sesión (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
                             ),
                         )
@@ -93,7 +93,7 @@
                 ?><!-- breadcrumbs -->
             <?php endif ?>
 
-            <?php echo $content; ?>
+<?php echo $content; ?>
 
             <div class="clear"></div>
 

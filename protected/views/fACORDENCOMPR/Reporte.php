@@ -37,14 +37,10 @@ $html = '
 <setpageheader name="myHeaderNoNumEven" page="E" value="on" />
 
 <h1 style="margin-collapse: none; margin-top: 35mm">Introduction</h1>
-<div>Aqui va el numero de la o/c primary Key"'.$model->COD_ORDE.'"</div>
+<div>Aqui va el numero de la o/c primary Key"' . $model->COD_ORDE . '"</div>
 <p>Integer feugiat venenatis metus. Integer lacinia ultrices ipsum. Proin et arcu. Quisque varius libero. Nullam id arcu. Aenean justo quam, accumsan nec, luctus id, pellentesque molestie, mi. Aliquam sollicitudin feugiat eros. Nunc nisi turpis, consequat id, aliquet et, semper a, augue. Integer nisl ipsum, blandit et, lobortis a, egestas nec, odio. Nulla dolor ligula, nonummy ac, vulputate a, sollicitudin id, orci. <!--Donec laoreet nisl id magna. Curabitur mollis, quam eget fermentum malesuada, risus tortor ullamcorper dolor, nec placerat nisi urna non pede. Aliquam pretium, leo in interdum interdum, ipsum neque accumsan lectus, ac fringilla dui ipsum sed justo. In tincidunt risus convallis odio egestas luctus. Integer volutpat. Donec ultricies, leo in congue iaculis, dolor neque imperdiet nibh, vitae feugiat mi enim nec sapien. -->Aenean turpis lorem, consequat quis, varius in, posuere vel, eros. Nulla facilisi.</p>
 
 ';
-
-//==============================================================
-//==============================================================
-//==============================================================
 
 $mpdf = new mPDF('c');
 
