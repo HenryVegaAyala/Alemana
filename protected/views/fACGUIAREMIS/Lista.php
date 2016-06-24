@@ -98,29 +98,71 @@ $('.search-form form').submit(function(){
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {delete} / {Reporte}',
+                        'template' => '{view} / {update} / {Anular}',
                         'buttons' => array(
-                            'Reporte' => array(
-                                'icon' => 'file',
-                                'label' => 'Generar PDF',
+                            'Anular' => array(
+                                'icon' => 'trash',
+                                'label' => 'Anular Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-//                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Reporte", array("id"=>$data->COD_ORDE))',
-                                'url' => 'CHtml::normalizeUrl(array("Reporte", "id"=>$data->COD_ORDE))',
-                                'options' => array('class' => 'Reporte'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 1 || id == 2){
+                                        alert ('Este N° de Guia no puede ser anulado debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 9 ){
+                                        alert ('Este N° de Guia ya fue Anulado');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de Anular la Guia ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
+                            ),
+                            'update' => array(
+                                'icon' => 'pencil',
+                                'label' => 'Actualizar Guia',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 1 || id == 2 || id == 9){
+                                        alert ('Este N° de Guia no puede ser actualizado debe estar en estado creado');
+                                        return false
+                                    }
+                                     if (confirm ('¿ Estas Seguro de actualizar la Guia ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    
+                               
+                                }",
                             ),
                         ),
                     ),
                 ),
             ));
             ?>
-            <div class="panel-footer " style="overflow:hidden;text-align:right;">
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
-
-                    </div>
-                </div>  
-            </div>
+            <!--            <div class="panel-footer " style="overflow:hidden;text-align:right;">
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+            <?php // echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md'));  ?>
+            
+                                </div>
+                            </div>  
+                        </div>-->
         </div>
     </div>    
 </div>

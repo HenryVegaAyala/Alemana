@@ -91,15 +91,16 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/stylev2.cs
                     ?>
                 </div> 
             </div>
+            
         </div>
         <br>
         <div class="panel-footer " style="overflow:hidden;text-align:right;">
-<!--            <div class="form-group">
+            <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <?php // echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
+                    <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
                     <input type="reset" src="create" class="btn btn-default btn-md" value="Cancelar">
                 </div>
-            </div>  -->
+            </div>  
         </div>
 
     </div>

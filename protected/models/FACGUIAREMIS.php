@@ -115,9 +115,13 @@ class FACGUIAREMIS extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
+        if (strrpos($this->FEC_EMIS, "/") > 0) {
+            $this->FEC_EMIS = substr($this->FEC_EMIS, 6, 4) . '-' . substr($this->FEC_EMIS, 3, 2) . '-' . substr($this->FEC_EMIS, 0, 2); //'2016-06-09' ;
+        }
+
         $criteria->order = "COD_GUIA DESC";
         $criteria->compare('COD_GUIA', $this->COD_GUIA, true);
-        $criteria->compare('COD_ORDE', $this->COD_ORDE, true);
+        $criteria->compare('cODORDE.NUM_ORDE', $this->COD_ORDE, true);
         $criteria->compare('COD_TIEN', $this->COD_TIEN, true);
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('FEC_EMIS', $this->FEC_EMIS, true);
@@ -132,6 +136,7 @@ class FACGUIAREMIS extends CActiveRecord {
         $criteria->compare('FEC_DIGI', $this->FEC_DIGI, true);
         $criteria->compare('USU_MODI', $this->USU_MODI, true);
         $criteria->compare('FEC_MODI', $this->FEC_MODI, true);
+        $criteria->with = array('cODORDE');
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -147,15 +152,51 @@ class FACGUIAREMIS extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
+
     public function ListaClienteUpdate() {
 
         $Cliente = MAECLIEN::model()->findAll();
         return CHtml::listData($Cliente, "COD_CLIE", "DES_CLIE");
     }
-    
-        public function ListaTiendaUpdate() {
+
+    public function ListaTiendaUpdate() {
 
         $Tienda = MAETIEND::model()->findAll();
         return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
     }
+
+    public function getCliente($var) {
+
+        $max = Yii::app()->db->createCommand()
+                ->select('DES_CLIE')
+                ->from('MAE_CLIEN')
+                ->where("COD_CLIE = '" . $var . "';")
+                ->queryScalar();
+
+        $id = ($max);
+        return $id;
+    }
+
+    public function getTienda($var) {
+
+        $max = Yii::app()->db->createCommand()
+                ->select('DES_TIEN')
+                ->from('MAE_TIEND')
+                ->where("COD_TIEN = '" . $var . "';")
+                ->queryScalar();
+
+        $id = ($max);
+        return $id;
+    }
+
+    public function Estado() {
+        $model = array(
+            array('IND_ESTA' => '1', 'value' => 'Emitida / Pendiente de cobro'),
+            array('IND_ESTA' => '2', 'value' => 'Cobrada / Cerrada'),
+            array('IND_ESTA' => '9', 'value' => 'Anulado'),
+            array('IND_ESTA' => '0', 'value' => 'Creado'),
+        );
+        return cHtml::listData($model, 'IND_ESTA', 'value');
+    }
+
 }

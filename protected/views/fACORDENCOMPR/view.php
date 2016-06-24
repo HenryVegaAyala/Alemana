@@ -87,38 +87,44 @@ $this->breadcrumbs = array(
     </div>
 
     <?php
-
-    function valor($a, $b, $c) {
-
-        $connection = Yii::app()->db;
-        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
-        inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-        where F.COD_CLIE = '" . $a . "' and F.COD_TIEN = '" . $b . "' and F.COD_ORDE = '" . $c . "';";
-        $command = $connection->createCommand($sqlStatement);
-        $reader = $command->query();
-
-        while ($resu = $reader->read()) {
-            echo '<tr>';
-            echo '<td>' . $resu['COD_PROD'] . '</td>';
-            echo '<td>' . $resu['DES_LARG'] . '</td>';
-            echo '<td>' . $resu['NRO_UNID'] . '</td>';
-            echo '<td>' . $resu['VAL_PREC'] . '</td>';
-            echo '</tr>';
-        }
-    }
-    ?>
-
-    <?php
     echo '<table class="table table-hover table-bordered table-condensed table-striped">';
     echo '<tr>';
-    echo '<th style="text-align: center;" class="col-md-2">Codigo Producto</th>';
+    echo '<th style="text-align: center;" class="col-md-2">Codigo</th>';
     echo '<th style="text-align: center;" >Descripción</th>';
     echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
     echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
     echo '</tr>';
-    echo '<tbody>';
+    $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
+            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+            where F.COD_CLIE = '" . $model->COD_CLIE . "' and F.COD_TIEN = '" . $model->COD_TIEN . "' and F.COD_ORDE = '" . $model->COD_ORDE . "';";
+    $connection = Yii::app()->db;
+    $command = $connection->createCommand($sqlStatement);
+    $reader = $command->query();
+    while ($row1 = $reader->read()) {
+        echo '<tr>';
+        echo '<td>' . $row1['COD_PROD'] . '</td>';
+        echo '<td>' . $row1['DES_LARG'] . '</td>';
+        echo '<td>' . $row1['NRO_UNID'] . '</td>';
+        echo '<td>' . $row1['VAL_PREC'] . '</td>';
+        echo '</tr>';
+    }
 
-    valor($model->COD_CLIE, $model->COD_TIEN, $model->COD_ORDE);
+    echo '</table>';
     ?>
-
 </div>
+<br>
+<div class="container-fluid" align="right">
+    <?php
+    $this->widget(
+            'ext.bootstrap.widgets.TbButton', array(
+        'context' => 'success',
+        'label' => 'Regresar',
+        'size' => 'small',
+        'buttonType' => 'link',
+        'icon' => 'chevron-left',
+        'url' => array('index')
+    ));
+    ?>
+</div>
+
+

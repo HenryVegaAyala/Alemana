@@ -7,6 +7,7 @@ $this->breadcrumbs = array(
 );
 ?>
 
+<br>
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -35,6 +36,8 @@ $this->breadcrumbs = array(
         $FEC_INGRE = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_EMIS));
 
         $FEC_ENVI = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_TRAS));
+
+        $cli = $model->cODCLIE->COD_CLIE;
         ?>
 
         <?php
@@ -43,8 +46,12 @@ $this->breadcrumbs = array(
             'type' => 'bordered condensed striped raw',
             'attributes' => array(
                 'COD_ORDE',
-                'COD_TIEN',
-                'COD_CLIE',
+                array(
+                    'name' => 'Nombre del Cliente',
+                    'value' => $model->getCliente($cli)),
+                array(
+                    'name' => 'Nombre de la Tienda',
+                    'value' => $model->getTienda($cli)),
                 array(
                     'name' => 'FEC_EMIS',
                     'header' => 'Fecha de Ingreso',
@@ -61,3 +68,46 @@ $this->breadcrumbs = array(
             ),
         ));
         ?>
+    </div>
+
+
+    <?php
+    echo '<table class="table table-hover table-bordered table-condensed table-striped">';
+    echo '<tr>';
+    echo '<th style="text-align: center;" class="col-md-2">Codigo</th>';
+    echo '<th style="text-align: center;" >Descripción</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
+    echo '</tr>';
+    $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
+            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+            where F.COD_CLIE = '" . $model->COD_CLIE . "' and F.COD_TIEN = '" . $model->COD_TIEN . "' and F.COD_ORDE = '" . $model->COD_ORDE . "';";
+    $connection = Yii::app()->db;
+    $command = $connection->createCommand($sqlStatement);
+    $reader = $command->query();
+    while ($row1 = $reader->read()) {
+        echo '<tr>';
+        echo '<td>' . $row1['COD_PROD'] . '</td>';
+        echo '<td>' . $row1['DES_LARG'] . '</td>';
+        echo '<td>' . $row1['NRO_UNID'] . '</td>';
+        echo '<td>' . $row1['VAL_PREC'] . '</td>';
+        echo '</tr>';
+    }
+
+    echo '</table>';
+    ?>
+</div>
+<br>
+<div class="container-fluid" align="right">
+    <?php
+    $this->widget(
+            'ext.bootstrap.widgets.TbButton', array(
+        'context' => 'success',
+        'label' => 'Regresar',
+        'size' => 'small',
+        'buttonType' => 'link',
+        'icon' => 'chevron-left',
+        'url' => array('Lista')
+    ));
+    ?>
+</div>

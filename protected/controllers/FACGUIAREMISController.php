@@ -24,7 +24,7 @@ class FACGUIAREMISController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'Lista'),
+                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete', 'Lista', 'Anular'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -37,6 +37,19 @@ class FACGUIAREMISController extends Controller {
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
+    public function actionAnular($id) {
+
+        $connection = Yii::app()->db;
+        $usuario = Yii::app()->user->name;
+        $sqlStatement = "call PED_ANULA_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
+
+        $this->render('Lista', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
+
     public function actionView($id) {
         $this->render('view', array(
             'model' => $this->loadModel($id),
