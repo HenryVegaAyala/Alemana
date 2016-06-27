@@ -1,97 +1,1429 @@
-2016/06/10 07:52:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 19:55:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/sunset.jpg
 ---
-2016/06/10 07:52:54 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '47' for key 'PRIMARY'. La sentencia SQL ejecutada fue: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
-in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (115)
+2016/06/26 19:55:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 19:55:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 19:55:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:08:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:08:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:08:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:08:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:13:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:13:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:13:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:13:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:15:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:15:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:20:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:20:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:20:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:20:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:25:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:25:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:25:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:25:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:27:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:27:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:27:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:27:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/26 20:50:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:50:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:50:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:52:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:52:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:52:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:54:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:54:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:54:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:54:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:54:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:54:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:56:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:56:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:56:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:56:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:56:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:56:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:57:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:57:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:57:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:57:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 20:57:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 20:57:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 21:06:26 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:06:26 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:07:25 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:07:25 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:07:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:07:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:10:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:11:59 [error] [php] Trying to get property of non-object (C:\wamp\www\Alemana\protected\views\fACORDENCOMPR\Reporte.php:8)
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(869): FACORDENCOMPRController->renderFile()
+#1 C:\wamp\www\Alemana\framework\web\CController.php(782): FACORDENCOMPRController->renderPartial()
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(32): FACORDENCOMPRController->render()
+#3 unknown(0): FACORDENCOMPRController->actionReporte()
+#4 C:\wamp\www\Alemana\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): FACORDENCOMPRController->runAction()
+#8 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): FACORDENCOMPRController->filterAccessControl()
+#11 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\wamp\www\Alemana\framework\web\CController.php(265): FACORDENCOMPRController->runActionWithFilters()
+#14 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): FACORDENCOMPRController->run()
+#15 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/15.php
+in C:\wamp\www\Alemana\protected\views\fACORDENCOMPR\Reporte.php (8)
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (32)
 in C:\wamp\www\Alemana\index.php (13)
-2016/06/10 07:52:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '47' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `FAC_ORDEN_COMPR` (`NUM_ORDE`, `COD_CLIE`, `COD_TIEN`, `TIP_MONE`, `FEC_INGR`, `FEC_ENVI`, `COD_ORDE`, `TOT_MONT_ORDE`, `TOT_MONT_IGV`, `TOT_FACT`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in C:\wamp\www\Alemana\framework\db\CDbCommand.php:358
+2016/06/26 21:12:10 [error] [php] Trying to get property of non-object (C:\wamp\www\Alemana\protected\views\fACORDENCOMPR\Reporte.php:8)
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
-#1 C:\wamp\www\Alemana\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
-#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(115): CActiveRecord->save()
-#3 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(49): FACORDENCOMPRController->actionCreate()
-#4 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#6 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#7 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
-#8 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#9 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#10 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
-#11 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('create')
-#13 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/c...')
-#14 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#15 C:\wamp\www\Alemana\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/Alemana/fACORDENCOMPR/create.php
-HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/create.php
+#0 C:\wamp\www\Alemana\framework\web\CController.php(869): FACORDENCOMPRController->renderFile()
+#1 C:\wamp\www\Alemana\framework\web\CController.php(782): FACORDENCOMPRController->renderPartial()
+#2 C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php(32): FACORDENCOMPRController->render()
+#3 unknown(0): FACORDENCOMPRController->actionReporte()
+#4 C:\wamp\www\Alemana\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\Alemana\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\Alemana\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): FACORDENCOMPRController->runAction()
+#8 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\wamp\www\Alemana\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): FACORDENCOMPRController->filterAccessControl()
+#11 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\wamp\www\Alemana\framework\web\CController.php(265): FACORDENCOMPRController->runActionWithFilters()
+#14 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): FACORDENCOMPRController->run()
+#15 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\wamp\www\Alemana\index.php(13): CWebApplication->run()
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/15.php
+in C:\wamp\www\Alemana\protected\views\fACORDENCOMPR\Reporte.php (8)
+in C:\wamp\www\Alemana\protected\controllers\FACORDENCOMPRController.php (32)
+in C:\wamp\www\Alemana\index.php (13)
+2016/06/26 21:14:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
 ---
-2016/06/10 07:58:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 21:14:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff2"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
 ---
-2016/06/10 08:03:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 21:14:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
 ---
-2016/06/10 08:04:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 21:14:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
 ---
-2016/06/16 06:25:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 21:55:15 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 21:55:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff2"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
 ---
-2016/06/16 06:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_gloss-wave_35_f6a828_500x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 21:55:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_gloss-wave_35_f6a828_500x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
 ---
-2016/06/16 06:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-icons_ffffff_256x240.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 21:55:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-icons_ffffff_256x240.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
 ---
-2016/06/16 07:38:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+2016/06/26 23:00:37 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\wamp\www\Alemana\framework\web\CController.php:336
 Stack trace:
-#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/new/images/...')
+#0 C:\wamp\www\Alemana\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\Alemana\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\Alemana\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\Alemana\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\Alemana\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\Alemana\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\Alemana\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\Alemana\framework\web\CWebApplication.php(282): CController->run('Reporte')
+#9 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('fACORDENCOMPR/R...')
+#10 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/Alemana/fACORDENCOMPR/Reporte/logo.png
+HTTP_REFERER=http://localhost/Alemana/fACORDENCOMPR/Reporte/15.php
+---
+2016/06/26 23:00:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff2"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
 #1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/Alemana/css/new/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-HTTP_REFERER=http://localhost/Alemana/css/new/jqueryui.css
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
+---
+2016/06/26 23:00:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.woff"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
+---
+2016/06/26 23:00:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/fonts/glyphicons-halflings-regular.ttf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/Alemana/css/bootstrap/bootstrap.css
+---
+2016/06/26 23:03:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:03:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:03:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "bootstrap/css/bootstrap.min.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('bootstrap/css/b...')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/bootstrap/css/bootstrap.min.css
+---
+2016/06/26 23:03:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:03:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:04:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:05:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:05:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:05:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:05:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:05:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:05:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:06:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:06:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:09:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:09:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:15:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:15:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:18:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:18:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:19:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:19:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:20:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:21:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:28:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:28:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/pdf.css"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('css/pdf.css')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/css/pdf.css
+---
+2016/06/26 23:32:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:32:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:33:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:33:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:36:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:36:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:37:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:37:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "logo.png"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('logo.png')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/logo.png
+---
+2016/06/26 23:54:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tiger.wmf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('tiger.wmf')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/tiger.wmf
+---
+2016/06/26 23:54:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tiger.wmf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('tiger.wmf')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/tiger.wmf
+---
+2016/06/26 23:54:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "klematis.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('klematis.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/klematis.jpg
+---
+2016/06/26 23:54:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "klematis.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('klematis.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/klematis.jpg
+---
+2016/06/26 23:54:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tiger.wmf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('tiger.wmf')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/tiger.wmf
+---
+2016/06/26 23:54:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tiger.wmf"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('tiger.wmf')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/tiger.wmf
+---
+2016/06/26 23:54:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "klematis.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('klematis.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/klematis.jpg
+---
+2016/06/26 23:54:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "klematis.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('klematis.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/klematis.jpg
+---
+2016/06/27 00:09:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:09:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:09:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:09:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:11:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:12:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:13:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:13:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:13:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:13:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:13:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
+---
+2016/06/27 00:13:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "sunset.jpg"' in C:\wamp\www\Alemana\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\Alemana\framework\web\CWebApplication.php(141): CWebApplication->runController('sunset.jpg')
+#1 C:\wamp\www\Alemana\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\Alemana\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Alemana/sunset.jpg
 ---
