@@ -184,10 +184,10 @@ Yii::app()->session['USU'] = $usuario;
                                     <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control" readonly="true"/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" readonly="true"/>\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0"/>\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control" onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" readonly="true"/>\n\
                                 </td>\n\
                                 <td>\n\
                                     <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control" readonly="true"/>\n\
@@ -256,10 +256,21 @@ Yii::app()->session['USU'] = $usuario;
             select: function(event, ui) {
                 var names = ui.item.data.split("|");
                 console.log(names[1], names[2], names[3]);
-                $('#COD_PROD_' + row).val(names[1]);
-                $('#NRO_UNID_' + row).val(names[2]);
-                $('#VAL_PREC_' + row).val(names[3]);
-                $('#NRO_UNID_'+row ).focus();
+                cad = names[1];
+                if( cad !== ''){
+                    $('#COD_PROD_' + row).val(names[1]);
+                    $('#NRO_UNID_' + row).val(names[2]);
+                    $('#VAL_PREC_' + row).val(names[3]);
+                         
+                    $('#NRO_UNID_' + row).prop('readonly', false);
+                    $('#VAL_PREC_' + row).prop('readonly', false);
+                    $('#NRO_UNID_'+row ).focus();
+                }else{
+                    $('#COD_PROD_' + row).prop('readonly', true);
+                    $('#NRO_UNID_' + row).prop('readonly', true);
+                    $('#VAL_PREC_' + row).prop('readonly', true);
+                    
+                }
             }
         });
     }
