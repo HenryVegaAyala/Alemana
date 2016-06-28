@@ -17,7 +17,7 @@ class FACORDENCOMPRController extends Controller {
                 'actions' => array('create', 'update', 'index', 'view', 'admin',
                     'delete', 'ClienteByTienda', 'ValorTienda', 'search',
                     'Respaldo', 'ajax', 'Consulta', 'ocactua', 'Guia',
-                    'Reporte','Anular'),
+                    'Reporte', 'Anular'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -35,8 +35,8 @@ class FACORDENCOMPRController extends Controller {
     public function actionGuia($id) {
 
 
-            $usuario = Yii::app()->user->name;
-            
+        $usuario = Yii::app()->user->name;
+
         $connection = Yii::app()->db;
         $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
         $command = $connection->createCommand($sqlStatement);
@@ -44,8 +44,8 @@ class FACORDENCOMPRController extends Controller {
 //        $this->render('Guia', array(
 //            'model' => $this->loadModel($id),
 //        ));
-        
-                $this->render('index', array(
+
+        $this->render('index', array(
             'model' => $this->loadModel($id),
         ));
     }
@@ -60,13 +60,13 @@ class FACORDENCOMPRController extends Controller {
 
     public function actionAjax() {
         if ($_GET['type'] == 'id_sele') {
-                $id = $_GET["id"];
-                $connection = Yii::app()->db;
-                $usuario = Yii::app()->user->name;
-                $sqlStatement = "call PED_ANULA_OC ('" . $id . "' ,'" . $usuario . "') ;";
-                $command = $connection->createCommand($sqlStatement);
-                $command->execute();
-         }
+            $id = $_GET["id"];
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            $sqlStatement = "call PED_ANULA_OC ('" . $id . "' ,'" . $usuario . "') ;";
+            $command = $connection->createCommand($sqlStatement);
+            $command->execute();
+        }
 
         if ($_GET['type'] == 'produc_tiend') {
             $cliente = $_GET["clie"];
@@ -83,6 +83,7 @@ class FACORDENCOMPRController extends Controller {
             }
             echo json_encode($data);
         }
+        $this->render('index');
     }
 
     public function actionRespaldo() {

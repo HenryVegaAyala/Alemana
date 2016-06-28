@@ -42,7 +42,7 @@
                                 array(
                                     'label' => 'Guía',
                                     'items' => array(
-                                        array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/Lista')),
+                                        array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/index')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
@@ -50,7 +50,7 @@
                                 array(
                                     'label' => 'Factura',
                                     'items' => array(
-                                        array('label' => 'Listar Factura', 'url' => array('/site/contact')),
+                                        array('label' => 'Listar Factura', 'url' => array('/FACFACTU/index')),
                                         '---',
                                         array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest

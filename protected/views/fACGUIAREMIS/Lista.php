@@ -1,11 +1,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 /* @var $this FACGUIAREMISController */
 /* @var $model FACGUIAREMIS */
 
 $this->breadcrumbs = array(
-    'Guia' => array('index1'),
-    'Buscar',
+    'Lista Guia',
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -98,71 +98,34 @@ $('.search-form form').submit(function(){
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {Anular}',
+                        'template' => '{view} / {update} / {Anular} / {Factura} / {Reporte}',
                         'buttons' => array(
                             'Anular' => array(
                                 'icon' => 'trash',
-                                'label' => 'Anular Guia',
+                                'label' => 'Eliminar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
-                                'click' => "function (){
-                                    var x = this.href;
-                                    var cad = x.split('/');
-                                    var pos = cad[cad.length-1].indexOf('?');
-                                    var id = cad[cad.length-1].substring(pos+5);
-                                        
-                                    if(id == 1 || id == 2){
-                                        alert ('Este N° de Guia no puede ser anulado debe estar en estado creado');
-                                        return false
-                                    }
-                                    if(id == 9 ){
-                                        alert ('Este N° de Guia ya fue Anulado');
-                                        return false;
-                                    }else{
-                                     if (confirm ('¿ Estas Seguro de Anular la Guia ?')){
-                                            return true;
-                                        }
-                                            return false;
-                                    }
-                               
-                                }",
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
+                                'options' => array('class' => 'Reporte'),
                             ),
-                            'update' => array(
-                                'icon' => 'pencil',
-                                'label' => 'Actualizar Guia',
+                            'Reporte' => array(
+                                'icon' => 'file',
+                                'label' => 'Generar Reporte',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
-                                'click' => "function (){
-                                    var x = this.href;
-                                    var cad = x.split('/');
-                                    var pos = cad[cad.length-1].indexOf('?');
-                                    var id = cad[cad.length-1].substring(pos+5);
-                                        
-                                    if(id == 1 || id == 2 || id == 9){
-                                        alert ('Este N° de Guia no puede ser actualizado debe estar en estado creado');
-                                        return false
-                                    }
-                                     if (confirm ('¿ Estas Seguro de actualizar la Guia ?')){
-                                            return true;
-                                        }
-                                            return false;
-                                    
-                               
-                                }",
+//                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
+                                'options' => array('class' => 'Reporte'),
+                            ),
+                            'Factura' => array(
+                                'icon' => 'book',
+                                'label' => 'Generar Factura',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+//                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
+                                'options' => array('class' => 'Reporte'),
                             ),
                         ),
                     ),
                 ),
             ));
             ?>
-            <!--            <div class="panel-footer " style="overflow:hidden;text-align:right;">
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-            <?php // echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md'));  ?>
-            
-                                </div>
-                            </div>  
-                        </div>-->
         </div>
     </div>    
 </div>
