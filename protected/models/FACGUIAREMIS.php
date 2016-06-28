@@ -124,19 +124,13 @@ class FACGUIAREMIS extends CActiveRecord {
         $criteria->compare('cODORDE.NUM_ORDE', $this->COD_ORDE, true);
         $criteria->compare('cODORDE.COD_TIEN', $this->COD_TIEN, true);
         $criteria->compare('t.COD_TIEN', $this->COD_TIEN, true);
-        $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
+        $criteria->compare('t.COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('FEC_EMIS', $this->FEC_EMIS, true);
         $criteria->compare('DIR_PART', $this->DIR_PART, true);
         $criteria->compare('FEC_TRAS', $this->FEC_TRAS, true);
         $criteria->compare('COS_FLET', $this->COS_FLET, true);
-        $criteria->compare('COD_EMPR_TRAN', $this->COD_EMPR_TRAN, true);
-        $criteria->compare('COD_UNID_TRAN', $this->COD_UNID_TRAN, true);
-        $criteria->compare('COD_MOTI_TRAS', $this->COD_MOTI_TRAS, true);
         $criteria->compare('t.IND_ESTA', $this->IND_ESTA, true);
-        $criteria->compare('USU_DIGI', $this->USU_DIGI, true);
-        $criteria->compare('FEC_DIGI', $this->FEC_DIGI, true);
-        $criteria->compare('USU_MODI', $this->USU_MODI, true);
-        $criteria->compare('FEC_MODI', $this->FEC_MODI, true);
+     
         $criteria->with = array('cODORDE');
 
         return new CActiveDataProvider($this, array(
