@@ -39,9 +39,13 @@ class FACGUIAREMISController extends Controller {
      */
     public function actionAnular($id) {
 
+        $model = new FACGUIAREMIS();
+        
+        $oc = $model->COD_ORDE;
+
         $connection = Yii::app()->db;
         $usuario = Yii::app()->user->name;
-        $sqlStatement = "call PED_ANULA_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+        $sqlStatement = "call PED_ANULA_GUIA ('" . $id . "' ,'" . $usuario . "','" . $oc . "') ;";
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 

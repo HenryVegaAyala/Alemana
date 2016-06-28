@@ -98,7 +98,7 @@ $('.search-form form').submit(function(){
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {Anular}',
+                        'template' => '{view} / {update} / {Anular} / {Factura} / {Reporte}',
                         'buttons' => array(
                             'Anular' => array(
                                 'icon' => 'trash',
@@ -107,20 +107,33 @@ $('.search-form form').submit(function(){
                                 'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
                                 'options' => array('class' => 'Reporte'),
                             ),
+                            'Reporte' => array(
+                                'icon' => 'file',
+                                'label' => 'Generar Reporte',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
+                                'options' => array('class' => 'Reporte'),
+                            ),
+                            'Factura' => array(
+                                'icon' => 'book',
+                                'label' => 'Generar Factura',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
+                                'options' => array('class' => 'Reporte'),
+                            ),
                         ),
-                        
                     ),
                 ),
             ));
             ?>
-<!--            <div class="panel-footer " style="overflow:hidden;text-align:right;">
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <?php // echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
-
-                    </div>
-                </div>  
-            </div>-->
+            <!--            <div class="panel-footer " style="overflow:hidden;text-align:right;">
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+            <?php // echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md'));  ?>
+            
+                                </div>
+                            </div>  
+                        </div>-->
         </div>
     </div>    
 </div>

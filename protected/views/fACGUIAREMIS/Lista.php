@@ -98,7 +98,7 @@ $('.search-form form').submit(function(){
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {Anular}',
+                        'template' => '{view} / {update} / {Anular} / {Factura} / {Reporte} ',
                         'buttons' => array(
                             'Anular' => array(
                                 'icon' => 'trash',

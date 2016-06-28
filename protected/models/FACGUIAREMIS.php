@@ -122,7 +122,8 @@ class FACGUIAREMIS extends CActiveRecord {
         $criteria->order = "COD_GUIA DESC";
         $criteria->compare('COD_GUIA', $this->COD_GUIA, true);
         $criteria->compare('cODORDE.NUM_ORDE', $this->COD_ORDE, true);
-        $criteria->compare('COD_TIEN', $this->COD_TIEN, true);
+        $criteria->compare('cODORDE.COD_TIEN', $this->COD_TIEN, true);
+        $criteria->compare('t.COD_TIEN', $this->COD_TIEN, true);
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('FEC_EMIS', $this->FEC_EMIS, true);
         $criteria->compare('DIR_PART', $this->DIR_PART, true);
@@ -131,7 +132,7 @@ class FACGUIAREMIS extends CActiveRecord {
         $criteria->compare('COD_EMPR_TRAN', $this->COD_EMPR_TRAN, true);
         $criteria->compare('COD_UNID_TRAN', $this->COD_UNID_TRAN, true);
         $criteria->compare('COD_MOTI_TRAS', $this->COD_MOTI_TRAS, true);
-        $criteria->compare('IND_ESTA', $this->IND_ESTA, true);
+        $criteria->compare('t.IND_ESTA', $this->IND_ESTA, true);
         $criteria->compare('USU_DIGI', $this->USU_DIGI, true);
         $criteria->compare('FEC_DIGI', $this->FEC_DIGI, true);
         $criteria->compare('USU_MODI', $this->USU_MODI, true);

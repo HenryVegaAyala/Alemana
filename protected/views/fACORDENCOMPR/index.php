@@ -159,7 +159,7 @@ $('.search-form form').submit(function(){
                                 'label' => 'Generar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
 //                                'visible' => 'array("$data->IND_ESTA") < 1',
-                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Guia", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/index", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
                                 'click' => "function (){
                                     var x = this.href;
                                     var cad = x.split('/');
