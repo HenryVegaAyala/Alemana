@@ -197,7 +197,7 @@ $('.search-form form').submit(function(){
 
                                 for (i = 0; i < item.length; i++) {
                                     $.ajax({
-//                                        url: 'ajax.php',
+                                        url: 'ajax.php',
                                         dataType: "json",
                                         data: {
                                             type: 'id_sele',

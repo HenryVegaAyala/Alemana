@@ -83,7 +83,7 @@ class FACORDENCOMPRController extends Controller {
             }
             echo json_encode($data);
         }
-        $this->render('index');
+        
     }
 
     public function actionRespaldo() {
