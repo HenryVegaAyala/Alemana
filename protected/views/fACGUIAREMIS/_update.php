@@ -10,7 +10,6 @@
             <h3 class="panel-title">Modificar Guia</h3>
         </div>
 
-
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'facguiaremis-form',

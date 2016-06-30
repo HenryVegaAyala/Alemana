@@ -107,7 +107,7 @@ $this->breadcrumbs = array(
         'size' => 'small',
         'buttonType' => 'link',
         'icon' => 'chevron-left',
-        'url' => array('Lista')
+        'url' => array('index')
     ));
     ?>
 </div>

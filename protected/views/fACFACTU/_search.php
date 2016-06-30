@@ -3,92 +3,114 @@
 /* @var $model FACFACTU */
 /* @var $form CActiveForm */
 ?>
+<?php
+Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/stylev2.css');
+?>
 
 <div class="wide form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get',
-)); ?>
+    <?php
+    $form = $this->beginWidget('CActiveForm', array(
+        'action' => Yii::app()->createUrl($this->route),
+        'method' => 'get',
+    ));
+    ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'COD_FACT'); ?>
-		<?php echo $form->textField($model,'COD_FACT',array('size'=>12,'maxlength'=>12)); ?>
-	</div>
+    <div class="fieldset">
 
-	<div class="row">
-		<?php echo $form->label($model,'COD_CLIE'); ?>
-		<?php echo $form->textField($model,'COD_CLIE',array('size'=>6,'maxlength'=>6)); ?>
-	</div>
+        <div class="container-fluid">
 
-	<div class="row">
-		<?php echo $form->label($model,'COD_GUIA'); ?>
-		<?php echo $form->textField($model,'COD_GUIA',array('size'=>12,'maxlength'=>12)); ?>
-	</div>
+            <div class="form-group ir">
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->label($model, 'COD_FACT'); ?>
+                    <?php echo $form->textField($model, 'COD_FACT', array('class' => 'form-control')); ?>
+                </div>
 
-	<div class="row">
-		<?php echo $form->label($model,'FEC_FACT'); ?>
-		<?php echo $form->textField($model,'FEC_FACT'); ?>
-	</div>
+                                <div class="col-sm-4 control-label">
+                    <?php echo $form->label($model, 'COD_GUIA'); ?>
+                    <?php echo $form->textField($model, 'COD_GUIA', array('class' => 'form-control')); ?>
+                </div>
+                
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->label($model, 'COD_CLIE'); ?>
+                    <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaCliente(), array('class' => 'form-control', 'empty' => 'Seleccionar Estado')); ?>
+                </div>
+                
+            </div>
 
-	<div class="row">
-		<?php echo $form->label($model,'FEC_PAGO'); ?>
-		<?php echo $form->textField($model,'FEC_PAGO'); ?>
-	</div>
+            <div class="form-group ir">
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->label($model, 'FEC_FACT'); ?>
+                    <?php
+                    $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                        'model' => $model,
+                        'attribute' => 'FEC_FACT',
+                        'value' => $model->FEC_FACT,
+                        'language' => 'es',
+                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Fecha Facturada'),
+                        'options' => array(
+                            'autoSize' => true,
+                            'defaultDate' => $model->FEC_FACT,
+                            'dateFormat' => 'dd/mm/yy',
+                            'buttonImageOnly' => true,
+                            'buttonText' => 'FEC_FACT',
+                            'selectOtherMonths' => true,
+                            'showAnim' => 'fadeIn', //'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+                            'showOtherMonths' => true,
+                            'changeMonth' => 'true',
+                            'changeYear' => 'true',
+                            'maxDate' => "+20Y",
+                        ),
+                    ));
+                    ?>
+                </div>
 
-	<div class="row">
-		<?php echo $form->label($model,'IND_ESTA'); ?>
-		<?php echo $form->textField($model,'IND_ESTA',array('size'=>1,'maxlength'=>1)); ?>
-	</div>
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->label($model, 'FEC_PAGO'); ?>
+                    <?php
+                    $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                        'model' => $model,
+                        'attribute' => 'FEC_PAGO',
+                        'value' => $model->FEC_PAGO,
+                        'language' => 'es',
+                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Fecha de Pago'),
+                        'options' => array(
+                            'autoSize' => true,
+                            'defaultDate' => $model->FEC_PAGO,
+                            'dateFormat' => 'dd/mm/yy',
+                            'buttonImageOnly' => true,
+                            'buttonText' => 'FEC_PAGO',
+                            'selectOtherMonths' => true,
+                            'showAnim' => 'fadeIn', //'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+                            'showOtherMonths' => true,
+                            'changeMonth' => 'true',
+                            'changeYear' => 'true',
+                            'maxDate' => "+20Y",
+                        ),
+                    ));
+                    ?>
+                </div>
 
-	<div class="row">
-		<?php echo $form->label($model,'VAL_IGV'); ?>
-		<?php echo $form->textField($model,'VAL_IGV',array('size'=>5,'maxlength'=>5)); ?>
-	</div>
+                <div class="col-sm-4 control-label">
+                    <?php echo $form->label($model, 'IND_ESTA'); ?>
+                    <?php echo $form->dropDownList($model, 'IND_ESTA', $model->Estado(), array('class' => 'form-control', 'empty' => 'Seleccionar Estado')); ?>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
 
-	<div class="row">
-		<?php echo $form->label($model,'TOT_UNID_FACT'); ?>
-		<?php echo $form->textField($model,'TOT_UNID_FACT',array('size'=>12,'maxlength'=>12)); ?>
-	</div>
+    <div class="panel-footer " style="overflow:hidden;text-align:right;">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <?php echo CHtml::submitButton('Buscar', array('class' => 'btn btn-success btn-md')); ?>
+                <input type="reset" src="create" class="btn btn-default btn-md" value="Cancelar">
+            </div>
+        </div> 
+    </div>  
 
-	<div class="row">
-		<?php echo $form->label($model,'TOT_FACT_SIN_IGV'); ?>
-		<?php echo $form->textField($model,'TOT_FACT_SIN_IGV',array('size'=>12,'maxlength'=>12)); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'TOT_IGV'); ?>
-		<?php echo $form->textField($model,'TOT_IGV',array('size'=>12,'maxlength'=>12)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'TOT_FACT'); ?>
-		<?php echo $form->textField($model,'TOT_FACT',array('size'=>12,'maxlength'=>12)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'USU_DIGI'); ?>
-		<?php echo $form->textField($model,'USU_DIGI',array('size'=>20,'maxlength'=>20)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'FEC_DIGI'); ?>
-		<?php echo $form->textField($model,'FEC_DIGI'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'USU_MODI'); ?>
-		<?php echo $form->textField($model,'USU_MODI',array('size'=>20,'maxlength'=>20)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'FEC_MODI'); ?>
-		<?php echo $form->textField($model,'FEC_MODI'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
-	</div>
 
 <?php $this->endWidget(); ?>
 

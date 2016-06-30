@@ -24,13 +24,46 @@ class FACFACTUController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 'admin', 'delete'),
+                'actions' => array('create', 'update', 'index', 'view',
+                                   'admin', 'delete', 'Anular', 'Reporte',
+                                   'Ajax'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionAnular($id) {
+
+        $connection = Yii::app()->db;
+        $usuario = Yii::app()->user->name;
+        $sqlStatement = "call PED_ANULA_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
+
+        $this->render('index', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
+
+    public function actionAjax() {
+        if ($_GET['type'] == 'id_sele') {
+            $id = $_GET["id"];
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            $sqlStatement = "call PED_ANULA_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
+            $command = $connection->createCommand($sqlStatement);
+            $command->execute();
+        }
+        $this->render('index');
+    }
+
+    public function actionReporte($id) {
+        $this->render('Reporte', array(
+            'model' => $this->loadModel($id),
+        ));
     }
 
     /**

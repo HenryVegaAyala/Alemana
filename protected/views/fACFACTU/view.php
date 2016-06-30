@@ -2,39 +2,108 @@
 /* @var $this FACFACTUController */
 /* @var $model FACFACTU */
 
-$this->breadcrumbs=array(
-	'Facfactus'=>array('index'),
-	$model->COD_FACT,
-);
-
-$this->menu=array(
-	array('label'=>'List FACFACTU', 'url'=>array('index')),
-	array('label'=>'Create FACFACTU', 'url'=>array('create')),
-	array('label'=>'Update FACFACTU', 'url'=>array('update', 'id'=>$model->COD_FACT)),
-	array('label'=>'Delete FACFACTU', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->COD_FACT),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage FACFACTU', 'url'=>array('admin')),
+$this->breadcrumbs = array(
+    'Detalle Factura' => array('index'),
 );
 ?>
 
-<h1>View FACFACTU #<?php echo $model->COD_FACT; ?></h1>
+<br>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3 class="panel-title">Vista Detallada del N° de Factura: <big><strong><?php echo $model->COD_FACT; ?></strong></big></h3>
+            </center>
+        </div>
+        <?php
+        $estado = "";
+        switch ($model->IND_ESTA) {
+            case '1':
+                $estado = 'Emitida/Pendiente de Cobro';
+                break;
+            case '2':
+                $estado = 'Cobrada/Cerrada';
+                break;
+            case '9':
+                $estado = 'Anulado';
+                break;
+            case '0':
+                $estado = 'Creado';
+                break;
+            default :
+                $estado = "";
+        }
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'COD_FACT',
-		'COD_CLIE',
-		'COD_GUIA',
-		'FEC_FACT',
-		'FEC_PAGO',
-		'IND_ESTA',
-		'VAL_IGV',
-		'TOT_UNID_FACT',
-		'TOT_FACT_SIN_IGV',
-		'TOT_IGV',
-		'TOT_FACT',
-		'USU_DIGI',
-		'FEC_DIGI',
-		'USU_MODI',
-		'FEC_MODI',
-	),
-)); ?>
+        $FEC_FACT = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_FACT));
+
+        $FEC_PAGO = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_PAGO));
+
+        $cli = $model->cODCLIE->COD_CLIE;
+        ?>
+        <?php
+        $this->widget('ext.bootstrap.widgets.TbDetailView', array(
+            'data' => $model,
+            'attributes' => array(
+                'COD_GUIA',
+                array(
+                    'name' => 'Nombre del Cliente',
+                    'value' => $model->getCliente($cli)),
+                array(
+                    'name' => 'Fecha Facturada',
+                    'value' => $FEC_FACT),
+                array(
+                    'name' => 'Fecha de Pago',
+                    'value' => $FEC_PAGO),
+                array(
+                    'name' => 'Estado',
+                    'value' => $estado),
+                'TOT_FACT',
+            ),
+        ));
+        ?>
+        
+    </div>
+    
+    <?php
+    echo '<table class="table table-hover table-bordered table-condensed table-striped">';
+    echo '<tr>';
+    echo '<th style="text-align: center;" class="col-md-2">Codigo</th>';
+    echo '<th style="text-align: center;" >Descripción</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
+    echo '</tr>';
+    $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD FROM FAC_DETAL_FACTU F
+            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+            where F.COD_FACT = '" . $model->COD_FACT . "';";
+
+    $connection = Yii::app()->db;
+    $command = $connection->createCommand($sqlStatement);
+    $reader = $command->query();
+    while ($row1 = $reader->read()) {
+        echo '<tr>';
+        echo '<td>' . $row1['COD_PROD'] . '</td>';
+        echo '<td>' . $row1['DES_LARG'] . '</td>';
+        echo '<td>' . $row1['UNI_SOLI'] . '</td>';
+        echo '<td>' . $row1['VAL_PROD'] . '</td>';
+        echo '<td>' . $row1['IMP_PROD'] . '</td>';
+        echo '</tr>';
+    }
+
+    echo '</table>';
+    ?>
+</div>
+<br>
+<div class="container-fluid" align="right">
+    <?php
+    $this->widget(
+            'ext.bootstrap.widgets.TbButton', array(
+        'context' => 'success',
+        'label' => 'Regresar',
+        'size' => 'small',
+        'buttonType' => 'link',
+        'icon' => 'chevron-left',
+        'url' => array('/FACFACTU/index')
+    ));
+    ?>
+</div>
