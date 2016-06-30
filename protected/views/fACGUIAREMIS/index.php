@@ -114,7 +114,7 @@ $('.search-form form').submit(function(){
                         'buttons' => array(
                             'update' => array(
                                 'icon' => 'pencil',
-                                'label' => 'Actualizar O/C',
+                                'label' => 'Actualizar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
                                 'click' => "function (){
@@ -124,10 +124,10 @@ $('.search-form form').submit(function(){
                                     var id = cad[cad.length-1].substring(pos+5);
                                         
                                     if(id == 1 || id == 2 || id == 9){
-                                        alert ('Este N° de O/C no puede ser actualizado debe estar en estado creado');
+                                        alert ('Este N° de Guia no puede ser actualizado debe estar en estado creado');
                                         return false
                                     }
-                                     if (confirm ('¿ Estas Seguro de actualizar la O/C ?')){
+                                     if (confirm ('¿ Estas Seguro de actualizar la Guia ?')){
                                             return true;
                                         }
                                             return false;
