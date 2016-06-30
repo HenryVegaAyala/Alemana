@@ -6,10 +6,10 @@ $mpdf = Yii::createComponent('application.extensions.MPDF.mpdf');
 
 $html = '
     <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
-
+   
 <style>
         img{
-            width: 120px;
+            width: 140px;
            }
         hr{
            color: #373737;
@@ -17,24 +17,47 @@ $html = '
             height: 5px;
             margin-top: .1em;
            }
+        td{
+           border-radius: 15px;
+           }
 </style>
      
 <table border="0" class="table">
     <tr>
-        <td>
-            <center>
+
+    <td style="border: solid white" width="10%"> 
+        <center>
                 <img style="float:left;" src="' . Yii:: app()->request->baseUrl . '/images/logo.png">
-            </center>
-        </td>
+        </center>
+    </td> 
         
-        <td>
-            <center><strong><h2>Panaderia Pasteria Alemana</h2></strong></center>
+    <td style="border: solid white; border-width:1px 0;" width="50%">
+            <center><h3><strong>Panaderia Alemana S.A.C </strong></h3></center>
             <br>
-            <center>Calle Ayabaca N° 173 Urb. Prolongación Benavides</center>
-            <center>Lima - Lima - Santiago de Surco</center>
-            <center>Telf: 733-0476 / 282-3595</center>
-            <center>www.panaderiaalemana.com</center>
-        </td>        
+            <p>
+            Calle Ayabaca N° 173            <br> 
+            Urb. Prolongación Benavides     <br>
+            Lima - Lima - Santiago de Surco <br>
+            Telf: 733-0476 / 282-3595       <br>
+            www.panaderiaalemana.com
+            </p>
+    </td>  
+        
+        <td style="border-radius: 15px;border: solid black;" width="40%" >
+            <center><strong><h2>R.U.C. 20536040995</h2></strong></center>
+            <br>
+            <p>
+            <h4>
+            GUÍA DE REMISION - REMITENTE<br> 
+            </h4>
+            </p>
+            <br>
+            <p>
+            <h4>
+            0001 - N° <br> 
+            </h4>
+            </p>
+        </td> 
     </tr>
 </table>';
 
