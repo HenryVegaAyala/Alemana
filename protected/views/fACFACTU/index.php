@@ -123,7 +123,7 @@ $('.search-form form').submit(function(){
                                     var pos = cad[cad.length-1].indexOf('?');
                                     var id = cad[cad.length-1].substring(pos+5);
                                         
-                                    if(id == 1 || id == 2 || id == 9){
+                                    if(id == 2 || id == 9){
                                         alert ('Este N° de Factura no puede ser actualizado debe estar en estado creado');
                                         return false
                                     }
@@ -139,8 +139,29 @@ $('.search-form form').submit(function(){
                                 'icon' => 'trash',
                                 'label' => 'Anular Factura',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Anular", array("id"=>$data->COD_FACT))',
-                            ),
+                                'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Anular", array("id"=>$data->COD_FACT,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 1 || id == 2){
+                                        alert ('Este N° de Factura no puede ser anulado debe estar en estado emitido');
+                                        return false
+                                    }
+                                    if(id == 9 ){
+                                        alert ('Este N° de Factura ya fue Anulado');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de Anular la O/C ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
+                                ),
                             'Reporte' => array(
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Factura',
@@ -166,7 +187,7 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Generar Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
                             function validation() {
 
@@ -176,7 +197,7 @@ $('.search-form form').submit(function(){
 
                                 for (i = 0; i < item.length; i++) {
                                     $.ajax({
-                                        url: 'ajax.php',
+//                                        url: 'ajax.php',
                                         dataType: "json",
                                         data: {
                                             type: 'id_sele',

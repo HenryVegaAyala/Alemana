@@ -57,6 +57,8 @@ $this->breadcrumbs = array(
                 array(
                     'name' => 'Estado',
                     'value' => $estado),
+                'TOT_FACT_SIN_IGV',
+                'TOT_IGV',
                 'TOT_FACT',
             ),
         ));

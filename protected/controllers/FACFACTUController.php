@@ -110,6 +110,9 @@ class FACFACTUController extends Controller {
 
         if (isset($_POST['FACFACTU'])) {
             $model->attributes = $_POST['FACFACTU'];
+            
+            $model->IND_ESTA = '2';
+            
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->COD_FACT));
         }
