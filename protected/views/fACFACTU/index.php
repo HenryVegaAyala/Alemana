@@ -77,7 +77,7 @@ $('.search-form form').submit(function(){
 
                             $variable = $data->__GET('FEC_PAGO');
                             if ($variable == null) {
-                                echo 'Fecha de Definida';
+                                echo 'Fecha Indefinida';
                             } else {
                                 echo Yii::app()->dateFormatter->format("dd/MM/y", strtotime($data->FEC_PAGO));
                             }
