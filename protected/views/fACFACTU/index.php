@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
@@ -154,7 +155,7 @@ $('.search-form form').submit(function(){
                                         alert ('Este N° de Factura ya fue Anulado');
                                         return false;
                                     }else{
-                                     if (confirm ('¿ Estas Seguro de Anular la O/C ?')){
+                                     if (confirm ('¿ Estas Seguro de Anular la Factura ?')){
                                             return true;
                                         }
                                             return false;

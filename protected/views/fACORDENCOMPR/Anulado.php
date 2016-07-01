@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
@@ -7,12 +8,11 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 
 <?php
-/* @var $this FACFACTUController */
-/* @var $model FACFACTU */
+/* @var $this FACORDENCOMPRController */
+/* @var $model FACORDENCOMPR */
 
 $this->breadcrumbs = array(
-    'Factura' => array('index'),
-    'Buscar',
+    'Lista de O/C',
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -21,7 +21,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#facfactu-grid').yiiGridView('update', {
+	$('#facordencompr-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -32,11 +32,11 @@ $('.search-form form').submit(function(){
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Búsqueda Factura</h3>
+            <h3 class="panel-title">Lista de O/C Anulado</h3>
         </div>
 
         <div class="mar">
-            <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+            <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
         </div>
         <div class="search-form" style="display:none">
             <?php
@@ -49,40 +49,32 @@ $('.search-form form').submit(function(){
         <div class="table-responsive">
             <?php
             $this->widget('ext.bootstrap.widgets.TbGridView', array(
-                'id' => 'facfactu-grid',
+                'id' => 'facordencompr-grid',
                 'type' => 'bordered condensed striped',
                 'dataProvider' => $model->search(),
                 'columns' => array(
                     array(
-                        'id' => 'COD_FACT',
+                        'id' => 'COD_ORDE',
                         'class' => 'CCheckBoxColumn',
                         'selectableRows' => '50',
                     ),
-                    'COD_FACT',
-                    'COD_GUIA',
+                    'NUM_ORDE',
                     array(
-                        'name' => 'COD_CLIE',
-                        'header' => 'Cliente',
-                        'value' => '$data->cODCLIE->DES_CLIE'
+                        'header' => 'cODTIEN',
+                        'header' => 'Tienda',
+                        'value' => '$data->cODTIEN->DES_TIEN'
                     ),
                     array(
-                        'name' => 'FEC_FACT',
-                        'header' => 'Fecha Facturado',
-                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_FACT))'
+                        'name' => 'FEC_INGR',
+                        'header' => 'Fecha de Ingreso',
+                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_INGR))'
                     ),
                     array(
-                        'name' => 'FEC_PAGO',
-                        'header' => 'Fecha de Pago',
-                        'value' => function($data) {
-
-                            $variable = $data->__GET('FEC_PAGO');
-                            if ($variable == null) {
-                                echo 'Fecha Indefinida';
-                            } else {
-                                echo Yii::app()->dateFormatter->format("dd/MM/y", strtotime($data->FEC_PAGO));
-                            }
-                        },
+                        'name' => 'FEC_ENVI',
+                        'header' => 'Fecha de Envio',
+                        'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_ENVI))'
                     ),
+                    'TOT_FACT',
                     array(
                         'name' => 'IND_ESTA',
                         'header' => 'Estado',
@@ -91,10 +83,10 @@ $('.search-form form').submit(function(){
                             $variable = $data->__GET('IND_ESTA');
                             switch ($variable) {
                                 case 1:
-                                    echo 'Emitida/Pendiente de Cobro';
+                                    echo 'En Proceso';
                                     break;
                                 case 2:
-                                    echo 'Cobrada/Cerrada';
+                                    echo 'Despacho/Atendido';
                                     break;
                                 case 9:
                                     echo 'Anulado';
@@ -105,29 +97,28 @@ $('.search-form form').submit(function(){
                             }
                         },
                     ),
-                    'TOT_FACT',
                     array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
-                        'template' => '{view} / {update} / {Anular} / {Reporte}',
+                        'template' => '{view} / {update} / {Anular} / {Guia} / {Reporte}',
                         'buttons' => array(
                             'update' => array(
                                 'icon' => 'pencil',
-                                'label' => 'Actualizar Factura',
+                                'label' => 'Actualizar O/C',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACFACTU/update", array("id"=>$data->COD_FACT,"est"=>$data->IND_ESTA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/update", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
                                 'click' => "function (){
                                     var x = this.href;
                                     var cad = x.split('/');
                                     var pos = cad[cad.length-1].indexOf('?');
                                     var id = cad[cad.length-1].substring(pos+5);
                                         
-                                    if(id == 2 || id == 9){
-                                        alert ('Este N° de Factura no puede ser actualizado debe estar en estado creado');
+                                    if(id == 1 || id == 2 || id == 9){
+                                        alert ('Este N° de O/C no puede ser actualizado debe estar en estado creado');
                                         return false
                                     }
-                                     if (confirm ('¿ Estas Seguro de actualizar la Factura ?')){
+                                     if (confirm ('¿ Estas Seguro de actualizar la O/C ?')){
                                             return true;
                                         }
                                             return false;
@@ -137,42 +128,74 @@ $('.search-form form').submit(function(){
                             ),
                             'Anular' => array(
                                 'icon' => 'trash',
-                                'label' => 'Anular Factura',
+                                'label' => 'Anular O/C',
+//                                'visible' => 'false',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Anular", array("id"=>$data->COD_FACT,"est"=>$data->IND_ESTA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Anular", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
                                 'click' => "function (){
                                     var x = this.href;
                                     var cad = x.split('/');
                                     var pos = cad[cad.length-1].indexOf('?');
                                     var id = cad[cad.length-1].substring(pos+5);
                                         
-                                    if(id == 2){
-                                        alert ('Este N° de Factura no puede ser anulado debe estar en estado emitido');
+                                    if(id == 1 || id == 2){
+                                        alert ('Este N° de O/C no puede ser anulado debe estar en estado creado');
                                         return false
                                     }
                                     if(id == 9 ){
-                                        alert ('Este N° de Factura ya fue Anulado');
+                                        alert ('Este N° de O/C ya fue Anulado');
                                         return false;
                                     }else{
-                                     if (confirm ('¿ Estas Seguro de Anular la Factura ?')){
+                                     if (confirm ('¿ Estas Seguro de Anular la O/C ?')){
                                             return true;
                                         }
                                             return false;
                                     }
                                
                                 }",
-                                ),
+                            ),
+                            'Guia' => array(
+                                'icon' => 'book',
+                                'label' => 'Generar Guia',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+//                                'visible' => 'array("$data->IND_ESTA") < 1',
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Lista", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 2 ||  id == 9){
+                                        alert ('No puede generarse la Guia,la O/C debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 1 ){
+                                        alert ('En este N° de O/C ya fue generado la Guia, por favor revisar');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de generar Guia para esta O/C ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
+                            ),
                             'Reporte' => array(
                                 'icon' => 'file',
-                                'label' => 'Generar PDF Factura',
+                                'label' => 'Generar PDF',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Reporte", array("id"=>$data->COD_FACT))',
+//                                'url' => 'Yii::app()->controller->createUrl("/FACORDENCOMPR/Reporte", array("id"=>$data->COD_ORDE))',
+                                'url' => 'CHtml::normalizeUrl(array("Reporte", "id"=>$data->COD_ORDE))',
+                                'options' => array('class' => 'Reporte'),
                             ),
                         ),
                     ),
                 ),
             ));
             ?>
+
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -180,14 +203,14 @@ $('.search-form form').submit(function(){
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
                             'context' => 'default',
-                            'label' => 'Refrescar Lista Facturas',
+                            'label' => 'Refrescar Lista O/C',
                             'size' => 'default',
                             'icon' => 'refresh',
                             'buttonType' => 'link',
-                            'url' => array('/FACFACTU/index')
+                            'url' => array('/FACORDENCOMPR/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Generar Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php // echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
                             function validation() {
 
@@ -203,9 +226,9 @@ $('.search-form form').submit(function(){
                                             type: 'id_sele',
                                             id: item[i].value
                                         },
-                                        succes: function (data) {
+                                        succes: function(data) {
 
-                                            response($.map(data, function (item) {
+                                            response($.map(data, function(item) {
 
                                                 alert(item);
                                                 return {
@@ -224,9 +247,10 @@ $('.search-form form').submit(function(){
                             }
                         </script>
                     </div>
-                </div>    
-            </div>        
+                </div>  
+            </div>
         </div>
     </div>
 </div>    
+
 <?php $this->endWidget(); ?>

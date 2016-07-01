@@ -21,7 +21,7 @@ class FACGUIAREMISController extends Controller {
             array('allow', // allow authenticated 
                 'actions' => array('create', 'update', 'index', 'view', 
                                    'admin', 'delete', 'Lista', 'Anular', 
-                                   'ajax','Factura','Reporte'),
+                    'ajax', 'Factura', 'Reporte','Anulado'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -43,6 +43,10 @@ class FACGUIAREMISController extends Controller {
     }
 
     public function actionAnular($id) {
+        $model = new FACGUIAREMIS('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_POST['FACGUIAREMIS']))
+            $model->attributes = $_POST['FACGUIAREMIS'];
 
         $connection = Yii::app()->db;
         $usuario = Yii::app()->user->name;
@@ -50,8 +54,9 @@ class FACGUIAREMISController extends Controller {
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
-        $this->render('index', array(
-            'model' => $this->loadModel($id),
+        $model->IND_ESTA = '9';
+        $this->render('Anulado', array(
+            'model' => $model,
         ));
     }
 
@@ -107,8 +112,8 @@ class FACGUIAREMISController extends Controller {
         $model = new FACGUIAREMIS('search');
         $model->unsetAttributes();  // clear any default values
 
-        if (isset($_GET['FACGUIAREMIS']))
-            $model->attributes = $_GET['FACGUIAREMIS'];
+        if (isset($_POST['FACGUIAREMIS']))
+            $model->attributes = $_POST['FACGUIAREMIS'];
 
         $this->render('index', array(
             'model' => $model,

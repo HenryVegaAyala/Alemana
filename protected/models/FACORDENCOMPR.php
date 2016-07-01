@@ -139,7 +139,7 @@ class FACORDENCOMPR extends CActiveRecord {
             $this->FEC_INGR = substr($this->FEC_INGR, 6, 4) . '-' . substr($this->FEC_INGR, 3, 2) . '-' . substr($this->FEC_INGR, 0, 2); //'2016-06-09' ;
         }
 
-        $criteria->order = "FEC_MODI,NUM_ORDE desc";
+        $criteria->order = "COD_ORDE DESC";
 
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('COD_TIEN', $this->COD_TIEN, true);

@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
@@ -32,11 +33,11 @@ $('.search-form form').submit(function(){
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Búsqueda Factura</h3>
+            <h3 class="panel-title">Lista de Facturas Anuladas</h3>
         </div>
 
         <div class="mar">
-            <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+            <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
         </div>
         <div class="search-form" style="display:none">
             <?php
@@ -161,7 +162,7 @@ $('.search-form form').submit(function(){
                                     }
                                
                                 }",
-                                ),
+                            ),
                             'Reporte' => array(
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Factura',
@@ -187,7 +188,7 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Generar Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php // echo CHtml::SubmitButton('Generar Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
                             function validation() {
 
@@ -203,9 +204,9 @@ $('.search-form form').submit(function(){
                                             type: 'id_sele',
                                             id: item[i].value
                                         },
-                                        succes: function (data) {
+                                        succes: function(data) {
 
-                                            response($.map(data, function (item) {
+                                            response($.map(data, function(item) {
 
                                                 alert(item);
                                                 return {

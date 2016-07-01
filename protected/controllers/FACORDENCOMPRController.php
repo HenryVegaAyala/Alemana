@@ -281,8 +281,8 @@ class FACORDENCOMPRController extends Controller {
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
-        $model->IND_ESTA = '';
-        $this->render('/fACORDENCOMPR/index', array(
+        $model->IND_ESTA = '9';
+        $this->render('/fACORDENCOMPR/Anulado', array(
             'model' => $model,
         ));
     }

@@ -54,15 +54,20 @@ class FACFACTUController extends Controller {
     }
 
     public function actionAnular($id) {
-
+        $model = new FACFACTU('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_POST['FACFACTU']))
+            $model->attributes = $_POST['FACFACTU'];
+        
         $connection = Yii::app()->db;
         $usuario = Yii::app()->user->name;
         $sqlStatement = "call PED_ANULA_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
-        $this->render('index', array(
-            'model' => $this->loadModel($id),
+        $model->IND_ESTA = '9';
+        $this->render('Anulado', array(
+            'model' => $model,
         ));
     }
 
@@ -159,8 +164,8 @@ class FACFACTUController extends Controller {
     public function actionIndex() {
         $model = new FACFACTU('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['FACFACTU']))
-            $model->attributes = $_GET['FACFACTU'];
+        if (isset($_POST['FACFACTU']))
+            $model->attributes = $_POST['FACFACTU'];
 
         $this->render('index', array(
             'model' => $model,

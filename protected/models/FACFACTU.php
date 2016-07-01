@@ -115,6 +115,7 @@ class FACFACTU extends CActiveRecord {
             $this->FEC_PAGO = substr($this->FEC_PAGO, 6, 4) . '-' . substr($this->FEC_PAGO, 3, 2) . '-' . substr($this->FEC_PAGO, 0, 2); //'2016-06-09' ;
         }
 
+        $criteria->order = "COD_FACT DESC";
         $criteria->compare('COD_FACT', $this->COD_FACT, true);
         $criteria->compare('COD_CLIE', $this->COD_CLIE, true);
         $criteria->compare('COD_GUIA', $this->COD_GUIA, true);
