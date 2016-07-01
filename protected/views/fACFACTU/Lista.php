@@ -146,7 +146,7 @@ $('.search-form form').submit(function(){
                                     var pos = cad[cad.length-1].indexOf('?');
                                     var id = cad[cad.length-1].substring(pos+5);
                                         
-                                    if(id == 2){
+                                    if(id == 1 || id == 2){
                                         alert ('Este N° de Factura no puede ser anulado debe estar en estado emitido');
                                         return false
                                     }

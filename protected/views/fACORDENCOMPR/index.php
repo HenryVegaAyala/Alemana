@@ -203,11 +203,11 @@ $('.search-form form').submit(function(){
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
                             'context' => 'default',
-                            'label' => 'Refrescar Lista Guia',
+                            'label' => 'Refrescar Lista O/C',
                             'size' => 'default',
                             'icon' => 'refresh',
                             'buttonType' => 'link',
-                            'url' => array('/FACGUIAREMIS/Lista')
+                            'url' => array('/FACORDENCOMPR/index')
                         ));
                         ?>
                         <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>

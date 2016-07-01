@@ -139,7 +139,28 @@ $('.search-form form').submit(function(){
                                 'icon' => 'trash',
                                 'label' => 'Anular Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Anular", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 1 || id == 2){
+                                        alert ('Este N° de Guia no puede ser anulado debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 9 ){
+                                        alert ('Este N° de Guia ya fue Anulado');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de Anular la Guia ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
                             ),
                             'Reporte' => array(
                                 'icon' => 'file',
@@ -151,7 +172,28 @@ $('.search-form form').submit(function(){
                                 'icon' => 'book',
                                 'label' => 'Generar Factura',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Factura", array("id"=>$data->COD_GUIA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Lista", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+                                        
+                                    if(id == 2 ||  id == 9){
+                                        alert ('No puede generarse la Factura,la Guia debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 1 ){
+                                        alert ('En este N° de Guia ya fue generado la Factura, por favor revisar');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿ Estas Seguro de generar la Factura para esta Guia ?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+                               
+                                }",
                             ),
                         ),
                     ),

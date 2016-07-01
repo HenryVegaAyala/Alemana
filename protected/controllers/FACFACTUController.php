@@ -25,14 +25,32 @@ class FACFACTUController extends Controller {
         return array(
             array('allow', // allow authenticated 
                 'actions' => array('create', 'update', 'index', 'view',
-                                   'admin', 'delete', 'Anular', 'Reporte',
-                                   'Ajax'),
+                    'admin', 'delete', 'Anular', 'Reporte',
+                    'Ajax','Lista'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
         );
+    }
+
+    public function actionLista($id) {
+        $model = new FACFACTU('search');
+        $model->unsetAttributes();  // clear any default values
+
+        if (isset($_GET['FACFACTU']))
+            $model->attributes = $_GET['FACFACTU'];
+
+        $usuario = Yii::app()->user->name;
+        $connection = Yii::app()->db;
+        $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
+
+        $this->render('Lista', array(
+            'model' => $model,
+        ));
     }
 
     public function actionAnular($id) {
@@ -110,9 +128,9 @@ class FACFACTUController extends Controller {
 
         if (isset($_POST['FACFACTU'])) {
             $model->attributes = $_POST['FACFACTU'];
-            
+
             $model->IND_ESTA = '2';
-            
+
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->COD_FACT));
         }

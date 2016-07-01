@@ -83,7 +83,6 @@ class FACORDENCOMPRController extends Controller {
             }
             echo json_encode($data);
         }
-        
     }
 
     public function actionRespaldo() {
@@ -271,6 +270,10 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionAnular($id) {
+        $model = new FACORDENCOMPR('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_POST['FACORDENCOMPR']))
+            $model->attributes = $_POST['FACORDENCOMPR'];
 
         $connection = Yii::app()->db;
         $usuario = Yii::app()->user->name;
@@ -278,8 +281,9 @@ class FACORDENCOMPRController extends Controller {
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
-        $this->render('index', array(
-            'model' => $this->loadModel($id),
+        $model->IND_ESTA = '';
+        $this->render('/fACORDENCOMPR/index', array(
+            'model' => $model,
         ));
     }
 
