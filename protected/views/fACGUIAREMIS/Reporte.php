@@ -54,7 +54,7 @@ $html = '
             <br>
             <p>
             <h4>
-            0001 - N° <br> 
+            0001 - N° ' . $model->COD_GUIA . '<br> 
             </h4>
             </p>
         </td> 

@@ -29,7 +29,7 @@
 
                 <div class="col-sm-4 control-label">
                     <?php echo $form->labelEx($model, 'COD_ORDE'); ?>
-                    <?php echo $form->textField($model, 'COD_ORDE', array('class' => 'form-control', 'readonly' => 'true')); ?>
+                    <?php echo $form->dropDownList($model, 'COD_ORDE', $model->OrdenCompra(), array('class' => 'form-control', 'disabled' => 'true')); ?>
                     <?php echo $form->error($model, 'COD_ORDE'); ?>
                 </div>
 
@@ -155,7 +155,7 @@
                         'label' => 'Regresar',
                         'size' => 'default',
                         'buttonType' => 'link',
-                        'url' => array('Lista')
+                        'url' => array('index')
                     ));
                     ?>
                 </div>

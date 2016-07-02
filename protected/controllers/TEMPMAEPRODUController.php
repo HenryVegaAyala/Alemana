@@ -92,13 +92,6 @@ class TEMPMAEPRODUController extends Controller {
 
         $model = $this->loadModel($id);
 
-//        Yii::app()->session['CODIGO'] = $id; /////////////////Session de COD_PRO
-
-//        $connection = Yii::app()->db;
-//        $sqlStatement = "CALL Productos('$id');";
-//        $command = $connection->createCommand($sqlStatement);
-//        $command->execute();
-        // Uncomment the following line if AJAX validation is needed
         $this->performAjaxValidation($model);
 
         if (isset($_POST['TEMPMAEPRODU'])) {

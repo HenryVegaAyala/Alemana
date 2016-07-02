@@ -148,6 +148,12 @@ class FACGUIAREMIS extends CActiveRecord {
         return parent::model($className);
     }
 
+   public function OrdenCompra() {
+
+        $CODORDE = FACORDENCOMPR::model()->findAll();
+        return CHtml::listData($CODORDE, "COD_ORDE", "NUM_ORDE");
+    }
+
     public function ListaClienteUpdate() {
 
         $Cliente = MAECLIEN::model()->findAll();
