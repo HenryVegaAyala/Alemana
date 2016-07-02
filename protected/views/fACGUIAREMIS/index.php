@@ -116,7 +116,7 @@ $('.search-form form').submit(function(){
                                 'icon' => 'pencil',
                                 'label' => 'Actualizar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
                                 'click' => "function (){
                                     var x = this.href;
                                     var cad = x.split('/');
