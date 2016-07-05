@@ -38,6 +38,8 @@ $this->breadcrumbs = array(
         $FEC_ENVI = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_TRAS));
 
         $cli = $model->cODCLIE->COD_CLIE;
+        
+        $oc = $model->COD_ORDE;
         ?>
 
         <?php
@@ -45,7 +47,9 @@ $this->breadcrumbs = array(
             'data' => $model,
             'type' => 'bordered condensed striped raw',
             'attributes' => array(
-                'COD_ORDE',
+                array(
+                    'name' => 'N&#176 de O/C',
+                    'value' => $model->getOc($oc)),
                 array(
                     'name' => 'Nombre del Cliente',
                     'value' => $model->getCliente($cli)),

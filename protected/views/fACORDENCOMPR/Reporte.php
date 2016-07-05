@@ -34,7 +34,6 @@ function Estado($data) {
 }
 
 $connection = Yii::app()->db;
-
 $sqlStatement = "SELECT C.DES_CLIE, T.DES_TIEN,C.NRO_RUC FROM MAE_TIEND T
                      inner join MAE_CLIEN C on C.COD_CLIE = T.COD_CLIE
                      where T.COD_TIEN = '" . $Tienda . "' and C.COD_CLIE = '" . $cliente . "' ;";
@@ -165,7 +164,7 @@ $mpdf = new mPDF('A4');
 $mpdf->WriteHTML($htmlCA); //Cabezera
 $mpdf->WriteHTML($htmlCU);  //Cuerpo
 $mpdf->WriteHTML($htmlDE);
-$mpdf->Output('xxx.pdf','I');
+$mpdf->Output('.pdf','I');
 exit;
 //<table border="1" class="table">
 //     <tr>

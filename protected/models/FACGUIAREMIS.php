@@ -177,6 +177,18 @@ class FACGUIAREMIS extends CActiveRecord {
         $id = ($max);
         return $id;
     }
+    
+        public function getOc($var) {
+
+        $max = Yii::app()->db->createCommand()
+                ->select('NUM_ORDE')
+                ->from('FAC_ORDEN_COMPR')
+                ->where("COD_ORDE = '" . $var . "';")
+                ->queryScalar();
+
+        $id = ($max);
+        return $id;
+    }
 
     public function getTienda($var) {
 

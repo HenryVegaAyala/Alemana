@@ -120,7 +120,7 @@ this.getField(\'first_language_display\').value = choice;
 <br /><br />
 
 
-<input type="checkbox" name="email" value="email_subscrbe" checked="checked" /> Please send me regular information by e-mail<br>
+<input type="checkbox" name="email" value="email_subscrbe" checked="checked" readonly="true"/> Please send me regular information by e-mail<br>
 <input type="checkbox" name="phone" value="phone-me" disabled="disabled" /> Please phone me (not available at present)<br>
 <input type="checkbox" name="subscribe" value="newsletter_subscribe" /> Please subscribe me to the Newsletter
 <br /><br />
