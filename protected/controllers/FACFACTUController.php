@@ -80,7 +80,27 @@ class FACFACTUController extends Controller {
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
         }
-        $this->render('index');
+        
+          if ($_GET['type'] == 'id_factu') {
+            $id = $_GET["id"];
+            $idfactu = explode("_", $id);
+            $count = count($idfactu);
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            for ($i = 0; $i < $count; $i++) {
+                if($i == 0)
+                 $sqlStatement = "DELETE FROM PED_IMPRE_MASIV_FACTU ;";        
+                else            
+                 $sqlStatement = "INSERT INTO PED_IMPRE_MASIV_FACTU VALUES('" . $idfactu[$i] . "') ;";
+                
+                $command = $connection->createCommand($sqlStatement);
+                $command->execute();
+            }
+            
+            
+           
+         }
+       
     }
 
     public function actionReporte($id) {

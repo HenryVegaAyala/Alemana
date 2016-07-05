@@ -215,7 +215,10 @@ $('.search-form form').submit(function(){
                             function validation() {
 
                                 var item = $("form input:checkbox:checked");
-
+                                if(item.length == 0){
+                                    alert('Debe seleccionar las O/C que requiere anular?');
+                                    return false;
+                                }
                                 // alert('Plese select checkbox! ' + item.length);
 
                                 for (i = 0; i < item.length; i++) {
@@ -230,7 +233,7 @@ $('.search-form form').submit(function(){
 
                                             response($.map(data, function(item) {
 
-                                                alert(item);
+                                               // alert(item);
                                                 return {
                                                     label: item,
                                                     value: item,
