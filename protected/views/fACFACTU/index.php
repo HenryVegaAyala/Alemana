@@ -188,21 +188,31 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Generar Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Imprimir Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
                             function validation() {
 
                                 var item = $("form input:checkbox:checked");
-
+                              if(item.length == 0){
+                                    alert('Debe seleccionar las Facturas que requiere imprimir');
+                                    return false;
+                                }
                                 // alert('Plese select checkbox! ' + item.length);
-
+                                idfactu='';
                                 for (i = 0; i < item.length; i++) {
+                                  if( (i+1) == item.length){
+                                    idfactu= idfactu + item[i].value;  
+                                  } else{
+                                    idfactu= idfactu + item[i].value+ '_';
+                                  }                    
+                               } 
+                             
                                     $.ajax({
                                         url: 'ajax.php',
                                         dataType: "json",
                                         data: {
-                                            type: 'id_sele',
-                                            id: item[i].value
+                                            type: 'id_factu',
+                                            id: idfactu  //item[i].value
                                         },
                                         succes: function (data) {
 
@@ -219,9 +229,9 @@ $('.search-form form').submit(function(){
 
                                         }
                                     });
-                                }
+                                
 
-                                return true;
+                                return false;
                             }
                         </script>
                     </div>

@@ -5,7 +5,7 @@ class FACFACTUController extends Controller {
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
-
+   
     /**
      * @return array action filters
      */
@@ -80,7 +80,34 @@ class FACFACTUController extends Controller {
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
         }
-        $this->render('index');
+        
+          if ($_GET['type'] == 'id_factu') {
+            $id = $_GET["id"];
+            $idfactu = explode("_", $id);
+            $count = count($idfactu);
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
+            $mpdf = new mPDF('A4');
+            for ($i = 0; $i < $count; $i++) {
+//                if($i == 0)
+//                 $sqlStatement = "DELETE FROM PED_IMPRE_MASIV_FACTU ;";        
+//                else            
+//                 $sqlStatement = "INSERT INTO PED_IMPRE_MASIV_FACTU VALUES('" . $idfactu[$i] . "') ;";
+//                
+//                $command = $connection->createCommand($sqlStatement);
+//                $command->execute();
+                $mpdf->WriteHTML(getHtmlCabecera('" . $idfactu[$i] . "')); //Cabezera
+                $mpdf->WriteHTML(getHtmlCuerpo('" . $idfactu[$i] . "'));  //Cuerpo
+                $mpdf->WriteHTML(getHtmlDetalle('" . $idfactu[$i] . "')); //detalle
+              
+                if($i <> ($count-1)) $mpdf->AddPage(); //añades mientras no seas ultima pagina
+            }
+            
+            $mpdf->Output('xxx.pdf','I');
+           
+         }
+       
     }
 
     public function actionReporte($id) {

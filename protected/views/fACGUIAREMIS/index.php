@@ -215,37 +215,67 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACGUIAREMIS/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Generacion Factura Masiva', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
-                            function validation() {
+                            function validation(code) {
 
                                 var item = $("form input:checkbox:checked");
-
+                              if(item.length == 0){
+                                    alert('Debe seleccionar las Guías que requieren procesar a Factura');
+                                    return false;
+                                }
                                 // alert('Plese select checkbox! ' + item.length);
 
                                 for (i = 0; i < item.length; i++) {
-                                    $.ajax({
-                                        url: 'ajax.php',
-                                        dataType: "json",
-                                        data: {
-                                            type: 'id_sele',
-                                            id: item[i].value
-                                        },
-                                        succes: function(data) {
+                                   
+                                    if(code==2){ 
+                                          $.ajax({
+                                              url: 'ajax.php',
+                                              dataType: "json",
+                                              data: {
+                                                  type: 'id_sele',
+                                                  id: item[i].value
+                                              },
+                                              succes: function(data) {
 
-                                            response($.map(data, function(item) {
+                                                  response($.map(data, function(item) {
 
-                                                alert(item);
-                                                return {
-                                                    label: item,
-                                                    value: item,
-                                                    data: item
-                                                }
-                                            }));
+                                                      alert(item);
+                                                      return {
+                                                          label: item,
+                                                          value: item,
+                                                          data: item
+                                                      }
+                                                  }));
 
 
-                                        }
-                                    });
+                                              }
+                                          });
+                                    }else{
+                                         $.ajax({
+                                              url: 'ajax.php',
+                                              dataType: "json",
+                                              data: {
+                                                  type: 'id_guia_factu',
+                                                  id: item[i].value
+                                              },
+                                              succes: function(data) {
+
+                                                  response($.map(data, function(item) {
+
+                                                      alert(item);
+                                                      return {
+                                                          label: item,
+                                                          value: item,
+                                                          data: item
+                                                      }
+                                                  }));
+
+
+                                              }
+                                          });
+                                    }  
                                 }
 
                                 return true;
