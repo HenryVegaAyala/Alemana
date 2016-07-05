@@ -38,7 +38,7 @@ $('.search-form form').submit(function(){
 
         <div class="mar">
             <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
-           
+
         </div>
 
         <div class="search-form" style="display:none">
@@ -48,14 +48,6 @@ $('.search-form form').submit(function(){
             ));
             ?>
         </div><!-- search-form -->
-        <div class="mar">
-             <?php echo CHtml::link('Imprimir Facturas Masivas', "javascript:;", array(
-                'style' => 'cursor: pointer;',
-                'target'=>'_blank;',
-                "onclick" => "doSomething(); return false;"
-            ));
-            ?>
-        </div>
         <div class="table-responsive">
             <?php
             $this->widget('ext.bootstrap.widgets.TbGridView', array(
@@ -171,11 +163,12 @@ $('.search-form form').submit(function(){
                                     }
                                
                                 }",
-                                ),
+                            ),
                             'Reporte' => array(
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Factura',
-                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'htmlOptions' => array('style' => 'width: 50px',),
+                                'options' => array('target'=>'_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Reporte", array("id"=>$data->COD_FACT))',
                             ),
                         ),
@@ -197,31 +190,53 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
+                        <?php
+                        echo CHtml::link('Imprimir Facturas Masivas', "javascript:;", array(
+                            'style' => 'background-image: none;
+                                        border: 1px solid transparent;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        font-weight: normal;
+                                        line-height: 1.42857;
+                                        margin-bottom: 1;
+                                        padding: 6px 12px;
+                                        text-align: center;
+                                        vertical-align: middle;
+                                        white-space: nowrap;
+                                        background-color: #FFFFFF;
+                                        color: #222222;
+                                        text-decoration: none;',
+                            'target' => '_blank;',
+                            "onclick" => "doSomething(); return false;"
+                        ));
+                        ?>
 
-                    
+
                         <script>
                             function doSomething() {
 
                                 var item = $("form input:checkbox:checked");
-                              if(item.length == 0){
+                                if (item.length == 0) {
                                     alert('Debe seleccionar las Facturas que requiere imprimir');
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
-                                idfactu='';
+                                idfactu = '';
                                 for (i = 0; i < item.length; i++) {
-                                  if( (i+1) == item.length){//si es el ultimo elemento
-                                    idfactu= idfactu + item[i].value;  
-                                  } else{
-                                    if(item[i].value != '1'){  
-                                     idfactu= idfactu + item[i].value+ '_';
+                                    if ((i + 1) == item.length) {//si es el ultimo elemento
+                                        idfactu = idfactu + item[i].value;
+                                    } else {
+                                        if (item[i].value != '1') {
+                                            idfactu = idfactu + item[i].value + '_';
+                                        }
                                     }
-                                  }                    
-                               }
-                               
-                               hhref ='ajax.php?type=id_factu&id='+idfactu;
-                               window.open(hhref, '_blank');
-                             
+                                }
+
+                                hhref = 'ajax.php?type=id_factu&id=' + idfactu;
+                                window.open(hhref, '_blank');
+
 //                                    $.ajax({
 //                                        url: 'ajax.php',
 //                                        dataType: "json",
@@ -245,7 +260,7 @@ $('.search-form form').submit(function(){
 //
 //                                        }
 //                                    });
-                                
+
 
                                 return false;
                             }

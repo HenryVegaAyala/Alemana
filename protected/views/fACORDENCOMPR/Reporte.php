@@ -33,6 +33,11 @@ function Estado($data) {
     }
 }
 
+$FECFACT = date("dmY");
+
+$Reporte = "OrdenDeCompra-N°$oc-$FECFACT.pdf";
+
+
 $connection = Yii::app()->db;
 $sqlStatement = "SELECT C.DES_CLIE, T.DES_TIEN,C.NRO_RUC FROM MAE_TIEND T
                      inner join MAE_CLIEN C on C.COD_CLIE = T.COD_CLIE
@@ -174,7 +179,7 @@ $mpdf->watermarkTextAlpha = 0.1;
 $mpdf->WriteHTML($htmlCA); //Cabezera
 $mpdf->WriteHTML($htmlCU);  //Cuerpo
 $mpdf->WriteHTML($htmlDE);
-$mpdf->Output('.pdf','I');
+$mpdf->Output($Reporte,'I');
 exit;
 //<table border="1" class="table">
 //     <tr>

@@ -166,6 +166,7 @@ $('.search-form form').submit(function(){
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
+                                'options' => array('target' => '_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Reporte", array("id"=>$data->COD_GUIA))',
                             ),
                             'Factura' => array(
@@ -221,61 +222,61 @@ $('.search-form form').submit(function(){
                             function validation(code) {
 
                                 var item = $("form input:checkbox:checked");
-                              if(item.length == 0){
+                                if (item.length == 0) {
                                     alert('Debe seleccionar las Guías que requieren procesar a Factura');
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
 
                                 for (i = 0; i < item.length; i++) {
-                                   
-                                    if(code==2){ 
-                                          $.ajax({
-                                              url: 'ajax.php',
-                                              dataType: "json",
-                                              data: {
-                                                  type: 'id_sele',
-                                                  id: item[i].value
-                                              },
-                                              succes: function(data) {
 
-                                                  response($.map(data, function(item) {
+                                    if (code == 2) {
+                                        $.ajax({
+                                            url: 'ajax.php',
+                                            dataType: "json",
+                                            data: {
+                                                type: 'id_sele',
+                                                id: item[i].value
+                                            },
+                                            succes: function(data) {
 
-                                                      alert(item);
-                                                      return {
-                                                          label: item,
-                                                          value: item,
-                                                          data: item
-                                                      }
-                                                  }));
+                                                response($.map(data, function(item) {
 
-
-                                              }
-                                          });
-                                    }else{
-                                         $.ajax({
-                                              url: 'ajax.php',
-                                              dataType: "json",
-                                              data: {
-                                                  type: 'id_guia_factu',
-                                                  id: item[i].value
-                                              },
-                                              succes: function(data) {
-
-                                                  response($.map(data, function(item) {
-
-                                                      alert(item);
-                                                      return {
-                                                          label: item,
-                                                          value: item,
-                                                          data: item
-                                                      }
-                                                  }));
+                                                    alert(item);
+                                                    return {
+                                                        label: item,
+                                                        value: item,
+                                                        data: item
+                                                    }
+                                                }));
 
 
-                                              }
-                                          });
-                                    }  
+                                            }
+                                        });
+                                    } else {
+                                        $.ajax({
+                                            url: 'ajax.php',
+                                            dataType: "json",
+                                            data: {
+                                                type: 'id_guia_factu',
+                                                id: item[i].value
+                                            },
+                                            succes: function(data) {
+
+                                                response($.map(data, function(item) {
+
+                                                    alert(item);
+                                                    return {
+                                                        label: item,
+                                                        value: item,
+                                                        data: item
+                                                    }
+                                                }));
+
+
+                                            }
+                                        });
+                                    }
                                 }
 
                                 return true;

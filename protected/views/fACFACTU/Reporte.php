@@ -189,8 +189,11 @@ function Ruc($Cliente) {
     return $des;
 }
 
-
 $FEC_TRAS = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($model->FEC_FACT));
+
+$FECFACT = date("dmY");
+
+$Reporte = "Factura-N°$model->COD_FACT-$FECFACT.pdf";
 
 $html = '
     <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
@@ -279,9 +282,9 @@ $html.='
 ';
 
 $connection = Yii::app()->db;
-$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_ORDEN_COMPR F
-            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-            where F.COD_CLIE = '" . $model->COD_CLIE . "';";
+$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,F.IGV_PROD,F.IMP_TOTA_PROD,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_FACTU F
+                inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+                        where COD_FACT = '" . $model->COD_FACT . "';";
 $command = $connection->createCommand($sqlStatement);
 $reader = $command->query();
 
@@ -301,10 +304,10 @@ while ($row = $reader->read()) {
     $html.= '
        
         <tr>
-        <td style="text-align: center;" width="10%" > ' . $row['NRO_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%" > ' . $row['UNI_SOLI'] . ' </td>
         <td style="text-align: rigth;"  width="70%">' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_PREC'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_MONT_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['VAL_PROD'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['IMP_PROD'] . ' </td>
         </tr>
         ';
 }
@@ -377,7 +380,7 @@ $mpdf->SetWatermarkText("FACTURA");
 $mpdf->showWatermarkText = true;
 $mpdf->watermark_font = 'DejaVuSansCondensed';
 $mpdf->watermarkTextAlpha = 0.1;
-$mpdf->Output();
+$mpdf->Output($Reporte,'I');
 exit;
 
 //==============================================================

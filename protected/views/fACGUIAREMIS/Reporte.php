@@ -41,6 +41,10 @@ $Ppartida = "Calle Ayabaca 173";
 
 $FEC_TRAS = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($model->FEC_TRAS));
 
+$FECFACT = date("dmY");
+
+$Reporte = "GuiaDeRemision-N°$model->COD_GUIA-$FECFACT.pdf";
+
 $html.= '
     <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
    
@@ -203,7 +207,7 @@ $mpdf->SetWatermarkText("GUÍA DE REMISION");
 $mpdf->showWatermarkText = true;
 $mpdf->watermark_font = 'DejaVuSansCondensed';
 $mpdf->watermarkTextAlpha = 0.1;
-$mpdf->Output();
+$mpdf->Output($Reporte,'I');
 exit;
 
 //==============================================================
