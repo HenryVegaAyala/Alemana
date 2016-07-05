@@ -210,9 +210,10 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACORDENCOMPR/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Generacion Guia Masiva', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
-                            function validation() {
+                            function validation(code) {
 
                                 var item = $("form input:checkbox:checked");
                                 if(item.length == 0){
@@ -222,6 +223,8 @@ $('.search-form form').submit(function(){
                                 // alert('Plese select checkbox! ' + item.length);
 
                                 for (i = 0; i < item.length; i++) {
+                                    
+                                  if(code==2){   
                                     $.ajax({
                                         url: 'ajax.php',
                                         dataType: "json",
@@ -244,6 +247,30 @@ $('.search-form form').submit(function(){
 
                                         }
                                     });
+                                  }else{
+                                                                         $.ajax({
+                                        url: 'ajax.php',
+                                        dataType: "json",
+                                        data: {
+                                            type: 'id_oc_guia',
+                                            id: item[i].value
+                                        },
+                                        succes: function(data) {
+
+                                            response($.map(data, function(item) {
+
+                                               // alert(item);
+                                                return {
+                                                    label: item,
+                                                    value: item,
+                                                    data: item
+                                                }
+                                            }));
+
+
+                                        }
+                                    });
+                                  }  
                                 }
 
                                 return true;
