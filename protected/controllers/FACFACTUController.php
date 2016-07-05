@@ -97,9 +97,10 @@ class FACFACTUController extends Controller {
 //                
 //                $command = $connection->createCommand($sqlStatement);
 //                $command->execute();
-                $mpdf->WriteHTML(getHtmlCabecera('" . $idfactu[$i] . "')); //Cabezera
-                $mpdf->WriteHTML(getHtmlCuerpo('" . $idfactu[$i] . "'));  //Cuerpo
-                $mpdf->WriteHTML(getHtmlDetalle('" . $idfactu[$i] . "')); //detalle
+               
+                $mpdf->WriteHTML($this->getHtmlCabecera($idfactu[$i] )); //Cabezera'" . $idfactu[$i] . "'
+               // $mpdf->WriteHTML(getHtmlCuerpo('" . $idfactu[$i] . "'));  //Cuerpo
+               // $mpdf->WriteHTML(getHtmlDetalle('" . $idfactu[$i] . "')); //detalle
               
                 if($i <> ($count-1)) $mpdf->AddPage(); //añades mientras no seas ultima pagina
             }
@@ -108,6 +109,10 @@ class FACFACTUController extends Controller {
            
          }
        
+    }
+    
+    public function getHtmlCabecera($id){
+        return $id;
     }
 
     public function actionReporte($id) {
