@@ -12,8 +12,8 @@ $FecIng = $model->FEC_INGR;
 $FecEnv = $model->FEC_ENVI;
 $Est = $model->IND_ESTA;
 
-$NewFecIng = date("d-m-Y", strtotime($FecIng));
-$NewFecEnv = date("d-m-Y", strtotime($FecEnv));
+$NewFecIng = date("d-M-Y", strtotime($FecIng));
+$NewFecEnv = date("d-M-Y", strtotime($FecEnv));
 
 function Estado($data) {
 
@@ -67,7 +67,7 @@ while ($row = $reader->read()) {
         </td>
         
         <td>
-            <center><strong><h2>Panaderia Pasteria Alemana</h2></strong></center>
+            <center><strong><h2>PANADERIA PASTELERIA ALEMANA</h2></strong></center>
             <br>
             <center>Calle Ayabaca N° 173 Urb. Prolongación Benavides</center>
             <center>Lima - Lima - Santiago de Surco</center>
@@ -81,17 +81,17 @@ while ($row = $reader->read()) {
 
 <table border="0" class="table">
      <tr>
-        <th width="50%" >Señor(es): ' . $row['DES_CLIE'] . ' - ' . $row['DES_TIEN'] . '</th>
-        <th width="25%" >RUC: ' . $row['NRO_RUC'] . ' </th>
-        <th width="25%" >N° O/C: ' . $oc . ' </th>
+        <td width="50%" >Señor(es): HIPERMERCADOS ' . $row['DES_CLIE'] . ' - ' . $row['DES_TIEN'] . '</td>
+        <td width="25%" >RUC: ' . $row['NRO_RUC'] . ' </td>
+        <td width="25%" >N° O/C: ' . $oc . ' </td>
      </tr>
 </table>
 
 <table border="0" class="table">
      <tr>
-        <th width="33.33333333333333%" >Fecha Ingreso: ' . $NewFecIng . '</th>
-        <th width="33.33333333333333%" >Fecha Envio: ' . $NewFecEnv . ' </th>
-        <th width="33.33333333333333%" >Estado: ' . Estado($Est) . ' </th>
+        <td width="33.33333333333333%" >Fecha Ingreso: ' . $NewFecIng . '</td>
+        <td width="33.33333333333333%" >Fecha Envio: ' . $NewFecEnv . ' </td>
+        <td width="33.33333333333333%" >Estado: ' . Estado($Est) . ' </td>
      </tr>
 </table>';
 }
@@ -134,26 +134,30 @@ $htmlCU.='</table>'
 <?php
 
 $htmlDE = '
-        <table border="0" class="table table-condensed" >
-     <tr>
-        <th width="10%" ></th>
-        <th width="60%" ></th>
-        <th width="15%" >Sub Total</th>
-        <th width="15%" style="text-align: right; ">' . $model->TOT_MONT_ORDE . '</th>
-     </tr>
-          <tr>
-        <th width="10%" ></th>
-        <th width="60%" ></th>
-        <th width="15%" >I.G.V 18%</th>
-        <th width="15%" style="text-align: right;">' . $model->TOT_MONT_IGV . '</th>
-     </tr>
-          <tr>
-        <th width="10%" ></th>
-        <th width="60%" ></th>
-        <th width="15%" >Total</th>
-        <th width="15%" style="text-align: right;">' . $model->TOT_FACT . '</th>
-     </tr>
-</table>
+
+        <table border="0" class="table table-bordered table-condensed">
+            <tr>
+                <td width="46%" style="text-align: right;" rowspan="2"></td>                
+                <th width="18%" style="text-align: center;" colspan="1">SUB-TOTAL</th>
+                <th width="18%" style="text-align: center;" colspan="1">I.G.V</th>
+                <th width="18%" style="text-align: center;" colspan="1">TOTAL</th>
+            </tr>
+            <tr>
+                <td width="18%" style="text-align: center;" colspan="1">'.$model->TOT_MONT_ORDE.'</td>
+                <td width="18%" style="text-align: center;" colspan="1">'.$model->TOT_MONT_IGV.'</td>
+                <td width="18%" style="text-align: center;" colspan="1">'.$model->TOT_FACT.'</td>
+            </tr>   
+        </table>  
+
+<htmlpagefooter name="myfooter">
+<div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
+Pag. {PAGENO} / {nb}
+</div>
+</htmlpagefooter>
+
+<sethtmlpageheader name="myheader" value="on" show-this-page="1" />
+<sethtmlpagefooter name="myfooter" value="on" />
+
 ';
 ?>
 
@@ -161,6 +165,12 @@ $htmlDE = '
 <?php
 
 $mpdf = new mPDF('A4');
+$mpdf->SetTitle("REPORTE O/C");
+$mpdf->SetAuthor("PANADERIA ALEMANA");
+$mpdf->SetWatermarkText("ORDEN DE COMPRA");
+$mpdf->showWatermarkText = true;
+$mpdf->watermark_font = 'DejaVuSansCondensed';
+$mpdf->watermarkTextAlpha = 0.1;
 $mpdf->WriteHTML($htmlCA); //Cabezera
 $mpdf->WriteHTML($htmlCU);  //Cuerpo
 $mpdf->WriteHTML($htmlDE);

@@ -197,7 +197,7 @@ $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Arial', 12, 12, 12, 12, 'L');
 $mpdf->WriteHTML($html);
 $mpdf->WriteHTML($html1);
 
-$mpdf->SetTitle("REPORTE O/C");
+$mpdf->SetTitle("GUIA DE REMISIÓN");
 $mpdf->SetAuthor("PANADERIA ALEMANA");
 $mpdf->SetWatermarkText("GUÍA DE REMISION");
 $mpdf->showWatermarkText = true;
