@@ -225,7 +225,7 @@ function crearFunciones(i) {
                         type: 'produc_tiend',
                         clie: psclient,
                         tienda:  pstienda,      
-                        row_num: row
+                        row_num: i
                     },
                     success: function(data) {
                         response($.map(data, function(item) {
@@ -247,17 +247,17 @@ function crearFunciones(i) {
                 console.log(names[1], names[2], names[3]);
                 cad = names[1];
                 if( cad !== ''){
-                    $('#COD_PROD_' + row).val(names[1]);
-                    $('#NRO_UNID_' + row).val(names[2]);
-                    $('#VAL_PREC_' + row).val(names[3]);
+                    $('#COD_PROD_' + i).val(names[1]);
+                    $('#NRO_UNID_' + i).val(names[2]);
+                    $('#VAL_PREC_' + i).val(names[3]);
                          
-                    $('#NRO_UNID_' + row).prop('readonly', false);
-                    $('#VAL_PREC_' + row).prop('readonly', false);
-                    $('#NRO_UNID_'+row ).focus();
+                    $('#NRO_UNID_' + i).prop('readonly', false);
+                    $('#VAL_PREC_' + i).prop('readonly', false);
+                    $('#NRO_UNID_'+i ).focus();
                 }else{
-                    $('#COD_PROD_' + row).prop('readonly', true);
-                    $('#NRO_UNID_' + row).prop('readonly', true);
-                    $('#VAL_PREC_' + row).prop('readonly', true);
+                    $('#COD_PROD_' + i).prop('readonly', true);
+                    $('#NRO_UNID_' + i).prop('readonly', true);
+                    $('#VAL_PREC_' + i).prop('readonly', true);
                     
                 }
             }
