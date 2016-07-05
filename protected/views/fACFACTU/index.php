@@ -38,7 +38,9 @@ $('.search-form form').submit(function(){
 
         <div class="mar">
             <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+           
         </div>
+
         <div class="search-form" style="display:none">
             <?php
             $this->renderPartial('_search', array(
@@ -46,7 +48,14 @@ $('.search-form form').submit(function(){
             ));
             ?>
         </div><!-- search-form -->
-
+        <div class="mar">
+             <?php echo CHtml::link('Imprimir Facturas Masivas', "javascript:;", array(
+                'style' => 'cursor: pointer;',
+                'target'=>'_blank;',
+                "onclick" => "doSomething(); return false;"
+            ));
+            ?>
+        </div>
         <div class="table-responsive">
             <?php
             $this->widget('ext.bootstrap.widgets.TbGridView', array(
@@ -188,9 +197,10 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Imprimir Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+
+                    
                         <script>
-                            function validation() {
+                            function doSomething() {
 
                                 var item = $("form input:checkbox:checked");
                               if(item.length == 0){
@@ -200,35 +210,41 @@ $('.search-form form').submit(function(){
                                 // alert('Plese select checkbox! ' + item.length);
                                 idfactu='';
                                 for (i = 0; i < item.length; i++) {
-                                  if( (i+1) == item.length){
+                                  if( (i+1) == item.length){//si es el ultimo elemento
                                     idfactu= idfactu + item[i].value;  
                                   } else{
-                                    idfactu= idfactu + item[i].value+ '_';
+                                    if(item[i].value != '1'){  
+                                     idfactu= idfactu + item[i].value+ '_';
+                                    }
                                   }                    
-                               } 
+                               }
+                               
+                               hhref ='ajax.php?type=id_factu&id='+idfactu;
+                               window.open(hhref, '_blank');
                              
-                                    $.ajax({
-                                        url: 'ajax.php',
-                                        dataType: "json",
-                                        data: {
-                                            type: 'id_factu',
-                                            id: idfactu  //item[i].value
-                                        },
-                                        succes: function (data) {
-
-                                            response($.map(data, function (item) {
-
-                                                alert(item);
-                                                return {
-                                                    label: item,
-                                                    value: item,
-                                                    data: item
-                                                }
-                                            }));
-
-
-                                        }
-                                    });
+//                                    $.ajax({
+//                                        url: 'ajax.php',
+//                                        dataType: "json",
+//                                        
+//                                        data: {
+//                                            type: 'id_factu',
+//                                            id: idfactu  //item[i].value
+//                                        },
+//                                        succes: function (data) {
+//
+//                                            response($.map(data, function (item) {
+//
+//                                                alert(item);
+//                                                return {
+//                                                    label: item,
+//                                                    value: item,
+//                                                    data: item
+//                                                }
+//                                            }));
+//
+//
+//                                        }
+//                                    });
                                 
 
                                 return false;
