@@ -32,11 +32,11 @@ $('.search-form form').submit(function(){
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Búsqueda Guias</h3>
+            <h3 class="panel-title">Lista de Guias Creadas</h3>
         </div>
 
         <div class="mar">
-            <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+            <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
         </div>
         <div class="search-form" style="display:none">
             <?php
@@ -107,6 +107,15 @@ $('.search-form form').submit(function(){
                         },
                     ),
                     array(
+                        'name' => 'Factura',
+                        'header' => 'N° de Factura',
+                        'value' => function($data) {
+                            $model = new FACGUIAREMIS();
+                            $variable = $data->__GET('COD_GUIA');
+                            echo $model->getFactura($variable);
+                        }
+                    ),
+                    array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
@@ -116,7 +125,7 @@ $('.search-form form').submit(function(){
                                 'icon' => 'pencil',
                                 'label' => 'Actualizar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/update", array("id"=>$data->COD_GUIA,"est"=>$data->IND_ESTA))',
                                 'click' => "function (){
                                     var x = this.href;
                                     var cad = x.split('/');
@@ -166,6 +175,7 @@ $('.search-form form').submit(function(){
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
+                                'options' => array('target' => '_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Reporte", array("id"=>$data->COD_GUIA))',
                             ),
                             'Factura' => array(
@@ -208,22 +218,28 @@ $('.search-form form').submit(function(){
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
                             'context' => 'default',
-                            'label' => 'Refrescar Lista Guia',
+                            'label' => 'Mostrar Lista Guias',
                             'size' => 'default',
                             'icon' => 'refresh',
                             'buttonType' => 'link',
                             'url' => array('/FACGUIAREMIS/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Generacion Factura Masiva', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
-                            function validation() {
+                            function validation(code) {
 
                                 var item = $("form input:checkbox:checked");
-
+                                if (item.length == 0) {
+                                    alert('Debe seleccionar las Guías que requieren procesar a Factura');
+                                    return false;
+                                }
                                 // alert('Plese select checkbox! ' + item.length);
 
                                 for (i = 0; i < item.length; i++) {
+
+                                    if (code == 2) {
                                     $.ajax({
                                         url: 'ajax.php',
                                         dataType: "json",
@@ -246,6 +262,30 @@ $('.search-form form').submit(function(){
 
                                         }
                                     });
+                                    } else {
+                                        $.ajax({
+                                            url: 'ajax.php',
+                                            dataType: "json",
+                                            data: {
+                                                type: 'id_guia_factu',
+                                                id: item[i].value
+                                            },
+                                            succes: function(data) {
+
+                                                response($.map(data, function(item) {
+
+                                                    alert(item);
+                                                    return {
+                                                        label: item,
+                                                        value: item,
+                                                        data: item
+                                                    }
+                                                }));
+
+
+                                            }
+                                        });
+                                    }
                                 }
 
                                 return true;
@@ -253,9 +293,9 @@ $('.search-form form').submit(function(){
                         </script>
                     </div>
                 </div>    
-        </div>
-    </div>    
-</div>
+            </div>
+        </div>    
+    </div>
 </div>    
 
 <?php $this->endWidget(); ?>

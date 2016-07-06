@@ -142,6 +142,7 @@ class FACGUIAREMISController extends Controller {
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
+        $model->IND_ESTA = '0';
         $this->render('Lista', array(
             'model' => $model,
         ));

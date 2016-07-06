@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
+
 <?php
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
@@ -32,11 +33,11 @@ $('.search-form form').submit(function(){
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Búsqueda Factura</h3>
+            <h3 class="panel-title">Lista de Facturas Creadas</h3>
         </div>
 
         <div class="mar">
-            <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+            <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
         </div>
         <div class="search-form" style="display:none">
             <?php
@@ -229,4 +230,5 @@ $('.search-form form').submit(function(){
         </div>
     </div>
 </div>    
+
 <?php $this->endWidget(); ?>

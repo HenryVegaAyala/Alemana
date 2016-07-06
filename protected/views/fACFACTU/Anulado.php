@@ -162,11 +162,12 @@ $('.search-form form').submit(function(){
                                     }
                                
                                 }",
-                            ),
+                                ),
                             'Reporte' => array(
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Factura',
                                 'htmlOptions' => array('style' => 'width: 50px'),
+                                'options' => array('target' => '_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Reporte", array("id"=>$data->COD_FACT))',
                             ),
                         ),
@@ -174,6 +175,7 @@ $('.search-form form').submit(function(){
                 ),
             ));
             ?>
+
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -181,7 +183,7 @@ $('.search-form form').submit(function(){
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
                             'context' => 'default',
-                            'label' => 'Refrescar Lista Facturas',
+                            'label' => 'Mostrar Lista Facturas',
                             'size' => 'default',
                             'icon' => 'refresh',
                             'buttonType' => 'link',
@@ -204,9 +206,9 @@ $('.search-form form').submit(function(){
                                             type: 'id_sele',
                                             id: item[i].value
                                         },
-                                        succes: function(data) {
+                                        succes: function (data) {
 
-                                            response($.map(data, function(item) {
+                                            response($.map(data, function (item) {
 
                                                 alert(item);
                                                 return {
@@ -230,4 +232,5 @@ $('.search-form form').submit(function(){
         </div>
     </div>
 </div>    
+
 <?php $this->endWidget(); ?>
