@@ -54,7 +54,7 @@ $('.search-form form').submit(function(){
                 ?>
             </div>
         </div>
-        
+
         <div class="search-form" style="display:none">
             <?php
             $this->renderPartial('_search', array(
@@ -242,6 +242,28 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACGUIAREMIS/index')
                         ));
                         ?>
+                        <?php
+                        echo CHtml::link('Imprimir Facturas Masivas', "javascript:;", array(
+                            'style' => 'background-image: none;
+                                        border: 1px solid transparent;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        font-weight: normal;
+                                        line-height: 1.42857;
+                                        margin-bottom: 1;
+                                        padding: 6px 12px;
+                                        text-align: center;
+                                        vertical-align: middle;
+                                        white-space: nowrap;
+                                        background-color: #FFFFFF;
+                                        color: #222222;
+                                        text-decoration: none;',
+                            'target' => '_blank;',
+                            "onclick" => "doSomething(); return false;"
+                        ));
+                        ?>
                         <?php echo CHtml::SubmitButton('Generacion Factura Masiva', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
                         <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
@@ -249,11 +271,11 @@ $('.search-form form').submit(function(){
 
                                 var item = $("form input:checkbox:checked");
                                 if (item.length == 0) {
-                                   
-                                   if(code==1) 
-                                    alert('Debe seleccionar las Guías que requieren procesar a Factura ');
-                                   else
-                                    alert('Debe seleccionar las Guías que requieren anular ');   
+
+                                    if (code == 1)
+                                        alert('Debe seleccionar las Guías que requieren procesar a Factura ');
+                                    else
+                                        alert('Debe seleccionar las Guías que requieren anular ');
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
@@ -312,11 +334,36 @@ $('.search-form form').submit(function(){
                                 return true;
                             }
                         </script>
+                        
+                        <script>
+                            function doSomething() {
+
+                                var item = $("form input:checkbox:checked");
+                                if (item.length == 0) {
+                                    alert('Debe seleccionar las Facturas que requiere imprimir');
+                                    return false;
+                                }
+//                                 alert('Plese select checkbox! ' + item.length);
+                                idguia = '';
+                                for (i = 0; i < item.length; i++) {
+                                    if ((i + 1) == item.length) {//si es el ultimo elemento
+                                        idguia = idguia + item[i].value;
+                                    } else {
+                                        if (item[i].value != '1') {
+                                            idguia = idguia + item[i].value + '_';
+                                        }
+                                    }
+                                }
+
+                                hhref = 'ajax.php?type=id_guia&id=' + idguia;
+                                window.open(hhref, '_blank');
+                                return false;
+                            }
+                        </script>
                     </div>
                 </div>    
             </div>        
         </div>
     </div>
 </div>    
-
 <?php $this->endWidget(); ?>

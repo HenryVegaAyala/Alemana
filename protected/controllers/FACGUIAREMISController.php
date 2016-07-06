@@ -1,6 +1,7 @@
 <?php
 
 class FACGUIAREMISController extends Controller {
+
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -19,9 +20,9 @@ class FACGUIAREMISController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('create', 'update', 'index', 'view', 
-                                   'admin', 'delete', 'Lista', 'Anular', 
-                    'ajax', 'Factura', 'Reporte','Anulado'),
+                'actions' => array('create', 'update', 'index', 'view',
+                    'admin', 'delete', 'Lista', 'Anular',
+                    'ajax', 'Factura', 'Reporte', 'Anulado'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -39,17 +40,245 @@ class FACGUIAREMISController extends Controller {
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
         }
-        
-         if ($_GET['type'] == 'id_guia_factu') {
+
+//        if ($_GET['type'] == 'id_guia_factu') {
+//            $id = $_GET["id"];
+//            $connection = Yii::app()->db;
+//            $usuario = Yii::app()->user->name;
+//            $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
+//            $command = $connection->createCommand($sqlStatement);
+//            $command->execute();
+//        }
+        //$this->render('index');
+        if ($_GET['type'] == 'id_guia') {
             $id = $_GET["id"];
+            $idguia = explode("_", $id);
+            $count = count($idguia);
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
-            $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
-            $command = $connection->createCommand($sqlStatement);
-            $command->execute();
+            $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
+            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Arial', 12, 12, 12, 12, 'L');
+            for ($i = 0; $i < $count; $i++) {
+
+                $mpdf->WriteHTML($this->getHtmlCabecera($idguia[$i])); //Cabezera
+                $mpdf->WriteHTML($this->getHtmlCuerpo($idguia[$i]));  //Cuerpo
+                $mpdf->WriteHTML($this->getHtmlDetalle($idguia[$i])); //detalle
+
+
+
+                $mpdf->SetTitle("REPORTE GUIA MASIVO");
+                $mpdf->SetAuthor("PANADERIA ALEMANA");
+                $mpdf->SetWatermarkText($this->Estado($idguia[$i]));
+                $mpdf->showWatermarkText = true;
+                $mpdf->watermark_font = 'DejaVuSansCondensed';
+                $mpdf->watermarkTextAlpha = 0.1;
+
+                if ($i <> ($count - 1))
+                    $mpdf->AddPage(); //añades mientras no seas ultima pagina
+            }
+
+            $FECFACT = date("dmY");
+            $Reporte = "GUIA_Masiva_$FECFACT.pdf";
+
+            $mpdf->Output($Reporte, 'I');
         }
-        //$this->render('index');
     }
+
+    /*     * *****************************REPORTE***************************************** */
+
+    public function getHtmlCabecera($id) {
+
+        $html = '
+    <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
+   
+<style>
+    img{
+        width: 140px;
+    }
+    hr{
+        color: #373737;
+        background-color: #373737;
+        height: 5px;
+        margin-top: .1em;
+    }
+    table, td{
+        border-radius: 15px;
+        vertical-align: top;
+    }
+</style>
+     
+<table border="0" class="table">
+    <tr>
+
+    <td style="border: solid white" width="10%"> 
+        <center>
+                <img style="float:left;" src="' . Yii:: app()->request->baseUrl . '/images/logo.png">
+        </center>
+    </td> 
+        
+    <td style="border: solid white; border-width:1px 0;" width="50%">
+            <center><h3><strong>PANADERIA ALEMANA S.A.C </strong></h3></center>
+            <br>
+            <p>
+            Calle Ayabaca N° 173            <br> 
+            Urb. Prolongación Benavides     <br>
+            Lima - Lima - Santiago de Surco <br>
+            Telf: 733-0476 / 282-3595       <br>
+            www.panaderiaalemana.com
+            </p>
+    </td>  
+        
+        <td style="border-radius: 15px;border: solid black;" width="40%" >
+            <center><strong><h2>R.U.C. 20536040995</h2></strong></center>
+            <br>
+            <p>
+            <h4>
+            GUÍA DE REMISIÓN - REMITENTE<br> 
+            </h4>
+            </p>
+            <br>
+            <p>
+            <h4>
+            0001 - N° ' . $id . '<br> 
+            </h4>
+            </p>
+        </td> 
+    </tr>
+</table>';
+
+        return $html;
+    }
+
+    public function getHtmlCuerpo($id) {
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT FEC_TRAS,DIR_TIEN,DES_CLIE,NRO_RUC FROM FAC_GUIA_REMIS F
+                            inner join MAE_CLIEN C on F.COD_CLIE = C.COD_CLIE
+                            inner join MAE_TIEND T on F.COD_TIEN = T.COD_TIEN
+                            where COD_GUIA ='" . $id . "';";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+        while ($row = $reader->read()) {
+            $Fecha = $row['FEC_TRAS'];
+            $Ruc = $row['NRO_RUC'];
+            $Descli = $row['DES_CLIE'];
+            $DirTien = $row['DIR_TIEN'];
+        }
+
+        $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
+        $Ppartida = "Calle Ayabaca 173";
+
+        $html = '
+                <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
+
+<style>
+        img{
+            width: 140px;
+           }
+        hr{
+           color: #373737;
+            background-color: #373737;
+            height: 5px;
+            margin-top: .1em;
+           }
+        td{
+           border-radius: 15px;
+           }
+</style>
+<div class="hr"><hr /></div>
+
+  <table class="table  /*table-bordered*/" border= "0">
+
+   <tr>
+        <td colspan="4">Fecha inicio de trasalado: ' . strtoupper($Fecha_Fac) . '</td>
+   </tr>
+   
+   <br><br>
+   
+   <tr>
+    <td colspan="2" >Destinatario: ' . strtoupper('hipermercados ' . $DirTien) . '</td>     
+    <td colspan="2" >Punto de Partida: ' . strtoupper($Ppartida) . '</td>                                                          
+   </tr>
+   
+   <br><br>
+   
+   <tr>
+    <td  colspan="2" >R.U.C: ' . strtoupper($Ruc) . ' </td>            
+    <td  colspan="2" >Punto de Llegada: ' . strtoupper($Descli) . '</td> 
+   </tr>
+   
+    <br><br>
+    
+  </table>       
+    ';
+        return $html;
+    }
+
+    public function getHtmlDetalle($id) {
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_ORDEN_COMPR F
+            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+            ;";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+
+        $html.='
+    <table border="0" class="table table-bordered table-condensed">
+    <tr>
+    <th style="text-align: center; vertical-align: center;">Cantidad</th>
+    <th style="text-align: center;">Descripción</th>
+    <th style="text-align: center;">Peso Total</th>
+    <th style="text-align: center;">Precio Unitario</th>
+    <th style="text-align: center;">Importe Total</th>
+    </tr>    
+';
+
+        while ($row = $reader->read()) {
+
+
+            $html.= '
+       
+        <tr>
+        <td style="text-align: center;" width="10%" > ' . $row['NRO_UNID'] . ' </td>
+        <td style="text-align: rigth;"  width="50%">' . $row['DES_LARG'] . ' </td>
+        <td style="text-align: center;" width="8%"> ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . '</td>
+        <td style="text-align: center;" width="10%"> ' . $row['VAL_PREC'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['VAL_MONT_UNID'] . ' </td>
+        </tr>
+
+        ';
+        }
+        $html.='</table>';
+
+        $html.='
+
+ <table border="0" class="table">
+    <tbody>
+        <tr>
+            <td style="text-align: center;">___________________________________________</td>
+            <td style="text-align: center;">___________________________________________</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Conforme</td>
+            <td style="text-align: center;">Panaderia Alemana S.A.C</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<htmlpagefooter name="myfooter">
+<div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
+Pag. {PAGENO} / {nb}
+</div>
+</htmlpagefooter>
+
+<sethtmlpageheader name="myheader" value="on" show-this-page="1" />
+<sethtmlpagefooter name="myfooter" value="on" />
+
+<div style="text-align: center;">DESTINATARIO</div>';
+    }
+
+    /*     * *****************************REPORTE***************************************** */
 
     public function actionAnular($id) {
         $model = new FACGUIAREMIS('search');
@@ -158,7 +387,7 @@ class FACGUIAREMISController extends Controller {
             'model' => $model,
         ));
     }
-    
+
     public function actionReporte($id) {
         $this->render('Reporte', array(
             'model' => $this->loadModel($id),
@@ -174,7 +403,7 @@ class FACGUIAREMISController extends Controller {
         $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
-        
+
         $this->render('index', array(
             'model' => $this->loadModel($id),
         ));
@@ -191,6 +420,32 @@ class FACGUIAREMISController extends Controller {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'facguiaremis-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+    }
+
+    function Estado($id) {
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT IND_ESTA FROM FAC_GUIA_REMIS F where COD_GUIA  = '" . $id . "';";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+        while ($row = $reader->read()) {
+            $Estado = $row['IND_ESTA'];
+        }
+
+        switch ($Estado) {
+            case 1:
+                return 'Emitida / Pendiente de cobro';
+                break;
+            case 2:
+                return 'Cobrada / Cerrada';
+                break;
+            case 9:
+                return 'Anulado';
+                break;
+            case 0:
+                return 'Creado';
+                break;
         }
     }
 
