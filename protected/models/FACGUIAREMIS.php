@@ -211,5 +211,16 @@ class FACGUIAREMIS extends CActiveRecord {
         );
         return cHtml::listData($model, 'IND_ESTA', 'value');
     }
+    
+        public function getFactura($id) {
+
+        $Factura = Yii::app()->db->createCommand()
+                ->select('COD_FACT')
+                ->from('FAC_FACTU F , FAC_GUIA_REMIS x')
+                ->where("F.COD_GUIA = x.COD_GUIA and x.COD_GUIA = '" . $id . "' and F.IND_ESTA <> '9' and x.IND_ESTA <> '9';")
+                ->queryScalar();
+
+        return $Factura;
+    }
 
 }

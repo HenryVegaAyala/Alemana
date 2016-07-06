@@ -107,6 +107,15 @@ $('.search-form form').submit(function(){
                         },
                     ),
                     array(
+                        'name' => 'Factura',
+                        'header' => 'N° de Factura',
+                        'value' => function($data) {
+                            $model = new FACGUIAREMIS();
+                            $variable = $data->__GET('COD_GUIA');
+                            echo $model->getFactura($variable);
+                        }
+                    ),
+                    array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),

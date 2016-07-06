@@ -175,4 +175,16 @@ class FACFACTU extends CActiveRecord {
         return $id;
     }
 
+    public function getOC($id) {
+
+        $Factura = Yii::app()->db->createCommand()
+                ->select('NUM_ORDE')
+                ->from('FAC_FACTU F , FAC_GUIA_REMIS x , FAC_ORDEN_COMPR y')
+                ->where("F.COD_GUIA = x.COD_GUIA and F.COD_FACT  =  '" . $id . "' and x.COD_ORDE = y.COD_ORDE 
+                    ;")
+                ->queryScalar();
+
+        return $Factura;
+    }
+
 }

@@ -98,6 +98,24 @@ $('.search-form form').submit(function(){
                         },
                     ),
                     array(
+                        'name' => 'Guia',
+                        'header' => 'N° de Guia',
+                        'value' => function($data) {
+                            $model = new FACORDENCOMPR();
+                            $variable = $data->__GET('COD_ORDE');
+                            echo $model->getGuia($variable);
+                        }
+                    ),
+                    array(
+                        'name' => 'Factura',
+                        'header' => 'N° de Factura',
+                        'value' => function($data) {
+                            $model = new FACORDENCOMPR();
+                            $variable = $data->__GET('COD_ORDE');
+                            echo $model->getFactura($variable);
+                        }
+                    ),
+                    array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
                         'htmlOptions' => array('style' => 'width: 130px; text-align: center;'),
@@ -186,7 +204,7 @@ $('.search-form form').submit(function(){
                                 'icon' => 'file',
                                 'label' => 'Generar PDF',
                                 'htmlOptions' => array('style' => 'width: 50px'),
-                                'options' => array('target'=>'_blank'),
+                                'options' => array('target' => '_blank'),
                                 'url' => 'CHtml::normalizeUrl(array("Reporte", "id"=>$data->COD_ORDE))',
                             ),
                         ),

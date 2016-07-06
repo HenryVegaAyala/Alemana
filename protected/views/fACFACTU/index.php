@@ -37,8 +37,23 @@ $('.search-form form').submit(function(){
         </div>
 
         <div class="mar">
-            <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+            <div class="mar">            
+                <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+                <br>
+                <?php
+                $this->widget('ext.PageSize.EPageSize', array(
+                    'gridViewId' => 'facfactu-grid',
+                    'beforeLabel' => 'Lista de Facturas',
+                    'pageSize' => Yii::app()->request->getParam('pageSize', null),
+                    'defaultPageSize' => 10, // may use this :  Yii::app()->params['defaultPageSize'],
+                    'pageSizeOptions' => array(5 => 5, 10 => 10, 25 => 25, 50 => 50, 100 => 100, 500 => 500), // you can config it in main.php under the config dir . Yii::app()->params['pageSizeOptions'],// Optional, you can use with the widget default
+                ));
 
+                $dataProvider = $model->search();
+                $pageSize = Yii::app()->user->getState('pageSize', 10/* Yii::app()->params['defaultPageSize'] */);
+                $dataProvider->getPagination()->setPageSize($pageSize);
+                ?>
+            </div>
         </div>
 
         <div class="search-form" style="display:none">
@@ -48,12 +63,14 @@ $('.search-form form').submit(function(){
             ));
             ?>
         </div><!-- search-form -->
+
         <div class="table-responsive">
+
             <?php
             $this->widget('ext.bootstrap.widgets.TbGridView', array(
                 'id' => 'facfactu-grid',
                 'type' => 'bordered condensed striped',
-                'dataProvider' => $model->search(),
+                'dataProvider' => $dataProvider,
                 'columns' => array(
                     array(
                         'id' => 'COD_FACT',
@@ -61,7 +78,6 @@ $('.search-form form').submit(function(){
                         'selectableRows' => '50',
                     ),
                     'COD_FACT',
-                    'COD_GUIA',
                     array(
                         'name' => 'COD_CLIE',
                         'header' => 'Cliente',
@@ -106,6 +122,16 @@ $('.search-form form').submit(function(){
                                     break;
                             }
                         },
+                    ),
+                    'COD_GUIA',
+                    array(
+                        'name' => 'OC',
+                        'header' => 'N° de O/C',
+                        'value' => function($data) {
+                            $model = new FACFACTU();
+                            $variable = $data->__GET('COD_FACT');
+                            echo $model->getOC($variable);
+                        }
                     ),
                     'TOT_FACT',
                     array(
@@ -168,7 +194,7 @@ $('.search-form form').submit(function(){
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Factura',
                                 'htmlOptions' => array('style' => 'width: 50px',),
-                                'options' => array('target'=>'_blank'),
+                                'options' => array('target' => '_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Reporte", array("id"=>$data->COD_FACT))',
                             ),
                         ),

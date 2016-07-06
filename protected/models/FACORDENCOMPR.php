@@ -177,11 +177,11 @@ class FACORDENCOMPR extends CActiveRecord {
     }
 
     public function getCliente($var) {
-        
+
         $max = Yii::app()->db->createCommand()
                 ->select('DES_CLIE')
                 ->from('MAE_CLIEN')
-                ->where("COD_CLIE = '" . $var. "';")
+                ->where("COD_CLIE = '" . $var . "';")
                 ->queryScalar();
 
         $id = ($max);
@@ -298,6 +298,28 @@ class FACORDENCOMPR extends CActiveRecord {
         $id = ($max);
 
         return $max;
+    }
+
+    public function getGuia($id) {
+
+        $Guia = Yii::app()->db->createCommand()
+                ->select('COD_GUIA')
+                ->from('FAC_GUIA_REMIS')
+                ->where("COD_ORDE = '" . $id . "' and IND_ESTA <> '9';")
+                ->queryScalar();
+
+        return $Guia;
+    }
+
+    public function getFactura($id) {
+
+        $Factura = Yii::app()->db->createCommand()
+                ->select('COD_FACT')
+                ->from('FAC_FACTU F , FAC_GUIA_REMIS x')
+                ->where("F.COD_GUIA = x.COD_GUIA and x.COD_ORDE = '" . $id . "' and F.IND_ESTA <> '9' and x.IND_ESTA <> '9';")
+                ->queryScalar();
+
+        return $Factura;
     }
 
 }
