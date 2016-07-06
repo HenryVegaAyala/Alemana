@@ -48,6 +48,7 @@ class FACFACTUController extends Controller {
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
+        $model->IND_ESTA = '1';
         $this->render('Lista', array(
             'model' => $model,
         ));
@@ -95,9 +96,11 @@ class FACFACTUController extends Controller {
                 $mpdf->WriteHTML($this->getHtmlCuerpo($idfactu[$i]));  //Cuerpo
                 $mpdf->WriteHTML($this->getHtmlDetalle($idfactu[$i])); //detalle
 
+
+
                 $mpdf->SetTitle("REPORTE FACTURA MASIVO");
                 $mpdf->SetAuthor("PANADERIA ALEMANA");
-                $mpdf->SetWatermarkText("FACTURA MASIVA");
+                $mpdf->SetWatermarkText($this->Estado($idfactu[$i]));
                 $mpdf->showWatermarkText = true;
                 $mpdf->watermark_font = 'DejaVuSansCondensed';
                 $mpdf->watermarkTextAlpha = 0.1;
@@ -338,28 +341,18 @@ Pag. {PAGENO} / {nb}
         return $html;
     }
 
-    /*     * ************* */
-
     public function actionReporte($id) {
         $this->render('Reporte', array(
             'model' => $this->loadModel($id),
         ));
     }
 
-    /**
-     * Displays a particular model.
-     * @param integer $id the ID of the model to be displayed
-     */
     public function actionView($id) {
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
     }
 
-    /**
-     * Creates a new model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     */
     public function actionCreate() {
         $model = new FACFACTU;
 
@@ -377,11 +370,6 @@ Pag. {PAGENO} / {nb}
         ));
     }
 
-    /**
-     * Updates a particular model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id the ID of the model to be updated
-     */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
 
@@ -402,11 +390,6 @@ Pag. {PAGENO} / {nb}
         ));
     }
 
-    /**
-     * Deletes a particular model.
-     * If deletion is successful, the browser will be redirected to the 'admin' page.
-     * @param integer $id the ID of the model to be deleted
-     */
     public function actionDelete($id) {
         $this->loadModel($id)->delete();
 
@@ -415,9 +398,6 @@ Pag. {PAGENO} / {nb}
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
-    /**
-     * Lists all models.
-     */
     public function actionIndex() {
         $model = new FACFACTU('search');
         $model->unsetAttributes();  // clear any default values
@@ -429,9 +409,6 @@ Pag. {PAGENO} / {nb}
         ));
     }
 
-    /**
-     * Manages all models.
-     */
     public function actionAdmin() {
         $model = new FACFACTU('search');
         $model->unsetAttributes();  // clear any default values
@@ -443,13 +420,6 @@ Pag. {PAGENO} / {nb}
         ));
     }
 
-    /**
-     * Returns the data model based on the primary key given in the GET variable.
-     * If the data model is not found, an HTTP exception will be raised.
-     * @param integer $id the ID of the model to be loaded
-     * @return FACFACTU the loaded model
-     * @throws CHttpException
-     */
     public function loadModel($id) {
         $model = FACFACTU::model()->findByPk($id);
         if ($model === null)
@@ -457,10 +427,6 @@ Pag. {PAGENO} / {nb}
         return $model;
     }
 
-    /**
-     * Performs the AJAX validation.
-     * @param FACFACTU $model the model to be validated
-     */
     protected function performAjaxValidation($model) {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'facfactu-form') {
             echo CActiveForm::validate($model);
@@ -468,7 +434,6 @@ Pag. {PAGENO} / {nb}
         }
     }
 
-    /**     * ************************************************************** */
     function numtoletras($xcifra) {
         $xarray = array(0 => "Cero",
             1 => "UN", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
@@ -621,6 +586,32 @@ Pag. {PAGENO} / {nb}
             $xsub = "MIL";
         //
         return $xsub;
+    }
+
+    function Estado($id) {
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT IND_ESTA FROM FAC_FACTU F where COD_FACT  = '" . $id . "';";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+        while ($row = $reader->read()) {
+            $Estado = $row['IND_ESTA'];
+        }
+        
+        switch ($Estado) {
+            case 1:
+                return 'Emitida/Pendiente de Cobro';
+                break;
+            case 2:
+                return 'Cobrada/Cerrada';
+                break;
+            case 9:
+                return 'Anulado';
+                break;
+            case 0:
+                return 'Creado';
+                break;
+        }
     }
 
 }
