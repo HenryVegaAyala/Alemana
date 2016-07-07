@@ -243,7 +243,7 @@ $('.search-form form').submit(function(){
                         ));
                         ?>
                         <?php
-                        echo CHtml::link('Imprimir Facturas Masivas', "javascript:;", array(
+                        echo CHtml::link('Imprimir Guias Masivas', "javascript:;", array(
                             'style' => 'background-image: none;
                                         border: 1px solid transparent;
                                         border-radius: 4px;
@@ -264,7 +264,7 @@ $('.search-form form').submit(function(){
                             "onclick" => "doSomething(); return false;"
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Generacion Factura Masiva', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php echo CHtml::SubmitButton('Procesar Guias', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
                         <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
                         <script>
                             function validation(code) {

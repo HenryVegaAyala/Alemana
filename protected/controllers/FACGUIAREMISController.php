@@ -41,14 +41,14 @@ class FACGUIAREMISController extends Controller {
             $command->execute();
         }
 
-//        if ($_GET['type'] == 'id_guia_factu') {
-//            $id = $_GET["id"];
-//            $connection = Yii::app()->db;
-//            $usuario = Yii::app()->user->name;
-//            $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
-//            $command = $connection->createCommand($sqlStatement);
-//            $command->execute();
-//        }
+        if ($_GET['type'] == 'id_guia_factu') {
+            $id = $_GET["id"];
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
+            $command = $connection->createCommand($sqlStatement);
+            $command->execute();
+        }
         //$this->render('index');
         if ($_GET['type'] == 'id_guia') {
             $id = $_GET["id"];
