@@ -51,11 +51,26 @@ $this->breadcrumbs = array(
         $FEC_INGRE = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_INGR));
 
         $FEC_ENVI = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_ENVI));
+        
+        function getFac($id){
+            $model = new FACORDENCOMPR();
+            if ($id != ""){
+                return $model->getFactura($id);
+            }else{
+                return "Sin Factura";
+            }
+        }
 
         $this->widget('ext.bootstrap.widgets.TbDetailView', array(
             'data' => $model,
             'type' => 'bordered condensed striped raw',
             'attributes' => array(
+                array(
+                    'name' => 'N&#176 de Guia',
+                    'value' => $model->getGuia($model->COD_ORDE)),
+                array(
+                    'name' => 'N&#176 de Factura',
+                    'value' => getFac($model->COD_ORDE)),
                 array(
                     'name' => 'Nombre del Cliente',
                     'value' => $model->getCliente($cli)),

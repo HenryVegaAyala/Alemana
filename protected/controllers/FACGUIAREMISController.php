@@ -78,7 +78,7 @@ class FACGUIAREMISController extends Controller {
             }
 
             $FECFACT = date("dmY");
-            $Reporte = "GUIA_Masiva_$FECFACT.pdf";
+            $Reporte = "GUIA_MASIVA_$FECFACT.pdf";
 
             $mpdf->Output($Reporte, 'I');
         }
@@ -196,7 +196,7 @@ class FACGUIAREMISController extends Controller {
    <br><br>
    
    <tr>
-    <td colspan="2" >Destinatario: ' . strtoupper('hipermercados ' . $DirTien) . '</td>     
+    <td colspan="2" >Destinatario: ' . strtoupper('hipermercados ' . $Descli ) . '</td>     
     <td colspan="2" >Punto de Partida: ' . strtoupper($Ppartida) . '</td>                                                          
    </tr>
    
@@ -204,7 +204,7 @@ class FACGUIAREMISController extends Controller {
    
    <tr>
     <td  colspan="2" >R.U.C: ' . strtoupper($Ruc) . ' </td>            
-    <td  colspan="2" >Punto de Llegada: ' . strtoupper($Descli) . '</td> 
+    <td  colspan="2" >Punto de Llegada: ' . strtoupper($DirTien) . '</td> 
    </tr>
    
     <br><br>
@@ -216,9 +216,9 @@ class FACGUIAREMISController extends Controller {
 
     public function getHtmlDetalle($id) {
         $connection = Yii::app()->db;
-        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_ORDEN_COMPR F
-            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-            ;";
+        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,M.VAL_PESO,M.COD_MEDI  FROM fac_detal_guia_remis F
+                        inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+                        where COD_GUIA = '" . $id . "' ;";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
 
@@ -239,11 +239,11 @@ class FACGUIAREMISController extends Controller {
             $html.= '
        
         <tr>
-        <td style="text-align: center;" width="10%" > ' . $row['NRO_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%" > ' . $row['UNI_SOLI'] . ' </td>
         <td style="text-align: rigth;"  width="50%">' . $row['DES_LARG'] . ' </td>
         <td style="text-align: center;" width="8%"> ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . '</td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_PREC'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_MONT_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['VAL_PROD'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['IMP_PROD'] . ' </td>
         </tr>
 
         ';
@@ -276,6 +276,8 @@ Pag. {PAGENO} / {nb}
 <sethtmlpagefooter name="myfooter" value="on" />
 
 <div style="text-align: center;">DESTINATARIO</div>';
+        
+        return $html;
     }
 
     /*     * *****************************REPORTE***************************************** */

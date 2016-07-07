@@ -38,8 +38,17 @@ $this->breadcrumbs = array(
         $FEC_ENVI = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_TRAS));
 
         $cli = $model->cODCLIE->COD_CLIE;
-        
+
         $oc = $model->COD_ORDE;
+
+        function getFac($id) {
+            $model = new FACGUIAREMIS();
+            if ($id != "") {
+                return $model->getFactura($id);
+            } else {
+                return "Sin Factura";
+            }
+        }
         ?>
 
         <?php
@@ -50,6 +59,9 @@ $this->breadcrumbs = array(
                 array(
                     'name' => 'N&#176 de O/C',
                     'value' => $model->getOc($oc)),
+                array(
+                    'name' => 'N&#176 de Factura',
+                    'value' => getFac($model->COD_GUIA)),
                 array(
                     'name' => 'Nombre del Cliente',
                     'value' => $model->getCliente($cli)),

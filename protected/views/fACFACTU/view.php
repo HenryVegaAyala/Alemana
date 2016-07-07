@@ -39,12 +39,24 @@ $this->breadcrumbs = array(
         $FEC_PAGO = Yii::app()->dateFormatter->format("dd/MMMM/y", strtotime($model->FEC_PAGO));
 
         $cli = $model->cODCLIE->COD_CLIE;
+
+        function getOrCO($id) {
+            $model = new FACFACTU();
+            if ($id != "") {
+                return $model->getOC($id);
+            } else {
+                return "Sin Factura";
+            }
+        }
         ?>
         <?php
         $this->widget('ext.bootstrap.widgets.TbDetailView', array(
             'data' => $model,
             'attributes' => array(
                 'COD_GUIA',
+                array(
+                    'name' => 'N&#176 de O/C',
+                    'value' => getOrCO($model->COD_FACT)),
                 array(
                     'name' => 'Nombre del Cliente',
                     'value' => $model->getCliente($cli)),
@@ -63,9 +75,9 @@ $this->breadcrumbs = array(
             ),
         ));
         ?>
-        
+
     </div>
-    
+
     <?php
     echo '<table class="table table-hover table-bordered table-condensed table-striped">';
     echo '<tr>';

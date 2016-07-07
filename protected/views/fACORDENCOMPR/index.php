@@ -60,7 +60,7 @@ $('.search-form form').submit(function(){
                     ),
                     'NUM_ORDE',
                     array(
-                        'header' => 'cODTIEN',
+                        'name' => 'COD_TIEN',
                         'header' => 'Tienda',
                         'value' => '$data->cODTIEN->DES_TIEN'
                     ),
@@ -98,7 +98,7 @@ $('.search-form form').submit(function(){
                         },
                     ),
                     array(
-                        'name' => 'Guia',
+                        'name' => 'COD_TIEN',
                         'header' => 'N° de Guia',
                         'value' => function($data) {
                             $model = new FACORDENCOMPR();
@@ -107,7 +107,7 @@ $('.search-form form').submit(function(){
                         }
                     ),
                     array(
-                        'name' => 'Factura',
+                        'name' => 'COD_TIEN',
                         'header' => 'N° de Factura',
                         'value' => function($data) {
                             $model = new FACORDENCOMPR();
@@ -213,6 +213,9 @@ $('.search-form form').submit(function(){
             ));
             ?>
 
+
+        </div>
+
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -227,8 +230,19 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACORDENCOMPR/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Generacion Guia Masiva', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
-                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
+                    <?php echo 
+                    CHtml::SubmitButton('Generacion Guia Masiva', 
+                            array(
+                                'onclick' => 'return validation(1);', 
+                                'class' => 'btn btn-default btn-md')); 
+                    ?>
+                    <?php echo 
+                    CHtml::SubmitButton('Anulación Masiva', 
+                            array(
+                                'onclick' => 'return validation(2);', 
+                                'class' => 'btn btn-default btn-md')); 
+                    ?>
+                    
                         <script>
                             function validation(code) {
 
@@ -301,6 +315,5 @@ $('.search-form form').submit(function(){
             </div>
         </div>
     </div>
-</div>    
 
 <?php $this->endWidget(); ?>
