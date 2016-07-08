@@ -125,7 +125,7 @@ $('.search-form form').submit(function(){
                     ),
                     'COD_GUIA',
                     array(
-                        'name' => 'OC',
+                        'name' => 'COD_GUIA',
                         'header' => 'N° de O/C',
                         'value' => function($data) {
                             $model = new FACFACTU();
@@ -191,7 +191,7 @@ $('.search-form form').submit(function(){
                                 }",
                             ),
                             'Reporte' => array(
-                                'icon' => 'file',
+                                'icon' => 'fa fa-file-pdf-o',
                                 'label' => 'Generar PDF Factura',
                                 'htmlOptions' => array('style' => 'width: 50px',),
                                 'options' => array('target' => '_blank'),
@@ -216,8 +216,9 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
+
                         <?php
-                        echo CHtml::link('Imprimir Facturas Masivas', "javascript:;", array(
+                        echo CHtml::link('<i class="fa fa-print fa-lg" aria-hidden="true" ></i> Imprimir Facturas Masivas', "javascript:;", array(
                             'style' => 'background-image: none;
                                         border: 1px solid transparent;
                                         border-radius: 4px;
@@ -235,10 +236,25 @@ $('.search-form form').submit(function(){
                                         color: #222222;
                                         text-decoration: none;',
                             'target' => '_blank;',
-                            "onclick" => "doSomething(); return false;"
-                        ));
+                            'onclick' => 'doSomething(); return false;',)
+//                            ),
+//                            array(
+//                                'class' => 'btn btn-danger',
+//                            )
+                        );
                         ?>
 
+                        <?php
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => 'Generar Excel de Factura',
+                            'size' => 'default',
+                            'icon' => 'fa fa-file-excel-o fa-lg',
+                            'buttonType' => 'link',
+                            'url' => array('/reporte/Factura')
+                        ));
+                        ?>
 
                         <script>
                             function doSomething() {
