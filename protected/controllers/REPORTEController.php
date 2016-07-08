@@ -22,6 +22,7 @@ class REPORTEController extends Controller {
 
     public function actionFactura() {
         $this->renderPartial('_Factura');
+
     }
 
 }
