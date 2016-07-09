@@ -93,45 +93,45 @@ $('.search-form form').submit(function(){
                         'header' => 'Fecha de Pago',
                         'value' => function($data) {
 
-                            $variable = $data->__GET('FEC_PAGO');
-                            if ($variable == null) {
-                                echo 'Fecha Indefinida';
-                            } else {
-                                echo Yii::app()->dateFormatter->format("dd/MM/y", strtotime($data->FEC_PAGO));
-                            }
-                        },
+                    $variable = $data->__GET('FEC_PAGO');
+                    if ($variable == null) {
+                        echo 'Fecha Indefinida';
+                    } else {
+                        echo Yii::app()->dateFormatter->format("dd/MM/y", strtotime($data->FEC_PAGO));
+                    }
+                },
                     ),
                     array(
                         'name' => 'IND_ESTA',
                         'header' => 'Estado',
                         'value' => function($data) {
 
-                            $variable = $data->__GET('IND_ESTA');
-                            switch ($variable) {
-                                case 1:
-                                    echo 'Emitida/Pendiente de Cobro';
-                                    break;
-                                case 2:
-                                    echo 'Cobrada/Cerrada';
-                                    break;
-                                case 9:
-                                    echo 'Anulado';
-                                    break;
-                                case 0:
-                                    echo 'Creado';
-                                    break;
-                            }
-                        },
+                    $variable = $data->__GET('IND_ESTA');
+                    switch ($variable) {
+                        case 1:
+                            echo 'Emitida/Pendiente de Cobro';
+                            break;
+                        case 2:
+                            echo 'Cobrada/Cerrada';
+                            break;
+                        case 9:
+                            echo 'Anulado';
+                            break;
+                        case 0:
+                            echo 'Creado';
+                            break;
+                    }
+                },
                     ),
                     'COD_GUIA',
                     array(
                         'name' => 'COD_GUIA',
                         'header' => 'N° de O/C',
                         'value' => function($data) {
-                            $model = new FACFACTU();
-                            $variable = $data->__GET('COD_FACT');
-                            echo $model->getOC($variable);
-                        }
+                    $model = new FACFACTU();
+                    $variable = $data->__GET('COD_FACT');
+                    echo $model->getOC($variable);
+                }
                     ),
                     'TOT_FACT',
                     array(
@@ -204,7 +204,7 @@ $('.search-form form').submit(function(){
             ?>
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-1 col-sm-11">
                         <?php
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
@@ -245,6 +245,33 @@ $('.search-form form').submit(function(){
                         ?>
 
                         <?php
+                        echo CHtml::link('<i class="fa fa-print fa-lg" aria-hidden="true" ></i> Imprimir Facturas Masivas Continua', "javascript:;", array(
+                            'style' => 'background-image: none;
+                                        border: 1px solid transparent;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        font-weight: normal;
+                                        line-height: 1.42857;
+                                        margin-bottom: 1;
+                                        padding: 6px 12px;
+                                        text-align: center;
+                                        vertical-align: middle;
+                                        white-space: nowrap;
+                                        background-color: #FFFFFF;
+                                        color: #222222;
+                                        text-decoration: none;',
+                            'target' => '_blank;',
+                            'onclick' => 'doSomething1(); return false;',)
+//                            ),
+//                            array(
+//                                'class' => 'btn btn-danger',
+//                            )
+                        );
+                        ?>
+
+                        <?php
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
                             'context' => 'default',
@@ -277,6 +304,58 @@ $('.search-form form').submit(function(){
                                 }
 
                                 hhref = 'ajax.php?type=id_factu&id=' + idfactu;
+                                window.open(hhref, '_blank');
+
+//                                    $.ajax({
+//                                        url: 'ajax.php',
+//                                        dataType: "json",
+//                                        
+//                                        data: {
+//                                            type: 'id_factu',
+//                                            id: idfactu  //item[i].value
+//                                        },
+//                                        succes: function (data) {
+//
+//                                            response($.map(data, function (item) {
+//
+//                                                alert(item);
+//                                                return {
+//                                                    label: item,
+//                                                    value: item,
+//                                                    data: item
+//                                                }
+//                                            }));
+//
+//
+//                                        }
+//                                    });
+
+
+                                return false;
+                            }
+                        </script>
+
+                        <script>
+                            function doSomething1() {
+
+                                var item = $("form input:checkbox:checked");
+                                if (item.length == 0) {
+                                    alert('Debe seleccionar las Facturas que requiere imprimir');
+                                    return false;
+                                }
+                                // alert('Plese select checkbox! ' + item.length);
+                                idfactu = '';
+                                for (i = 0; i < item.length; i++) {
+                                    if ((i + 1) == item.length) {//si es el ultimo elemento
+                                        idfactu = idfactu + item[i].value;
+                                    } else {
+                                        if (item[i].value != '1') {
+                                            idfactu = idfactu + item[i].value + '_';
+                                        }
+                                    }
+                                }
+
+                                hhref = 'ajax2.php?type=id_factu&id=' + idfactu;
                                 window.open(hhref, '_blank');
 
 //                                    $.ajax({

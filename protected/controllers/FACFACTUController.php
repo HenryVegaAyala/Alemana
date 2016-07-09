@@ -26,7 +26,7 @@ class FACFACTUController extends Controller {
             array('allow', // allow authenticated 
                 'actions' => array('create', 'update', 'index', 'view',
                     'admin', 'delete', 'Anular', 'Reporte',
-                    'Ajax', 'Lista'),
+                    'Ajax', 'Lista', 'Ajax2'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -341,6 +341,220 @@ Pag. {PAGENO} / {nb}
         return $html;
     }
 
+    public function actionAjax2() {
+        if ($_GET['type'] == 'id_factu') {
+            $id = $_GET["id"];
+            $idfactu = explode("_", $id);
+            $count = count($idfactu);
+            $connection = Yii::app()->db;
+            $usuario = Yii::app()->user->name;
+            $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
+            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Arial', 12, 12, 12, 12, 'L');
+            for ($i = 0; $i < $count; $i++) {
+
+                $mpdf->WriteHTML($this->getHtmlCabecera1($idfactu[$i])); //Cabezera
+                $mpdf->WriteHTML($this->getHtmlCuerpo1($idfactu[$i]));  //Cuerpo
+                $mpdf->WriteHTML($this->getHtmlDetalle1($idfactu[$i])); //detalle
+
+
+
+                $mpdf->SetTitle("REPORTE FACTURA MASIVO");
+                $mpdf->SetAuthor("PANADERIA ALEMANA");
+//                $mpdf->SetWatermarkText($this->Estado($idfactu[$i]));
+                $mpdf->showWatermarkText = true;
+                $mpdf->watermark_font = 'DejaVuSansCondensed';
+                $mpdf->watermarkTextAlpha = 0.1;
+
+                if ($i <> ($count - 1))
+                    $mpdf->AddPage(); //añades mientras no seas ultima pagina
+            }
+
+            $FECFACT = date("dmY");
+            $Reporte = "Factura_Masiva_$FECFACT.pdf";
+
+            $mpdf->Output($Reporte, 'I');
+        }
+    }
+
+    /*     * *************fUNCIONES DE REPORTE */
+
+    public function getHtmlCabecera1($id) {
+
+
+        $html = '
+    <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
+
+<style>
+        img{
+            width: 140px;
+           }
+        hr{
+           color: #373737;
+            background-color: #373737;
+            height: 5px;
+            margin-top: .1em;
+             visibility: hidden;
+           }
+        td{
+           border-radius: 15px;
+           visibility: hidden;
+           }
+</style>
+     
+<table border="0" class="table">
+    <tr>
+
+    <td style="border: solid white" width="10%"> 
+            <center>
+                <img style="float:left;  visibility: hidden; " src="' . Yii:: app()->request->baseUrl . '/images/logo.png">
+            </center>
+        </td>
+        
+    <td style="border: solid white; border-width:1px 0;" width="50%">
+            <center  style="visibility: hidden;" ><h3><strong>PANADERIA ALEMANA S.A.C </strong></h3></center>
+            <br>
+            <p>
+            Calle Ayabaca N° 173            <br> 
+            Urb. Prolongación Benavides     <br>
+            Lima - Lima - Santiago de Surco <br>
+            Telf: 733-0476 / 282-3595       <br>
+            www.panaderiaalemana.com
+            </p>
+    </td>  
+        
+        <td style="border-radius: 15px;" width="40%" >
+            <center><strong><h2 style="visibility: hidden;">R.U.C. 20536040995</h2></strong></center>
+            <br>
+            <p>
+            <h4 style="visibility: hidden;">
+            FACTURA<br> 
+            </h4>
+            </p>
+            <br>
+            <p>
+            <h4>
+             ' . $id . '<br> 
+            </h4>
+            </p>
+        </td>        
+    </tr>
+</table>           
+        ';
+
+        return $html;
+    }
+
+    public function getHtmlCuerpo1($id) {
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT FEC_FACT,COD_GUIA,NRO_RUC,DES_CLIE,DIR_TIEN FROM FAC_FACTU M
+                        inner join MAE_CLIEN C on C.COD_CLIE = M.COD_CLIE
+                        inner join MAE_TIEND T on C.COD_CLIE = T.COD_CLIE
+                        where COD_FACT  = '" . $id . "';";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+        while ($row = $reader->read()) {
+            $Guia = $row['COD_GUIA'];
+            $Fecha = $row['FEC_FACT'];
+            $Ruc = $row['NRO_RUC'];
+            $Descli = $row['DES_CLIE'];
+            $DirTien = $row['DIR_TIEN'];
+        }
+
+        $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
+
+        $html = '
+
+    <div class="hr" style="visibility: hidden;" ><hr /></div>
+
+  <table class="table"  border= "0">
+
+   <tr>
+        <td width="100px" colspan="1"></td>
+        <td colspan="3">' . strtoupper($Fecha_Fac) . '</td>
+   </tr>
+  
+   <tr>
+    <td width="100px" colspan="1"></td>  
+        <td colspan="1">' . strtoupper('hipermercados ' . $Descli) . '</td>  
+    <td  width="100px" colspan="1" ></td>           
+        <td colspan="1">' . strtoupper($Ruc) . '</td>  
+   </tr>
+  
+   <tr>
+    <td  width="100px" colspan="1" ></td> 
+            <td  colspan="1" >' . strtoupper($DirTien) . '</td> 
+    <td  width="100px" colspan="1" ></td>    
+            <td  colspan="1" > ' . strtoupper($Guia) . '</td> 
+   </tr>
+
+  </table>
+    ';
+        return $html;
+    }
+
+    public function getHtmlDetalle1($id) {
+
+        $connection = Yii::app()->db;
+        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,F.IGV_PROD,F.IMP_TOTA_PROD,M.VAL_PESO,M.COD_MEDI,FF.TOT_FACT_SIN_IGV,FF.TOT_IGV,FF.TOT_FACT  FROM FAC_DETAL_FACTU F
+                        inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+                        inner join FAC_FACTU FF on F.COD_FACT = FF.COD_FACT
+                        where F.COD_FACT = '" . $id . "';";
+        $command = $connection->createCommand($sqlStatement);
+        $reader = $command->query();
+        $html.='
+    <table border="0" class="table table-condensed">
+    <tr>
+    <th style="text-align: center;"></th>
+    <th style="text-align: center;"></th>
+    <th style="text-align: center;"></th>
+    <th style="text-align: center;"></th>
+    </tr>    
+';
+
+        while ($row = $reader->read()) {
+            $Stotal = $row['TOT_FACT_SIN_IGV'];
+            $IGVPRO = $row['TOT_IGV'];
+            $Total = $row['TOT_FACT'];
+            $html.= '
+       
+        <tr>
+        <td style="text-align: center;" width="10%" > ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: rigth;"  width="70%">' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['VAL_PROD'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['IMP_PROD'] . ' </td>
+        </tr>
+        ';
+        }
+        $html.='
+        <tr>
+        <td style="text-align: left;" colspan="4">Son: ' . $this->numtoletras($Total) . ' </td>
+        </tr>';
+
+        $html.='</table>';
+
+        $html.='
+        <table border="0" class="table table-condensed">
+            <tr>
+                <td width="46%" style="text-align: right;" rowspan="2"></td>                
+                <th width="18%" style="text-align: center;" colspan="1"></th>
+                <th width="18%" style="text-align: center;" colspan="1"></th>
+                <th width="18%" style="text-align: center;" colspan="1"></th>
+            </tr>
+            <tr>
+                <td width="18%" style="text-align: center;" colspan="1">' . $Stotal . '</td>
+                <td width="18%" style="text-align: center;" colspan="1">' . $IGVPRO . '</td>
+                <td width="18%" style="text-align: center;" colspan="1">' . $Total . '</td>
+            </tr>   
+            <tr>
+                <th width="18%" style="text-align: center;" colspan="5">CANCELADO</th>
+            </tr>  
+        </table>        
+        ';
+
+        return $html;
+    }
+
     public function actionReporte($id) {
         $this->render('Reporte', array(
             'model' => $this->loadModel($id),
@@ -597,7 +811,7 @@ Pag. {PAGENO} / {nb}
         while ($row = $reader->read()) {
             $Estado = $row['IND_ESTA'];
         }
-        
+
         switch ($Estado) {
             case 1:
                 return 'Emitida/Pendiente de Cobro';
