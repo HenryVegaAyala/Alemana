@@ -37,7 +37,7 @@
                                         array('label' => 'Registrar O/C', 'url' => array('/fACORDENCOMPR/create')),
                                         array('label' => 'Listar O/C', 'url' => array('/fACORDENCOMPR/index')),
                                         '---',
-                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+                                        array('label' => 'Reportes', 'url' => array('/Reporte/VentaProducto')),
                                     ), 'visible' => !Yii::app()->user->isGuest
                                 ),
                                 array(

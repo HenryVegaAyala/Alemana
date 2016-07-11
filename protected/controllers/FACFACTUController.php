@@ -349,7 +349,7 @@ Pag. {PAGENO} / {nb}
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Arial', 12, 12, 12, 12, 'L');
+            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'calibri', 12, 12, 12, 12, '');
             for ($i = 0; $i < $count; $i++) {
 
                 $mpdf->WriteHTML($this->getHtmlCabecera1($idfactu[$i])); //Cabezera

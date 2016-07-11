@@ -124,7 +124,7 @@ $('.search-form form').submit(function(){
                         },
                     ),
                     array(
-                        'name' => 'Factura',
+                        'name' => 'IND_ESTA',
                         'header' => 'N° de Factura',
                         'value' => function($data) {
                             $model = new FACGUIAREMIS();
@@ -189,7 +189,7 @@ $('.search-form form').submit(function(){
                                 }",
                             ),
                             'Reporte' => array(
-                                'icon' => 'file',
+                                'icon' => 'fa fa-file-pdf-o',
                                 'label' => 'Generar PDF Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
                                 'options' => array('target' => '_blank'),
@@ -243,29 +243,73 @@ $('.search-form form').submit(function(){
                         ));
                         ?>
                         <?php
-                        echo CHtml::link('Imprimir Guias Masivas', "javascript:;", array(
-                            'style' => 'background-image: none;
-                                        border: 1px solid transparent;
-                                        border-radius: 4px;
-                                        cursor: pointer;
-                                        display: inline-block;
-                                        font-size: 14px;
-                                        font-weight: normal;
-                                        line-height: 1.42857;
-                                        margin-bottom: 1;
-                                        padding: 6px 12px;
-                                        text-align: center;
-                                        vertical-align: middle;
-                                        white-space: nowrap;
-                                        background-color: #FFFFFF;
-                                        color: #222222;
-                                        text-decoration: none;',
-                            'target' => '_blank;',
-                            "onclick" => "doSomething(); return false;"
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => ' Imprimir Guias Masivas',
+                            'size' => 'default',
+                            'icon' => 'fa fa-print fa-lg',
+                            'buttonType' => 'link',
+                            'htmlOptions' => array('onclick' => 'doSomething(); return false;','target' => '_blank;'),
+                            'url' => array('/FACGUIAREMIS/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Procesar Guias', array('onclick' => 'return validation(1);', 'class' => 'btn btn-default btn-md')); ?>
-                        <?php echo CHtml::SubmitButton('Anulación Masiva', array('onclick' => 'return validation(2);', 'class' => 'btn btn-default btn-md')); ?>
+                        <?php
+//                        echo CHtml::link('<i class="fa fa-print fa-lg" aria-hidden="true" ></i> Imprimir Guias Masivas', "javascript:;", array(
+//                            'style' => 'background-image: none;
+//                                        border: 1px solid transparent;
+//                                        border-radius: 4px;
+//                                        cursor: pointer;
+//                                        display: inline-block;
+//                                        font-size: 14px;
+//                                        font-weight: normal;
+//                                        line-height: 1.42857;
+//                                        margin-bottom: 1;
+//                                        padding: 6px 12px;
+//                                        text-align: center;
+//                                        vertical-align: middle;
+//                                        white-space: nowrap;
+//                                        background-color: #FFFFFF;
+//                                        color: #222222;
+//                                        text-decoration: none;',
+//                            'target' => '_blank;',
+//                            "onclick" => "doSomething(); return false;"
+//                        ));
+                        ?>
+                        <?php
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => 'Procesar Guias',
+                            'size' => 'default',
+                            'icon' => 'fa fa-hourglass-end',
+                            'buttonType' => 'link',
+                            'htmlOptions' => array('onclick' => 'return validation(1);'),
+                            'url' => array('/FACGUIAREMIS/index')
+                        ));
+                        ?>
+                        <?php
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => 'Anulación Masiva',
+                            'size' => 'default',
+                            'icon' => 'fa fa-times',
+                            'buttonType' => 'link',
+                            'htmlOptions' => array('onclick' => 'return validation(2);'),
+                            'url' => array('/FACGUIAREMIS/index')
+                        ));
+                        ?>
+                        <?php
+//                        echo CHtml::SubmitButton('Procesar Guias', array(
+//                            'onclick' => 'return validation(1);',
+//                            'class' => 'btn btn-default btn-md'));
+                        ?>
+                        <?php
+//                        echo CHtml::SubmitButton('Anulación Masiva', array(
+//                            'onclick' => 'return validation(2);',
+//                            'class' => 'btn btn-default btn-md'));
+                        ?>
                         <script>
                             function validation(code) {
 
@@ -334,7 +378,7 @@ $('.search-form form').submit(function(){
                                 return true;
                             }
                         </script>
-                        
+
                         <script>
                             function doSomething() {
 

@@ -11,7 +11,7 @@ class REPORTEController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated 
-                'actions' => array('Factura'),
+                'actions' => array('Factura', 'VentaProducto', 'ReporteVentaProducto'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -22,7 +22,14 @@ class REPORTEController extends Controller {
 
     public function actionFactura() {
         $this->renderPartial('_Factura');
+    }
 
+    public function actionVentaProducto() {
+         $this->render('_VentaProducto');
+    }
+
+    public function actionReporteVentaProducto() {
+        
     }
 
 }
