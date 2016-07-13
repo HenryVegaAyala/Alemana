@@ -323,14 +323,26 @@ $('.search-form form').submit(function(){
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
                                 idfactu = '';
-                                for (i = 0; i < item.length; i++) {
-                                    if ((i + 1) == item.length) {//si es el ultimo elemento
-                                        idfactu = idfactu + item[i].value;
-                                    } else {
-                                        if (item[i].value != '1') {
-                                            idfactu = idfactu + item[i].value + '_';
+                                hayUltimo=false;
+                                for (i = item.length-1; i >= 0; i--) {
+//                                    if ((i + 1) == item.length) {//si es el ultimo elemento
+//                                        idfactu = idfactu + item[i].value;
+//                                    } else {
+                                        if (item[0].value == '1') {
+                                          hayUltimo=true;
                                         }
-                                    }
+                                        
+                                        if(item[i].value != '1')
+                                            idfactu = idfactu + item[i].value;
+                                        
+                                        if (i-1 > 0 && hayUltimo) {
+                                          idfactu=  idfactu   + '_';
+                                        }
+                                        
+                                        if (i-1 >= 0 && !hayUltimo) {
+                                          idfactu=  idfactu   + '_';
+                                        }
+                                  
                                 }
 
                                 hhref = 'ajax.php?type=id_factu&id=' + idfactu;
@@ -374,17 +386,30 @@ $('.search-form form').submit(function(){
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
-                                idfactu = '';
-                                for (i = 0; i < item.length; i++) {
-                                    if ((i + 1) == item.length) {//si es el ultimo elemento
-                                        idfactu = idfactu + item[i].value;
-                                    } else {
-                                        if (item[i].value != '1') {
-                                            idfactu = idfactu + item[i].value + '_';
+                                idfactu = ''; 
+                                  hayUltimo=false;
+                                for (i = item.length-1; i >= 0; i--) {
+//                                    if ((i + 1) == item.length) {//si es el ultimo elemento
+//                                        idfactu = idfactu + item[i].value;
+//                                    } else {
+                                        if (item[0].value == '1') {
+                                          hayUltimo=true;
                                         }
-                                    }
+                                        
+                                        if(item[i].value != '1')
+                                            idfactu = idfactu + item[i].value;
+                                        
+                                        if (i-1 > 0 && hayUltimo) {
+                                            idfactu=  idfactu   + '_';
+                                        }
+                                        
+                                        if (i-1 >= 0 && !hayUltimo) {
+                                          idfactu=  idfactu   + '_';
+                                        }
+                                  
                                 }
 
+                             
                                 hhref = 'ajax2.php?type=id_factu&id=' + idfactu;
                                 window.open(hhref, '_blank');
 
