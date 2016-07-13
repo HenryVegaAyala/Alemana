@@ -1,5 +1,25 @@
 <?php
 
+function TopVenta($id) {
+    switch ($id) {
+        case 0:
+            return 'por Cliente';
+            break;
+        case 1:
+            return 'por Tienda';
+            break;
+        case 2:
+            return 'por Producto';
+            break;
+    }
+}
+
+$FECFACT = date("dmY");
+$Reporte = "ResumenDeVenta-$FECFACT.pdf";
+
+$FEC_INI = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Ini));
+$FEC_FIN = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Fin));
+
 $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
 
 $htmlCA = '
@@ -43,16 +63,27 @@ $htmlCA = '
 <table border="0" class="table">
     <tr>
         <td>
-            <center><strong><h3>Top Venta de Productos</h3></strong></center>
+            <center><strong><h3>Resumen Venta '.  TopVenta($Agrupa).'</h3></strong></center>
             <br>
         </td>        
     </tr>
 </table>
-        Cliente: ' . $Cod_Clie . ' &nbsp; Tienda: ' . $Cod_Tiend . ' &nbsp; Estado: '.$Estado.'<br> 
-        Del : '.$Fecha_Ini.' &nbsp; Hasta:  '.$Fecha_Fin.' 
+        Fecha de : ' . $FEC_INI . ' &nbsp; Hasta:  ' . $FEC_FIN . ' 
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            Usuario Solicitado : ' . $Usuario . '    
     <br><br>
         
 ';
+
+$connection = Yii::app()->db;
+$sqlStatement = "SELECT * FROM tmp_repor_venta t;";
+$command = $connection->createCommand($sqlStatement);
+$reader = $command->query();
 
 $htmlCU.='
     <table border="0" class="table table-bordered table-condensed">
@@ -63,7 +94,19 @@ $htmlCU.='
     <th style="text-align: center;">Precio</th>
     </tr>    
 ';
+while ($row = $reader->read()) {
 
+    $htmlCU.= '
+       
+        <tr>
+        <td style="text-align: center;" width="10%" > ' . $row['COD_CLIE'] . ' </td>
+        <td style="text-align: rigth;"  width="70%">' . $row['DIR_TIEN'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['COD_TIEN'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['UNI_SOLI'] . ' </td>
+        </tr>
+
+        ';
+}
 $htmlCU.='</table>';
 
 $htmlDE = '
@@ -83,8 +126,11 @@ Pag. {PAGENO} / {nb}
 
 <?php
 
-$mpdf = new mPDF('A4');
-$mpdf->SetTitle("Top Venta de  Productos");
+//$mpdf = new mPDF('utf-8', array(105, 148), 11, 'Arial', 12, 12, 12, 12, 'L');
+$mpdf = new mPDF('utf-8','A4-L');
+//$mpdf = new mPDF($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf);
+
+$mpdf->SetTitle("Resumen de Venta ".TopVenta($Agrupa)."");
 $mpdf->SetAuthor("PANADERIA ALEMANA");
 //$mpdf->SetWatermarkText("ORDEN DE COMPRA");
 //$mpdf->showWatermarkText = true;

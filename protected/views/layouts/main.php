@@ -37,7 +37,6 @@
                                         array('label' => 'Registrar O/C', 'url' => array('/fACORDENCOMPR/create')),
                                         array('label' => 'Listar O/C', 'url' => array('/fACORDENCOMPR/index')),
                                         '---',
-                                        array('label' => 'Reportes', 'url' => array('/Reporte/VentaProducto')),
                                     ), 'visible' => !Yii::app()->user->isGuest
                                 ),
                                 array(
@@ -45,7 +44,7 @@
                                     'items' => array(
                                         array('label' => 'Listar Guia', 'url' => array('/FACGUIAREMIS/index')),
                                         '---',
-                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+//                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
                                 ),
                                 array(
@@ -53,7 +52,15 @@
                                     'items' => array(
                                         array('label' => 'Listar Factura', 'url' => array('/FACFACTU/index')),
                                         '---',
-                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+//                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
+                                    ), 'visible' => !Yii::app()->user->isGuest
+                                ),
+                                array(
+                                    'label' => 'Reporte Venta',
+                                    'items' => array(
+                                        array('label' => 'Top Venta', 'url' => array('/Reporte/VentaProducto')),
+                                        '---',
+//                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest
                                 ),
 //                                array(
@@ -94,7 +101,7 @@
                 ?><!-- breadcrumbs -->
             <?php endif ?>
 
-<?php echo $content; ?>
+            <?php echo $content; ?>
 
             <div class="clear"></div>
 

@@ -62,14 +62,40 @@
                 <div class="col-sm-3">
                     <h4><label>Cliente:</label></h4>
                     <?php
-                    echo CHtml::dropDownList('Cod_Clie', 'DES_CLIE', CHtml::listData(MAECLIEN::model()->fin, 'COD_CLIE', 'DES_CLIE'), array('class' => 'form-control', 'empty' => 'Seleccionar Cliente',));
+                    $htmlCliente = array(
+                        "ajax" => array(
+                            "url" => CController::createUrl("/REPORTE/LoadCliente"),
+                            "type" => "POST",
+                            "update" => "#Cod_Tiend",
+                        ),
+                        'class' => 'form-control',
+                        'empty' => 'Seleccionar Cliente',
+                        'onChange' => 'mostrar(this.value)'
+                    );
+                    ?>
+                    <?php
+//                    echo CHtml::dropDownList('Cod_Clie', 'DES_CLIE', CHtml::listData(MAECLIEN::model()->findAll(), 'COD_CLIE', 'DES_CLIE'), array('class' => 'form-control', 'empty' => 'Seleccionar Cliente',));
+                    echo CHtml::dropDownList('Cod_Clie', 'DES_CLIE', CHtml::listData(MAECLIEN::model()->findAll(), 'COD_CLIE', 'DES_CLIE'), $htmlCliente);
                     ?>
                 </div>       
+
+                <script>
+                    function mostrar() {
+                        $('#Cod_Tiend').prop('disabled', false);
+                    }
+                </script> 
 
                 <div class="col-sm-3">
                     <h4><label>Tienda:</label></h4>
                     <?php
-                    echo CHtml::dropDownList('Cod_Tiend', 'DES_TIEND', CHtml::listData(MAETIEND::model()->findAll(), 'COD_TIEN', 'DES_TIEN'), array('class' => 'form-control', 'empty' => 'Seleccionar Tienda',));
+                    $htmlTienda = array(
+                        'class' => 'form-control',
+                        'empty' => 'Seleccionar Tienda',
+//                        'disabled ' => 'true',
+                    );
+                    ?>
+                    <?php
+                    echo CHtml::dropDownList('Cod_Tiend', 'DES_TIEND', CHtml::listData(MAETIEND::model()->findAll(), 'COD_TIEN', 'DES_TIEN'), $htmlTienda);
                     ?>
                 </div>          
             </div>
@@ -82,29 +108,51 @@
                 <div class="col-sm-3 ">
                     <h4><label>Estado:</label></h4>
                     <?php
-                    echo CHtml::dropDownList('Estado', 'DES_ESTA', 
-                            array(
-                                '1'=>'En Proceso', 
-                                '2'=>'Despachadado/Atendido', 
-                                '9'=>'Anulado',
-                                '0'=>'Creado'), 
-                            array(
-                                'class' => 'form-control', 
-                                'empty' => 'Seleccionar Cliente',)
-                            );
+                    echo CHtml::dropDownList('Estado', 'DES_ESTA', array(
+                        '1' => 'En Proceso',
+                        '2' => 'Despachadado/Atendido',
+                        '9' => 'Anulado',
+                        '0' => 'Creado'), array(
+                        'class' => 'form-control',
+                        'empty' => 'Seleccionar Cliente',)
+                    );
                     ?>
                 </div>
 
-                <div class="col-sm-3">
+
+                <div class="col-sm-6">
+                    <h4><label>Agrupación:</label></h4>
+                    <label>Cliente:</label>
+                    <?php
+                    echo CHtml::radioButton('Agrupa', true, array(
+                        'value' => '0',
+                        'name' => 'Agrupa',
+                        'uncheckValue' => null
+                    ));
+                    ?>
+
+                    <label>Tienda:</label>
+                    <?php
+                    echo CHtml::radioButton('Agrupa', false, array(
+                        'value' => '1',
+                        'name' => 'Agrupa',
+                        'uncheckValue' => null
+                    ));
+                    ?>
+
+                    <label>Producto:</label>
+                    <?php
+                    echo CHtml::radioButton('Agrupa', false, array(
+                        'value' => '2',
+                        'name' => 'Agrupa',
+                        'uncheckValue' => null
+                    ));
+                    ?>
+
                 </div>
 
-                <div class="col-sm-3">
-                </div>       
 
-                <div class="col-sm-3">
-                </div>          
             </div>
-
         </div>
 
         <br>
@@ -116,7 +164,7 @@
                     $this->widget(
                             'ext.bootstrap.widgets.TbButton', array(
                         'context' => 'success',
-                        'label' => 'Ejecutar Reporte',
+                        'label' => 'Ejecutar Reporte PDF',
                         'size' => 'default',
                         'icon' => 'fa fa-file-pdf-o',
                         'buttonType' => 'submit',
