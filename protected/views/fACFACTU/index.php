@@ -386,6 +386,7 @@ $('.search-form form').submit(function(){
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
+                                idfactu = ''; 
                                   hayUltimo=false;
                                 for (i = item.length-1; i >= 0; i--) {
 //                                    if ((i + 1) == item.length) {//si es el ultimo elemento
@@ -399,7 +400,7 @@ $('.search-form form').submit(function(){
                                             idfactu = idfactu + item[i].value;
                                         
                                         if (i-1 > 0 && hayUltimo) {
-                                          idfactu=  idfactu   + '_';
+                                            idfactu=  idfactu   + '_';
                                         }
                                         
                                         if (i-1 >= 0 && !hayUltimo) {
