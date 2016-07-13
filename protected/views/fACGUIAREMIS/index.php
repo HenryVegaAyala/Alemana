@@ -338,7 +338,7 @@ $('.search-form form').submit(function(){
 
                                                 response($.map(data, function(item) {
 
-                                                    alert(item);
+                                                    
                                                     return {
                                                         label: item,
                                                         value: item,
@@ -361,7 +361,6 @@ $('.search-form form').submit(function(){
 
                                                 response($.map(data, function(item) {
 
-                                                    alert(item);
                                                     return {
                                                         label: item,
                                                         value: item,
