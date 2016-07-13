@@ -38,7 +38,7 @@ class REPORTEController extends Controller {
         $Usuario = Yii::app()->user->name;
 
         $connection = Yii::app()->db;
-        $sqlStatement = "call PED_GENER_REPOR_VENTA ('" . $Fecha_Ini . "' ,'" . $Fecha_Fin . "','" . $Cod_Clie . "','" . $Cod_Tiend . "','" . $Estado . "','" . $Agrupa . "','" . $Usuario . "') ;";
+        $sqlStatement = "call PED_GENER_REPOR_VENTA('" . $Fecha_Ini . "' ,'" . $Fecha_Fin . "','" . $Cod_Clie . "','" . $Cod_Tiend . "','" . $Estado . "','" . $Agrupa . "','" . $Usuario . "') ;";
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 

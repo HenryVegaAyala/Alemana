@@ -277,16 +277,16 @@ $('.search-form form').submit(function(){
 //                        ));
                         ?>
                         <?php
-//                        $this->widget(
-//                                'ext.bootstrap.widgets.TbButton', array(
-//                            'context' => 'default',
-//                            'label' => 'Procesar Guias',
-//                            'size' => 'default',
-//                            'icon' => 'fa fa-hourglass-end',
-//                            'buttonType' => 'submit',
-//                            'htmlOptions' => array('onclick' => 'return validation(1);'),
-//                            'url' => array('/FACGUIAREMIS/index')
-//                        ));
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => 'Procesar Guias',
+                            'size' => 'default',
+                            'icon' => 'fa fa-hourglass-end',
+                            'buttonType' => 'submit',
+                            'htmlOptions' => array('onclick' => 'return validation(1);'),
+                            'url' => array('/FACGUIAREMIS/index')
+                        ));
                         ?>
                         <?php
                         $this->widget(
@@ -301,9 +301,9 @@ $('.search-form form').submit(function(){
                         ));
                         ?>
                         <?php
-                        echo CHtml::SubmitButton('Procesar Guias', array(
-                            'onclick' => 'return validation(1);',
-                            'class' => 'btn btn-default btn-md'));
+//                        echo CHtml::SubmitButton('Procesar Guias', array(
+//                            'onclick' => 'return validation(1);',
+//                            'class' => 'btn btn-default btn-md'));
                         ?>
                         <?php
 //                        echo CHtml::SubmitButton('Anulación Masiva', array(

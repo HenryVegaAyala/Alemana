@@ -20,7 +20,108 @@ $Reporte = "ResumenDeVenta-$FECFACT.pdf";
 $FEC_INI = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Ini));
 $FEC_FIN = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Fin));
 
-$pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
+function Cuerpo($id) {
+
+    $connection = Yii::app()->db;
+    $sqlStatement = "SELECT * FROM tmp_repor_venta t;";
+    $command = $connection->createCommand($sqlStatement);
+    $reader = $command->query();
+
+    $Cliente.='
+        
+    <table border="0" class="table table-bordered table-condensed">
+    <tr>
+    <th style="text-align: center;">CLIENTE</th>
+    <th style="text-align: center;">TIENDA</th>
+    <th style="text-align: center;">UNIDADES</th>
+    <th style="text-align: center;">TOTAL</th>
+    </tr>    
+';
+    while ($row = $reader->read()) {
+//
+//        $n = 3;
+//        rowspan='.$n.'
+
+        $Cliente.= '
+        <tr>
+        <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
+        <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
+        <td style="text-align: center;" width="25%"> ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
+        </tr>
+
+        ';
+    }
+    $Cliente.='</table>';
+
+    $reader = $command->query();
+    $Tienda.='
+        
+    <table border="0" class="table table-bordered table-condensed">
+    <tr>
+    <th style="text-align: center;">CLIENTE</th>
+    <th style="text-align: center;">TIENDA</th>
+    <th style="text-align: center;">UNIDADES</th>
+    <th style="text-align: center;">TOTAL</th>
+    </tr>    
+';
+    while ($row = $reader->read()) {
+
+        $Tienda.= '
+        <tr>
+        <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
+        <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
+        <td style="text-align: center;" width="25%"> ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
+        </tr>
+
+        ';
+    }
+    $Tienda.='</table>';
+
+    $reader = $command->query();
+    $Producto.='
+        
+    <table border="0" class="table table-bordered table-condensed">
+    <tr>
+    <th style="text-align: center;">CLIENTE</th>
+    <th style="text-align: center;">TIENDA</th>
+    <th style="text-align: center;">CODIGO</th>
+    <th style="text-align: center;">PRODUCTO</th>
+    <th style="text-align: center;">UNIDADES</th>
+    <th style="text-align: center;">TOTAL</th>
+    </tr>    
+';
+    while ($row = $reader->read()) {
+        
+        $Producto.= '
+        <tr>
+        <td style="text-align: center;" width="12%"> ' . $row['DES_CLIE'] . ' </td>
+        <td style="text-align: center;"  width="12%">' . $row['DIR_TIEN'] . '</td>
+        <td style="text-align: left;"  width="16%">' . $row['COD_PROD'] . '</td>
+        <td style="text-align: left;"  width="40%">' . $row['DES_LARG'] . '</td>
+        <td style="text-align: right;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
+        <td style="text-align: right;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
+        </tr>
+
+        ';
+    }
+    $Producto.='</table>';
+
+    switch ($id) {
+        case 0:
+            return $Cliente;
+            break;
+        case 1:
+            return $Tienda;
+            break;
+        case 2:
+            return $Producto;
+            break;
+    }
+}
+
+$mpdf = Yii::createComponent('application.extensions.MPDF.mpdf');
 
 $htmlCA = '
 <html>
@@ -63,7 +164,7 @@ $htmlCA = '
 <table border="0" class="table">
     <tr>
         <td>
-            <center><strong><h3>Resumen Venta '.  TopVenta($Agrupa).'</h3></strong></center>
+            <center><strong><h3>Resumen Venta ' . TopVenta($Agrupa) . '</h3></strong></center>
             <br>
         </td>        
     </tr>
@@ -80,34 +181,7 @@ $htmlCA = '
         
 ';
 
-$connection = Yii::app()->db;
-$sqlStatement = "SELECT * FROM tmp_repor_venta t;";
-$command = $connection->createCommand($sqlStatement);
-$reader = $command->query();
-
-$htmlCU.='
-    <table border="0" class="table table-bordered table-condensed">
-    <tr>
-    <th style="text-align: center;">Codigo</th>
-    <th style="text-align: center;">Descripción</th>
-    <th style="text-align: center;">Cantidad</th>
-    <th style="text-align: center;">Precio</th>
-    </tr>    
-';
-while ($row = $reader->read()) {
-
-    $htmlCU.= '
-       
-        <tr>
-        <td style="text-align: center;" width="10%" > ' . $row['COD_CLIE'] . ' </td>
-        <td style="text-align: rigth;"  width="70%">' . $row['DIR_TIEN'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['COD_TIEN'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['UNI_SOLI'] . ' </td>
-        </tr>
-
-        ';
-}
-$htmlCU.='</table>';
+/* ----------------------------------------------------------------------------------------------------------------- */
 
 $htmlDE = '
 
@@ -127,17 +201,13 @@ Pag. {PAGENO} / {nb}
 <?php
 
 //$mpdf = new mPDF('utf-8', array(105, 148), 11, 'Arial', 12, 12, 12, 12, 'L');
-$mpdf = new mPDF('utf-8','A4-L');
+$mpdf = new mPDF('utf-8', 'A4-L');
 //$mpdf = new mPDF($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf);
 
-$mpdf->SetTitle("Resumen de Venta ".TopVenta($Agrupa)."");
+$mpdf->SetTitle("Resumen de Venta " . TopVenta($Agrupa) . "");
 $mpdf->SetAuthor("PANADERIA ALEMANA");
-//$mpdf->SetWatermarkText("ORDEN DE COMPRA");
-//$mpdf->showWatermarkText = true;
-//$mpdf->watermark_font = 'DejaVuSansCondensed';
-//$mpdf->watermarkTextAlpha = 0.1;
 $mpdf->WriteHTML($htmlCA); //Cabezera
-$mpdf->WriteHTML($htmlCU);  //Cuerpo
+$mpdf->WriteHTML(Cuerpo($Agrupa));  //Cuerpo
 $mpdf->WriteHTML($htmlDE);
 $mpdf->Output($Reporte, 'I');
 exit;
