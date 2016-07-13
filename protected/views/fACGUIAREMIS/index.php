@@ -283,7 +283,7 @@ $('.search-form form').submit(function(){
                             'label' => 'Procesar Guias',
                             'size' => 'default',
                             'icon' => 'fa fa-hourglass-end',
-                            'buttonType' => 'link',
+                            'buttonType' => 'submit',
                             'htmlOptions' => array('onclick' => 'return validation(1);'),
                             'url' => array('/FACGUIAREMIS/index')
                         ));
@@ -295,7 +295,7 @@ $('.search-form form').submit(function(){
                             'label' => 'Anulación Masiva',
                             'size' => 'default',
                             'icon' => 'fa fa-times',
-                            'buttonType' => 'link',
+                            'buttonType' => 'submit',
                             'htmlOptions' => array('onclick' => 'return validation(2);'),
                             'url' => array('/FACGUIAREMIS/index')
                         ));
