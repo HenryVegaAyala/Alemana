@@ -80,6 +80,7 @@ class FACFACTUController extends Controller {
             $sqlStatement = "call PED_ANULA_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
+            $this->renderPartial('index');
         }
 
         if ($_GET['type'] == 'id_factu') {
@@ -113,6 +114,7 @@ class FACFACTUController extends Controller {
             $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
             $mpdf->Output($Reporte, 'I');
+            
         }
     }
 
@@ -349,17 +351,16 @@ Pag. {PAGENO} / {nb}
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'calibri', 12, 12, 12, 12, '');
+            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'ccourier', 12, 12, 12, 12, '');
             for ($i = 0; $i < $count; $i++) {
 
                 $mpdf->WriteHTML($this->getHtmlCabecera1($idfactu[$i])); //Cabezera
                 $mpdf->WriteHTML($this->getHtmlCuerpo1($idfactu[$i]));  //Cuerpo
                 $mpdf->WriteHTML($this->getHtmlDetalle1($idfactu[$i])); //detalle
 
-
-
                 $mpdf->SetTitle("REPORTE FACTURA MASIVO");
                 $mpdf->SetAuthor("PANADERIA ALEMANA");
+                $mpdf->SetFont('ccourier', 'B');
 //                $mpdf->SetWatermarkText($this->Estado($idfactu[$i]));
                 $mpdf->showWatermarkText = true;
                 $mpdf->watermark_font = 'DejaVuSansCondensed';
@@ -432,7 +433,7 @@ Pag. {PAGENO} / {nb}
             </p>
             <br>
             <p>
-            <h4>
+            <h4 style="font-family: Courier; font-size: 12pt; font-weight:bold;" >
              ' . $id . '<br> 
             </h4>
             </p>
@@ -467,7 +468,7 @@ Pag. {PAGENO} / {nb}
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
 
-  <table class="table"  border= "0">
+  <table class="table"  border= "0" style="font-family: Courier; font-size: 12pt; font-weight:bold;">
 
    <tr>
         <td width="100px" colspan="1"></td>
@@ -503,7 +504,7 @@ Pag. {PAGENO} / {nb}
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
         $html.='
-    <table border="0" class="table table-condensed">
+    <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 12pt; font-weight:bold;">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
@@ -534,7 +535,7 @@ Pag. {PAGENO} / {nb}
         $html.='</table>';
 
         $html.='
-        <table border="0" class="table table-condensed">
+        <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 12pt; font-weight:bold;">
             <tr>
                 <td width="46%" style="text-align: right;" rowspan="2"></td>                
                 <th width="18%" style="text-align: center;" colspan="1"></th>

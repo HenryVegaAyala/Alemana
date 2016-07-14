@@ -66,6 +66,7 @@ class FACORDENCOMPRController extends Controller {
             $sqlStatement = "call PED_ANULA_OC ('" . $id . "' ,'" . $usuario . "') ;";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
+            $this->renderPartial('index');
         }
         
          if ($_GET['type'] == 'id_oc_guia') {
@@ -75,6 +76,7 @@ class FACORDENCOMPRController extends Controller {
             $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
+            $this->renderPartial('index');
         }
 
         if ($_GET['type'] == 'produc_tiend') {
