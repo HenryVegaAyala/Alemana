@@ -17,42 +17,56 @@ function TopVenta($id) {
 $FECFACT = date("dmY");
 $Reporte = "ResumenDeVenta-$FECFACT.pdf";
 
-$FEC_INI = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Ini));
-$FEC_FIN = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Fin));
+//$FEC_INI = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Ini));
+//$FEC_FIN = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Fin));
 
+        
 function Cuerpo($id) {
 
     $connection = Yii::app()->db;
-    $sqlStatement = "SELECT * FROM tmp_repor_venta t;";
+    $sqlStatement = "SELECT * FROM tmp_repor_venta t order by COD_CLIE,imp_tota desc;";
     $command = $connection->createCommand($sqlStatement);
+    $total=0.00;
     $reader = $command->query();
 
     $Cliente.='
         
-    <table border="0" class="table table-bordered table-condensed">
+    <table border="1" class="table table-bordered table-condensed">
     <tr>
     <th style="text-align: center;">CLIENTE</th>
-    <th style="text-align: center;">TIENDA</th>
-    <th style="text-align: center;">UNIDADES</th>
-    <th style="text-align: center;">TOTAL</th>
+     <th style="text-align: center;">VENTA</th>
     </tr>    
 ';
     while ($row = $reader->read()) {
 //
 //        $n = 3;
 //        rowspan='.$n.'
-
+        $total= $total +  $row['IMP_TOTA'] ;
         $Cliente.= '
         <tr>
-        <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
-        <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
-        <td style="text-align: center;" width="25%"> ' . $row['UNI_SOLI'] . ' </td>
-        <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
+         <td style="text-align: left;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
+         <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
         </tr>
 
         ';
     }
     $Cliente.='</table>';
+    
+    
+     $Cliente.='<table border="0" >
+            <tr>
+               <td width="5%" ></td>
+               <td width="25%" ></td>
+               <td width="28%" ></td>
+               <td width="25%" ></td>
+               <td width="20%" ></td>
+               <td width="20%" ></td>
+                <td width="20%"></td>
+                <td width="25%"  style="text-align: center;" >TOTAL</td>                
+                <td width="25%"  style="text-align: left;">'. number_format($total,2) .'</td>
+            </tr>
+       
+        </table>';
 
     $reader = $command->query();
     $Tienda.='
@@ -61,23 +75,70 @@ function Cuerpo($id) {
     <tr>
     <th style="text-align: center;">CLIENTE</th>
     <th style="text-align: center;">TIENDA</th>
-    <th style="text-align: center;">UNIDADES</th>
-    <th style="text-align: center;">TOTAL</th>
+ 
+    <th style="text-align: center;">VENTA</th>
     </tr>    
 ';
+    
+    $clieAnt =  '';
+    $i=0;    
+    $tota=0.00;
+    $totaL=0.00;
+    if($row = $reader->read())
+        $clieAnt =  $row['COD_CLIE'];  
+    $reader = $command->query();    
     while ($row = $reader->read()) {
+        $totaL = $totaL + $row['IMP_TOTA']; 
+         
+        if($clieAnt == $row['COD_CLIE']) {
+           
+            $tota = $tota + $row['IMP_TOTA']; 
+            $Tienda.= '
+            <tr>
+            <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
+            <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
+            <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
+            </tr>
 
-        $Tienda.= '
-        <tr>
-        <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
-        <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
-        <td style="text-align: center;" width="25%"> ' . $row['UNI_SOLI'] . ' </td>
-        <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
-        </tr>
-
-        ';
+            ';
+        }else{
+           
+            $clieAnt =  $row['COD_CLIE']; 
+            if($tota == 0) $tota = $row['IMP_TOTA'];
+            $Tienda.= '
+            <tr>
+            <td style="text-align: center;" width="25%"></td>
+            <td style="text-align: center;"  width="25%">TOTAL</td>
+            <td style="text-align: rigth;" width="25%"> ' . $tota . ' </td>
+            </tr>';
+            
+              $Tienda.= '
+            <tr>
+            <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
+            <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
+            <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
+            </tr>';
+            
+             $tota=0.00;
+        }
+        $clieAnt= $row['COD_CLIE'];
     }
     $Tienda.='</table>';
+    
+     $Tienda.='<table border="0" >
+            <tr>
+               <td width="5%" ></td>
+               <td width="25%" ></td>
+               <td width="28%" ></td>
+               <td width="25%" ></td>
+               <td width="20%" ></td>
+               <td width="20%" ></td>
+                <td width="20%"></td>
+                <td width="25%"  style="text-align: center;" >TOTAL</td>                
+                <td width="25%"  style="text-align: left;">'. number_format($totaL,2) .'</td>
+            </tr>
+       
+        </table>';
 
     $reader = $command->query();
     $Producto.='
@@ -169,7 +230,7 @@ $htmlCA = '
         </td>        
     </tr>
 </table>
-        Fecha de : ' . $FEC_INI . ' &nbsp; Hasta:  ' . $FEC_FIN . ' 
+        Fecha de : ' . $Fecha_Ini . ' &nbsp; Hasta:  ' . $Fecha_Fin . ' 
             &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
