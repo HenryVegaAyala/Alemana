@@ -30,15 +30,17 @@
 
                         <?php echo $form->passwordField($model, 'password', array('maxlength' => 10, 'class' => 'form-control', 'placeholder' => 'Contraseña', 'required' => true)); ?>
 
+                                                    <?php echo $form->error($model,'username'); ?>
+                        <?php echo $form->error($model,'password'); ?>
+                        
                         <button type="submit" name="btn-login" class="btn btn-block btn-red">
                             <i class="glyphicon glyphicon-log-in"></i>&nbsp;Inicia Sesión
                         </button>
 
 
                         <div class="login-links"> 
-                            <a href="">¿Recupera tu cuenta? <strong>INGRESA AQUÍ</strong>
-                            </a>
-                        </div>      		
+                            <!--<a href="">¿Recupera tu cuenta? <strong>INGRESA AQUÍ</strong</a>-->
+                        </div>   
                     </div> 			        	
                 </div>
             </div>
