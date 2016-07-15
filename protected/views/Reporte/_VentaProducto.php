@@ -11,16 +11,22 @@
         ?>
 
         <div class="container-fluid">
+            <br>
+            <div class="container-fluid">
+                <p class="note">Los aspectos con <span class="required letra"> (*) </span> son requeridos.</p>
+            </div>
 
             <div class="form-group">
                 <div class="col-sm-3 ">
-                    <h4><label>Fecha de Inicio:</label></h4>
+                    <h4><label>Fecha de Inicio:</label><span class="required letra"> (*) </span></h4>
                     <?php
                     $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'id' => 'Fecha_Ini',
                         'name' => 'Fecha_Ini',
                         'language' => 'es',
-                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Fecha Inicio'),
+                        'htmlOptions' => array('class' => 'form-control',
+                            'placeholder' => 'Fecha Inicio', 'required',
+                            'onChange' => 'Validar(this.value)', 'required'),
                         'options' => array(
                             'autoSize' => true,
                             'dateFormat' => 'dd/mm/yy',
@@ -37,13 +43,15 @@
                 </div>
 
                 <div class="col-sm-3">
-                    <h4><label>Fecha Fin:</label></h4>
+                    <h4><label>Fecha Fin:</label><span class="required letra"> (*) </span></h4>
                     <?php
                     $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'id' => 'Fecha_Fin',
                         'name' => 'Fecha_Fin',
                         'language' => 'es',
-                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Fecha Final'),
+                        'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'Fecha Final',
+                            'disabled' => 'true',
+                            'onChange' => 'mostrar(this.value)', 'required'),
                         'options' => array(
                             'autoSize' => true,
                             'dateFormat' => 'dd/mm/yy',
@@ -70,7 +78,6 @@
                         ),
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Cliente',
-                        'onChange' => 'mostrar(this.value)'
                     );
                     ?>
                     <?php
@@ -79,11 +86,6 @@
                     ?>
                 </div>       
 
-                <script>
-                    function mostrar() {
-                        $('#Cod_Tiend').prop('disabled', false);
-                    }
-                </script> 
 
                 <div class="col-sm-3">
                     <h4><label>Tienda:</label></h4>
@@ -91,11 +93,10 @@
                     $htmlTienda = array(
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Tienda',
-//                        'disabled ' => 'true',
                     );
                     ?>
                     <?php
-                    echo CHtml::dropDownList('Cod_Tiend', 'DES_TIEND', CHtml::listData(MAETIEND::model()->findAll(), 'COD_TIEN', 'DES_TIEN'), $htmlTienda);
+                    echo CHtml::dropDownList('Cod_Tiend', 'DES_TIEND', CHtml::listData(MAETIEND::model()->findAll('COD_TIEN = 0'), 'COD_TIEN', 'DES_TIEN'), $htmlTienda);
                     ?>
                 </div>          
             </div>
@@ -122,7 +123,7 @@
 
                 <div class="col-sm-6">
                     <h4><label>Agrupación:</label></h4>
-                    <label>Cliente:</label>
+
                     <?php
                     echo CHtml::radioButton('Agrupa', true, array(
                         'value' => '0',
@@ -130,8 +131,8 @@
                         'uncheckValue' => null
                     ));
                     ?>
-
-                    <label>Tienda:</label>
+                    <label>Cliente</label>
+                    &nbsp;
                     <?php
                     echo CHtml::radioButton('Agrupa', false, array(
                         'value' => '1',
@@ -139,8 +140,8 @@
                         'uncheckValue' => null
                     ));
                     ?>
-
-                    <label>Producto:</label>
+                    <label>Tienda</label>
+                    &nbsp;
                     <?php
                     echo CHtml::radioButton('Agrupa', false, array(
                         'value' => '2',
@@ -148,6 +149,7 @@
                         'uncheckValue' => null
                     ));
                     ?>
+                    <label>Producto</label>
 
                 </div>
 
@@ -156,6 +158,15 @@
         </div>
 
         <br>
+
+        <script>
+            function Validar() {
+                $('#Fecha_Fin').prop('disabled', false);
+            }
+            function mostrar() {
+                $('#yw0').prop('disabled', false);
+            }
+        </script> 
 
         <div class="panel-footer container-fluid" style="overflow:hidden;text-align:right;">
             <div class="form-group">
@@ -168,7 +179,7 @@
                         'size' => 'default',
                         'icon' => 'fa fa-file-pdf-o',
                         'buttonType' => 'submit',
-                        'htmlOptions' => array('target' => '_blank;')
+                        'htmlOptions' => array('target' => '_blank;', 'disabled ' => 'true')
                     ));
                     ?>
                     <?php // echo CHtml::submitButton('Ejecutar Reporte'); ?>

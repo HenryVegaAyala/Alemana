@@ -252,7 +252,10 @@
         <div class="panel-footer container-fluid" style="overflow:hidden;text-align:right;">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md')); ?>
+                    <?php echo CHtml::submitButton(
+                            $model->isNewRecord ? 'Guardar' : 'Guardar', 
+                            array('class' => 'btn btn-success btn-md icon-user')
+                                                  ); ?>
                         <?php
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
