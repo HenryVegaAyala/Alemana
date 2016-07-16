@@ -351,8 +351,8 @@ Pag. {PAGENO} / {nb}
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-           // $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cCourier', 12, 12, 12, 12, '');
-            $mpdf = new mPDF('utf-8', 'A4');
+           $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cCourier', 12, 12, 12, 12, '');
+           // $mpdf = new mPDF('utf-8', 'A4');
             for ($i = 0; $i < $count; $i++) {
 
                 $mpdf->WriteHTML($this->getHtmlCabecera1($idfactu[$i])); //Cabezera
@@ -482,7 +482,7 @@ Pag. {PAGENO} / {nb}
    </tr>
   </table>
   
-  <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">	
+  <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; " margin-top:-10>	
    <tr>
     <td width="100px" colspan="2"  >' . strtoupper('hipermercados ' . $Descli) . '</td>  
         <td ></td>  
@@ -537,7 +537,7 @@ Pag. {PAGENO} / {nb}
         ';
         }
         $html.='</table>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
         		<table>   
         <tr>
         <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
