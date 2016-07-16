@@ -474,7 +474,6 @@ Pag. {PAGENO} / {nb}
         $html = '
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
- <br><br>
   <table class="table"  border= "0" style="font-family: Roman; font-size: 10pt; ">
 
    <tr>
@@ -513,8 +512,8 @@ Pag. {PAGENO} / {nb}
                         where F.COD_FACT = '" . $id . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-        $html.='<br><br>
-    <table border="0" class="table table-condensed" style="font-family: Roman; font-size: 10pt; ">
+        $html.='
+    <table border="0" class="table table-condensed" style="font-family: Roman; font-size: 12pt; ">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
@@ -538,7 +537,7 @@ Pag. {PAGENO} / {nb}
         ';
         }
         $html.='</table>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         		<table>   
         <tr>
         <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
