@@ -22,7 +22,8 @@ $Reporte = "ResumenDeVenta-$FECFACT.pdf";
 
 function imprimir($id,$tota){
 	$connection = Yii::app()->db;
-	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id;";
+	$Usuario = Yii::app()->user->name;
+	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id and USU_DIGI='$Usuario';";
 	$command3 = $connection->createCommand($sqlStatement3);
 	$reader3 = $command3->query();
 	$cadena='';
@@ -45,11 +46,44 @@ function imprimir($id,$tota){
 	
 	return $cadena;
 }
+
+function imprimirProducto($id,$tota){
+	$connection = Yii::app()->db;
+	$Usuario = Yii::app()->user->name;
+	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id and usu_digi='$Usuario';";
+	$command3 = $connection->createCommand($sqlStatement3);
+	$reader3 = $command3->query();
+	$cadena='';
+	while ($row = $reader3->read()) {
+		$cadena.= '
+        <tr>
+        <td style="text-align: center;" width="12%"> ' . $row['DES_CLIE'] . ' </td>
+        <td style="text-align: center;"  width="12%">' . $row['DIR_TIEN'] . '</td>
+        <td style="text-align: left;"  width="16%">' . $row['COD_PROD'] . '</td>
+        <td style="text-align: left;"  width="40%">' . $row['DES_LARG'] . '</td>
+        <td style="text-align: right;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
+        <td style="text-align: right;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
+        </tr>';
+	}
+
+	$cadena.= '
+            <tr>
+			 <td style="text-align: center;" width="25%"></td>
+			 <td style="text-align: center;" width="25%"></td>
+            <td style="text-align: center;" width="25%"></td>
+			<td style="text-align: center;" width="25%">TOTAL</td>
+			<td style="text-align: center;" width="25%"></td>
+            <td style="text-align: center;"  width="25%">' . $tota . ' </td>
+              </tr>';
+
+	return $cadena;
+}
         
 function Cuerpo($id) {
 
     $connection = Yii::app()->db;
-    $sqlStatement = "SELECT * FROM tmp_repor_venta t order by COD_CLIE,imp_tota desc;";
+    $Usuario = Yii::app()->user->name;
+    $sqlStatement = "SELECT * FROM tmp_repor_venta t where usu_digi='$Usuario' order by COD_CLIE,imp_tota desc;";
     $command = $connection->createCommand($sqlStatement);
     $total=0.00;
     $reader = $command->query();
@@ -105,9 +139,9 @@ function Cuerpo($id) {
     </tr>    
 ';
     
-    $sqlStatement1 = "SELECT COD_CLIE, SUM(IMP_TOTA) Total FROM tmp_repor_venta GROUP BY COD_CLIE order by 2 desc;";
+    $sqlStatement1 = "SELECT COD_CLIE, SUM(IMP_TOTA) Total FROM tmp_repor_venta where usu_digi='$Usuario' GROUP BY COD_CLIE order by 2 desc;";
     $command1 = $connection->createCommand($sqlStatement1);
-    
+    $totaL=0.00;
     $reader2 = $command1->query();
     while ($row2 = $reader2->read()) {
     	$clie = $row2['COD_CLIE'];
@@ -148,21 +182,37 @@ function Cuerpo($id) {
     <th style="text-align: center;">TOTAL</th>
     </tr>    
 ';
-    while ($row = $reader->read()) {
-        
-        $Producto.= '
-        <tr>
-        <td style="text-align: center;" width="12%"> ' . $row['DES_CLIE'] . ' </td>
-        <td style="text-align: center;"  width="12%">' . $row['DIR_TIEN'] . '</td>
-        <td style="text-align: left;"  width="16%">' . $row['COD_PROD'] . '</td>
-        <td style="text-align: left;"  width="40%">' . $row['DES_LARG'] . '</td>
-        <td style="text-align: right;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
-        <td style="text-align: right;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
-        </tr>
-
-        ';
+    
+    
+    $sqlStatement1 = "SELECT COD_CLIE, SUM(IMP_TOTA) Total FROM tmp_repor_venta where usu_digi='$Usuario' GROUP BY COD_CLIE order by 2 desc;";
+    $command1 = $connection->createCommand($sqlStatement1);
+    $totaL=0.00;
+    $reader2 = $command1->query();
+    while ($row2 = $reader2->read()) {
+    	$clie = $row2['COD_CLIE'];
+    	$tot= $row2['Total'];
+    	$totaL=$totaL+$tot;
+    	$Producto.=imprimirProducto($clie,$tot);
     }
+    
+  
     $Producto.='</table>';
+    
+    $Producto.='<table border="0" >
+            <tr>
+                <td width="25%" ></td>
+     		<td width="25%" ></td>
+     		<td width="25%" ></td>
+     		<td width="25%" ></td>
+    
+    
+                <td width="25%" ></td>
+                <td width="25%"  style="text-align: center;" >TOTAL</td>
+                <td width="25%"  style="text-align: left;">'. number_format($totaL,2) .'</td>
+            </tr>
+    
+        </table>';
+    
 
     switch ($id) {
         case 0:
