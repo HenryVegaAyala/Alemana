@@ -513,7 +513,7 @@ Pag. {PAGENO} / {nb}
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
         $html.='<br><br>
-    <table border="0" class="table table-condensed" style="font-family: Arial; font-size: 12pt; ">
+    <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 12pt; ">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
