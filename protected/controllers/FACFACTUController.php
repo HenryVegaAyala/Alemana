@@ -529,7 +529,7 @@ Pag. {PAGENO} / {nb}
             $html.= '
        
         <tr>
-        <td style="text-align: left;" width="5%"> ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: left;" width="10%"> ' . $row['UNI_SOLI'] . ' </td>
         <td style="text-align: left;"  width="80%"> &nbsp; &nbsp; &nbsp;' . strtoupper($row['DES_LARG']) . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
         <td style="text-align: center;" width="20%"> &nbsp; &nbsp; ' . $row['VAL_PROD'] . ' </td>
         <td style="text-align: center;" width="20%">  &nbsp; &nbsp; &nbsp;' . $row['IMP_PROD'] . ' </td>
