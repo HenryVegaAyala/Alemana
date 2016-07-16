@@ -471,7 +471,7 @@ Pag. {PAGENO} / {nb}
 
         $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
 
-        $html = '<br>
+        $html = '<br><br>
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
   <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">
@@ -513,7 +513,7 @@ Pag. {PAGENO} / {nb}
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
         $html.='<br><br>
-    <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 10pt; ">
+    <table border="0" class="table table-condensed" style="font-family: Arial; font-size: 12pt; ">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
@@ -529,15 +529,15 @@ Pag. {PAGENO} / {nb}
             $html.= '
        
         <tr>
-        <td style="text-align: left;" > ' . $row['UNI_SOLI'] . ' </td>
-        <td style="text-align: left;"  width="80%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
+        <td style="text-align: left;" width="5%"> ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: left;"  width="80%"> &nbsp; &nbsp; &nbsp;' . strtoupper($row['DES_LARG']) . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
         <td style="text-align: center;" width="20%"> &nbsp; &nbsp; ' . $row['VAL_PROD'] . ' </td>
         <td style="text-align: center;" width="20%">  &nbsp; &nbsp; &nbsp;' . $row['IMP_PROD'] . ' </td>
         </tr>
         ';
         }
         $html.='</table>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         		<table>   
         <tr>
         <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
