@@ -435,6 +435,8 @@ Pag. {PAGENO} / {nb}
                 		<br>
                 		<br>
                 		<br>
+                		<br>
+                		<br>
             <p>
             <h4 style="font-family: Courier; font-size: 69pt; " >
              ' . $id . '<br> 
@@ -470,7 +472,7 @@ Pag. {PAGENO} / {nb}
         $html = '
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
- <br><br><br><br>
+ <br><br>
   <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">
 
    <tr>
@@ -531,7 +533,7 @@ Pag. {PAGENO} / {nb}
         ';
         }
         $html.='</table>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br>
         		<table>   
         <tr>
         <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
