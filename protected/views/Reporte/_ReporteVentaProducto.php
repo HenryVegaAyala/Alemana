@@ -20,6 +20,31 @@ $Reporte = "ResumenDeVenta-$FECFACT.pdf";
 //$FEC_INI = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Ini));
 //$FEC_FIN = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha_Fin));
 
+function imprimir($id,$tota){
+	$connection = Yii::app()->db;
+	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id;";
+	$command3 = $connection->createCommand($sqlStatement3);
+	$reader3 = $command3->query();
+	$cadena='';
+	while ($row = $reader3->read()) {
+		$cadena.= '
+            <tr>
+            <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
+            <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
+            <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
+            </tr>';
+	}
+	
+	$cadena.= '
+            <tr>
+            <td style="text-align: center;" width="25%"></td>
+			<td style="text-align: center;" width="25%">TOTAL</td>
+			<td style="text-align: center;" width="25%"></td>
+            <td style="text-align: letf;"  width="25%">' . $tota . ' </td>
+              </tr>';
+	
+	return $cadena;
+}
         
 function Cuerpo($id) {
 
@@ -80,60 +105,30 @@ function Cuerpo($id) {
     </tr>    
 ';
     
-    $clieAnt =  '';
-    $i=0;    
-    $tota=0.00;
-    $totaL=0.00;
-    if($row = $reader->read())
-        $clieAnt =  $row['COD_CLIE'];  
-    $reader = $command->query();    
-    while ($row = $reader->read()) {
-        $totaL = $totaL + $row['IMP_TOTA']; 
-         
-        if($clieAnt == $row['COD_CLIE']) {
-           
-            $tota = $tota + $row['IMP_TOTA']; 
-            $Tienda.= '
-            <tr>
-            <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
-            <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
-            <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
-            </tr>
-
-            ';
-        }else{
-           
-            $clieAnt =  $row['COD_CLIE']; 
-            if($tota == 0) $tota = $row['IMP_TOTA'];
-            $Tienda.= '
-            <tr>
-            <td style="text-align: center;" width="25%"></td>
-            <td style="text-align: center;"  width="25%">TOTAL</td>
-            <td style="text-align: rigth;" width="25%"> ' . $tota . ' </td>
-            </tr>';
-            
-              $Tienda.= '
-            <tr>
-            <td style="text-align: center;" width="25%" > ' . $row['DES_CLIE'] . ' </td>
-            <td style="text-align: rigth;"  width="25%">' . $row['DIR_TIEN'] . '</td>
-            <td style="text-align: center;" width="25%"> ' . $row['IMP_TOTA'] . ' </td>
-            </tr>';
-            
-             $tota=0.00;
-        }
-        $clieAnt= $row['COD_CLIE'];
+    $sqlStatement1 = "SELECT COD_CLIE, SUM(IMP_TOTA) Total FROM tmp_repor_venta GROUP BY COD_CLIE order by 2 desc;";
+    $command1 = $connection->createCommand($sqlStatement1);
+    
+    $reader2 = $command1->query();
+    while ($row2 = $reader2->read()) {
+    	$clie = $row2['COD_CLIE'];
+    	$tot= $row2['Total'];
+    	$totaL=$totaL+$tot;
+    	$Tienda.=imprimir($clie,$tot);
     }
+    
+   
+
     $Tienda.='</table>';
     
      $Tienda.='<table border="0" >
             <tr>
-               <td width="5%" ></td>
-               <td width="25%" ></td>
-               <td width="28%" ></td>
-               <td width="25%" ></td>
-               <td width="20%" ></td>
-               <td width="20%" ></td>
-                <td width="20%"></td>
+                <td width="25%" ></td>
+     		<td width="25%" ></td>
+     		<td width="25%" ></td>
+     		<td width="25%" ></td>
+     		
+     		
+                <td width="25%" ></td>
                 <td width="25%"  style="text-align: center;" >TOTAL</td>                
                 <td width="25%"  style="text-align: left;">'. number_format($totaL,2) .'</td>
             </tr>
