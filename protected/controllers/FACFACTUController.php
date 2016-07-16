@@ -90,7 +90,7 @@ class FACFACTUController extends Controller {
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Roman', 12, 12, 12, 12, 'L');
+            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Courier', 12, 12, 12, 12, 'L');
             for ($i = 0; $i < $count; $i++) {
 
                 $mpdf->WriteHTML($this->getHtmlCabecera($idfactu[$i])); //Cabezera
@@ -351,7 +351,7 @@ Pag. {PAGENO} / {nb}
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-           // $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cRoman', 12, 12, 12, 12, '');
+           // $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cCourier', 12, 12, 12, 12, '');
             $mpdf = new mPDF('utf-8', 'A4');
             for ($i = 0; $i < $count; $i++) {
 
@@ -361,7 +361,7 @@ Pag. {PAGENO} / {nb}
 
                 $mpdf->SetTitle("REPORTE FACTURA MASIVO");
                 $mpdf->SetAuthor("PANADERIA ALEMANA");
-            //    $mpdf->SetFont('cRoman', 'B');
+            //    $mpdf->SetFont('cCourier', 'B');
 //                $mpdf->SetWatermarkText($this->Estado($idfactu[$i]));
                 $mpdf->showWatermarkText = true;
                 $mpdf->watermark_font = 'DejaVuSansCondensed';
@@ -440,7 +440,7 @@ Pag. {PAGENO} / {nb}
                 		<br>
                 		<br>
             <p>
-            <h4 style="font-family: Roman; font-size: 69pt; " >
+            <h4 style="font-family: Courier; font-size: 69pt; " >
              ' . $id . '<br> 
             </h4>
             </p>
@@ -471,10 +471,10 @@ Pag. {PAGENO} / {nb}
 
         $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
 
-        $html = '
+        $html = '<br>
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
-  <table class="table"  border= "0" style="font-family: Roman; font-size: 10pt; ">
+  <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">
 
    <tr>
        
@@ -482,7 +482,7 @@ Pag. {PAGENO} / {nb}
    </tr>
   </table>
   
-  <table class="table"  border= "0" style="font-family: Roman; font-size: 10pt; ">	
+  <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">	
    <tr>
     <td width="100px" colspan="2"  >' . strtoupper('hipermercados ' . $Descli) . '</td>  
         <td ></td>  
@@ -490,7 +490,7 @@ Pag. {PAGENO} / {nb}
         <td colspan="1">' . strtoupper($Ruc) . '</td>  
    </tr>
   </table>
-  <table class="table"  border= "0" style="font-family: Roman; font-size: 10pt; ">      		
+  <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">      		
    <tr>
     <td  width="100px" colspan="2" >' . strtoupper($DirTien) . '</td> 
             <td  ></td> 
@@ -512,8 +512,8 @@ Pag. {PAGENO} / {nb}
                         where F.COD_FACT = '" . $id . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-        $html.='
-    <table border="0" class="table table-condensed" style="font-family: Roman; font-size: 12pt; ">
+        $html.='<br><br>
+    <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 10pt; ">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
@@ -537,7 +537,7 @@ Pag. {PAGENO} / {nb}
         ';
         }
         $html.='</table>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         		<table>   
         <tr>
         <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
@@ -546,7 +546,7 @@ Pag. {PAGENO} / {nb}
         $html.='</table>';
 
         $html.='
-        <table border="0"  style="font-family: Roman; font-size: 12pt; ">
+        <table border="0"  style="font-family: Courier; font-size: 12pt; ">
           
             <tr>
         		 <th width="120%" style="text-align: center;" colspan="3"></th>
