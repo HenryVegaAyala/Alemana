@@ -90,7 +90,7 @@ class FACFACTUController extends Controller {
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Arial', 12, 12, 12, 12, 'L');
+            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'Courier', 12, 12, 12, 12, 'L');
             for ($i = 0; $i < $count; $i++) {
 
                 $mpdf->WriteHTML($this->getHtmlCabecera($idfactu[$i])); //Cabezera
@@ -351,7 +351,7 @@ Pag. {PAGENO} / {nb}
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-           // $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cArial', 12, 12, 12, 12, '');
+           // $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cCourier', 12, 12, 12, 12, '');
             $mpdf = new mPDF('utf-8', 'A4');
             for ($i = 0; $i < $count; $i++) {
 
@@ -361,7 +361,7 @@ Pag. {PAGENO} / {nb}
 
                 $mpdf->SetTitle("REPORTE FACTURA MASIVO");
                 $mpdf->SetAuthor("PANADERIA ALEMANA");
-            //    $mpdf->SetFont('cArial', 'B');
+            //    $mpdf->SetFont('cCourier', 'B');
 //                $mpdf->SetWatermarkText($this->Estado($idfactu[$i]));
                 $mpdf->showWatermarkText = true;
                 $mpdf->watermark_font = 'DejaVuSansCondensed';
@@ -431,8 +431,12 @@ Pag. {PAGENO} / {nb}
             </h4>
             </p>
             <br>
+                		<br>
+                		<br>
+                		<br>
+                		<br>
             <p>
-            <h4 style="font-family: Arial; font-size: 40pt; " >
+            <h4 style="font-family: Courier; font-size: 69pt; " >
              ' . $id . '<br> 
             </h4>
             </p>
@@ -466,8 +470,8 @@ Pag. {PAGENO} / {nb}
         $html = '
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
-
-  <table class="table"  border= "0" style="font-family: Arial; font-size: 10pt; ">
+ <br><br><br><br>
+  <table class="table"  border= "0" style="font-family: Courier; font-size: 10pt; ">
 
    <tr>
        
@@ -502,8 +506,8 @@ Pag. {PAGENO} / {nb}
                         where F.COD_FACT = '" . $id . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-        $html.='
-    <table border="0" class="table table-condensed" style="font-family: Arial; font-size: 10pt; ">
+        $html.='<br><br><br><br><br><br><br><br>
+    <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 10pt; ">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
@@ -519,15 +523,15 @@ Pag. {PAGENO} / {nb}
             $html.= '
        
         <tr>
-        <td style="text-align: left;" width="2%" > ' . $row['UNI_SOLI'] . ' </td>
-        <td style="text-align: left;"  width="80%">' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
-        <td style="text-align: center;" width="20%"> ' . $row['VAL_PROD'] . ' </td>
-        <td style="text-align: center;" width="20%"> ' . $row['IMP_PROD'] . ' </td>
+        <td style="text-align: left;" > ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: left;"  width="80%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
+        <td style="text-align: center;" width="20%"> &nbsp; &nbsp; ' . $row['VAL_PROD'] . ' </td>
+        <td style="text-align: center;" width="20%">  &nbsp; &nbsp; &nbsp;' . $row['IMP_PROD'] . ' </td>
         </tr>
         ';
         }
         $html.='</table>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         		<table>   
         <tr>
         <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
@@ -536,10 +540,10 @@ Pag. {PAGENO} / {nb}
         $html.='</table>';
 
         $html.='
-        <table border="0"  style="font-family: Arial; font-size: 10pt; ">
+        <table border="0"  style="font-family: Courier; font-size: 12pt; ">
           
             <tr>
-        		 <th width="150%" style="text-align: center;" colspan="3"></th>
+        		 <th width="120%" style="text-align: center;" colspan="3"></th>
                 <td width="20%" style="text-align: center;" colspan="1">' . $Stotal . '</td>
                 <td width="20%" style="text-align: center;" colspan="1">' . $IGVPRO . '</td>
                 <td width="20%" style="text-align: center;" colspan="1">' . $Total . '</td>
