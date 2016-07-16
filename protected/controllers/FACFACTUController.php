@@ -351,7 +351,8 @@ Pag. {PAGENO} / {nb}
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
             $pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
-            $mpdf = new mPDF('utf-8', array(215, 215), 11, 'ccourier', 12, 12, 12, 12, '');
+           // $mpdf = new mPDF('utf-8', array(215, 215), 11, 'cArial', 12, 12, 12, 12, '');
+            $mpdf = new mPDF('utf-8', 'A4');
             for ($i = 0; $i < $count; $i++) {
 
                 $mpdf->WriteHTML($this->getHtmlCabecera1($idfactu[$i])); //Cabezera
@@ -360,7 +361,7 @@ Pag. {PAGENO} / {nb}
 
                 $mpdf->SetTitle("REPORTE FACTURA MASIVO");
                 $mpdf->SetAuthor("PANADERIA ALEMANA");
-                $mpdf->SetFont('ccourier', 'B');
+            //    $mpdf->SetFont('cArial', 'B');
 //                $mpdf->SetWatermarkText($this->Estado($idfactu[$i]));
                 $mpdf->showWatermarkText = true;
                 $mpdf->watermark_font = 'DejaVuSansCondensed';
@@ -386,9 +387,7 @@ Pag. {PAGENO} / {nb}
     <link rel="stylesheet" type="text/css" href="' . Yii::app()->request->baseUrl . '/css/bootstrap/bootstrap.css" />
 
 <style>
-        img{
-            width: 140px;
-           }
+       
         hr{
            color: #373737;
             background-color: #373737;
@@ -402,7 +401,7 @@ Pag. {PAGENO} / {nb}
            }
 </style>
      
-<table border="0" class="table">
+<table border="0">
     <tr>
 
     <td style="border: solid white" width="10%"> 
@@ -433,7 +432,7 @@ Pag. {PAGENO} / {nb}
             </p>
             <br>
             <p>
-            <h4 style="font-family: Courier; font-size: 12pt; font-weight:bold;" >
+            <h4 style="font-family: Arial; font-size: 40pt; " >
              ' . $id . '<br> 
             </h4>
             </p>
@@ -468,23 +467,23 @@ Pag. {PAGENO} / {nb}
 
     <div class="hr" style="visibility: hidden;" ><hr /></div>
 
-  <table class="table"  border= "0" style="font-family: Courier; font-size: 12pt; font-weight:bold;">
+  <table class="table"  border= "0" style="font-family: Arial; font-size: 10pt; ">
 
    <tr>
-        <td width="100px" colspan="1"></td>
+       
         <td colspan="3">' . strtoupper($Fecha_Fac) . '</td>
    </tr>
   
    <tr>
-    <td width="100px" colspan="1"></td>  
-        <td colspan="1">' . strtoupper('hipermercados ' . $Descli) . '</td>  
+    <td width="100px" colspan="2"  >' . strtoupper('hipermercados ' . $Descli) . '</td>  
+        <td ></td>  
     <td  width="100px" colspan="1" ></td>           
         <td colspan="1">' . strtoupper($Ruc) . '</td>  
    </tr>
   
    <tr>
-    <td  width="100px" colspan="1" ></td> 
-            <td  colspan="1" >' . strtoupper($DirTien) . '</td> 
+    <td  width="100px" colspan="2" >' . strtoupper($DirTien) . '</td> 
+            <td  ></td> 
     <td  width="100px" colspan="1" ></td>    
             <td  colspan="1" > ' . strtoupper($Guia) . '</td> 
    </tr>
@@ -504,7 +503,7 @@ Pag. {PAGENO} / {nb}
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
         $html.='
-    <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 12pt; font-weight:bold;">
+    <table border="0" class="table table-condensed" style="font-family: Arial; font-size: 10pt; ">
     <tr>
     <th style="text-align: center;"></th>
     <th style="text-align: center;"></th>
@@ -520,36 +519,32 @@ Pag. {PAGENO} / {nb}
             $html.= '
        
         <tr>
-        <td style="text-align: center;" width="10%" > ' . $row['UNI_SOLI'] . ' </td>
-        <td style="text-align: rigth;"  width="70%">' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_PROD'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['IMP_PROD'] . ' </td>
+        <td style="text-align: left;" width="2%" > ' . $row['UNI_SOLI'] . ' </td>
+        <td style="text-align: left;"  width="80%">' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
+        <td style="text-align: center;" width="20%"> ' . $row['VAL_PROD'] . ' </td>
+        <td style="text-align: center;" width="20%"> ' . $row['IMP_PROD'] . ' </td>
         </tr>
         ';
         }
-        $html.='
+        $html.='</table>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        		<table>   
         <tr>
-        <td style="text-align: left;" colspan="4">Son: ' . $this->numtoletras($Total) . ' </td>
+        <td style="text-align: left;" colspan="4">' . $this->numtoletras($Total) . ' </td>
         </tr>';
 
         $html.='</table>';
 
         $html.='
-        <table border="0" class="table table-condensed" style="font-family: Courier; font-size: 12pt; font-weight:bold;">
+        <table border="0"  style="font-family: Arial; font-size: 10pt; ">
+          
             <tr>
-                <td width="46%" style="text-align: right;" rowspan="2"></td>                
-                <th width="18%" style="text-align: center;" colspan="1"></th>
-                <th width="18%" style="text-align: center;" colspan="1"></th>
-                <th width="18%" style="text-align: center;" colspan="1"></th>
-            </tr>
-            <tr>
-                <td width="18%" style="text-align: center;" colspan="1">' . $Stotal . '</td>
-                <td width="18%" style="text-align: center;" colspan="1">' . $IGVPRO . '</td>
-                <td width="18%" style="text-align: center;" colspan="1">' . $Total . '</td>
+        		 <th width="150%" style="text-align: center;" colspan="3"></th>
+                <td width="20%" style="text-align: center;" colspan="1">' . $Stotal . '</td>
+                <td width="20%" style="text-align: center;" colspan="1">' . $IGVPRO . '</td>
+                <td width="20%" style="text-align: center;" colspan="1">' . $Total . '</td>
             </tr>   
-            <tr>
-                <th width="18%" style="text-align: center;" colspan="5">CANCELADO</th>
-            </tr>  
+            
         </table>        
         ';
 
