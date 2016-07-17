@@ -30,9 +30,13 @@
 
                         <?php echo $form->passwordField($model, 'password', array('maxlength' => 10, 'class' => 'form-control', 'placeholder' => 'Contraseña', 'required' => true)); ?>
 
-                                                    <?php echo $form->error($model,'username'); ?>
-                        <?php echo $form->error($model,'password'); ?>
-                        
+                        <span class="required">
+                            <center>
+                                <?php echo $form->error($model, 'username'); ?>
+                                <?php echo $form->error($model, 'password'); ?>
+                            </center>
+                        </span>
+
                         <button type="submit" name="btn-login" class="btn btn-block btn-red">
                             <i class="glyphicon glyphicon-log-in"></i>&nbsp;Inicia Sesión
                         </button>
