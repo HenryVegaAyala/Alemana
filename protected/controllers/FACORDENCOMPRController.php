@@ -16,7 +16,7 @@ class FACORDENCOMPRController extends Controller {
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array('create', 'update', 'index', 'view', 'admin',
                     'delete', 'ClienteByTienda', 'ValorTienda', 'search',
-                    'Respaldo', 'ajax', 'Consulta', 'ocactua', 'Guia',
+                    'Respaldo', 'Ajax', 'Consulta', 'ocactua', 'Guia',
                     'Reporte', 'Anular'),
                 'users' => array('@'),
             ),
@@ -36,7 +36,6 @@ class FACORDENCOMPRController extends Controller {
 
 
         $usuario = Yii::app()->user->name;
-        $cantidad=0;
         $connection = Yii::app()->db;
         $sqlStatement = "call PED_MIGRA_OC_TO_GUIA (:id ,:usuario,@out) ;";
         $command = $connection->createCommand($sqlStatement);
@@ -94,6 +93,9 @@ class FACORDENCOMPRController extends Controller {
         	   Yii::app()->user->setFlash('error', 'Hay O/C no procesadas por no tener productos asociados, por favor revisar');
              }
                // $this->renderPartial('index');
+              $model = new FACORDENCOMPR('search');
+              $model->unsetAttributes();  // clear any default values
+              $model->IND_ESTA='';
          }
 
         if ($_GET['type'] == 'produc_tiend') {
