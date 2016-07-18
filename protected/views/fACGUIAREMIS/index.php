@@ -323,6 +323,10 @@ $('.search-form form').submit(function(){
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
+                                
+                                if (!confirm ('¿ Estas Seguro de generar masivamente las Facturas?, sólo se consideraran aquellas guías en estado creado ')){
+                                    return false;
+                                }
 
                                 for (i = 0; i < item.length; i++) {
 

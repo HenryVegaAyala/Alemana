@@ -36,18 +36,26 @@ class FACORDENCOMPRController extends Controller {
 
 
         $usuario = Yii::app()->user->name;
-
+        $cantidad=0;
         $connection = Yii::app()->db;
-        $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+        $sqlStatement = "call PED_MIGRA_OC_TO_GUIA (:id ,:usuario,@out) ;";
         $command = $connection->createCommand($sqlStatement);
+           
+       // $command = $connection->createCommand("CALL remove_places(:user_id,:placeID,:place_type,@out)");
+        $command->bindParam(":id",$id,PDO::PARAM_INT);
+        $command->bindParam(":usuario",$usuario,PDO::PARAM_INT);
+        
         $command->execute();
-//        $this->render('Guia', array(
-//            'model' => $this->loadModel($id),
-//        ));
-
-        $this->render('index', array(
-            'model' => $this->loadModel($id),
-        ));
+        $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
+        
+        if($valueOut==0){
+        	Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C para realizar la migracion Guia, por favor revisar');
+         }
+        
+		        $this->render('index', array(
+		            'model' => $this->loadModel($id),
+		        ));
+        
     }
 
     public function actionConsulta() {
@@ -73,11 +81,20 @@ class FACORDENCOMPRController extends Controller {
             $id = $_GET["id"];
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
-            $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
-            $command = $connection->createCommand($sqlStatement);
+		    $sqlStatement = "call PED_MIGRA_OC_TO_GUIA(:id ,:usuario,@out) ;";
+ 	        $command = $connection->createCommand($sqlStatement);
+           
+	        $command->bindParam(":id",$id,PDO::PARAM_INT);
+	        $command->bindParam(":usuario",$usuario,PDO::PARAM_INT);
+	        
             $command->execute();
-            $this->renderPartial('index');
-        }
+             $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
+        
+            if($valueOut==0){
+        	   Yii::app()->user->setFlash('error', 'Hay O/C no procesadas por no tener productos asociados, por favor revisar');
+             }
+                $this->renderPartial('index');
+         }
 
         if ($_GET['type'] == 'produc_tiend') {
             $cliente = $_GET["clie"];

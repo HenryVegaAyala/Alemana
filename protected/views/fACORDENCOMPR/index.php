@@ -4,7 +4,10 @@
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
     'method' => 'post',
+		'enableAjaxValidation' => false,
         ));
+
+
 ?>
 
 <?php
@@ -34,6 +37,12 @@ $('.search-form form').submit(function(){
         <div class="panel-heading">
             <h3 class="panel-title">BÃºsqueda O/C</h3>
         </div>
+        
+         <?php if (Yii::app()->user->hasFlash('error')): ?>
+            <div class="alert alert-danger">
+                <?php echo Yii::app()->user->getFlash('error'); ?>
+            </div>
+        <?php endif ?>
 
         <div class="mar">
             <?php echo CHtml::link('BÃºsqueda Avanzada', '#', array('class' => 'search-button')); ?>
@@ -177,7 +186,7 @@ $('.search-form form').submit(function(){
                                 'label' => 'Generar Guia',
                                 'htmlOptions' => array('style' => 'width: 50px'),
 //                                'visible' => 'array("$data->IND_ESTA") < 1',
-                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Lista", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA))',
+                                'url' => 'Yii::app()->controller->createUrl("/FACGUIAREMIS/Lista", array("id"=>$data->COD_ORDE,"est"=>$data->IND_ESTA,"no"=>$data->NUM_ORDE))',
                                 'click' => "function (){
                                     var x = this.href;
                                     var cad = x.split('/');
@@ -254,7 +263,9 @@ $('.search-form form').submit(function(){
                                     alert('Debe seleccionar las O/C que requiere anular ');    
                                    return false;
                                 }
-                                // alert('Plese select checkbox! ' + item.length);
+                                if (!confirm ('¿ Estas Seguro de generar masivamente las Guia?, sólo se consideraran aquellas O/C en estado creado ')){
+                                    return false;
+                                }
 
                                 for (i = 0; i < item.length; i++) {
 

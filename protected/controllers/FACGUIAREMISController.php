@@ -126,7 +126,7 @@ class FACGUIAREMISController extends Controller {
             <br>
             <p>
             Calle Ayabaca N¬∞ 173            <br> 
-            Urb. Prolongaci√≥n Benavides     <br>
+            Urb. ProlongaciÛn Benavides     <br>
             Lima - Lima - Santiago de Surco <br>
             Telf: 733-0476 / 282-3595       <br>
             www.panaderiaalemana.com
@@ -138,7 +138,7 @@ class FACGUIAREMISController extends Controller {
             <br>
             <p>
             <h4>
-            GU√çA DE REMISI√ìN - REMITENTE<br> 
+            GUÕA REMISI”N - REMITENTE<br> 
             </h4>
             </p>
             <br>
@@ -231,7 +231,7 @@ class FACGUIAREMISController extends Controller {
     <table border="0" class="table table-bordered table-condensed">
     <tr>
     <th style="text-align: center; vertical-align: center;">Cantidad</th>
-    <th style="text-align: center;">Descripci√≥n</th>
+    <th style="text-align: center;">DescripciÛn</th>
     <th style="text-align: center;">Peso Total</th>
     <th style="text-align: center;">Precio Unitario</th>
     <th style="text-align: center;">Importe Total</th>
@@ -374,14 +374,32 @@ Pag. {PAGENO} / {nb}
 
         $usuario = Yii::app()->user->name;
         $connection = Yii::app()->db;
-        $sqlStatement = "call PED_MIGRA_OC_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+        $sqlStatement = "call PED_MIGRA_OC_TO_GUIA (:id ,:usuario,@out) ;";
         $command = $connection->createCommand($sqlStatement);
+        $numoc = $_GET['no'];   
+       // $command = $connection->createCommand("CALL remove_places(:user_id,:placeID,:place_type,@out)");
+        $command->bindParam(":id",$id,PDO::PARAM_INT);
+        $command->bindParam(":usuario",$usuario,PDO::PARAM_INT);
+        
         $command->execute();
-
+        $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
+        
+        if($valueOut==0){
+        	Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C Nro : '. $numoc . ' para realizar la migracion Guia, por favor revisar');
+       
+        	$this->redirect('../../fACORDENCOMPR/index.php', array(
+        			'model' => $model,
+        	));
+        }
+        else{
+        
         $model->IND_ESTA = '0';
         $this->render('Lista', array(
-            'model' => $model,
+        		'model' => $model,
         ));
+        }
+        
+       
     }
 
     public function actionAdmin() {
