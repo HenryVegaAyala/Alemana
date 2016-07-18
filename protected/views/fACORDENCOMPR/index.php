@@ -4,7 +4,6 @@
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
     'method' => 'post',
-		'enableAjaxValidation' => false,
         ));
 
 
@@ -297,7 +296,7 @@ $('.search-form form').submit(function(){
                                             url: 'ajax.php',
                                             dataType: "json",
                                             data: {
-                                                type: 'id_oc_guia',
+                                                type: 'id_oc_tg',
                                                 id: item[i].value
                                             },
                                             succes: function(data) {

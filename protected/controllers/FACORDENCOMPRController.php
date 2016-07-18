@@ -77,7 +77,7 @@ class FACORDENCOMPRController extends Controller {
             $this->renderPartial('index');
         }
         
-         if ($_GET['type'] == 'id_oc_guia') {
+         if ($_GET['type'] == 'id_oc_tg') {
             $id = $_GET["id"];
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
@@ -211,7 +211,7 @@ class FACORDENCOMPRController extends Controller {
                                 $command->execute();
                             }
                         }
-                        $this->redirect(array('index', 'id' => $model->COD_ORDE), Yii::app()->session['USU'] = " ");
+                        $this->redirect(array('index'));
                     }
                 }
             } else {
