@@ -25,25 +25,25 @@ class PDF extends FPDF {
 
         $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
 
-        $this->SetFont('Arial', '', 10);
+        $this->SetFont('Arial', '', 9);
         $this->Ln();
-        $this->Cell(18, 4, '', 0);
+        $this->Cell(18, 1.8, '', 0);
         $this->Ln();
         $this->Cell(9, 0.5, '', 0, '', 'C');
         $this->Cell(9, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'C');
         $this->Ln();
         $this->Cell(2, 1, '', 0);
-        $this->Cell(16, 1, utf8_decode(strtoupper($Fecha_Fac)), 0);
+        $this->Cell(16, 0.6, utf8_decode(strtoupper($Fecha_Fac)), 0);
         $this->Ln();
         $this->Cell(2, 1, '', 0);
-        $this->Cell(9, 1, utf8_decode(strtoupper($Descli)), 0);
+        $this->Cell(9, 0.6, utf8_decode(strtoupper($Descli)), 0);
         $this->Cell(2, 1, '', 0);
-        $this->Cell(5, 1, strtoupper($Ruc), 0, '', 'R');
+        $this->Cell(5, 0.6, strtoupper($Ruc), 0, '', 'R');
         $this->Ln();
         $this->Cell(2, 1, '', 0);
-        $this->Cell(9, 1, utf8_decode(strtoupper($DirTien)), 0);
+        $this->Cell(9, 0.6, utf8_decode(strtoupper($DirTien)), 0);
         $this->Cell(2, 1, '', 0);
-        $this->Cell(5, 1, strtoupper($Guia), 0, '', 'R');
+        $this->Cell(5, 0.6, strtoupper($Guia), 0, '', 'R');
         $this->Ln();
 
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
@@ -63,9 +63,9 @@ class PDF extends FPDF {
             $val = $row['VAL_PROD'];
             $precTo = $row['IMP_PROD'];
 
-            $this->SetFont('Arial', '', 10);
+            $this->SetFont('Arial', '', 9);
             $this->Ln();
-            $this->Cell(2, 0.5, strtoupper($unid), 0, '', 'C');
+            $this->Cell(2, 0.5, number_format($unid), 0, '', 'L');
             $this->Cell(12, 0.5, utf8_decode(strtoupper($product)), 0);
             $this->Cell(2, 0.5, strtoupper($val), 0, '', 'C');
             $this->Cell(2, 0.5, strtoupper($precTo), 0, '', 'R');
@@ -85,14 +85,17 @@ class PDF extends FPDF {
             $IGVPRO = $row['TOT_IGV'];
             $Total = $row['TOT_FACT'];
         }
+        $this->SetFont('Arial', '', 9);
         $this->SetXY(1.8, 18);
         $this->Cell(2, 0.5, '', 0, '', 'C');
         $this->Cell(16, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
         $this->Ln();
-        $this->Cell(12, 0.5, '', 0, '', 'C');
-        $this->Cell(2, 0.5, strtoupper($Stotal), 0, '', 'C');
-        $this->Cell(2, 0.5, strtoupper($IGVPRO), 0, '', 'C');
-        $this->Cell(2, 0.5, strtoupper($Total), 0, '', 'C');
+        $this->Cell(18, 1, '', 0, '', 'C');
+        $this->Ln();
+        $this->Cell(12, 1, '', 0, '', 'C');
+        $this->Cell(2, 1, strtoupper($Stotal), 0, '', 'C');
+        $this->Cell(2, 1, strtoupper($IGVPRO), 0, '', 'C');
+        $this->Cell(2, 1, strtoupper($Total), 0, '', 'C');
     }
 
     function Impresion($i) {
@@ -258,7 +261,7 @@ function subfijo($xx) { // esta función regresa un subfijo para la cifra
     return $xsub;
 }
 
-$pdf = new PDF('L', 'cm', array(21.5, 21.5));
+$pdf = new PDF('P', 'cm','A4');
 $pdf->SetMargins(1.8, 0.8, 1.8);
 for ($i = 0; $i < $count; $i++) {
 
@@ -273,4 +276,4 @@ for ($i = 0; $i < $count; $i++) {
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'D');
+$pdf->Output($Reporte, 'I');

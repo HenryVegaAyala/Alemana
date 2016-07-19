@@ -49,7 +49,8 @@ class FACFACTUController extends Controller {
         $command->execute();
 
         $model->IND_ESTA = '1';
-        Yii::app()->user->setFlash('error', 'Se genero la Factura satisfactoriamente');
+        
+        Yii::app()->user->setFlash('success', "Se genero la Factura satisfactoriamente.");
         $this->render('Lista', array(
             'model' => $model,
         ));

@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
 
 <?php
+
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
     'method' => 'post',
@@ -34,13 +35,12 @@ $('.search-form form').submit(function(){
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Lista de Facturas Creadas</h3>
-              <?php if (Yii::app()->user->hasFlash('error')): ?>
-            <div class="alert alert-danger">
-                <?php echo Yii::app()->user->getFlash('error'); ?>
-            </div>
-        <?php endif ?>
         </div>
-      
+        
+        <div class="alert alert-success">
+            <?php echo Yii::app()->user->getFlash('success');?>
+        </div>
+
         <div class="mar">
             <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
         </div>
@@ -167,7 +167,7 @@ $('.search-form form').submit(function(){
                                     }
                                
                                 }",
-                                ),
+                            ),
                             'Reporte' => array(
                                 'icon' => 'file',
                                 'label' => 'Generar PDF Factura',
@@ -193,7 +193,7 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
-                       
+
                     </div>
                 </div>    
             </div>        
