@@ -9,13 +9,14 @@ class PDF extends FPDF {
     function Cabecera($i) {
 
         $connection = Yii::app()->db;
-        $sqlStatement = "SELECT FEC_FACT,COD_GUIA,NRO_RUC,DES_CLIE,DIR_TIEN FROM FAC_FACTU M
+        $sqlStatement = "SELECT COD_FACT, FEC_FACT,COD_GUIA,NRO_RUC,DES_CLIE,DIR_TIEN FROM FAC_FACTU M
                         inner join MAE_CLIEN C on C.COD_CLIE = M.COD_CLIE
                         inner join MAE_TIEND T on C.COD_CLIE = T.COD_CLIE
                         where COD_FACT  = '" . $i . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
         while ($row = $reader->read()) {
+            $Factura = $row['COD_FACT'];
             $Guia = $row['COD_GUIA'];
             $Fecha = $row['FEC_FACT'];
             $Ruc = $row['NRO_RUC'];
@@ -25,16 +26,25 @@ class PDF extends FPDF {
 
         $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
 
-        $this->SetFont('Arial', '', 11);
-        $this->Cell(18, 4, '', 1);
+        $this->SetFont('Arial', '', 10);
         $this->Ln();
-        $this->Cell(9, 1, utf8_decode(strtoupper($Fecha_Fac)), 1);
+        $this->Cell(18, 4, '', 0);
         $this->Ln();
-        $this->Cell(9, 1, utf8_decode(strtoupper($Descli)), 1);
-        $this->Cell(9, 1, strtoupper($Ruc), 1);
+        $this->Cell(9, 0.5, '', 0, '', 'C');
+        $this->Cell(9, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'C');
         $this->Ln();
-        $this->Cell(9, 1, utf8_decode(strtoupper($DirTien)), 1);
-        $this->Cell(9, 1, strtoupper($Guia), 1);
+        $this->Cell(2, 1, '', 0);
+        $this->Cell(16, 1, utf8_decode(strtoupper($Fecha_Fac)), 0);
+        $this->Ln();
+        $this->Cell(2, 1, '', 0);
+        $this->Cell(9, 1, utf8_decode(strtoupper($Descli)), 0);
+        $this->Cell(2, 1, '', 0);
+        $this->Cell(5, 1, strtoupper($Ruc), 0, '', 'R');
+        $this->Ln();
+        $this->Cell(2, 1, '', 0);
+        $this->Cell(9, 1, utf8_decode(strtoupper($DirTien)), 0);
+        $this->Cell(2, 1, '', 0);
+        $this->Cell(5, 1, strtoupper($Guia), 0, '', 'R');
         $this->Ln();
 
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
@@ -56,10 +66,10 @@ class PDF extends FPDF {
 
             $this->SetFont('Arial', '', 10);
             $this->Ln();
-            $this->Cell(2, 0.5, strtoupper($unid), 1, '', 'C');
-            $this->Cell(12, 0.5, utf8_decode($product), 1);
-            $this->Cell(2, 0.5, strtoupper($val), 1, '', 'C');
-            $this->Cell(2, 0.5, strtoupper($precTo), 1, '', 'R');
+            $this->Cell(2, 0.5, strtoupper($unid), 0, '', 'C');
+            $this->Cell(12, 0.5, utf8_decode(strtoupper($product)), 0);
+            $this->Cell(2, 0.5, strtoupper($val), 0, '', 'C');
+            $this->Cell(2, 0.5, strtoupper($precTo), 0, '', 'R');
         }
     }
 
@@ -71,12 +81,19 @@ class PDF extends FPDF {
         where F.COD_FACT = '" . $i . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-        while ($row = $reader->read()) { {
-                $Stotal = $row['TOT_FACT_SIN_IGV'];
-                $IGVPRO = $row['TOT_IGV'];
-                $Total = $row['TOT_FACT'];
-            }
+        while ($row = $reader->read()) {
+            $Stotal = $row['TOT_FACT_SIN_IGV'];
+            $IGVPRO = $row['TOT_IGV'];
+            $Total = $row['TOT_FACT'];
         }
+        $this->SetXY(1.8, 18);
+        $this->Cell(2, 0.5, '', 0, '', 'C');
+        $this->Cell(16, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
+        $this->Ln();
+        $this->Cell(12, 0.5, '', 0, '', 'C');
+        $this->Cell(2, 0.5, strtoupper($Stotal), 0, '', 'C');
+        $this->Cell(2, 0.5, strtoupper($IGVPRO), 0, '', 'C');
+        $this->Cell(2, 0.5, strtoupper($Total), 0, '', 'C');
     }
 
     function Impresion($i) {
@@ -153,7 +170,7 @@ function numtoletras($xcifra) {
                             $key = (int) substr($xaux, 1, 2);
                             if (TRUE === array_key_exists($key, $xarray)) {
                                 $xseek = $xarray[$key];
-                                $xsub = $this->subfijo($xaux);
+                                $xsub = subfijo($xaux);
                                 if (substr($xaux, 1, 2) == 20)
                                     $xcadena = " " . $xcadena . " VEINTE " . $xsub;
                                 else
@@ -175,7 +192,7 @@ function numtoletras($xcifra) {
                         } else {
                             $key = (int) substr($xaux, 2, 1);
                             $xseek = $xarray[$key]; // obtengo directamente el valor de la unidad (del uno al nueve)
-                            $xsub = $this->subfijo($xaux);
+                            $xsub = subfijo($xaux);
                             $xcadena = " " . $xcadena . " " . $xseek . " " . $xsub;
                         } // ENDIF (substr($xaux, 2, 1) < 1)
                         break;
