@@ -126,7 +126,7 @@ class FACGUIAREMISController extends Controller {
             <br>
             <p>
             Calle Ayabaca NÂ° 173            <br> 
-            Urb. Prolongación Benavides     <br>
+            Urb. Prolongaciï¿½n Benavides     <br>
             Lima - Lima - Santiago de Surco <br>
             Telf: 733-0476 / 282-3595       <br>
             www.panaderiaalemana.com
@@ -138,7 +138,7 @@ class FACGUIAREMISController extends Controller {
             <br>
             <p>
             <h4>
-            GUÍA REMISIÓN - REMITENTE<br> 
+            GUï¿½A REMISIï¿½N - REMITENTE<br> 
             </h4>
             </p>
             <br>
@@ -231,7 +231,7 @@ class FACGUIAREMISController extends Controller {
     <table border="0" class="table table-bordered table-condensed">
     <tr>
     <th style="text-align: center; vertical-align: center;">Cantidad</th>
-    <th style="text-align: center;">Descripción</th>
+    <th style="text-align: center;">Descripciï¿½n</th>
     <th style="text-align: center;">Peso Total</th>
     <th style="text-align: center;">Precio Unitario</th>
     <th style="text-align: center;">Importe Total</th>
@@ -392,7 +392,7 @@ Pag. {PAGENO} / {nb}
         	));
         }
         else{
-        	Yii::app()->user->setFlash('error', 'Se genero la Guia  satisfactoriamente');
+        	Yii::app()->user->setFlash('success', 'Se genero la Guia  satisfactoriamente');
         $model->IND_ESTA = '0';
         $this->render('Lista', array(
         		'model' => $model,

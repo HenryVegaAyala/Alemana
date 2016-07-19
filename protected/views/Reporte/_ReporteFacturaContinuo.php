@@ -68,7 +68,7 @@ class PDF extends PDF_JavaScript {
 
         $this->SetFont('Arial', '', 9);
         $this->Ln();
-        $this->Cell(18, 1.8, '', 0);
+        $this->Cell(18, 3, '', 0);
         $this->Ln();
         $this->Cell(9, 0.5, '', 0, '', 'C');
         $this->Cell(9, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'C');
@@ -127,11 +127,9 @@ class PDF extends PDF_JavaScript {
             $Total = $row['TOT_FACT'];
         }
         $this->SetFont('Arial', '', 9);
-        $this->SetXY(1.8, 18);
+        $this->SetXY(1.8, 17);
         $this->Cell(2, 0.5, '', 0, '', 'C');
         $this->Cell(16, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
-        $this->Ln();
-        $this->Cell(18, 1, '', 0, '', 'C');
         $this->Ln();
         $this->Cell(12, 1, '', 0, '', 'C');
         $this->Cell(2, 1, strtoupper($Stotal), 0, '', 'C');

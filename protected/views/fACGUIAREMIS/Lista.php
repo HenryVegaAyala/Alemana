@@ -35,8 +35,8 @@ $('.search-form form').submit(function(){
             <h3 class="panel-title">Lista de Guias Creadas</h3>
         </div>
         <?php if (Yii::app()->user->hasFlash('error')): ?>
-            <div class="alert alert-danger">
-                <?php echo Yii::app()->user->getFlash('error'); ?>
+            <div class="alert alert-success">
+                <?php echo Yii::app()->user->getFlash('success'); ?>
             </div>
         <?php endif ?>
         <div class="mar">
