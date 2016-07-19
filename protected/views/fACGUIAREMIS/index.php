@@ -34,7 +34,11 @@ $('.search-form form').submit(function(){
         <div class="panel-heading">
             <h3 class="panel-title">Búsqueda Guias</h3>
         </div>
-
+        <?php if (Yii::app()->user->hasFlash('error')): ?>
+            <div class="alert alert-danger">
+                <?php echo Yii::app()->user->getFlash('error'); ?>
+            </div>
+        <?php endif ?>
         <div class="mar">
             <div class="mar">            
                 <?php echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>

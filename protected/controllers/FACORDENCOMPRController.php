@@ -50,7 +50,7 @@ class FACORDENCOMPRController extends Controller {
         if($valueOut==0){
         	Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C para realizar la migracion Guia, por favor revisar');
          }
-        
+         Yii::app()->user->setFlash('error', 'Se genero la Guia : ' . $id .' satisfactoriamente');
 		        $this->render('index', array(
 		            'model' => $this->loadModel($id),
 		        ));

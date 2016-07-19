@@ -34,8 +34,13 @@ $('.search-form form').submit(function(){
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Lista de Facturas Creadas</h3>
+              <?php if (Yii::app()->user->hasFlash('error')): ?>
+            <div class="alert alert-danger">
+                <?php echo Yii::app()->user->getFlash('error'); ?>
+            </div>
+        <?php endif ?>
         </div>
-
+      
         <div class="mar">
             <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
         </div>
@@ -188,42 +193,7 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACFACTU/index')
                         ));
                         ?>
-                        <?php echo CHtml::SubmitButton('Generar Facturas Masivas', array('onclick' => 'return validation();', 'class' => 'btn btn-default btn-md')); ?>
-                        <script>
-                            function validation() {
-
-                                var item = $("form input:checkbox:checked");
-
-                                // alert('Plese select checkbox! ' + item.length);
-
-                                for (i = 0; i < item.length; i++) {
-                                    $.ajax({
-                                        url: 'ajax.php',
-                                        dataType: "json",
-                                        data: {
-                                            type: 'id_sele',
-                                            id: item[i].value
-                                        },
-                                        succes: function (data) {
-
-                                            response($.map(data, function (item) {
-
-                                                alert(item);
-                                                return {
-                                                    label: item,
-                                                    value: item,
-                                                    data: item
-                                                }
-                                            }));
-
-
-                                        }
-                                    });
-                                }
-
-                                return true;
-                            }
-                        </script>
+                       
                     </div>
                 </div>    
             </div>        

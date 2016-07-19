@@ -392,7 +392,7 @@ Pag. {PAGENO} / {nb}
         	));
         }
         else{
-        
+        	Yii::app()->user->setFlash('error', 'Se genero la Guia  satisfactoriamente');
         $model->IND_ESTA = '0';
         $this->render('Lista', array(
         		'model' => $model,
