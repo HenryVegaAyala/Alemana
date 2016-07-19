@@ -48,7 +48,7 @@ $('.search-form form').submit(function(){
         </div>
         <div class="search-form" style="display:none">
             <?php
-            $model = new FACORDENCOMPR();
+           
             $this->renderPartial('_search', array(
                 'model' => $model,
             ));
@@ -274,6 +274,7 @@ $('.search-form form').submit(function(){
                                         $.ajax({
                                             url: 'ajax.php',
                                             dataType: "json",
+                                            async: false,
                                             data: {
                                                 type: 'id_sele',
                                                 id: item[i].value
@@ -297,6 +298,7 @@ $('.search-form form').submit(function(){
                                         $.ajax({
                                             url: 'ajax.php',
                                             dataType: "json",
+                                            async: false,
                                             data: {
                                                 type: 'id_oc_tg',
                                                 id: item[i].value
