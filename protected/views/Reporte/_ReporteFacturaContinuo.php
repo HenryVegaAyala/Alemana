@@ -71,14 +71,12 @@ class PDF extends FPDF {
         where F.COD_FACT = '" . $i . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-        {
-            $Stotal = $row['TOT_FACT_SIN_IGV'];
-            $IGVPRO = $row['TOT_IGV'];
-            $Total = $row['TOT_FACT'];
+        while ($row = $reader->read()) { {
+                $Stotal = $row['TOT_FACT_SIN_IGV'];
+                $IGVPRO = $row['TOT_IGV'];
+                $Total = $row['TOT_FACT'];
+            }
         }
-        
-        
-        
     }
 
     function Impresion($i) {
