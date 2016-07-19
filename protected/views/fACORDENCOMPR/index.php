@@ -238,8 +238,9 @@ $('.search-form form').submit(function(){
                             'url' => array('/FACORDENCOMPR/index')
                         ));
                         ?>
-                    <?php echo 
-                    CHtml::SubmitButton('Generacion Guia Masiva', 
+                   
+                    <?php echo
+                    CHtml::SubmitButton('Generacion Guia Masiva ' , 
                             array(
                                 'onclick' => 'return validation(1);', 
                                 'class' => 'btn btn-default btn-md')); 
@@ -262,13 +263,13 @@ $('.search-form form').submit(function(){
                                     alert('Debe seleccionar las O/C que requiere anular ');    
                                    return false;
                                 }
-                                if (!confirm ('¿ Estas Seguro de generar masivamente las Guia?, sólo se consideraran aquellas O/C en estado creado ')){
+                                if (!confirm ('Estas Seguro de generar masivamente las Guia?, sÃ³lo se consideraran aquellas O/C en estado creado ')){
                                     return false;
                                 }
 
                                 for (i = 0; i < item.length; i++) {
 
-                                    if (code == 2) {
+                                    if (code === 2) {
                                         $.ajax({
                                             url: 'ajax.php',
                                             dataType: "json",
@@ -316,7 +317,7 @@ $('.search-form form').submit(function(){
                                         });
                                     }
                                 }
-
+                                $('.search-form form').submit();
                                 return true;
                             }
                         </script>

@@ -314,9 +314,9 @@ $('.search-form form').submit(function(){
                             function validation(code) {
 
                                 var item = $("form input:checkbox:checked");
-                                if (item.length == 0) {
+                                if (item.length === 0) {
 
-                                    if (code == 1)
+                                    if (code === 1)
                                         alert('Debe seleccionar las GuÃ­as que requieren procesar a Factura ');
                                     else
                                         alert('Debe seleccionar las GuÃ­as que requieren anular ');
@@ -324,13 +324,13 @@ $('.search-form form').submit(function(){
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
                                 
-                                if (!confirm ('¿ Estas Seguro de generar masivamente las Facturas?, sólo se consideraran aquellas guías en estado creado ')){
+                                if (!confirm ('Estas Seguro de generar masivamente las Facturas?, sÃ³lo se consideraran aquellas guï¿½as en estado creado ')){
                                     return false;
                                 }
 
                                 for (i = 0; i < item.length; i++) {
 
-                                    if (code == 2) {
+                                    if (code === 2) {
                                         $.ajax({
                                             url: 'ajax.php',
                                             dataType: "json",
