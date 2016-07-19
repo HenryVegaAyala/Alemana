@@ -317,7 +317,7 @@ $('.search-form form').submit(function(){
                                         });
                                     }
                                 }
-                                $('.search-form form').submit();
+                             
                                 return true;
                             }
                         </script>

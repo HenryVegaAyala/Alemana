@@ -40,7 +40,7 @@ class FACGUIAREMISController extends Controller {
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
            
-           // $this->renderPartial('index');
+           $this->renderPartial('index');
         }
 
         if ($_GET['type'] == 'id_guia_factu') {
@@ -51,7 +51,7 @@ class FACGUIAREMISController extends Controller {
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
             
-            //$this->renderPartial('index');
+            $this->renderPartial('index');
         }
         //$this->render('index');
         if ($_GET['type'] == 'id_guia') {
