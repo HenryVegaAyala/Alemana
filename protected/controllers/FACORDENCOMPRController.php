@@ -73,7 +73,7 @@ class FACORDENCOMPRController extends Controller {
             $sqlStatement = "call PED_ANULA_OC ('" . $id . "' ,'" . $usuario . "') ;";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
-            $this->renderPartial('index');
+            //$this->renderPartial('index');
         }
         
          if ($_GET['type'] == 'id_oc_tg') {
@@ -92,7 +92,7 @@ class FACORDENCOMPRController extends Controller {
             if($valueOut==0){
         	   Yii::app()->user->setFlash('error', 'Hay O/C no procesadas por no tener productos asociados, por favor revisar');
              }
-             $this->renderPartial('index');
+             //$this->renderPartial('index');
               
          }
 
