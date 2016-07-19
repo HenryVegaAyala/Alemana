@@ -48,6 +48,7 @@ $('.search-form form').submit(function(){
         </div>
         <div class="search-form" style="display:none">
             <?php
+            $model = new FACORDENCOMPR();
             $this->renderPartial('_search', array(
                 'model' => $model,
             ));
