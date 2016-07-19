@@ -51,7 +51,7 @@ $('.search-form form').submit(function(){
                     'defaultPageSize' => 10, // may use this :  Yii::app()->params['defaultPageSize'],
                     'pageSizeOptions' => array(5 => 5, 10 => 10, 25 => 25, 50 => 50, 100 => 100, 500 => 500), // you can config it in main.php under the config dir . Yii::app()->params['pageSizeOptions'],// Optional, you can use with the widget default
                 ));
-               
+
                 $dataProvider = $model->search();
                 $pageSize = Yii::app()->user->getState('pageSize', 10/* Yii::app()->params['defaultPageSize'] */);
                 $dataProvider->getPagination()->setPageSize($pageSize);
@@ -234,7 +234,7 @@ $('.search-form form').submit(function(){
 
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-1 col-sm-11">
                         <?php
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
@@ -254,7 +254,19 @@ $('.search-form form').submit(function(){
                             'size' => 'default',
                             'icon' => 'fa fa-print fa-lg',
                             'buttonType' => 'link',
-                            'htmlOptions' => array('onclick' => 'doSomething(); return false;','target' => '_blank;'),
+                            'htmlOptions' => array('onclick' => 'doSomething(); return false;', 'target' => '_blank;'),
+                            'url' => array('/FACGUIAREMIS/index')
+                        ));
+                        ?>
+                        <?php
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbButton', array(
+                            'context' => 'default',
+                            'label' => ' Imprimir Guias Masivas Continuo',
+                            'size' => 'default',
+                            'icon' => 'fa fa-print fa-lg',
+                            'buttonType' => 'link',
+                            'htmlOptions' => array('onclick' => 'doSomething1(); return false;', 'target' => '_blank;'),
                             'url' => array('/FACGUIAREMIS/index')
                         ));
                         ?>
@@ -327,8 +339,8 @@ $('.search-form form').submit(function(){
                                     return false;
                                 }
                                 // alert('Plese select checkbox! ' + item.length);
-                                
-                                if (!confirm ('Estas Seguro de generar masivamente las Facturas?, sólo se consideraran aquellas gu�as en estado creado ')){
+
+                                if (!confirm('Estas Seguro de generar masivamente las Guías?, sólo se consideraran aquellas Guías en estado creado ')) {
                                     return false;
                                 }
 
@@ -347,7 +359,7 @@ $('.search-form form').submit(function(){
 
                                                 response($.map(data, function(item) {
 
-                                                    
+
                                                     return {
                                                         label: item,
                                                         value: item,
@@ -393,7 +405,7 @@ $('.search-form form').submit(function(){
 
                                 var item = $("form input:checkbox:checked");
                                 if (item.length == 0) {
-                                    alert('Debe seleccionar las Facturas que requiere imprimir');
+                                    alert('Debe seleccionar las Guías    que requiere imprimir');
                                     return false;
                                 }
 //                                 alert('Plese select checkbox! ' + item.length);
@@ -409,6 +421,31 @@ $('.search-form form').submit(function(){
                                 }
 
                                 hhref = 'ajax.php?type=id_guia&id=' + idguia;
+                                window.open(hhref, '_blank');
+                                return false;
+                            }
+                        </script>
+                        <script>
+                            function doSomething1() {
+
+                                var item = $("form input:checkbox:checked");
+                                if (item.length == 0) {
+                                    alert('Debe seleccionar las Guías    que requiere imprimir');
+                                    return false;
+                                }
+//                                 alert('Plese select checkbox! ' + item.length);
+                                idguia = '';
+                                for (i = 0; i < item.length; i++) {
+                                    if ((i + 1) == item.length) {//si es el ultimo elemento
+                                        idguia = idguia + item[i].value;
+                                    } else {
+                                        if (item[i].value != '1') {
+                                            idguia = idguia + item[i].value + '_';
+                                        }
+                                    }
+                                }
+
+                                hhref = 'ajax2.php?type=id_guia&id=' + idguia;
                                 window.open(hhref, '_blank');
                                 return false;
                             }

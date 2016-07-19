@@ -132,9 +132,9 @@ $html.='
 ';
 
 $connection = Yii::app()->db;
-$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_ORDEN_COMPR F
+$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
             inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-            where F.COD_CLIE = '" . $model->COD_CLIE . "' and F.COD_TIEN = '" . $model->COD_TIEN . "';";
+            where F.COD_CLIE = '" . $model->COD_CLIE . "' and F.COD_TIEN = '" . $model->COD_TIEN . "' and F.COD_ORDE = '" . $model->COD_ORDE . "';";
 $command = $connection->createCommand($sqlStatement);
 $reader = $command->query();
 

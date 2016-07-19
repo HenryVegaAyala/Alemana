@@ -1,7 +1,6 @@
 <?php
 
 class FACGUIAREMISController extends Controller {
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -22,7 +21,7 @@ class FACGUIAREMISController extends Controller {
             array('allow', // allow authenticated 
                 'actions' => array('create', 'update', 'index', 'view',
                     'admin', 'delete', 'Lista', 'Anular',
-                    'ajax', 'Factura', 'Reporte', 'Anulado'),
+                    'ajax','Ajax2', 'Factura', 'Reporte', 'Anulado'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -39,8 +38,8 @@ class FACGUIAREMISController extends Controller {
             $sqlStatement = "call PED_ANULA_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
-           
-           //$this->renderPartial('index');
+
+            //$this->renderPartial('index');
         }
 
         if ($_GET['type'] == 'id_guia_factu') {
@@ -50,7 +49,7 @@ class FACGUIAREMISController extends Controller {
             $sqlStatement = "call PED_MIGRA_GUIA_TO_FACTU ('" . $id . "' ,'" . $usuario . "') ;";
             $command = $connection->createCommand($sqlStatement);
             $command->execute();
-            
+
             //$this->renderPartial('index');
         }
         //$this->render('index');
@@ -201,7 +200,7 @@ class FACGUIAREMISController extends Controller {
    <br><br>
    
    <tr>
-    <td colspan="2" >Destinatario: ' . strtoupper('hipermercados ' . $Descli ) . '</td>     
+    <td colspan="2" >Destinatario: ' . strtoupper('hipermercados ' . $Descli) . '</td>     
     <td colspan="2" >Punto de Partida: ' . strtoupper($Ppartida) . '</td>                                                          
    </tr>
    
@@ -281,11 +280,22 @@ Pag. {PAGENO} / {nb}
 <sethtmlpagefooter name="myfooter" value="on" />
 
 <div style="text-align: center;">DESTINATARIO</div>';
-        
+
         return $html;
     }
 
     /*     * *****************************REPORTE***************************************** */
+
+    public function actionAjax2() {
+ 
+        if ($_GET['type'] == 'id_guia') {
+            $id = $_GET["id"];
+            $idguia = explode("_", $id);
+
+            $this->renderPartial('/Reporte/_ReporteGuiaContinuo', array(
+                'idguia' => $idguia,));
+        }
+    }
 
     public function actionAnular($id) {
         $model = new FACGUIAREMIS('search');
@@ -376,30 +386,27 @@ Pag. {PAGENO} / {nb}
         $connection = Yii::app()->db;
         $sqlStatement = "call PED_MIGRA_OC_TO_GUIA (:id ,:usuario,@out) ;";
         $command = $connection->createCommand($sqlStatement);
-        $numoc = $_GET['no'];   
-       // $command = $connection->createCommand("CALL remove_places(:user_id,:placeID,:place_type,@out)");
-        $command->bindParam(":id",$id,PDO::PARAM_INT);
-        $command->bindParam(":usuario",$usuario,PDO::PARAM_INT);
-        
+        $numoc = $_GET['no'];
+        // $command = $connection->createCommand("CALL remove_places(:user_id,:placeID,:place_type,@out)");
+        $command->bindParam(":id", $id, PDO::PARAM_INT);
+        $command->bindParam(":usuario", $usuario, PDO::PARAM_INT);
+
         $command->execute();
         $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
-        
-        if($valueOut==0){
-        	Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C Nro : '. $numoc . ' para realizar la migracion Guia, por favor revisar');
-       
-        	$this->redirect('../../fACORDENCOMPR/index.php', array(
-        			'model' => $model,
-        	));
+
+        if ($valueOut == 0) {
+            Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C Nro : ' . $numoc . ' para realizar la migracion Guia, por favor revisar');
+
+            $this->redirect('../../fACORDENCOMPR/index.php', array(
+                'model' => $model,
+            ));
+        } else {
+            Yii::app()->user->setFlash('success', 'Se genero la Guia  satisfactoriamente');
+            $model->IND_ESTA = '0';
+            $this->render('Lista', array(
+                'model' => $model,
+            ));
         }
-        else{
-        	Yii::app()->user->setFlash('success', 'Se genero la Guia  satisfactoriamente');
-        $model->IND_ESTA = '0';
-        $this->render('Lista', array(
-        		'model' => $model,
-        ));
-        }
-        
-       
     }
 
     public function actionAdmin() {

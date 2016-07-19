@@ -39,22 +39,21 @@ class FACORDENCOMPRController extends Controller {
         $connection = Yii::app()->db;
         $sqlStatement = "call PED_MIGRA_OC_TO_GUIA (:id ,:usuario,@out) ;";
         $command = $connection->createCommand($sqlStatement);
-           
-       // $command = $connection->createCommand("CALL remove_places(:user_id,:placeID,:place_type,@out)");
-        $command->bindParam(":id",$id,PDO::PARAM_INT);
-        $command->bindParam(":usuario",$usuario,PDO::PARAM_INT);
-        
+
+        // $command = $connection->createCommand("CALL remove_places(:user_id,:placeID,:place_type,@out)");
+        $command->bindParam(":id", $id, PDO::PARAM_INT);
+        $command->bindParam(":usuario", $usuario, PDO::PARAM_INT);
+
         $command->execute();
         $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
-        
-        if($valueOut==0){
-        	Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C para realizar la migracion Guia, por favor revisar');
-         }
-         Yii::app()->user->setFlash('error', 'Se genero la Guia : ' . $id .' satisfactoriamente');
-		        $this->render('index', array(
-		            'model' => $this->loadModel($id),
-		        ));
-        
+
+        if ($valueOut == 0) {
+            Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C para realizar la migracion Guia, por favor revisar');
+        }
+        Yii::app()->user->setFlash('error', 'Se genero la Guia : ' . $id . ' satisfactoriamente');
+        $this->render('index', array(
+            'model' => $this->loadModel($id),
+        ));
     }
 
     public function actionConsulta() {
@@ -75,26 +74,25 @@ class FACORDENCOMPRController extends Controller {
             $command->execute();
             //$this->renderPartial('index');
         }
-        
-         if ($_GET['type'] == 'id_oc_tg') {
+
+        if ($_GET['type'] == 'id_oc_tg') {
             $id = $_GET["id"];
             $connection = Yii::app()->db;
             $usuario = Yii::app()->user->name;
-		    $sqlStatement = "call PED_MIGRA_OC_TO_GUIA(:id ,:usuario,@out) ;";
- 	        $command = $connection->createCommand($sqlStatement);
-           
-	        $command->bindParam(":id",$id,PDO::PARAM_INT);
-	        $command->bindParam(":usuario",$usuario,PDO::PARAM_INT);
-	        
+            $sqlStatement = "call PED_MIGRA_OC_TO_GUIA(:id ,:usuario,@out) ;";
+            $command = $connection->createCommand($sqlStatement);
+
+            $command->bindParam(":id", $id, PDO::PARAM_INT);
+            $command->bindParam(":usuario", $usuario, PDO::PARAM_INT);
+
             $command->execute();
-             $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
-        
-            if($valueOut==0){
-        	   Yii::app()->user->setFlash('error', 'Hay O/C no procesadas por no tener productos asociados, por favor revisar');
-             }
-             //$this->renderPartial('index');
-              
-         }
+            $valueOut = $connection->createCommand("select @out as result;")->queryScalar();
+
+            if ($valueOut == 0) {
+                Yii::app()->user->setFlash('error', 'Hay O/C no procesadas por no tener productos asociados, por favor revisar');
+            }
+            //$this->renderPartial('index');
+        }
 
         if ($_GET['type'] == 'produc_tiend') {
             $cliente = $_GET["clie"];
@@ -111,8 +109,6 @@ class FACORDENCOMPRController extends Controller {
             }
             echo json_encode($data);
         }
-        
-        
     }
 
     public function actionRespaldo() {
@@ -217,7 +213,9 @@ class FACORDENCOMPRController extends Controller {
             } else {
                 Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C');
             }
+            Yii::app()->user->setFlash('success', 'Se genero la O/C satisfactoriamente.');
         }
+
 
         $this->render('create', array(
             'model' => $model,
@@ -322,7 +320,6 @@ class FACORDENCOMPRController extends Controller {
         $model->unsetAttributes();  // clear any default values
         if (isset($_POST['FACORDENCOMPR']))
             $model->attributes = $_POST['FACORDENCOMPR'];
-
 
         $this->render('index', array(
             'model' => $model,

@@ -5,8 +5,6 @@ $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
     'method' => 'post',
         ));
-
-
 ?>
 
 <?php
@@ -36,10 +34,16 @@ $('.search-form form').submit(function(){
         <div class="panel-heading">
             <h3 class="panel-title">Búsqueda O/C</h3>
         </div>
-        
-         <?php if (Yii::app()->user->hasFlash('error')): ?>
+
+        <?php if (Yii::app()->user->hasFlash('error')): ?>
             <div class="alert alert-danger">
                 <?php echo Yii::app()->user->getFlash('error'); ?>
+            </div>
+        <?php endif ?>
+
+        <?php if (Yii::app()->user->hasFlash('success')): ?>
+            <div class="alert alert-success">
+                <?php echo Yii::app()->user->getFlash('success'); ?>
             </div>
         <?php endif ?>
 
@@ -48,7 +52,6 @@ $('.search-form form').submit(function(){
         </div>
         <div class="search-form" style="display:none">
             <?php
-           
             $this->renderPartial('_search', array(
                 'model' => $model,
             ));
@@ -225,109 +228,109 @@ $('.search-form form').submit(function(){
 
         </div>
 
-            <div class="panel-footer " style="overflow:hidden;text-align:right;">
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <?php
-                        $this->widget(
-                                'ext.bootstrap.widgets.TbButton', array(
-                            'context' => 'default',
-                            'label' => 'Refrescar Lista O/C',
-                            'size' => 'default',
-                            'icon' => 'refresh',
-                            'buttonType' => 'link',
-                            'url' => array('/FACORDENCOMPR/index')
-                        ));
-                        ?>
-                   
-                    <?php echo
-                    CHtml::SubmitButton('Generacion Guia Masiva ' , 
-                            array(
-                                'onclick' => 'return validation(1);', 
-                                'class' => 'btn btn-default btn-md')); 
+        <div class="panel-footer " style="overflow:hidden;text-align:right;">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <?php
+                    $this->widget(
+                            'ext.bootstrap.widgets.TbButton', array(
+                        'context' => 'default',
+                        'label' => 'Refrescar Lista O/C',
+                        'size' => 'default',
+                        'icon' => 'refresh',
+                        'buttonType' => 'link',
+                        'url' => array('/FACORDENCOMPR/index')
+                    ));
                     ?>
-                    <?php echo 
-                    CHtml::SubmitButton('Anulación Masiva', 
-                            array(
-                                'onclick' => 'return validation(2);', 
-                                'class' => 'btn btn-default btn-md')); 
-                    ?>
-                    
-                        <script>
-                            function validation(code) {
 
-                                var item = $("form input:checkbox:checked");
-                                if (item.length == 0) {
-                                   if(code==1) 
+                    <?php
+                    echo
+                    CHtml::SubmitButton('Generacion Guia Masiva ', array(
+                        'onclick' => 'return validation(1);',
+                        'class' => 'btn btn-default btn-md'));
+                    ?>
+                    <?php
+                    echo
+                    CHtml::SubmitButton('Anulación Masiva', array(
+                        'onclick' => 'return validation(2);',
+                        'class' => 'btn btn-default btn-md'));
+                    ?>
+
+                    <script>
+                        function validation(code) {
+
+                            var item = $("form input:checkbox:checked");
+                            if (item.length == 0) {
+                                if (code == 1)
                                     alert('Debe seleccionar las O/C que requiere procesar ');
-                                   else
-                                    alert('Debe seleccionar las O/C que requiere anular ');    
-                                   return false;
-                                }
-                                if (!confirm ('Estas Seguro de generar masivamente las Guia?, sólo se consideraran aquellas O/C en estado creado ')){
-                                    return false;
-                                }
-
-                                for (i = 0; i < item.length; i++) {
-
-                                    if (code === 2) {
-                                        $.ajax({
-                                            url: 'ajax.php',
-                                            dataType: "json",
-                                            async: false,
-                                            data: {
-                                                type: 'id_sele',
-                                                id: item[i].value
-                                            },
-                                            succes: function(data) {
-
-                                                response($.map(data, function(item) {
-
-                                                    // alert(item);
-                                                    return {
-                                                        label: item,
-                                                        value: item,
-                                                        data: item
-                                                    }
-                                                }));
-
-
-                                            }
-                                        });
-                                    } else {
-                                        $.ajax({
-                                            url: 'ajax.php',
-                                            dataType: "json",
-                                            async: false,
-                                            data: {
-                                                type: 'id_oc_tg',
-                                                id: item[i].value
-                                            },
-                                            succes: function(data) {
-
-                                                response($.map(data, function(item) {
-
-                                                    // alert(item);
-                                                    return {
-                                                        label: item,
-                                                        value: item,
-                                                        data: item
-                                                    }
-                                                }));
-
-
-                                            }
-                                        });
-                                    }
-                                }
-                             
-                                return true;
+                                else
+                                    alert('Debe seleccionar las O/C que requiere anular ');
+                                return false;
                             }
-                        </script>
-                    </div>
-                </div>  
-            </div>
+                            if (!confirm('Estas Seguro de generar masivamente las Guia?, sólo se consideraran aquellas O/C en estado creado ')) {
+                                return false;
+                            }
+
+                            for (i = 0; i < item.length; i++) {
+
+                                if (code === 2) {
+                                    $.ajax({
+                                        url: 'ajax.php',
+                                        dataType: "json",
+                                        async: false,
+                                        data: {
+                                            type: 'id_sele',
+                                            id: item[i].value
+                                        },
+                                        succes: function(data) {
+
+                                            response($.map(data, function(item) {
+
+                                                // alert(item);
+                                                return {
+                                                    label: item,
+                                                    value: item,
+                                                    data: item
+                                                }
+                                            }));
+
+
+                                        }
+                                    });
+                                } else {
+                                    $.ajax({
+                                        url: 'ajax.php',
+                                        dataType: "json",
+                                        async: false,
+                                        data: {
+                                            type: 'id_oc_tg',
+                                            id: item[i].value
+                                        },
+                                        succes: function(data) {
+
+                                            response($.map(data, function(item) {
+
+                                                // alert(item);
+                                                return {
+                                                    label: item,
+                                                    value: item,
+                                                    data: item
+                                                }
+                                            }));
+
+
+                                        }
+                                    });
+                                }
+                            }
+
+                            return true;
+                        }
+                    </script>
+                </div>
+            </div>  
         </div>
     </div>
+</div>
 
 <?php $this->endWidget(); ?>
