@@ -69,30 +69,30 @@ class PDF extends PDF_JavaScript {
         $this->SetFont('Arial', '', 9);
 
 //       -- Espacio 1
-        $this->Cell(19.3, 1.5, '', 1);
+        $this->Cell(19.3, 1.5, '', 0);
         $this->Ln();
 //       -- Espacio 2
-        $this->Cell(11.8, 0.5, '', 1, '', 'C');
-        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 1, '', 'C');
+        $this->Cell(11.8, 0.5, '', 0, '', 'C');
+        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'C');
         $this->Ln();
 //       -- Espacio 3
-        $this->Cell(19.3, 0.3, '', 1, '', 'C');
+        $this->Cell(19.3, 0.3, '', 0, '', 'C');
         $this->Ln();
 //       -- Espacio 4        
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(17.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 1);
+        $this->Cell(2, 0.8, '', 0);
+        $this->Cell(17.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 0);
         $this->Ln();
 //       -- Espacio 5
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($Descli)), 1);
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(5, 0.8, strtoupper($Ruc), 1, '', 'R');
+        $this->Cell(2, 0.8, '', 0);
+        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($Descli)), 0);
+        $this->Cell(2, 0.8, '', 0);
+        $this->Cell(5, 0.8, strtoupper($Ruc), 0, '', 'C');
         $this->Ln();
 //       -- Espacio 6
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($DirTien)), 1);
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(5, 0.8, strtoupper($Guia), 1, '', 'R');
+        $this->Cell(2, 0.8, '', 0);
+        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($DirTien)), 0);
+        $this->Cell(2, 0.8, '', 0);
+        $this->Cell(5, 0.8, strtoupper($Guia), 0, '', 'C');
         $this->Ln();
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
     }
@@ -107,7 +107,7 @@ class PDF extends PDF_JavaScript {
         $reader = $command->query();
         
 //       -- Espacio 7
-        $this->Cell(19.3, 1, '', 1);
+        $this->Cell(19.3, 1, '', 0);
         $this->Ln();
         
         while ($row = $reader->read()) {
@@ -118,10 +118,10 @@ class PDF extends PDF_JavaScript {
 
             $this->SetFont('Arial', '', 8);
 //       -- Espacio N            
-            $this->Cell(1.6, 0.4, number_format($unid), 1, '', 'C');
-            $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 1);
-            $this->Cell(2.9, 0.4, strtoupper($val), 1, '', 'C');
-            $this->Cell(3, 0.4, strtoupper($precTo), 1, '', 'C');
+            $this->Cell(1.6, 0.4, number_format($unid), 0, '', 'C');
+            $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 0);
+            $this->Cell(2.9, 0.4, strtoupper($val), 0, '', 'C');
+            $this->Cell(3, 0.4, strtoupper($precTo), 0, '', 'C');
             $this->Ln();
         }
     }
@@ -144,13 +144,13 @@ class PDF extends PDF_JavaScript {
         $this->SetXY(1.93, 17.09);
         
         $this->Ln();
-        $this->Cell(1.2, 0.5, '', 1, '', 'C');
-        $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 1);
+        $this->Cell(1.2, 0.5, '', 0, '', 'C');
+        $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
         $this->Ln();
-        $this->Cell(9.6, 1.5, '', 1, '', 'C');
-        $this->Cell(3.1, 1.5, strtoupper($Stotal), 1, '', 'C');
-        $this->Cell(3.1, 1.5, strtoupper($IGVPRO), 1, '', 'C');
-        $this->Cell(3.5, 1.5, strtoupper($Total), 1, '', 'C');
+        $this->Cell(9.6, 1.5, '', 0, '', 'C');
+        $this->Cell(3.1, 1.5, strtoupper($Stotal), 0, '', 'C');
+        $this->Cell(3.1, 1.5, strtoupper($IGVPRO), 0, '', 'C');
+        $this->Cell(3.5, 1.5, strtoupper($Total), 0, '', 'C');
     }
 
     function Impresion($i) {
