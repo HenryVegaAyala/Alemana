@@ -335,4 +335,4 @@ $pdf->AutoPrint(true);
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'I');
+$pdf->Output($Reporte, 'D');

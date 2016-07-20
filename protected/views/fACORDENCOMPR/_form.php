@@ -1,12 +1,6 @@
-
-<?php
-/* @var $this FACORDENCOMPRController */
-/* @var $model FACORDENCOMPR */
-/* @var $form CActiveForm */
-?>
-
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styleV2.css">
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -189,7 +183,7 @@
 
         <div id="add" style="display: none">
             <?php
-            include __DIR__ . '/../tEMPFACDETALORDENCOMPR/admin.php';
+            include __DIR__ . '/../Recurso/Grilla.php';
             ?>
         </div>
 
