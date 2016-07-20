@@ -41,7 +41,7 @@ function imprimir($id,$tota){
             <td style="text-align: center;" width="25%"></td>
 			<td style="text-align: center;" width="25%">TOTAL</td>
 			<td style="text-align: center;" width="25%"></td>
-            <td style="text-align: letf;"  width="25%">' . $tota . ' </td>
+            <td style="text-align: letf; font-weight: bold;"  width="25%">' . $tota . ' </td>
               </tr>';
 	
 	return $cadena;
@@ -58,12 +58,12 @@ function imprimirProducto($id,$tienda,$tota){
 		$cadena.= '
         <tr>
         <td style="text-align: center;" width="12%"> ' . $row['DES_CLIE'] . ' </td>
-        <td style="text-align: center;"  width="12%">' . $row['DIR_TIEN'] . '</td>
-        <td style="text-align: left;"  width="16%">' . $row['COD_PROD'] . '</td>
+        <td style="text-align: center;" width="12%">' . $row['DIR_TIEN'] . '</td>
+        <td style="text-align: left;"   width="16%">' . $row['COD_PROD'] . '</td>
         <td style="text-align: left;"  width="40%">' . $row['DES_LARG'] . '</td>
        
-        <td style="text-align: right;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
-         <td style="text-align: right;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
+         <td style="text-align: center;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
         </tr>';
 	}
 
@@ -73,7 +73,7 @@ function imprimirProducto($id,$tienda,$tota){
 			 <td style="text-align: center;" width="25%"></td>
                         <td style="text-align: center;" width="25%"></td>
 			<td style="text-align: center;" width="25%">TOTAL</td>
-			<td style="text-align: center;" width="25%">' . $tota . '</td>
+			<td style="text-align: left; font-weight: bold;" width="25%">' . $tota . '</td>
                         <td style="text-align: center;"  width="25%"> </td>
               </tr>';
 
