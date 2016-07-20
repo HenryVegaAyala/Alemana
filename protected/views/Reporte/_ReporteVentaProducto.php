@@ -39,15 +39,19 @@ function imprimir($id,$tota){
 	$cadena.= '
             <tr>
             <td style="text-align: center;" width="25%"></td>
-			<td style="text-align: center;" width="25%">TOTAL</td>
-			<td style="text-align: center;" width="25%"></td>
-            <td style="text-align: letf; font-weight: bold;"  width="25%">' . $tota . ' </td>
-              </tr>';
+	    <td style="text-align: center;font-weight: bold;" width="25%">TOTAL(S./)</td>
+            <td style="text-align: center; font-weight: bold;"  width="25%">' . $tota . ' </td>
+           </tr>
+           <tr>
+            <td style="text-align: center;" width="25%">&nbsp;</td>
+	    <td style="text-align: center;" width="25%"></td>
+            <td style="text-align: letf; font-weight: bold;"  width="25%"> </td>
+           </tr>';
 	
 	return $cadena;
 }
 
-function imprimirProducto($id,$tienda,$tota){
+function imprimirProducto($id,$tienda,$tota,$unidades){
 	$connection = Yii::app()->db;
 	$Usuario = Yii::app()->user->name;
 	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id and cod_tien = $tienda and usu_digi='$Usuario' order by cod_clie,cod_tien;";
@@ -59,7 +63,7 @@ function imprimirProducto($id,$tienda,$tota){
         <tr>
         <td style="text-align: center;" width="12%"> ' . $row['DES_CLIE'] . ' </td>
         <td style="text-align: center;" width="12%">' . $row['DIR_TIEN'] . '</td>
-        <td style="text-align: left;"   width="16%">' . $row['COD_PROD'] . '</td>
+        <td style="text-align: center;"   width="16%">' . $row['COD_PROD'] . '</td>
         <td style="text-align: left;"  width="40%">' . $row['DES_LARG'] . '</td>
        
         <td style="text-align: center;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
@@ -69,13 +73,26 @@ function imprimirProducto($id,$tienda,$tota){
 
 	$cadena.= '
             <tr>
-			 <td style="text-align: center;" width="25%"></td>
-			 <td style="text-align: center;" width="25%"></td>
-                        <td style="text-align: center;" width="25%"></td>
-			<td style="text-align: center;" width="25%">TOTAL</td>
-			<td style="text-align: left; font-weight: bold;" width="25%">' . $tota . '</td>
-                        <td style="text-align: center;"  width="25%"> </td>
-              </tr>';
+			 <td style="text-align: center;" width="12%"></td>
+			 <td style="text-align: center;" width="12%"></td>
+                        <td style="text-align: center;" width="16%"></td>
+			<td style="text-align: center; font-weight: bold;" width="40%">TOTAL</td>
+			<td style="text-align: center; font-weight: bold;" width="15%">' . $tota . '</td>
+                        <td style="text-align: center; font-weight: bold;"  width="10%"> ' . $unidades . '</td>
+              </tr>
+               <tr>
+			 <td style="text-align: center;" width="12%" >&nbsp;</td>
+			 <td style="text-align: center;" width="12%"></td>
+                        <td style="text-align: center;" width="16%"></td>
+			<td style="text-align: center; font-weight: bold;" width="40%"></td>
+			<td style="text-align: center; font-weight: bold;" width="15%"></td>
+                        <td style="text-align: center; font-weight: bold;"  width="10%"> </td>
+              </tr>
+              
+              ';              
+                
+                
+             
 
 	return $cadena;
 }
@@ -94,7 +111,7 @@ function Cuerpo($id) {
     <table border="1" class="table table-bordered table-condensed">
     <tr>
     <th style="text-align: center;">CLIENTE</th>
-     <th style="text-align: center;">VENTA</th>
+     <th style="text-align: center;">VENTA(S./)</th>
     </tr>    
 ';
     while ($row = $reader->read()) {
@@ -122,7 +139,7 @@ function Cuerpo($id) {
                <td width="20%" ></td>
                <td width="20%" ></td>
                 <td width="20%"></td>
-                <td width="25%"  style="text-align: center;" >TOTAL</td>                
+                <td width="25%"  style="text-align: center;" >TOTAL(S./)</td>                
                 <td width="25%"  style="text-align: left;">'. number_format($total,2) .'</td>
             </tr>
        
@@ -136,7 +153,7 @@ function Cuerpo($id) {
     <th style="text-align: center;">CLIENTE</th>
     <th style="text-align: center;">TIENDA</th>
  
-    <th style="text-align: center;">VENTA</th>
+    <th style="text-align: center;">VENTA(S./)</th>
     </tr>    
 ';
     
@@ -148,6 +165,7 @@ function Cuerpo($id) {
     	$clie = $row2['COD_CLIE'];
     	$tot= $row2['Total'];
     	$totaL=$totaL+$tot;
+        
     	$Tienda.=imprimir($clie,$tot);
     }
     
@@ -164,7 +182,7 @@ function Cuerpo($id) {
      		
      		
                 <td width="25%" ></td>
-                <td width="25%"  style="text-align: center;" >TOTAL</td>                
+                <td width="25%"  style="text-align: center;" >TOTAL(S./)</td>                
                 <td width="25%"  style="text-align: left;">'. number_format($totaL,2) .'</td>
             </tr>
        
@@ -180,22 +198,25 @@ function Cuerpo($id) {
     <th style="text-align: center;">CODIGO</th>
     <th style="text-align: center;">PRODUCTO</th>
    
-    <th style="text-align: center;">TOTAL</th>
+    <th style="text-align: center;">VENTA(S./)</th>
      <th style="text-align: center;">UNIDADES</th>
     </tr>    
 ';
     
     
-    $sqlStatement1 = "SELECT COD_CLIE,COD_TIEN, SUM(IMP_TOTA) Total FROM tmp_repor_venta where usu_digi='$Usuario' GROUP BY COD_CLIE,COD_TIEN order by 1,2 desc;";
+    $sqlStatement1 = "SELECT COD_CLIE,COD_TIEN, SUM(IMP_TOTA) Total ,sum(UNI_SOLI) UNIDADES FROM tmp_repor_venta where usu_digi='$Usuario' GROUP BY COD_CLIE,COD_TIEN order by 1,2 desc;";
     $command1 = $connection->createCommand($sqlStatement1);
     $totaL=0.00;
+    $totaU=0.00;
     $reader2 = $command1->query();
     while ($row2 = $reader2->read()) {
     	$clie = $row2['COD_CLIE'];
         $tiend = $row2['COD_TIEN'];
     	$tot= $row2['Total'];
+        $cantidades= $row2['UNIDADES'];
     	$totaL=$totaL+$tot;
-    	$Producto.=imprimirProducto($clie,$tiend,$tot);
+        $totaU=$totaU+$cantidades;
+    	$Producto.=imprimirProducto($clie,$tiend,$tot,$totaU);
     }
     
   
@@ -210,7 +231,7 @@ function Cuerpo($id) {
     
     
                 <td width="25%" ></td>
-                <td width="25%"  style="text-align: center;" >TOTAL</td>
+                <td width="25%"  style="text-align: center;" >TOTAL(S./)</td>
                 <td width="25%"  style="text-align: left;">'. number_format($totaL,2) .'</td>
             </tr>
     
