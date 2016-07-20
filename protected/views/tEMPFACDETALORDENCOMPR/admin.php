@@ -1,18 +1,9 @@
 <?php
 Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/jqueryui.css');
-//Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/new/bootstrapm.css');
-//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1102.js');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jquery1103.js');
 ?>
 
 <script language="javascript" type="text/javascript">
-
-//    function cerrar() {
-//        var f = document.forms[0];
-//        f.submit();
-////        window.opener.jsload();
-//        setTimeout("window.close()", 1000);
-//    }
 
 
     function stopRKey(evt) {
@@ -37,19 +28,6 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/css/new/jqu
 </script>
 
 
-<?php
-$usuario = Yii::app()->user->name;
-
-$ip = getenv("REMOTE_ADDR");
-$pc = @gethostbyaddr($ip);
-
-$pcip = $pc . ' - ' . $ip;
-
-
-Yii::app()->session['PCIP'] = $pcip;
-Yii::app()->session['USU'] = $usuario;
-?>
-
 <html>
 
     <button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore'>+ Agregar Campos de Productos</button>
@@ -65,42 +43,10 @@ Yii::app()->session['USU'] = $usuario;
             <th>Precio</th>
             <th>Total</th>
         </tr>
-        
-        
-<!--        <tr>
-            <td><input type='checkbox' class='case'/></td>
-            <td><span id='snum'>1</span></td>
-            <td><input type="text" id='DES_LARG' name='DES_LARG[]' size="45" class="form-control"/></td>
-            <td><input type="text" id='campo_COD_PROD' name='COD_PROD[]' size="10" class="form-control" readonly="true"/></td>
-            <td><input type="text" onchange="jsCalcular(this)"  id='campo_NRO_UNID' name='NRO_UNID[]' value="0" size="10" class="form-control" /></td>
-            <td><input type="text" onchange="jsCalcular(this)"  onkeypress="jsAgregar(event);" id='campo_VAL_PREC' name='VAL_PREC[]' value="0" size="10" class="form-control"/> </td>
-            <td><input type="text" id='campo_VAL_MONT_UNID' name='VAL_MONT_UNID[]' size="10" class="form-control" readonly="true"/> </td>
-        </tr>-->
+
     </table>
     <br>
 
-    <?php
-//    $connection = Yii::app()->db;
-//
-////    if (isset($_POST['btnsubmit'])) {
-//    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//        $CODPRO = $_POST['COD_PROD'];
-//        $DESCRI = $_POST['DES_LARG'];
-//        $UND = $_POST['NRO_UNID'];
-//        $VALPRE = $_POST['VAL_PREC'];
-//        $VALMOTUND = $_POST['VAL_MONT_UNID'];
-//
-//        for ($i = 0; $i < count($CODPRO); $i++) {
-//            
-//                   
-//            if($CODPRO[$i] <> ''){
-//             $sqlStatement = "call prueba('" . $CODPRO[$i] . "', '" . $UND[$i] . "','" . $VALPRE[$i] . "', '" . $VALMOTUND[$i] . "','" . $DESCRI[$i] . "','" . $usuario . "','" . $pcip . "')";
-//             $command = $connection->createCommand($sqlStatement);
-//             $command->execute();
-//            }
-//        }
-//    }
-    ?>
 </html>
 
 
