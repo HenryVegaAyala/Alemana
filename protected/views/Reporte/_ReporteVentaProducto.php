@@ -47,10 +47,10 @@ function imprimir($id,$tota){
 	return $cadena;
 }
 
-function imprimirProducto($id,$tota){
+function imprimirProducto($id,$tienda,$tota){
 	$connection = Yii::app()->db;
 	$Usuario = Yii::app()->user->name;
-	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id and usu_digi='$Usuario';";
+	$sqlStatement3 = "SELECT * FROM tmp_repor_venta where cod_clie = $id and cod_tien = $tienda and usu_digi='$Usuario' order by cod_clie,cod_tien;";
 	$command3 = $connection->createCommand($sqlStatement3);
 	$reader3 = $command3->query();
 	$cadena='';
@@ -61,8 +61,9 @@ function imprimirProducto($id,$tota){
         <td style="text-align: center;"  width="12%">' . $row['DIR_TIEN'] . '</td>
         <td style="text-align: left;"  width="16%">' . $row['COD_PROD'] . '</td>
         <td style="text-align: left;"  width="40%">' . $row['DES_LARG'] . '</td>
-        <td style="text-align: right;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
+       
         <td style="text-align: right;" width="10%"> ' . $row['IMP_TOTA'] . ' </td>
+         <td style="text-align: right;" width="10%"> ' . number_format($row['UNI_SOLI'],2) . ' </td>
         </tr>';
 	}
 
@@ -70,10 +71,10 @@ function imprimirProducto($id,$tota){
             <tr>
 			 <td style="text-align: center;" width="25%"></td>
 			 <td style="text-align: center;" width="25%"></td>
-            <td style="text-align: center;" width="25%"></td>
+                        <td style="text-align: center;" width="25%"></td>
 			<td style="text-align: center;" width="25%">TOTAL</td>
-			<td style="text-align: center;" width="25%"></td>
-            <td style="text-align: center;"  width="25%">' . $tota . ' </td>
+			<td style="text-align: center;" width="25%">' . $tota . '</td>
+                        <td style="text-align: center;"  width="25%"> </td>
               </tr>';
 
 	return $cadena;
@@ -178,21 +179,23 @@ function Cuerpo($id) {
     <th style="text-align: center;">TIENDA</th>
     <th style="text-align: center;">CODIGO</th>
     <th style="text-align: center;">PRODUCTO</th>
-    <th style="text-align: center;">UNIDADES</th>
+   
     <th style="text-align: center;">TOTAL</th>
+     <th style="text-align: center;">UNIDADES</th>
     </tr>    
 ';
     
     
-    $sqlStatement1 = "SELECT COD_CLIE, SUM(IMP_TOTA) Total FROM tmp_repor_venta where usu_digi='$Usuario' GROUP BY COD_CLIE order by 2 desc;";
+    $sqlStatement1 = "SELECT COD_CLIE,COD_TIEN, SUM(IMP_TOTA) Total FROM tmp_repor_venta where usu_digi='$Usuario' GROUP BY COD_CLIE,COD_TIEN order by 1,2 desc;";
     $command1 = $connection->createCommand($sqlStatement1);
     $totaL=0.00;
     $reader2 = $command1->query();
     while ($row2 = $reader2->read()) {
     	$clie = $row2['COD_CLIE'];
+        $tiend = $row2['COD_TIEN'];
     	$tot= $row2['Total'];
     	$totaL=$totaL+$tot;
-    	$Producto.=imprimirProducto($clie,$tot);
+    	$Producto.=imprimirProducto($clie,$tiend,$tot);
     }
     
   
