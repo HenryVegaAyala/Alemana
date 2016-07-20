@@ -56,14 +56,6 @@ class FACORDENCOMPRController extends Controller {
         ));
     }
 
-    public function actionConsulta() {
-        $this->render('/tEMPFACDETALORDENCOMPR/Consulta');
-    }
-
-    public function actionSearch() {
-        $this->render('/tEMPFACDETALORDENCOMPR/search');
-    }
-
     public function actionAjax() {
         if ($_GET['type'] == 'id_sele') {
             $id = $_GET["id"];
@@ -153,7 +145,6 @@ class FACORDENCOMPRController extends Controller {
 
     public function actionCreate() {
         $model = new FACORDENCOMPR;
-        $modelOC = new TEMPFACDETALORDENCOMPR();
 
         if (isset($_POST['FACORDENCOMPR'])) {
 
@@ -219,7 +210,6 @@ class FACORDENCOMPRController extends Controller {
 
         $this->render('create', array(
             'model' => $model,
-            'modelOC' => $modelOC,
         ));
     }
 
