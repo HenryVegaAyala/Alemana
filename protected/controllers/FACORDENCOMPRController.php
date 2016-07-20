@@ -214,7 +214,6 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionUpdate($id) {
-        $modelOC = new TEMPFACDETALORDENCOMPR();
         $model = $this->loadModel($id);
 
         if (isset($_POST['FACORDENCOMPR'])) {
@@ -277,7 +276,6 @@ class FACORDENCOMPRController extends Controller {
 
         $this->render('update', array(
             'model' => $model,
-            'modelOC' => $modelOC,
         ));
     }
 
