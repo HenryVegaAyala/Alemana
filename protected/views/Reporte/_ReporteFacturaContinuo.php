@@ -69,7 +69,7 @@ class PDF extends PDF_JavaScript {
         $this->SetFont('Arial', '', 9);
 
 //       -- Espacio 1
-        $this->Cell(19.3, 4.3, '', 0);
+        $this->Cell(19.3, 3, '', 0);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 0, '', 'C');
