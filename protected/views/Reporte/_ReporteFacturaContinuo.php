@@ -79,14 +79,14 @@ class PDF extends PDF_JavaScript {
         $this->Cell(19.3, 0.3, '', 0, '', 'C');
         $this->Ln();
 //       -- Espacio 4        
-        $this->Cell(1, 0.8, '', 0);
-        $this->Cell(18.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 0);
+        $this->Cell(1, 1.1, '', 0);
+        $this->Cell(18.3, 1.1, utf8_decode(strtoupper($Fecha_Fac)), 0);
         $this->Ln();
 //       -- Espacio 5
-        $this->Cell(1, 0.8, '', 0);
-        $this->Cell(11.3, 0.8, utf8_decode(strtoupper($Descli)), 10);
-        $this->Cell(1, 0.8, '', 0);
-        $this->Cell(6, 0.8, strtoupper($Ruc), 0, '', 'C');
+        $this->Cell(1, 0.5, '', 0);
+        $this->Cell(11.3, 0.5, utf8_decode(strtoupper($Descli)), 10);
+        $this->Cell(1, 0.5, '', 0);
+        $this->Cell(6, 0.5, strtoupper($Ruc), 0, '', 'C');
         $this->Ln();
 //       -- Espacio 6
         $this->Cell(1, 0.8, '', 0);
@@ -357,4 +357,4 @@ for ($i = 0; $i < $count; $i++) {
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'I');
+$pdf->Output($Reporte, 'D');
