@@ -69,28 +69,28 @@ class PDF extends PDF_JavaScript {
         $this->SetFont('Arial', '', 9);
 
 //       -- Espacio 1
-        $this->Cell(19.3, 3.8, '', 1);
+        $this->Cell(19.3, 4.3, '', 1);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 1, '', 'C');
-        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 1, '', 'C');
+        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'C');
         $this->Ln();
 //       -- Espacio 3
         $this->Cell(19.3, 0.3, '', 1, '', 'C');
         $this->Ln();
 //       -- Espacio 4        
-        $this->Cell(2, 0.8, '', 1,'');
-        $this->Cell(17.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 1,'');
+        $this->Cell(2, 0.8, '', 1);
+        $this->Cell(17.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 0);
         $this->Ln();
 //       -- Espacio 5
-        $this->Cell(2, 0.8, '', 1,'');
-        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($Descli)), 1,'');
-        $this->Cell(2, 0.8, '', 1,'');
+        $this->Cell(2, 0.8, '', 1);
+        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($Descli)), 1);
+        $this->Cell(2, 0.8, '', 1);
         $this->Cell(5, 0.8, strtoupper($Ruc), 1, '', 'C');
         $this->Ln();
 //       -- Espacio 6
         $this->Cell(2, 0.8, '', 1);
-        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($DirTien)), 1,'');
+        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($DirTien)), 1);
         $this->Cell(2, 0.8, '', 1);
         $this->Cell(5, 0.8, strtoupper($Guia), 1, '', 'C');
         $this->Ln();
@@ -105,11 +105,11 @@ class PDF extends PDF_JavaScript {
         where F.COD_FACT = '" . $i . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
-        
+
 //       -- Espacio 7
-        $this->Cell(19.3, 1, '', 1,'');
+        $this->Cell(19.3, 1, '', 1);
         $this->Ln();
-        
+
         while ($row = $reader->read()) {
             $unid = $row['UNI_SOLI'];
             $product = strtoupper($row['DES_LARG']) . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'];
@@ -119,7 +119,7 @@ class PDF extends PDF_JavaScript {
             $this->SetFont('Arial', '', 8);
 //       -- Espacio N            
             $this->Cell(1.6, 0.4, number_format($unid), 1, '', 'L');
-            $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 1,'');
+            $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 1);
             $this->Cell(2.9, 0.4, strtoupper($val), 1, '', 'C');
             $this->Cell(3, 0.4, strtoupper($precTo), 1, '', 'C');
             $this->Ln();
@@ -140,11 +140,11 @@ class PDF extends PDF_JavaScript {
             $Total = $row['TOT_FACT'];
         }
         $this->SetFont('Arial', '', 9);
-        
+
         $this->SetXY(1.93, 17.09);
-        
+
         $this->Ln();
-        $this->Cell(19.3, 0.7, '', 1, '', 'C');
+        $this->Cell(19.3, 0.5, '', 1, '', 'C');
         $this->Ln();
         $this->Cell(1.2, 0.5, '', 1, '', 'C');
         $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 1);
@@ -201,7 +201,7 @@ function numtoletras($xcifra) {
             $xcifra = "0" . $xcifra;
             $xpos_punto = strpos($xcifra, ".");
         }
-        $xaux_int = substr($xcifra, 1, $xpos_punto); // obtengo el entero de la cifra a covertir
+        $xaux_int = substr($xcifra, 0, $xpos_punto); // obtengo el entero de la cifra a covertir
         $xdecimales = substr($xcifra . "00", $xpos_punto + 1, 2); // obtengo los valores decimales
     }
 
@@ -222,24 +222,24 @@ function numtoletras($xcifra) {
             for ($xy = 1; $xy < 4; $xy++) { // ciclo para revisar centenas, decenas y unidades, en ese orden
                 switch ($xy) {
                     case 1: // checa las centenas
-                        if (substr($xaux, 1, 3) < 100) { // si el grupo de tres dígitos es menor a una centena ( < 99) no hace nada y pasa a revisar las decenas
+                        if (substr($xaux, 0, 3) < 100) { // si el grupo de tres dígitos es menor a una centena ( < 99) no hace nada y pasa a revisar las decenas
                         } else {
-                            $key = (int) substr($xaux, 1, 3);
-                            if (TRUE === array_key_exists($key, $xarray)) {  // busco si la centena es número redondo (101, 201, 301, 401, etc..)
+                            $key = (int) substr($xaux, 0, 3);
+                            if (TRUE === array_key_exists($key, $xarray)) {  // busco si la centena es número redondo (100, 200, 300, 400, etc..)
                                 $xseek = $xarray[$key];
                                 $xsub = $this->subfijo($xaux); // devuelve el subfijo correspondiente (Millón, Millones, Mil o nada)
-                                if (substr($xaux, 1, 3) == 100)
+                                if (substr($xaux, 0, 3) == 100)
                                     $xcadena = " " . $xcadena . " CIEN " . $xsub;
                                 else
                                     $xcadena = " " . $xcadena . " " . $xseek . " " . $xsub;
                                 $xy = 3; // la centena fue redonda, entonces termino el ciclo del for y ya no reviso decenas ni unidades
                             }
-                            else { // entra aquí si la centena no fue numero redondo (101, 253, 121, 981, etc.)
-                                $key = (int) substr($xaux, 1, 1) * 100;
-                                $xseek = $xarray[$key]; // toma el primer caracter de la centena y lo multiplica por cien y lo busca en el arreglo (para que busque 101,201,301, etc)
+                            else { // entra aquí si la centena no fue numero redondo (101, 253, 120, 980, etc.)
+                                $key = (int) substr($xaux, 0, 1) * 100;
+                                $xseek = $xarray[$key]; // toma el primer caracter de la centena y lo multiplica por cien y lo busca en el arreglo (para que busque 100,200,300, etc)
                                 $xcadena = " " . $xcadena . " " . $xseek;
                             } // ENDIF ($xseek)
-                        } // ENDIF (substr($xaux, 1, 3) < 100)
+                        } // ENDIF (substr($xaux, 0, 3) < 100)
                         break;
                     case 2: // checa las decenas (con la misma lógica que las centenas)
                         if (substr($xaux, 1, 2) < 10) {
