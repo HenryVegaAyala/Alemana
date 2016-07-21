@@ -69,7 +69,7 @@ class PDF extends PDF_JavaScript {
         $this->SetFont('Arial', '', 9);
 
 //       -- Espacio 1
-        $this->Cell(19.3, 3, '', 1);
+        $this->Cell(19.3, 2.6, '', 1);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 1, '', 'C');
@@ -79,20 +79,20 @@ class PDF extends PDF_JavaScript {
         $this->Cell(19.3, 0.3, '', 1, '', 'C');
         $this->Ln();
 //       -- Espacio 4        
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(17.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 1);
+        $this->Cell(1, 0.8, '', 1);
+        $this->Cell(18.3, 0.8, utf8_decode(strtoupper($Fecha_Fac)), 1);
         $this->Ln();
 //       -- Espacio 5
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($Descli)), 10);
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(5, 0.8, strtoupper($Ruc), 1, '', 'C');
+        $this->Cell(1, 0.8, '', 1);
+        $this->Cell(11.3, 0.8, utf8_decode(strtoupper($Descli)), 10);
+        $this->Cell(1, 0.8, '', 1);
+        $this->Cell(6, 0.8, strtoupper($Ruc), 1, '', 'C');
         $this->Ln();
 //       -- Espacio 6
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(10.3, 0.8, utf8_decode(strtoupper($DirTien)), 1);
-        $this->Cell(2, 0.8, '', 1);
-        $this->Cell(5, 0.8, strtoupper($Guia), 1, '', 'C');
+        $this->Cell(1, 0.8, '', 1);
+        $this->Cell(11.3, 0.8, utf8_decode(strtoupper($DirTien)), 1);
+        $this->Cell(1, 0.8, '', 1);
+        $this->Cell(6, 0.8, strtoupper($Guia), 1, '', 'C');
         $this->Ln();
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
     }
