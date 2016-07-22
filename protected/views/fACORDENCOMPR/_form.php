@@ -104,7 +104,7 @@
                         ),
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Tienda',
-                        'onChange' => 'mostrar(this.value)',
+                        'onclick' => 'mostrar(this.value)',
                     );
                     ?>
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
