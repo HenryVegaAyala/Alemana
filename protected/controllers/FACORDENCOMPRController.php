@@ -108,15 +108,11 @@ class FACORDENCOMPRController extends Controller {
     }
 
     public function actionClienteByTienda() {
-        $model = new FACORDENCOMPR;
-        $COD = $_POST["FACORDENCOMPR"]["NUM_ORDE"];
-        $clie = $_POST["FACORDENCOMPR"]["COD_CLIE"];
         $list = MAETIEND::model()->findAll("COD_CLIE = ?", array($_POST["FACORDENCOMPR"]["COD_CLIE"]));
-        echo "<option value=\"\">Seleccionar Tienda</option>";
+        
         foreach ($list as $data)
             echo "<option value=\"{$data->COD_TIEN}\">{$data->DES_TIEN}</option>";
-
-        Yii::app()->session['CODIGO'] = $COD;
+        
     }
 
     public function actionValorTienda() {

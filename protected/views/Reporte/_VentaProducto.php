@@ -110,10 +110,9 @@
                     <h4><label>Estado:</label></h4>
                     <?php
                     echo CHtml::dropDownList('Estado', 'DES_ESTA', array(
-                        '1' => 'En Proceso',
-                        '2' => 'Despachadado/Atendido',
-                        '9' => 'Anulado',
-                        '0' => 'Creado'), array(
+                        '1' => 'Emitida/Pendiente de Cobro',
+                        '2' => 'Cobrada/Cerrada',
+                        '9' => 'Anulado'), array(
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Cliente',)
                     );

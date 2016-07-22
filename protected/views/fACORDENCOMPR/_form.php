@@ -104,14 +104,14 @@
                         ),
                         'class' => 'form-control',
                         'empty' => 'Seleccionar Tienda',
-                        'onChange' => 'mostrar(this.value)'
+                        'onChange' => 'mostrar(this.value)',
                     );
                     ?>
                     <?php echo $form->labelEx($model, 'COD_TIEN'); ?>
-                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTienda(), $htmlOption); ?>
+                    <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTienda($model->COD_CLIE), $htmlOption); ?>
                     <?php // echo $form->error($model, 'COD_TIEN'); ?>
 
-                </div>                
+                </div>      
 
                 <div class="col-sm-3 control-label">
                     <?php echo $form->labelEx($model, 'TIP_MONE'); ?>
@@ -176,7 +176,7 @@
         <script>
             function mostrar(id) {
                 if (id > 0) {
-                    $("#add").show()();
+                    $("#add").show();
                 }
             }
         </script>    
@@ -246,25 +246,26 @@
         <div class="panel-footer container-fluid" style="overflow:hidden;text-align:right;">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <?php echo CHtml::submitButton(
-                            $model->isNewRecord ? 'Guardar' : 'Guardar', 
-                            array('class' => 'btn btn-success btn-md icon-user')
-                                                  ); ?>
-                        <?php
-                        $this->widget(
-                                'ext.bootstrap.widgets.TbButton', array(
-                            'context' => 'default',
-                            'label' => 'Regresar',
-                            'size' => 'default',
-                            'buttonType' => 'link',
-                            'url' => array('index')
-                        ));
-                        ?>
+                    <?php
+                    echo CHtml::submitButton(
+                            $model->isNewRecord ? 'Guardar' : 'Guardar', array('class' => 'btn btn-success btn-md icon-user')
+                    );
+                    ?>
+                    <?php
+                    $this->widget(
+                            'ext.bootstrap.widgets.TbButton', array(
+                        'context' => 'default',
+                        'label' => 'Regresar',
+                        'size' => 'default',
+                        'buttonType' => 'link',
+                        'url' => array('index')
+                    ));
+                    ?>
                 </div>
             </div>  
         </div>
 
-        <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
 
     </div><!-- form -->
 </div>

@@ -3,7 +3,6 @@
 function TopVenta($id) {
     switch ($id) {
         case 0:
-
             return 'por Cliente';
             break;
         case 1:
@@ -11,6 +10,23 @@ function TopVenta($id) {
             break;
         case 2:
             return 'por Producto';
+            break;
+    }
+}
+
+function Estado($id) {
+    switch ($id) {
+        case 1:
+            return 'Emitida/Pendiente de Cobro';
+            break;
+        case 2:
+            return 'Cobrada/Cerrada';
+            break;
+        case 9:
+            return 'Anulado';
+            break;
+        default :
+            return "No ha definio un estado";
             break;
     }
 }
@@ -301,10 +317,11 @@ $htmlCA = '
     </tr>
 </table>
         Fecha de : ' . $Fecha_Ini . ' &nbsp; Hasta:  ' . $Fecha_Fin . ' 
-            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            Estado del Reporte: ' . Estado($Estado) . ' 
+            
+            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             
             Usuario Solicitado : ' . $Usuario . '    
