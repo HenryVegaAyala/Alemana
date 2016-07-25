@@ -1,7 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css">
 
 <?php
-
 $form = $this->beginWidget('CActiveForm', array(
     'action' => Yii::app()->createUrl($this->route),
     'method' => 'post',
@@ -36,13 +35,13 @@ $('.search-form form').submit(function(){
         <div class="panel-heading">
             <h3 class="panel-title">Lista de Facturas Creadas</h3>
         </div>
-        
+
         <div class="alert alert-success">
-            <?php echo Yii::app()->user->getFlash('success');?>
+            <?php echo Yii::app()->user->getFlash('success'); ?>
         </div>
 
         <div class="mar">
-            <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button')); ?>
+            <?php // echo CHtml::link('Búsqueda Avanzada', '#', array('class' => 'search-button'));  ?>
         </div>
         <div class="search-form" style="display:none">
             <?php
@@ -65,7 +64,6 @@ $('.search-form form').submit(function(){
                         'selectableRows' => '50',
                     ),
                     'COD_FACT',
-                    'COD_GUIA',
                     array(
                         'name' => 'COD_CLIE',
                         'header' => 'Cliente',
@@ -110,6 +108,16 @@ $('.search-form form').submit(function(){
                                     break;
                             }
                         },
+                    ),
+                    'COD_GUIA',
+                    array(
+                        'name' => 'COD_GUIA',
+                        'header' => 'N° de O/C',
+                        'value' => function($data) {
+                            $model = new FACFACTU();
+                            $variable = $data->__GET('COD_FACT');
+                            echo $model->getOC($variable);
+                        }
                     ),
                     'TOT_FACT',
                     array(
@@ -169,9 +177,10 @@ $('.search-form form').submit(function(){
                                 }",
                             ),
                             'Reporte' => array(
-                                'icon' => 'file',
+                                'icon' => 'fa fa-file-pdf-o',
                                 'label' => 'Generar PDF Factura',
-                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'htmlOptions' => array('style' => 'width: 50px',),
+                                'options' => array('target' => '_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/FACFACTU/Reporte", array("id"=>$data->COD_FACT))',
                             ),
                         ),
@@ -181,7 +190,7 @@ $('.search-form form').submit(function(){
             ?>
             <div class="panel-footer " style="overflow:hidden;text-align:right;">
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-1 col-sm-11">
                         <?php
                         $this->widget(
                                 'ext.bootstrap.widgets.TbButton', array(
