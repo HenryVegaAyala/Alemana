@@ -66,7 +66,7 @@ class PDF extends PDF_JavaScript {
 
         $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
 
-        $this->SetFont('Arial', '', 9);
+        $this->SetFont('Arial', 'B', 9);
 
 //       -- Espacio 1
         $this->Cell(19.3, 2.6, '', 0);
@@ -116,7 +116,7 @@ class PDF extends PDF_JavaScript {
             $val = $row['VAL_PROD'];
             $precTo = $row['IMP_PROD'];
 
-            $this->SetFont('Arial', '', 8);
+            $this->SetFont('Arial', 'B', 8);
 //       -- Espacio N            
             $this->Cell(1.6, 0.4, number_format($unid), 0, '', 'L');
             $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 0);
@@ -139,12 +139,12 @@ class PDF extends PDF_JavaScript {
             $IGVPRO = $row['TOT_IGV'];
             $Total = $row['TOT_FACT'];
         }
-        $this->SetFont('Arial', '', 9);
+        $this->SetFont('Arial', 'B', 9);
 
-        $this->SetXY(1.93, 17.09);
+        $this->SetXY(1.93, 16.61);
 
         $this->Ln();
-        $this->Cell(19.3, 0.66, '', 0, '', 'C');
+        $this->Cell(19.3, 0.66, '', 1, '', 'C');
         $this->Ln();
         $this->Cell(1.2, 0.5, '', 0, '', 'C');
         $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
@@ -338,7 +338,7 @@ function subfijo($xx) { // esta función regresa un subfijo para la cifra
 }
 
 //$pdf = new PDF('L', 'cm', array(21.5, 21.7));
-$pdf = new PDF('P', 'cm', 'A4');
+$pdf = new PDF('P', 'cm', array(21.5, 21.7));
 
 $pdf->SetMargins(1.1, 0.8, 1.3);
 $pdf->SetTopMargin(2.3);
@@ -357,4 +357,4 @@ for ($i = 0; $i < $count; $i++) {
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'D');
+$pdf->Output($Reporte, 'I');

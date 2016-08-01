@@ -142,7 +142,7 @@ class PDF extends PDF_JavaScript {
 
         $this->Cabecera($i);
         $this->Cuerpo($i);
-//        $this->Detalle($i);
+        $this->Detalle($i);
     }
 
     function AutoPrint($dialog = false) {
@@ -167,7 +167,9 @@ class PDF extends PDF_JavaScript {
 }
 
 $pdf = new PDF('P', 'cm', 'A4');
-$pdf->SetMargins(1.8, 0.8, 1.8);
+
+$pdf->SetMargins(1.1, 0.8, 1.3);
+$pdf->SetTopMargin(2.3);
 for ($i = 0; $i < $count; $i++) {
 
     if ($i <> ($count))
@@ -175,11 +177,11 @@ for ($i = 0; $i < $count; $i++) {
 
     $pdf->Impresion($idguia[$i]);
 
-    $pdf->SetTitle("REPORTE FACTURA MASIVO");
+    $pdf->SetTitle("REPORTE GUIA MASIVO");
     $pdf->SetAuthor("PANADERIA ALEMANA");
 }
-$pdf->AutoPrint(true);
+//$pdf->AutoPrint(true);
 $FECFACT = date("dmY");
-$Reporte = "Factura_Masiva_$FECFACT.pdf";
+$Reporte = "Guia_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'I');
+$pdf->Output($Reporte, 'D');
