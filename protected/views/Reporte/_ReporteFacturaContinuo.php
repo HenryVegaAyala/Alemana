@@ -144,7 +144,7 @@ class PDF extends PDF_JavaScript {
         $this->SetXY(1.93, 16.61);
 
         $this->Ln();
-        $this->Cell(19.3, 0.66, '', 1, '', 'C');
+        $this->Cell(19.3, 0.66, '', 0, '', 'C');
         $this->Ln();
         $this->Cell(1.2, 0.5, '', 0, '', 'C');
         $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
