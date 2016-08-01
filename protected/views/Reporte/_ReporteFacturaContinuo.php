@@ -141,7 +141,7 @@ class PDF extends PDF_JavaScript {
         }
         $this->SetFont('Arial', 'B', 9);
 
-        $this->SetXY(1.93, 16.61);
+        $this->SetXY(1.93, 17.09);
 
         $this->Ln();
         $this->Cell(19.3, 0.66, '', 0, '', 'C');
@@ -183,7 +183,7 @@ class PDF extends PDF_JavaScript {
 
 }
 
-function numtoletras($xcifra) {
+    function numtoletras($xcifra) {
     $xarray = array(0 => "Cero",
         1 => "UN", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
         "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUINCE", "DIECISEIS", "DIECISIETE", "DIECIOCHO", "DIECINUEVE",
@@ -338,7 +338,7 @@ function subfijo($xx) { // esta función regresa un subfijo para la cifra
 }
 
 //$pdf = new PDF('L', 'cm', array(21.5, 21.7));
-$pdf = new PDF('P', 'cm', array(21.5, 21.7));
+$pdf = new PDF('P', 'cm', 'A4');
 
 $pdf->SetMargins(1.1, 0.8, 1.3);
 $pdf->SetTopMargin(2.3);
