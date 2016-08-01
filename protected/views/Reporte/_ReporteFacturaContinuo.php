@@ -70,7 +70,7 @@ class PDF extends PDF_JavaScript {
 
 
 //       -- Espacio 1
-        $this->Cell(19.3, 1, '', 0);
+        $this->Cell(19.3, 5.6, '', 0);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 0, '', 'L');
@@ -245,7 +245,7 @@ function numtoletras($xcifra) {
                         break;
                     case 2: // checa las decenas (con la misma lógica que las centenas)
                         if (substr($xaux, 1, 2) < 10) {
-                            
+
                         } else {
                             $key = (int) substr($xaux, 1, 2);
                             if (TRUE === array_key_exists($key, $xarray)) {
