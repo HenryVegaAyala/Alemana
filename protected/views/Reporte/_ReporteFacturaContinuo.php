@@ -73,7 +73,7 @@ class PDF extends PDF_JavaScript {
         $this->Cell(19.3, 5.1, '', 0);
         $this->Ln();
 //       -- Espacio 2
-        $this->Cell(11.8, 0.5, '', 0, '', 'L');
+        $this->Cell(19.8, 0.5, '', 0, '', 'L');
         //$this->SetTextColor(221, 80, 68);
         $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'L');
         $this->Ln();
@@ -86,15 +86,15 @@ class PDF extends PDF_JavaScript {
         $this->Ln();
 //       -- Espacio 5
         $this->Cell(1, 0.5, '', 0);
-        $this->Cell(11.3, 0.5, utf8_decode(strtoupper($Descli)), 10);
+        $this->Cell(18.3, 0.5, utf8_decode(strtoupper($Descli)), 10);
         $this->Cell(1, 0.5, '', 0);
-        $this->Cell(6, 0.5, strtoupper($Ruc), 0, '', 'L');
+        $this->Cell(6, 0.5, strtoupper($Ruc), 0, '', 'R');
         $this->Ln();
 //       -- Espacio 6
         $this->Cell(1, 0.8, '', 0);
-        $this->Cell(11.3, 0.8, utf8_decode(strtoupper($DirTien)), 0);
+        $this->Cell(18.3, 0.8, utf8_decode(strtoupper($DirTien)), 0);
         $this->Cell(1, 0.8, '', 0);
-        $this->Cell(6, 0.8, strtoupper($Guia), 0, '', 'L');
+        $this->Cell(6, 0.8, strtoupper($Guia), 0, '', 'R');
         $this->Ln();
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
     }
@@ -120,10 +120,10 @@ class PDF extends PDF_JavaScript {
 
             $this->SetFont('Arial', 'B', 15);
 //       -- Espacio N            
-            $this->Cell(1.6, 0.5, number_format($unid), 0, '', 'L');
-            $this->Cell(11.8, 0.5, utf8_decode(strtoupper($product)), 0);
-            $this->Cell(2.9, 0.5, strtoupper($val), 0, '', 'R');
-            $this->Cell(3, 0.5, strtoupper($precTo), 0, '', 'L');
+            $this->Cell(2, 0.5, number_format($unid), 0, '', 'L');
+            $this->Cell(27, 0.5, utf8_decode(strtoupper($product)), 0);
+            $this->Cell(8, 0.5, strtoupper($val), 0, '', 'C');
+            $this->Cell(8, 0.5, strtoupper($precTo), 0, '', 'C');
             $this->Ln();
         }
     }
@@ -143,7 +143,7 @@ class PDF extends PDF_JavaScript {
         }
         $this->SetFont('Arial', 'B', 15);
 
-        $this->SetXY(1.93, 22.65);
+        $this->SetXY(1.93, 25.65);
 
         $this->Ln();
         $this->Cell(19.3, 0.66, '', 0, '', 'L');
