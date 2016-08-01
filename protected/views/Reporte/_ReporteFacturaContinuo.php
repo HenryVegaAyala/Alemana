@@ -120,9 +120,9 @@ class PDF extends PDF_JavaScript {
 
             $this->SetFont('Arial', 'B', 15);
 //       -- Espacio N            
-            $this->Cell(1.6, 0.5, number_format($unid), 0, '', 'R');
+            $this->Cell(1.6, 0.5, number_format($unid), 0, '', 'L');
             $this->Cell(11.8, 0.5, utf8_decode(strtoupper($product)), 0);
-            $this->Cell(2.9, 0.5, strtoupper($val), 0, '', 'L');
+            $this->Cell(2.9, 0.5, strtoupper($val), 0, '', 'R');
             $this->Cell(3, 0.5, strtoupper($precTo), 0, '', 'L');
             $this->Ln();
         }
