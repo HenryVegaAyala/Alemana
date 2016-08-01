@@ -116,12 +116,12 @@ class PDF extends PDF_JavaScript {
             $val = $row['VAL_PROD'];
             $precTo = $row['IMP_PROD'];
 
-            $this->SetFont('Arial', 'B', 12);
+            $this->SetFont('Arial', 'B', 15);
 //       -- Espacio N            
-            $this->Cell(1.6, 0.4, number_format($unid), 0, '', 'L');
-            $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 0);
-            $this->Cell(2.9, 0.4, strtoupper($val), 0, '', 'L');
-            $this->Cell(3, 0.4, strtoupper($precTo), 0, '', 'L');
+            $this->Cell(1.6, 0.5, number_format($unid), 0, '', 'L');
+            $this->Cell(11.8, 0.5, utf8_decode(strtoupper($product)), 0);
+            $this->Cell(2.9, 0.5, strtoupper($val), 0, '', 'L');
+            $this->Cell(3, 0.5, strtoupper($precTo), 0, '', 'L');
             $this->Ln();
         }
     }
@@ -357,4 +357,4 @@ for ($i = 0; $i < $count; $i++) {
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'I');
+$pdf->Output($Reporte, 'D');
