@@ -69,14 +69,14 @@ class PDF extends PDF_JavaScript {
         $this->SetFont('Arial', 'B', 15);
 
 //       -- Espacio 1
-        $this->Cell(19.3, 2.6, '', 0);
+        $this->Cell(19.3, 1.2, '', 0);
         $this->Ln();
 //       -- Espacio 2
-        $this->Cell(11.8, 0.5, '', 0, '', 'C');
-        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'C');
+        $this->Cell(11.8, 0.5, '', 0, '', 'L');
+        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'L');
         $this->Ln();
 //       -- Espacio 3
-        $this->Cell(19.3, 0.3, '', 0, '', 'C');
+        $this->Cell(19.3, 0.3, '', 0, '', 'L');
         $this->Ln();
 //       -- Espacio 4        
         $this->Cell(1, 1.1, '', 0);
@@ -86,13 +86,13 @@ class PDF extends PDF_JavaScript {
         $this->Cell(1, 0.5, '', 0);
         $this->Cell(11.3, 0.5, utf8_decode(strtoupper($Descli)), 10);
         $this->Cell(1, 0.5, '', 0);
-        $this->Cell(6, 0.5, strtoupper($Ruc), 0, '', 'C');
+        $this->Cell(6, 0.5, strtoupper($Ruc), 0, '', 'L');
         $this->Ln();
 //       -- Espacio 6
         $this->Cell(1, 0.8, '', 0);
         $this->Cell(11.3, 0.8, utf8_decode(strtoupper($DirTien)), 0);
         $this->Cell(1, 0.8, '', 0);
-        $this->Cell(6, 0.8, strtoupper($Guia), 0, '', 'C');
+        $this->Cell(6, 0.8, strtoupper($Guia), 0, '', 'L');
         $this->Ln();
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
     }
@@ -116,12 +116,12 @@ class PDF extends PDF_JavaScript {
             $val = $row['VAL_PROD'];
             $precTo = $row['IMP_PROD'];
 
-            $this->SetFont('Arial', 'B', 8);
+            $this->SetFont('Arial', 'B', 12);
 //       -- Espacio N            
             $this->Cell(1.6, 0.4, number_format($unid), 0, '', 'L');
             $this->Cell(11.8, 0.4, utf8_decode(strtoupper($product)), 0);
-            $this->Cell(2.9, 0.4, strtoupper($val), 0, '', 'C');
-            $this->Cell(3, 0.4, strtoupper($precTo), 0, '', 'C');
+            $this->Cell(2.9, 0.4, strtoupper($val), 0, '', 'L');
+            $this->Cell(3, 0.4, strtoupper($precTo), 0, '', 'L');
             $this->Ln();
         }
     }
@@ -144,12 +144,12 @@ class PDF extends PDF_JavaScript {
         $this->SetXY(1.93, 17.09);
 
         $this->Ln();
-        $this->Cell(19.3, 0.66, '', 0, '', 'C');
+        $this->Cell(19.3, 0.66, '', 0, '', 'L');
         $this->Ln();
-        $this->Cell(1.2, 0.5, '', 0, '', 'C');
+        $this->Cell(1.2, 0.5, '', 0, '', 'L');
         $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
         $this->Ln();
-        $this->Cell(9.6, 1.5, '', 0, '', 'C');
+        $this->Cell(9.6, 1.5, '', 0, '', 'L');
         $this->Cell(3.1, 1.5, strtoupper($Stotal), 0, '', 'L');
         $this->Cell(3.1, 1.5, strtoupper($IGVPRO), 0, '', 'L');
         $this->Cell(3.5, 1.5, strtoupper($Total), 0, '', 'L');
