@@ -66,7 +66,7 @@ class PDF extends PDF_JavaScript {
 
         $Fecha_Fac = Yii::app()->dateFormatter->format("dd MMMM y", strtotime($Fecha));
 
-        $this->SetFont('Arial', 'B', 20);
+        $this->SetFont('Arial', 'B', 15);
 
 //       -- Espacio 1
         $this->Cell(19.3, 2.6, '', 0);
@@ -139,7 +139,7 @@ class PDF extends PDF_JavaScript {
             $IGVPRO = $row['TOT_IGV'];
             $Total = $row['TOT_FACT'];
         }
-        $this->SetFont('Arial', 'B', 20);
+        $this->SetFont('Arial', 'B', 15);
 
         $this->SetXY(1.93, 17.09);
 
