@@ -340,8 +340,8 @@ function subfijo($xx) { // esta función regresa un subfijo para la cifra
 //$pdf = new PDF('L', 'cm', array(21.5, 21.7));
 $pdf = new PDF('P', 'cm', 'A4');
 
-$pdf->SetMargins(1.1, 0.8, 1.3);
-$pdf->SetTopMargin(2.3);
+//$pdf->SetMargins(1.1, 0.8, 1.3);
+//$pdf->SetTopMargin(2.3);
 //$pdf->SetMargins($left, $top, $right)
 for ($i = 0; $i < $count; $i++) {
 
