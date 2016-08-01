@@ -68,11 +68,13 @@ class PDF extends PDF_JavaScript {
 
         $this->SetFont('Arial', 'B', 15);
 
+
 //       -- Espacio 1
         $this->Cell(19.3, 1, '', 0);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 0, '', 'L');
+        $this->SetTextColor(221, 80, 68);
         $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'L');
         $this->Ln();
 //       -- Espacio 3
