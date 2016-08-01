@@ -70,7 +70,7 @@ class PDF extends PDF_JavaScript {
 
 
 //       -- Espacio 1
-        $this->Cell(19.3, 6.1, '', 0);
+        $this->Cell(19.3, 5.1, '', 0);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 0, '', 'L');
@@ -120,7 +120,7 @@ class PDF extends PDF_JavaScript {
 
             $this->SetFont('Arial', 'B', 15);
 //       -- Espacio N            
-            $this->Cell(1.6, 0.5, number_format($unid), 0, '', 'L');
+            $this->Cell(1.6, 0.5, number_format($unid), 0, '', 'R');
             $this->Cell(11.8, 0.5, utf8_decode(strtoupper($product)), 0);
             $this->Cell(2.9, 0.5, strtoupper($val), 0, '', 'L');
             $this->Cell(3, 0.5, strtoupper($precTo), 0, '', 'L');
@@ -143,7 +143,7 @@ class PDF extends PDF_JavaScript {
         }
         $this->SetFont('Arial', 'B', 15);
 
-        $this->SetXY(1.93, 23.15);
+        $this->SetXY(1.93, 22.65);
 
         $this->Ln();
         $this->Cell(19.3, 0.66, '', 0, '', 'L');
