@@ -69,8 +69,8 @@ class PDF extends PDF_JavaScript {
         $this->SetFont('Arial', 'B', 15);
 
 //       -- Espacio 1
-        $this->Cell(19.3, 1.2, '', 0);
-        $this->Ln();
+        //$this->Cell(19.3, 1.2, '', 0);
+        //$this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 0, '', 'L');
         $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'L');
@@ -141,7 +141,7 @@ class PDF extends PDF_JavaScript {
         }
         $this->SetFont('Arial', 'B', 15);
 
-        $this->SetXY(1.93, 17.09);
+        $this->SetXY(1.93, 20.59);
 
         $this->Ln();
         $this->Cell(19.3, 0.66, '', 0, '', 'L');
@@ -357,4 +357,4 @@ for ($i = 0; $i < $count; $i++) {
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'D');
+$pdf->Output($Reporte, 'I');
