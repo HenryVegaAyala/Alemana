@@ -70,7 +70,7 @@ class PDF extends PDF_JavaScript {
 
 
 //       -- Espacio 1
-        $this->Cell(19.3, 5.6, '', 0);
+        $this->Cell(19.3, 6.1, '', 0);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(11.8, 0.5, '', 0, '', 'L');
@@ -109,7 +109,7 @@ class PDF extends PDF_JavaScript {
         $reader = $command->query();
 
 //       -- Espacio 7
-        $this->Cell(19.3, 1, '', 0);
+        $this->Cell(19.3, 1.5, '', 0);
         $this->Ln();
 
         while ($row = $reader->read()) {
@@ -143,7 +143,7 @@ class PDF extends PDF_JavaScript {
         }
         $this->SetFont('Arial', 'B', 15);
 
-        $this->SetXY(1.93, 21);
+        $this->SetXY(1.93, 23.15);
 
         $this->Ln();
         $this->Cell(19.3, 0.66, '', 0, '', 'L');
@@ -151,10 +151,10 @@ class PDF extends PDF_JavaScript {
         $this->Cell(1.2, 0.5, '', 0, '', 'L');
         $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
         $this->Ln();
-        $this->Cell(9.6, 1.5, '', 0, '', 'L');
-        $this->Cell(3.1, 1.5, strtoupper($Stotal), 0, '', 'L');
-        $this->Cell(3.1, 1.5, strtoupper($IGVPRO), 0, '', 'L');
-        $this->Cell(3.5, 1.5, strtoupper($Total), 0, '', 'L');
+        $this->Cell(9.3, 1.5, '', 0, '', 'L');
+        $this->Cell(3.2, 1.5, strtoupper($Stotal), 0, '', 'L');
+        $this->Cell(3.2, 1.5, strtoupper($IGVPRO), 0, '', 'L');
+        $this->Cell(3.6, 1.5, strtoupper($Total), 0, '', 'L');
     }
 
     function Impresion($i) {
