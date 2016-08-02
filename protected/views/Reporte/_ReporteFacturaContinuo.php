@@ -70,7 +70,7 @@ class PDF extends PDF_JavaScript {
 
 
 //       -- Espacio 1
-        $this->Cell(27.7, 5.1, '', 1);
+        $this->Cell(27.7, 0.1, '', 1);
         $this->Ln();
 //       -- Espacio 2
         $this->Cell(20.2, 0.5, '', 1, '', 'L');
@@ -146,7 +146,7 @@ class PDF extends PDF_JavaScript {
         $this->SetXY(1.93, 23.65);
 
         $this->Ln();
-        $this->Cell(27.7, 0.66, '', 1, '', 'L');
+        $this->Cell(27.7, 0.7, '', 1, '', 'L');
         $this->Ln();
         $this->Cell(1.2, 0.5, '', 1, '', 'L');
         $this->Cell(26.5, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 1);
