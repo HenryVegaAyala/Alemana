@@ -121,9 +121,9 @@ class PDF extends PDF_JavaScript {
             $this->SetFont('Arial', 'B', 15);
 //       -- Espacio N            
             $this->Cell(2, 0.5, number_format($unid), 0, '', 'L');
-            $this->Cell(27, 0.5, utf8_decode(strtoupper($product)), 0);
-            $this->Cell(8, 0.5, strtoupper($val), 0, '', 'C');
-            $this->Cell(8, 0.5, strtoupper($precTo), 0, '', 'C');
+            $this->Cell(17, 0.5, utf8_decode(strtoupper($product)), 0);
+            $this->Cell(4, 0.5, strtoupper($val), 0, '', 'C');
+            $this->Cell(4, 0.5, strtoupper($precTo), 0, '', 'C');
             $this->Ln();
         }
     }
@@ -151,7 +151,7 @@ class PDF extends PDF_JavaScript {
         $this->Cell(1.2, 0.5, '', 0, '', 'L');
         $this->Cell(18.1, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
         $this->Ln();
-        $this->Cell(9.3, 1.5, '', 0, '', 'L');
+        $this->Cell(17.5, 1.5, '', 0, '', 'L');
         $this->Cell(3.2, 1.5, strtoupper($Stotal), 0, '', 'L');
         $this->Cell(3.2, 1.5, strtoupper($IGVPRO), 0, '', 'L');
         $this->Cell(3.6, 1.5, strtoupper($Total), 0, '', 'L');
