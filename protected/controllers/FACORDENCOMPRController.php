@@ -91,7 +91,7 @@ class FACORDENCOMPRController extends Controller {
             $tienda = $_GET["tienda"];
             $row_num = $_GET['row_num'];
             $connection = Yii::app()->db;
-            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,GET_VALOR_PRODU(COD_PROD, '" . $tienda . "' ,'" . $cliente . "') VAL_PROD  FROM MAE_PRODU where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
+            $sqlStatement = "SELECT DES_LARG,COD_PROD,NRO_UNID,GET_VALOR_PRODU(COD_PROD, '" . $tienda . "' ,'" . $cliente . "') VAL_PROD  FROM mae_produ where DES_LARG LIKE '" . strtoupper($_GET['nombre_producto']) . "%'";
             $command = $connection->createCommand($sqlStatement);
             $reader = $command->query();
             $data = array();
@@ -125,7 +125,7 @@ class FACORDENCOMPRController extends Controller {
 //          echo "{$clie}." - ".{$tienda}";
 
         $connection = Yii::app()->db;
-        $sqlStatement = "Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from MAE_CLIEN MC, MAE_TIEND MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = $clie and MT.COD_TIEN = $tienda;";
+        $sqlStatement = "Select MC.NRO_RUC,MC.DES_CLIE,MT.DIR_TIEN from mae_clien MC, mae_tiend MT where  MC.COD_CLIE = MT.COD_CLIE and MT.COD_ESTA = 1 and MC.COD_ESTA = 1 and MC.COD_CLIE = $clie and MT.COD_TIEN = $tienda;";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
 
@@ -171,7 +171,7 @@ class FACORDENCOMPRController extends Controller {
                 $VALMOTUND = $_POST['VAL_MONT_UNID'];
 
                 $count = Yii::app()->db->createCommand()->select('count(*)')
-                        ->from('FAC_ORDEN_COMPR')
+                        ->from('fac_orden_compr')
                         ->where("NUM_ORDE = '" . $model->NUM_ORDE . "' and COD_CLIE = '" . $model->COD_CLIE . "' and COD_TIEN = '" . $model->COD_TIEN . "';")
                         ->queryScalar();
 
@@ -241,7 +241,7 @@ class FACORDENCOMPRController extends Controller {
                 $VALMOTUND = $_POST['VAL_MONT_UNID'];
 
                 $count = Yii::app()->db->createCommand()->select('count(*)')
-                        ->from('FAC_ORDEN_COMPR')
+                        ->from('fac_orden_compr')
                         ->where("NUM_ORDE = '" . $model->NUM_ORDE . "' and COD_CLIE = '" . $model->COD_CLIE . "' and COD_TIEN = '" . $model->COD_TIEN . "';")
                         ->queryScalar();
 

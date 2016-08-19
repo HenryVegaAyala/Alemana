@@ -40,7 +40,7 @@ class FACORDENCOMPR extends CActiveRecord {
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'FAC_ORDEN_COMPR';
+        return 'fac_orden_compr';
     }
 
     /**
@@ -180,7 +180,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('DES_CLIE')
-                ->from('MAE_CLIEN')
+                ->from('mae_clien')
                 ->where("COD_CLIE = '" . $var . "';")
                 ->queryScalar();
 
@@ -239,7 +239,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
     public function au() {
 
-        $max = Yii::app()->db->createCommand()->select('count(COD_ORDE) as max')->from('FAC_ORDEN_COMPR')->queryScalar();
+        $max = Yii::app()->db->createCommand()->select('count(COD_ORDE) as max')->from('fac_orden_compr')->queryScalar();
 
         $id = ($max + 1);
 
@@ -253,7 +253,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('round (SUM(VAL_MONT_UNID),2) as SUBTOTAL')
-                ->from('FAC_DETAL_ORDEN_COMPR')
+                ->from('fac_detal_orden_compr')
                 ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
                       and COD_TIEN = '" . $this->COD_TIEN . "' 
                       and COD_ORDE = '" . $this->COD_ORDE . "';")
@@ -271,7 +271,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('round (SUM(VAL_MONT_IGV),2) as IGV')
-                ->from('FAC_DETAL_ORDEN_COMPR')
+                ->from('fac_detal_orden_compr')
                 ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
                       and COD_TIEN = '" . $this->COD_TIEN . "' 
                       and COD_ORDE = '" . $this->COD_ORDE . "';")
@@ -289,7 +289,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('round (SUM(VAL_TOTAL),2) as TOTAL')
-                ->from('FAC_DETAL_ORDEN_COMPR')
+                ->from('fac_detal_orden_compr')
                 ->where("COD_CLIE = '" . $this->COD_CLIE . "' 
                       and COD_TIEN = '" . $this->COD_TIEN . "' 
                       and COD_ORDE = '" . $this->COD_ORDE . "';")
@@ -304,7 +304,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $Guia = Yii::app()->db->createCommand()
                 ->select('COD_GUIA')
-                ->from('FAC_GUIA_REMIS')
+                ->from('fac_guia_remis')
                 ->where("COD_ORDE = '" . $id . "' and IND_ESTA <> '9';")
                 ->queryScalar();
 
@@ -315,7 +315,7 @@ class FACORDENCOMPR extends CActiveRecord {
 
         $Factura = Yii::app()->db->createCommand()
                 ->select('COD_FACT')
-                ->from('FAC_FACTU F , FAC_GUIA_REMIS x')
+                ->from('fac_factu F , fac_guia_remis x')
                 ->where("F.COD_GUIA = x.COD_GUIA and x.COD_ORDE = '" . $id . "' and F.IND_ESTA <> '9' and x.IND_ESTA <> '9';")
                 ->queryScalar();
 

@@ -29,7 +29,7 @@ class SEGUSUAR extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'SEG_USUAR';
+		return 'seg_usuar';
 	}
 
 	/**

@@ -31,7 +31,7 @@ class FACFACTU extends CActiveRecord {
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'FAC_FACTU';
+        return 'fac_factu';
     }
 
     /**
@@ -167,7 +167,7 @@ class FACFACTU extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('DES_CLIE')
-                ->from('MAE_CLIEN')
+                ->from('mae_clien')
                 ->where("COD_CLIE = '" . $var . "';")
                 ->queryScalar();
 
@@ -179,7 +179,7 @@ class FACFACTU extends CActiveRecord {
 
         $Factura = Yii::app()->db->createCommand()
                 ->select('NUM_ORDE')
-                ->from('FAC_FACTU F , FAC_GUIA_REMIS x , FAC_ORDEN_COMPR y')
+                ->from('fac_factu F , fac_guia_remis x , fac_orden_compr y')
                 ->where("F.COD_GUIA = x.COD_GUIA and F.COD_FACT  =  '" . $id . "' and x.COD_ORDE = y.COD_ORDE 
                     ;")
                 ->queryScalar();

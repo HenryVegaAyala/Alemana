@@ -28,7 +28,7 @@ class FACDETALFACTU extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'FAC_DETAL_FACTU';
+		return 'fac_detal_factu';
 	}
 
 	/**

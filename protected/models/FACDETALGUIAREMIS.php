@@ -29,7 +29,7 @@ class FACDETALGUIAREMIS extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'FAC_DETAL_GUIA_REMIS';
+		return 'fac_detal_guia_remis';
 	}
 
 	/**

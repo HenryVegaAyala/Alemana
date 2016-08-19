@@ -34,7 +34,7 @@ class FACGUIAREMIS extends CActiveRecord {
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'FAC_GUIA_REMIS';
+        return 'fac_guia_remis';
     }
 
     /**
@@ -170,7 +170,7 @@ class FACGUIAREMIS extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('DES_CLIE')
-                ->from('MAE_CLIEN')
+                ->from('mae_clien')
                 ->where("COD_CLIE = '" . $var . "';")
                 ->queryScalar();
 
@@ -182,7 +182,7 @@ class FACGUIAREMIS extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('NUM_ORDE')
-                ->from('FAC_ORDEN_COMPR')
+                ->from('fac_orden_compr')
                 ->where("COD_ORDE = '" . $var . "';")
                 ->queryScalar();
 
@@ -194,7 +194,7 @@ class FACGUIAREMIS extends CActiveRecord {
 
         $max = Yii::app()->db->createCommand()
                 ->select('DES_TIEN')
-                ->from('MAE_TIEND')
+                ->from('mae_tiend')
                 ->where("COD_TIEN = '" . $var . "';")
                 ->queryScalar();
 
@@ -216,7 +216,7 @@ class FACGUIAREMIS extends CActiveRecord {
 
         $Factura = Yii::app()->db->createCommand()
                 ->select('COD_FACT')
-                ->from('FAC_FACTU F , FAC_GUIA_REMIS x')
+                ->from('fac_factu F , fac_guia_remis x')
                 ->where("F.COD_GUIA = x.COD_GUIA and x.COD_GUIA = '" . $id . "' and F.IND_ESTA <> '9' and x.IND_ESTA <> '9';")
                 ->queryScalar();
 

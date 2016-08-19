@@ -23,7 +23,7 @@ class MAELINEAPRODU extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'MAE_LINEA_PRODU';
+		return 'mae_linea_produ';
 	}
 
 	/**

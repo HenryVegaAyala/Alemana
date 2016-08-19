@@ -35,7 +35,7 @@ class MAEPRODU extends CActiveRecord {
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'MAE_PRODU';
+        return 'mae_produ';
     }
 
     /**

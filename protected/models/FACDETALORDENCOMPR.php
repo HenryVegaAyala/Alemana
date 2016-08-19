@@ -31,7 +31,7 @@ class FACDETALORDENCOMPR extends CActiveRecord {
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'FAC_DETAL_ORDEN_COMPR';
+        return 'fac_detal_orden_compr';
     }
 
     /**
