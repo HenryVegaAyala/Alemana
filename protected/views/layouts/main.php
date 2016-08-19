@@ -58,7 +58,7 @@
                                 array(
                                     'label' => 'Reporte Venta',
                                     'items' => array(
-                                        array('label' => 'Top Venta', 'url' => array('/Reporte/VentaProducto')),
+                                        array('label' => 'Top Venta', 'url' => array('/REPORTE/VentaProducto')),
                                         '---',
 //                                        array('label' => 'Reportes', 'url' => array('/site/contact')),
                                     ), 'visible' => !Yii::app()->user->isGuest

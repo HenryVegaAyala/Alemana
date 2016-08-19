@@ -1,4 +1,3 @@
-
 <div class="form">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -7,7 +6,7 @@
 
         <?php
         $url = Yii::app()->request->baseUrl;
-        echo CHtml::beginForm('' . $url . '/Reporte/ReporteVentaProducto', 'POST', array('id' => 'Reporte', 'name' => 'Reporte', 'target' => '_blank'));
+        echo CHtml::beginForm('' . $url . '/REPORTE/ReporteVentaProducto', 'POST', array('id' => 'Reporte', 'name' => 'Reporte', 'target' => '_blank'));
         ?>
 
         <div class="container-fluid">

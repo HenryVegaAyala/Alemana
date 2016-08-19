@@ -21,11 +21,11 @@ class REPORTEController extends Controller {
     }
 
     public function actionFactura() {
-        $this->renderPartial('_Factura');
+        $this->renderPartial('/Reporte/_Factura');
     }
 
     public function actionVentaProducto() {
-        $this->render('_VentaProducto');
+        $this->render('/Reporte/_VentaProducto');
     }
 
     public function actionReporteVentaProducto() {
@@ -42,7 +42,7 @@ class REPORTEController extends Controller {
         $command = $connection->createCommand($sqlStatement);
         $command->execute();
 
-        $this->renderPartial('_ReporteVentaProducto', array(
+        $this->renderPartial('/Reporte/_ReporteVentaProducto', array(
             'Fecha_Ini' => $Fecha_Ini,
             'Fecha_Fin' => $Fecha_Fin,
             'Cod_Clie' => $Cod_Clie,

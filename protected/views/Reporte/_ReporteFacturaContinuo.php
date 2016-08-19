@@ -4,47 +4,7 @@ $count = count($idfactu);
 
 yii::import('application.extensions.fpdf.*');
 
-class PDF_JavaScript extends FPDF {
-
-    var $javascript;
-    var $n_js;
-
-    function IncludeJS($script) {
-        $this->javascript = $script;
-    }
-
-    function _putjavascript() {
-        $this->_newobj();
-        $this->n_js = $this->n;
-        $this->_out('<<');
-        $this->_out('/Names [(EmbeddedJS) ' . ($this->n + 1) . ' 0 R]');
-        $this->_out('>>');
-        $this->_out('endobj');
-        $this->_newobj();
-        $this->_out('<<');
-        $this->_out('/S /JavaScript');
-        $this->_out('/JS ' . $this->_textstring($this->javascript));
-        $this->_out('>>');
-        $this->_out('endobj');
-    }
-
-    function _putresources() {
-        parent::_putresources();
-        if (!empty($this->javascript)) {
-            $this->_putjavascript();
-        }
-    }
-
-    function _putcatalog() {
-        parent::_putcatalog();
-        if (!empty($this->javascript)) {
-            $this->_out('/Names <</JavaScript ' . ($this->n_js) . ' 0 R>>');
-        }
-    }
-
-}
-
-class PDF extends PDF_JavaScript {
+class PDF extends fpdf {
 
     function Cabecera($i) {
 
@@ -70,31 +30,31 @@ class PDF extends PDF_JavaScript {
 
 
 //       -- Espacio 1
-        $this->Cell(27.7, 0.1, '', 1);
+        $this->Cell(27.7, 0.1, '', 0);
         $this->Ln();
 //       -- Espacio 2
-        $this->Cell(20.2, 0.5, '', 1, '', 'L');
+        $this->Cell(20.2, 0.5, '', 0, '', 'L');
         //$this->SetTextColor(221, 80, 68);
-        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 1, '', 'L');
+        $this->Cell(7.5, 0.5, utf8_decode(strtoupper($Factura)), 0, '', 'L');
         $this->Ln();
 //       -- Espacio 3
-        $this->Cell(27.7, 0.3, '', 1, '', 'L');
+        $this->Cell(27.7, 0.3, '', 0, '', 'L');
         $this->Ln();
 //       -- Espacio 4        
-        $this->Cell(1, 1.1, '', 1);
-        $this->Cell(26.7, 1.1, utf8_decode(strtoupper($Fecha_Fac)), 1);
+        $this->Cell(1, 1.1, '', 0);
+        $this->Cell(26.7, 1.1, utf8_decode(strtoupper($Fecha_Fac)),0);
         $this->Ln();
 //       -- Espacio 5
-        $this->Cell(1, 0.5, '', 1);
-        $this->Cell(18.3, 0.5, utf8_decode(strtoupper($Descli)), 1);
-        $this->Cell(2.4, 0.5, '', 1);
-        $this->Cell(6, 0.5, strtoupper($Ruc), 1 , '', 'R');
+        $this->Cell(1, 0.5, '', 0);
+        $this->Cell(18.3, 0.5, utf8_decode(strtoupper($Descli)), 0);
+        $this->Cell(2.4, 0.5, '', 0);
+        $this->Cell(6, 0.5, strtoupper($Ruc), 0 , '', 'R');
         $this->Ln();
 //       -- Espacio 6
-        $this->Cell(1, 0.8, '', 1);
-        $this->Cell(18.3, 0.8, utf8_decode(strtoupper($DirTien)), 1);
-        $this->Cell(2.4, 0.8, '', 1);
-        $this->Cell(6, 0.8, strtoupper($Guia), 1, '', 'R');
+        $this->Cell(1, 0.8, '', 0);
+        $this->Cell(18.3, 0.8, utf8_decode(strtoupper($DirTien)), 0);
+        $this->Cell(2.4, 0.8, '', 0);
+        $this->Cell(6, 0.8, strtoupper($Guia),0, '', 'R');
         $this->Ln();
 //        $this->Cell(Ancho , Alto , cadena , bordes , posición , alinear , fondo, URL )
     }
@@ -109,7 +69,7 @@ class PDF extends PDF_JavaScript {
         $reader = $command->query();
 
 //       -- Espacio 7
-        $this->Cell(27.7, 1.5, '', 1);
+        $this->Cell(27.7, 1.5, '', 0);
         $this->Ln();
 
         while ($row = $reader->read()) {
@@ -120,10 +80,10 @@ class PDF extends PDF_JavaScript {
 
             $this->SetFont('Arial', 'B', 15);
 //       -- Espacio N            
-            $this->Cell(2, 0.5, number_format($unid), 1, '', 'L');
-            $this->Cell(17.7, 0.5, utf8_decode(strtoupper($product)), 1);
-            $this->Cell(4, 0.5, strtoupper($val), 1, '', 'C');
-            $this->Cell(4, 0.5, strtoupper($precTo), 1, '', 'C');
+            $this->Cell(2, 0.5, number_format($unid), 0, '', 'L');
+            $this->Cell(17.7, 0.5, utf8_decode(strtoupper($product)), 0);
+            $this->Cell(4, 0.5, strtoupper($val), 0, '', 'C');
+            $this->Cell(4, 0.5, strtoupper($precTo), 0, '', 'C');
             $this->Ln();
         }
     }
@@ -146,15 +106,15 @@ class PDF extends PDF_JavaScript {
         $this->SetXY(1.93, 23.65);
 
         $this->Ln();
-        $this->Cell(27.7, 0.7, '', 1, '', 'L');
+        $this->Cell(27.7, 0.7, '', 0, '', 'L');
         $this->Ln();
-        $this->Cell(1.2, 0.5, '', 1, '', 'L');
-        $this->Cell(26.5, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 1);
+        $this->Cell(1.2, 0.5, '', 0, '', 'L');
+        $this->Cell(26.5, 0.5, utf8_decode(strtoupper(numtoletras($Total))), 0);
         $this->Ln();
-        $this->Cell(17.7, 1.5, '', 1, '', 'L');
-        $this->Cell(3.2, 1.5, strtoupper($Stotal), 1, '', 'L');
-        $this->Cell(3.2, 1.5, strtoupper($IGVPRO), 1, '', 'L');
-        $this->Cell(3.6, 1.5, strtoupper($Total), 1, '', 'L');
+        $this->Cell(17.7, 1.5, '', 0, '', 'L');
+        $this->Cell(3.2, 1.5, strtoupper($Stotal), 0, '', 'L');
+        $this->Cell(3.2, 1.5, strtoupper($IGVPRO), 0, '', 'L');
+        $this->Cell(3.6, 1.5, strtoupper($Total), 0, '', 'L');
     }
 
     function Impresion($i) {
@@ -359,4 +319,4 @@ for ($i = 0; $i < $count; $i++) {
 $FECFACT = date("dmY");
 $Reporte = "Factura_Masiva_$FECFACT.pdf";
 
-$pdf->Output($Reporte, 'I');
+$pdf->Output($Reporte, 'D');

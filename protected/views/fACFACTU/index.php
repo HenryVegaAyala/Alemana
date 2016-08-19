@@ -309,7 +309,7 @@ $('.search-form form').submit(function(){
                             'size' => 'default',
                             'icon' => 'fa fa-file-excel-o fa-lg',
                             'buttonType' => 'link',
-                            'url' => array('/reporte/Factura')
+                            'url' => array('REPORTE/Factura')
                         ));
                         ?>
 
