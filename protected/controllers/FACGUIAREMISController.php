@@ -156,9 +156,9 @@ class FACGUIAREMISController extends Controller {
     public function getHtmlCuerpo($id) {
 
         $connection = Yii::app()->db;
-        $sqlStatement = "SELECT FEC_TRAS,DIR_TIEN,DES_CLIE,NRO_RUC FROM FAC_GUIA_REMIS F
-                            inner join MAE_CLIEN C on F.COD_CLIE = C.COD_CLIE
-                            inner join MAE_TIEND T on F.COD_TIEN = T.COD_TIEN
+        $sqlStatement = "SELECT FEC_TRAS,DIR_TIEN,DES_CLIE,NRO_RUC FROM fac_guia_remis F
+                            inner join mae_clien C on F.COD_CLIE = C.COD_CLIE
+                            inner join mae_tiend T on F.COD_TIEN = T.COD_TIEN
                             where COD_GUIA ='" . $id . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
@@ -221,7 +221,7 @@ class FACGUIAREMISController extends Controller {
     public function getHtmlDetalle($id) {
         $connection = Yii::app()->db;
         $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,M.VAL_PESO,M.COD_MEDI  FROM fac_detal_guia_remis F
-                        inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
+                        inner join mae_produ M on F.COD_PROD = M.COD_PROD
                         where COD_GUIA = '" . $id . "' ;";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
@@ -287,7 +287,7 @@ Pag. {PAGENO} / {nb}
     /*     * *****************************REPORTE***************************************** */
 
     public function actionAjax2() {
- 
+
         if ($_GET['type'] == 'id_guia') {
             $id = $_GET["id"];
             $idguia = explode("_", $id);
@@ -482,3 +482,4 @@ Pag. {PAGENO} / {nb}
     }
 
 }
+

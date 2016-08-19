@@ -49,7 +49,7 @@ class FACFACTUController extends Controller {
         $command->execute();
 
         $model->IND_ESTA = '1';
-        
+
         Yii::app()->user->setFlash('success', "Se genero la Factura satisfactoriamente.");
         $this->render('Lista', array(
             'model' => $model,
@@ -188,9 +188,9 @@ class FACFACTUController extends Controller {
     public function getHtmlCuerpo($id) {
 
         $connection = Yii::app()->db;
-        $sqlStatement = "SELECT FEC_FACT,COD_GUIA,NRO_RUC,DES_CLIE,DIR_TIEN FROM FAC_FACTU M
-                        inner join MAE_CLIEN C on C.COD_CLIE = M.COD_CLIE
-                        inner join MAE_TIEND T on C.COD_CLIE = T.COD_CLIE
+        $sqlStatement = "SELECT FEC_FACT,COD_GUIA,NRO_RUC,DES_CLIE,DIR_TIEN FROM fac_factu M
+                        inner join mae_clien C on C.COD_CLIE = M.COD_CLIE
+                        inner join mae_tiend T on C.COD_CLIE = T.COD_CLIE
                         where COD_FACT  = '" . $id . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
@@ -254,9 +254,9 @@ class FACFACTUController extends Controller {
     public function getHtmlDetalle($id) {
 
         $connection = Yii::app()->db;
-        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,F.IGV_PROD,F.IMP_TOTA_PROD,M.VAL_PESO,M.COD_MEDI,FF.TOT_FACT_SIN_IGV,FF.TOT_IGV,FF.TOT_FACT  FROM FAC_DETAL_FACTU F
-                        inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-                        inner join FAC_FACTU FF on F.COD_FACT = FF.COD_FACT
+        $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,F.IGV_PROD,F.IMP_TOTA_PROD,M.VAL_PESO,M.COD_MEDI,FF.TOT_FACT_SIN_IGV,FF.TOT_IGV,FF.TOT_FACT  FROM fac_detal_factu F
+                        inner join mae_produ M on F.COD_PROD = M.COD_PROD
+                        inner join fac_factu FF on F.COD_FACT = FF.COD_FACT
                         where F.COD_FACT = '" . $id . "';";
         $command = $connection->createCommand($sqlStatement);
         $reader = $command->query();
@@ -509,7 +509,7 @@ Pag. {PAGENO} / {nb}
                             break;
                         case 2: // checa las decenas (con la misma lógica que las centenas)
                             if (substr($xaux, 1, 2) < 10) {
-                                
+
                             } else {
                                 $key = (int) substr($xaux, 1, 2);
                                 if (TRUE === array_key_exists($key, $xarray)) {
@@ -630,3 +630,4 @@ Pag. {PAGENO} / {nb}
     }
 
 }
+
