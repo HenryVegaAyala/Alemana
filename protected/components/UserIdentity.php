@@ -5,11 +5,13 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
-class UserIdentity extends CUserIdentity {
+class UserIdentity extends CUserIdentity
+{
 
     private $_id;
 
-    public function getId() {
+    public function getId()
+    {
         return $this->_id;
     }
 
@@ -21,9 +23,10 @@ class UserIdentity extends CUserIdentity {
      * against some persistent user identity storage (e.g. database).
      * @return boolean whether authentication succeeds.
      */
-    public function authenticate() {
+    public function authenticate()
+    {
 
-        $model = SEGUSUAR::model()->findByAttributes(array(
+        $model = Usuario::model()->findByAttributes(array(
             'USE_USUA' => $this->username,
         ));
 
@@ -34,7 +37,7 @@ class UserIdentity extends CUserIdentity {
                 $this->errorCode = self::ERROR_NONE;
                 $this->_id = $model->COD_USUA;
             } else {
-            $this->errorCode = self::ERROR_PASSWORD_INVALID;
+                $this->errorCode = self::ERROR_PASSWORD_INVALID;
             }
         }
         return !$this->errorCode;
