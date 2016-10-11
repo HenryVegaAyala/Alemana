@@ -194,7 +194,7 @@ class Factura extends CActiveRecord
             ->where('VAL_LLAVE = 2')
             ->queryScalar();
 
-        $id = ($max + 1);
+        $id = ($max);
 
         return $id;
     }
