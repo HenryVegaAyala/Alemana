@@ -76,7 +76,7 @@ class FacturaController extends Controller
                 $id = ($max);
 
                 if ($id > 0) {
-                    Yii::app()->user->setFlash('error', 'La Factura ya ha sido ingresada para la relación cliente/tienda, por favor revisar');
+                    Yii::app()->user->setFlash('error', 'La Factura ya ha sido ingresada para la relaciÃ³n cliente/tienda, por favor revisar');
                 } else {
                     if ($model->save()) {
                         for ($i = 0; $i < count($CODPRO); $i++) {
@@ -100,9 +100,9 @@ class FacturaController extends Controller
                     }
                 }
             } else {
-                Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la O/C');
+                Yii::app()->user->setFlash('error', 'Por lo menos debe ingresar un producto en la Factura');
             }
-            Yii::app()->user->setFlash('success', 'Se genero la O/C satisfactoriamente.');
+            Yii::app()->user->setFlash('success', 'Se genero la Factura satisfactoriamente.');
         }
 
 
