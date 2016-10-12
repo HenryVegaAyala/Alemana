@@ -292,7 +292,6 @@ $('.search-form form').submit(function(){
 
                                                 response($.map(data, function (item) {
 
-
                                                     return {
                                                         label: item,
                                                         value: item,

@@ -239,6 +239,17 @@ class FacturaController extends Controller
 
     public function actionAjax()
     {
+
+        if ($_GET['type'] == 'id_guia_factu') {
+            $id = $_GET["id"];
+            $usuario = Yii::app()->user->name;
+            $connection = Yii::app()->db;
+            $sqlStatement = "call PED_MIGRA_FACTU_TO_GUIA('" . $id . "' ,'" . $usuario . "') ;";
+            $command = $connection->createCommand($sqlStatement);
+            $command->execute();
+
+        }
+
         if ($_GET['type'] == 'produc_tiend') {
             $cliente = $_GET["clie"];
             $tienda = $_GET["tienda"];
@@ -278,7 +289,7 @@ class FacturaController extends Controller
         if ($out != '') {
             return $out;
         } else {
-            return "Sin Guia";
+            return "Sin Guía";
         }
     }
 
@@ -338,6 +349,33 @@ class FacturaController extends Controller
 
             $this->renderPartial('/Reporte/_ReporteFacturaContinuo', array(
                 'idfactu' => $idfactu,));
+        }
+    }
+
+    function ResultadoFecha($fecha)
+    {
+        if ($fecha == null) {
+            echo 'Fecha Indefinida';
+        } else {
+            echo Yii::app()->dateFormatter->format("dd/MM/y", strtotime($fecha));
+        }
+    }
+
+    function ResultadoEstado($Estado)
+    {
+        switch ($Estado) {
+            case 1:
+                return 'Emitida/Pendiente de Cobro';
+                break;
+            case 2:
+                return 'Cobrada/Cerrada';
+                break;
+            case 9:
+                echo 'Anulado';
+                return;
+            case 0:
+                return 'Creado';
+                break;
         }
     }
 

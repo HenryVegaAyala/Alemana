@@ -180,14 +180,6 @@ class Factura extends CActiveRecord
 
     public function au()
     {
-        /*
-        $max = Yii::app()->db->createCommand()
-            ->select('max(COD_FACT) as max')
-            ->from('fac_factu')
-            ->queryScalar();
-
-        $id = ($max + 1);
-        */
         $max = Yii::app()->db->createCommand()
             ->select('VAL_ACTU')
             ->from('folio')
@@ -238,13 +230,13 @@ class Factura extends CActiveRecord
     public function getGuia($id)
     {
 
-        $Tienda = Yii::app()->db->createCommand()
+        $Guia = Yii::app()->db->createCommand()
             ->select('COD_GUIA')
             ->from('fac_factu')
-            ->where("COD_FACT = '" . $id . "';")
+            ->where("COD_GUIA = '" . $id . "';")
             ->queryScalar();
 
-        return $Tienda;
+        return $Guia;
     }
 
 }
