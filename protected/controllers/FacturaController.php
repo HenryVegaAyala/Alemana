@@ -24,7 +24,7 @@ class FacturaController extends Controller
             array('allow', // allow authenticated 
                 'actions' => array('create', 'update', 'index', 'view',
                     'admin', 'delete', 'Anular', 'Reporte', 'ValorTienda', 'ClienteByTienda',
-                    'Ajax', 'Ajax1', 'Ajax2', 'Lista'),
+                    'Ajax', 'Ajax1', 'Ajax2', 'Procesar'),
                 'users' => array('@'),
             ),
             array('deny',  // deny all users
@@ -377,6 +377,26 @@ class FacturaController extends Controller
                 return 'Creado';
                 break;
         }
+    }
+
+    public function actionProcesar($id)
+    {
+        $model = new Factura('search');
+        $model->unsetAttributes();  // clear any default values
+
+        if (isset($_POST['Factura']))
+            $model->attributes = $_POST['Factura'];
+
+        $usuario = Yii::app()->user->name;
+        $connection = Yii::app()->db;
+        $sqlStatement = "call PED_MIGRA_FACTU_TO_GUIA ('" . $id . "' ,'" . $usuario . "') ;";
+        $command = $connection->createCommand($sqlStatement);
+        $command->execute();
+
+        Yii::app()->user->setFlash('success', "Se genero la Guia satisfactoriamente.");
+        $this->render('index', array(
+            'model' => $model,
+        ));
     }
 
 }

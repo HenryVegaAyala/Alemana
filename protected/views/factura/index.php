@@ -118,8 +118,8 @@ $('.search-form form').submit(function(){
                     array(
                         'header' => 'Opciones',
                         'class' => 'ext.bootstrap.widgets.TbButtonColumn',
-                        'htmlOptions' => array('style' => 'width: 101px; text-align: center;'),
-                        'template' => '{view} / {update} / {Anular} / {Reporte}',
+                        'htmlOptions' => array('style' => 'width: 125px; text-align: center;'),
+                        'template' => '{view} / {update} / {Anular} / {Guia} / {Reporte}',
                         'buttons' => array(
 
                             'update' => array(
@@ -180,6 +180,34 @@ $('.search-form form').submit(function(){
                                 'htmlOptions' => array('style' => 'width: 50px',),
                                 'options' => array('target' => '_blank'),
                                 'url' => 'Yii::app()->controller->createUrl("/factura/reporte", array("id"=>$data->COD_FACT))',
+                            ),
+
+                            'Guia' => array(
+                                'icon' => 'fa fa-cog',
+                                'label' => 'Generar Guia',
+                                'htmlOptions' => array('style' => 'width: 50px'),
+                                'url' => 'Yii::app()->controller->createUrl("/factura/procesar", array("id"=>$data->COD_FACT,"est"=>$data->IND_ESTA))',
+                                'click' => "function (){
+                                    var x = this.href;
+                                    var cad = x.split('/');
+                                    var pos = cad[cad.length-1].indexOf('?');
+                                    var id = cad[cad.length-1].substring(pos+5);
+
+                                    if(id == 2 ||  id == 9){
+                                        alert ('No puede generarse la Guía,la Factura debe estar en estado creado');
+                                        return false
+                                    }
+                                    if(id == 1 ){
+                                        alert ('Este N° de Factura ya fue generado su Guía, Por favor revisar.');
+                                        return false;
+                                    }else{
+                                     if (confirm ('¿Estas seguro de generar la Guía para esta Factura?')){
+                                            return true;
+                                        }
+                                            return false;
+                                    }
+
+                                }",
                             ),
 
                         ),
