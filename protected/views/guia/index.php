@@ -55,10 +55,16 @@ $('.search-form form').submit(function(){
                         'class' => 'CCheckBoxColumn',
                         'selectableRows' => '50',
                     ),
-                    'COD_GUIA',
+                    array(
+                        'name' => 'COD_GUIA',
+                        'htmlOptions' => array('style' => 'width: 80px;'),
+                        'header' => 'N° Guía',
+                        'value' => '$data->COD_GUIA',
+                    ),
                     array(
                         'name' => 'COD_ORDE',
                         'header' => 'N° Orden',
+                        'htmlOptions' => array('style' => 'width: 95px;'),
                         'value' => function ($data) {
                             $COD_ORDE = $data->__GET('COD_ORDE');
                             $Guia = GuiaController::ResultadoNOC($COD_ORDE);
@@ -67,7 +73,8 @@ $('.search-form form').submit(function(){
                     ),
                     array(
                         'name' => 'COD_TIEN',
-                        'header' => 'Tienda',
+                        'header' => 'Cliente - Tienda',
+                        'htmlOptions' => array('style' => 'width: 190x;'),
                         'value' => function ($data) {
                             $tienda = $data->__GET('COD_TIEN');
                             $Tienda = GuiaController::ResultadoTienda($tienda);
@@ -76,12 +83,14 @@ $('.search-form form').submit(function(){
                     ),
                     array(
                         'name' => 'FEC_EMIS',
-                        'header' => 'Fecha de Envio',
+                        'header' => 'Fecha Envio',
+                        'htmlOptions' => array('style' => 'width: 110px;'),
                         'value' => 'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->FEC_EMIS))'
                     ),
                     array(
                         'name' => 'IND_ESTA',
                         'header' => 'Estado',
+                        'htmlOptions' => array('style' => 'width: 165x;'),
                         'value' => function ($data) {
                             $valor = $data->__GET('IND_ESTA');
                             $estado = GuiaController::ResultadoEstado($valor);
@@ -92,6 +101,7 @@ $('.search-form form').submit(function(){
                     array(
                         'name' => 'IND_ESTA',
                         'header' => 'N° Factura',
+                        'htmlOptions' => array('style' => 'width: 95x;'),
                         'value' => function ($data) {
                             $valor = $data->__GET('COD_GUIA');
                             $Factura = GuiaController::ResultadoFactura($valor);

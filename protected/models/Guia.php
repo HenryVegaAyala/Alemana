@@ -204,9 +204,10 @@ class Guia extends CActiveRecord
     public function GetTienda($tienda)
     {
         $out = Yii::app()->db->createCommand()
-            ->select('DES_TIEN')
-            ->from('MAE_TIEND')
-            ->where("COD_TIEN = '" . $tienda . "';")
+            ->select("DISTINCT concat(mc.DES_CLIE,' - ',mt.DES_TIEN)")
+            ->from('mae_tiend mt')
+            ->join('mae_clien mc', 'mt.COD_CLIE = mc.COD_CLIE')
+            ->where("mc.COD_CLIE = '" . $tienda . "' AND mc.COD_ESTA ='1' AND  mt.COD_ESTA='1';")
             ->queryScalar();
 
         return $out;

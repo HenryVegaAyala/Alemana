@@ -79,7 +79,7 @@ $this->breadcrumbs = array(
     echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
     echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
     echo '</tr>';
-    $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PROD FROM FAC_DETAL_FACTU F
+    $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD FROM FAC_DETAL_FACTU F
             inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
             where F.COD_FACT = '" . $model->COD_FACT . "';";
 
@@ -90,7 +90,7 @@ $this->breadcrumbs = array(
         echo '<tr>';
         echo '<td>' . $row1['COD_PROD'] . '</td>';
         echo '<td>' . $row1['DES_LARG'] . '</td>';
-        echo '<td>' . $row1['NRO_UNID'] . '</td>';
+        echo '<td>' . $row1['UNI_SOLI'] . '</td>';
         echo '<td>' . $row1['VAL_PROD'] . '</td>';
         echo '</tr>';
     }

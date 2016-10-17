@@ -409,7 +409,7 @@ class OcController extends Controller
 
         } else {
 
-            Yii::app()->user->setFlash('success', 'Se genero el N° de O.C - '. $this->ResultadoOc($numoc).', genero el N° de Guía - ' .$this->ResultadoGuia($numoc) . ' satisfactoriamente '."");
+            Yii::app()->user->setFlash('success', 'El N° de O.C - '. $this->ResultadoOc($numoc).', genero el N° de Guía - ' .$this->ResultadoGuia($numoc) . ' satisfactoriamente '."");
             $this->render('index', array(
                 'model' => $model,
             ));

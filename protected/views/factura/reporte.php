@@ -284,7 +284,7 @@ $html.='
 ';
 
 $connection = Yii::app()->db;
-$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PROD,F.IMP_PROD,F.IGV_PROD,F.IMP_TOTA_PROD,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_FACTU F
+$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.UNI_SOLI,F.VAL_PROD,F.IMP_PROD,F.IGV_PROD,F.IMP_TOTA_PROD,M.VAL_PESO,M.COD_MEDI  FROM FAC_DETAL_FACTU F
                 inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
                         where COD_FACT = '" . $model->COD_FACT . "';";
 $command = $connection->createCommand($sqlStatement);
@@ -306,7 +306,7 @@ while ($row = $reader->read()) {
     $html.= '
        
         <tr>
-        <td style="text-align: center;" width="10%" > ' . $row['NRO_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%" > ' . $row['UNI_SOLI'] . ' </td>
         <td style="text-align: rigth;"  width="70%">' . $row['DES_LARG'] . ' ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . ' </td>
         <td style="text-align: center;" width="10%"> ' . $row['VAL_PROD'] . ' </td>
         <td style="text-align: center;" width="10%"> ' . $row['IMP_PROD'] . ' </td>
