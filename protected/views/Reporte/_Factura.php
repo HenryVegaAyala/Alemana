@@ -6,78 +6,135 @@ $objPHPExcel = XPHPExcel::createPHPExcel();
 set_time_limit(900);
 
 $objPHPExcel->getProperties()->setCreator("Arunsri")
-        ->setLastModifiedBy("Arunsri")
-        ->setTitle("Office 2007 XLSX Test Document")
-        ->setSubject("Office 2007 XLSX Test Document")
-        ->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.")
-        ->setKeywords("office 2007 openxml php")
-        ->setCategory("Test result file");
+    ->setLastModifiedBy("Arunsri")
+    ->setTitle("Office 2007 XLSX Test Document")
+    ->setSubject("Office 2007 XLSX Test Document")
+    ->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.")
+    ->setKeywords("office 2007 openxml php")
+    ->setCategory("Test result file");
 
 // Add some data
 $objPHPExcel->setActiveSheetIndex(0)
-        ->setCellValue('A1', 'N° de Factura')
-        ->setCellValue('B1', 'Cliente')
-        ->setCellValue('C1', 'Fecha Facturada')
-        ->setCellValue('D1', 'Fecha de Pago')
-        ->setCellValue('E1', 'Estado')
-        ->setCellValue('F1', 'N° de Guia Documento')
-        ->setCellValue('G1', 'N° de O/C')
-        ->setCellValue('H1', 'Total');
+    ->setCellValue('A1', 'N° de Factura')
+    ->setCellValue('B1', 'Cliente')
+    ->setCellValue('C1', 'Tienda')
+    ->setCellValue('D1', 'Fecha Facturada')
+    ->setCellValue('E1', 'Fecha de Pago')
+    ->setCellValue('F1', 'Estado')
+    ->setCellValue('G1', 'N° de Guia R.')
+    ->setCellValue('H1', 'N° de O.C.')
+    ->setCellValue('I1', 'Total');
 
-$sql = "SELECT COD_FACT,
- (SELECT DES_CLIE FROM MAE_CLIEN Z WHERE Z.COD_CLIE= Y.COD_CLIE) CLIENTE,
- FEC_FACT,
- Y.FEC_PAGO,
- CASE  Y.IND_ESTA
-    WHEN Y.IND_ESTA='1' THEN 'PENDIENTE PAGO'
-    WHEN Y.IND_ESTA='2' THEN 'COBRADO'
-    WHEN Y.IND_ESTA='9' THEN 'ANULADO'
-   END AS  ESTADO,
-  Z.COD_GUIA,
-  M.NUM_ORDE,
-  Y.TOT_FACT
-FROM fac_factu Y,fac_guia_remis Z,fac_orden_compr M
-WHERE Y.COD_GUIA= Z.COD_GUIA
- AND M.COD_ORDE= Z.COD_ORDE;";
-$datas = Yii::app()->db->createCommand($sql)->queryAll();
 
-for ($i = 0; $i < count($datas); $i++) {
-    $j = $i + 2;
-    $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A' . $j, $datas[$i]['COD_FACT'])
-            ->setCellValue('B' . $j, $datas[$i]['CLIENTE'])
-            ->setCellValue('C' . $j, $datas[$i]['FEC_FACT'])
-            ->setCellValue('D' . $j, $datas[$i]['FEC_PAGO'])
-            ->setCellValue('E' . $j, $datas[$i]['ESTADO'])
-            ->setCellValue('F' . $j, $datas[$i]['COD_GUIA'])
-            ->setCellValue('G' . $j, $datas[$i]['NUM_ORDE'])
-            ->setCellValue('H' . $j, $datas[$i]['TOT_FACT']);
-}
-
-$styleArray = array(
+$StyleCuerpo = array(
     'font' => array(
-        'bold' => true,
-        'color' => array('rgb' => '#000000'),
-        'name' => 'Arial'
-    ),
-    
-    'alignment' => array(
-        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+        'name' => 'Arial',
+        'bold' => false,
+        'italic' => false,
+        'strike' => false,
+        'size' => 9,
+        'color' => array(
+            'rgb' => '6, 0, 2'
+        )
     ),
     'borders' => array(
         'allborders' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-        ),
+            'style' => PHPExcel_Style_Border::BORDER_NONE
+        )
     ),
-
+    'alignment' => array(
+        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+        'rotation' => 0,
+        //'wrap' => TRUE
+    ),
 );
 
-//$objPHPExcel->getActiveSheet()->getStyleByColumnAndRow('A','H')->setWidth('24');
-$objPHPExcel->getActiveSheet()->getStyle('A1:H1')->applyFromArray($styleArray);
+$sql = "SELECT
+  A.COD_FACT,
+  B.DES_CLIE,
+  C.DES_TIEN,
+  A.FEC_FACT,
+  A.FEC_PAGO,
+  CASE  A.IND_ESTA
+  WHEN A.IND_ESTA='1' THEN 'PENDIENTE DE PAGO'
+  WHEN A.IND_ESTA='2' THEN 'COBRADO'
+  WHEN A.IND_ESTA='9' THEN 'ANULADO'
+  END AS  ESTADO,
+  'SIN GUIA R.',
+  'SIN O.C.',
+  A.TOT_FACT
+FROM fac_factu A
+INNER JOIN mae_clien B ON A.COD_CLIE = B.COD_CLIE
+INNER JOIN mae_tiend C ON C.COD_TIEN = A.COD_TIEN;";
+$datas = Yii::app()->db->createCommand($sql)->queryAll();
 
+$i = 2;
+
+foreach ($datas as $data) {
+
+    $objPHPExcel->setActiveSheetIndex(0)
+        ->setCellValue('A' . $i, $data['COD_FACT'])
+        ->setCellValue('B' . $i, $data['DES_CLIE'])
+        ->setCellValue('C' . $i, $data['DES_TIEN'])
+        ->setCellValue('D' . $i, $data['FEC_FACT'])
+        ->setCellValue('E' . $i, $data['FEC_PAGO'])
+        ->setCellValue('F' . $i, $data['ESTADO'])
+        // ->setCellValue('G' . $i, $data[''])
+        // ->setCellValue('H' . $i, $data[''])
+        ->setCellValue('I' . $i, $data['TOT_FACT'])
+        ->getStyle("A".$i.":I".$i."")
+        ->applyFromArray($StyleCuerpo);
+    $i++;
+}
+
+$StyleCabecera = array(
+    'font' => array(
+        'name' => 'Arial',
+        'bold' => true,
+        'italic' => false,
+        'strike' => false,
+        'size' => 11,
+        'color' => array(
+            'rgb' => '6, 0, 2'
+        )
+    ),
+    'borders' => array(
+        'allborders' => array(
+            'style' => PHPExcel_Style_Border::BORDER_NONE
+        )
+    ),
+    'alignment' => array(
+        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+        'rotation' => 0,
+        //'wrap' => TRUE
+    ),
+    /*
+'fill' => array(
+   'type' => PHPExcel_Style_Fill::FILL_SOLID,
+   'color' => array(
+       'rgb' => '6, 0, 2')
+),*/
+);
+
+
+//$objPHPExcel->getActiveSheet()->getColumnDimension('A')->getAutoSize(true);
+$objPHPExcel->getActiveSheet()->getStyle('A1:I1')->applyFromArray($StyleCabecera);
+
+
+
+$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(14);
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(50);
+$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(14);
+$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(18);
+$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(18);
+$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(14);
 
 $objPHPExcel->getSheet(0)->setTitle("Facturas-" . date('d-m-Y'));
-
 $objPHPExcel->setActiveSheetIndex(0);
 
 $reporte = ob_get_clean();
@@ -95,6 +152,7 @@ $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');
 Yii::app()->end();
 echo $reporte;
+
 
 //$conn = mysqli_connect('sispaal.cnjv4vhhy3or.us-west-2.rds.amazonaws.com', 'root', 'root2016', 'SIS_PANA', '3306');
 //if (!$conn) {
@@ -148,11 +206,11 @@ echo $reporte;
 //         echo "<td align=\"left\">".$row[$j]."</td>";
 //     }
 //     echo "</tr>";
-////     
+////
 ////while ($row = $reader->read()) {
 ////
 ////
-////     
+////
 //}
 //
 //echo "</table>";

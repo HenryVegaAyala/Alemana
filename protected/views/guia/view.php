@@ -78,10 +78,10 @@ $this->breadcrumbs = array(
                     'name' => 'FEC_EMIS',
                     'value' => $FEC_INGRE,
                 ),
-               /* array(
-                    'name' => 'Fecha transporte',
-                    'value' => $FEC_ENVI,
-                ),*/
+                /* array(
+                     'name' => 'Fecha transporte',
+                     'value' => $FEC_ENVI,
+                 ),*/
                 array(
                     'name' => 'Estado',
                     'value' => $estado
@@ -99,10 +99,12 @@ $this->breadcrumbs = array(
     echo '<th style="text-align: center;" >Descripción</th>';
     echo '<th style="text-align: center;" class="col-md-1">Cantidad</th>';
     echo '<th style="text-align: center;" class="col-md-1">Precio</th>';
+    echo '<th style="text-align: center;" class="col-md-1">Total</th>';
     echo '</tr>';
-    $sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
-            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-            where F.COD_CLIE = '" . $model->COD_CLIE . "' and F.COD_TIEN = '" . $model->COD_TIEN . "' and F.COD_ORDE = '" . $model->COD_ORDE . "';";
+    $sqlStatement = "SELECT C.COD_PROD, C.DES_LARG,A.UNI_SOLI,A.VAL_PROD,A.IMP_TOTA_PROD FROM fac_detal_guia_remis A
+                        INNER JOIN fac_guia_remis B ON A.COD_GUIA = B.COD_GUIA
+                        INNER JOIN MAE_PRODU C ON A.COD_PROD = C.COD_PROD
+           WHERE B.COD_CLIE = '" . $model->COD_CLIE . "' and B.COD_TIEN = '" . $model->COD_TIEN . "' and B.COD_GUIA = '" . $model->COD_GUIA . "';";
     $connection = Yii::app()->db;
     $command = $connection->createCommand($sqlStatement);
     $reader = $command->query();
@@ -110,8 +112,9 @@ $this->breadcrumbs = array(
         echo '<tr>';
         echo '<td>' . $row1['COD_PROD'] . '</td>';
         echo '<td>' . $row1['DES_LARG'] . '</td>';
-        echo '<td>' . $row1['NRO_UNID'] . '</td>';
-        echo '<td>' . $row1['VAL_PREC'] . '</td>';
+        echo '<td>' . $row1['UNI_SOLI'] . '</td>';
+        echo '<td>' . $row1['VAL_PROD'] . '</td>';
+        echo '<td>' . $row1['IMP_TOTA_PROD'] . '</td>';
         echo '</tr>';
     }
 

@@ -161,8 +161,8 @@ class Guia extends CActiveRecord
     public function ListaTiendaUpdate()
     {
 
-        $Tienda = Tienda::model()->findAll();
-        return CHtml::listData($Tienda, "COD_TIEN", "DES_TIEN");
+        $Tienda = Cliente::model()->findAll();
+        return CHtml::listData($Tienda, "COD_CLIE", "DES_CLIE");
     }
 
     public function Estado()

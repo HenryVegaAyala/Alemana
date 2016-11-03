@@ -295,6 +295,13 @@ class OC extends CActiveRecord
         return ($list);
     }
 
+    public function VistaCliente()
+    {
+        $models = Cliente::model()->findAll();
+        $list = CHtml::listData($models, 'COD_CLIE', 'DES_CLIE');
+        return ($list);
+    }
+
     public function getOC($id)
     {
 

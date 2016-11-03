@@ -134,9 +134,10 @@ $html.='
 ';
 
 $connection = Yii::app()->db;
-$sqlStatement = "SELECT F.COD_PROD, M.DES_LARG,F.NRO_UNID,F.VAL_PREC,F.VAL_MONT_UNID FROM FAC_DETAL_ORDEN_COMPR F
-            inner join MAE_PRODU M on F.COD_PROD = M.COD_PROD
-            where F.COD_CLIE = '" . $model->COD_CLIE . "' and F.COD_TIEN = '" . $model->COD_TIEN . "' and F.COD_ORDE = '" . $model->COD_ORDE . "';";
+$sqlStatement = "SELECT A.UNI_SOLI,C.DES_LARG,C.COD_MEDI,A.VAL_PROD,A.IMP_TOTA_PROD FROM fac_detal_guia_remis A
+                  INNER JOIN fac_guia_remis B ON A.COD_GUIA = B.COD_GUIA
+                  INNER JOIN MAE_PRODU C ON A.COD_PROD = C.COD_PROD
+                  where B.COD_CLIE = '" . $model->COD_CLIE . "' and B.COD_TIEN = '" . $model->COD_TIEN . "' and B.COD_GUIA = '" . $model->COD_GUIA . "';";
 $command = $connection->createCommand($sqlStatement);
 $reader = $command->query();
 
@@ -157,11 +158,11 @@ while ($row = $reader->read()) {
     $html.= '
        
         <tr>
-        <td style="text-align: center;" width="10%" > ' . $row['NRO_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%" > ' . $row['UNI_SOLI'] . ' </td>
         <td style="text-align: rigth;"  width="50%">' . $row['DES_LARG'] . ' </td>
         <td style="text-align: center;" width="8%"> ' . $row['VAL_PESO'] . ' ' . $row['COD_MEDI'] . '</td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_PREC'] . ' </td>
-        <td style="text-align: center;" width="10%"> ' . $row['VAL_MONT_UNID'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['VAL_PROD'] . ' </td>
+        <td style="text-align: center;" width="10%"> ' . $row['IMP_TOTA_PROD'] . ' </td>
         </tr>
 
         ';

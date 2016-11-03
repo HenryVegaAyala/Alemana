@@ -28,8 +28,8 @@
             </div>
 
             <div class="col-sm-4 control-label">
-                <?php echo $form->label($model, 'COD_TIEN'); ?>
-                <?php echo $form->dropDownList($model, 'COD_TIEN', $model->ListaTiendaUpdate(), array('class' => 'form-control  input-sm', 'empty' => 'Seleccionar Tienda')); ?>
+                <?php echo $form->label($model, 'COD_CLIE'); ?>
+                <?php echo $form->dropDownList($model, 'COD_CLIE', $model->ListaTiendaUpdate(), array('class' => 'form-control  input-sm', 'empty' => 'Seleccionar Tienda')); ?>
             </div>
         </div>
 

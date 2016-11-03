@@ -18,8 +18,8 @@
         <div class="container-fluid">
 
             <div class="col-sm-4 control-label">
-                <?php echo $form->label($model, 'COD_TIEN'); ?>
-                <?php echo $form->dropDownList($model, 'COD_TIEN', $model->VistaTienda(), array('class' => 'form-control input-sm', 'empty' => 'Seleccionar Tienda')); ?>
+                <?php echo $form->label($model, 'COD_CLIE'); ?>
+                <?php echo $form->dropDownList($model, 'COD_CLIE', $model->VistaCliente(), array('class' => 'form-control input-sm', 'empty' => 'Seleccionar Cliente')); ?>
             </div>
 
             <div class="col-sm-4 control-label">
