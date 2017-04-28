@@ -101,7 +101,7 @@
         return result;
     }
 
-    function jsCalcular(ele) {
+    function jsCalcular() {
 
         var arr_uni = document.getElementsByName("NRO_UNID[]");
         var arr_pre = document.getElementsByName("VAL_PREC[]");

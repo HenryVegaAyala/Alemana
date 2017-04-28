@@ -72,7 +72,7 @@ while ($row = $reader->read()) {
         return result;
     }
 
-    function jsCalcular(ele) {
+    function jsCalcular() {
 
         var arr_uni = document.getElementsByName("NRO_UNID[]");
         var arr_pre = document.getElementsByName("VAL_PREC[]");
@@ -101,7 +101,7 @@ while ($row = $reader->read()) {
     $(".delete").on('click', function () {
         $('.case:checkbox:checked').parents("tr").remove();
         $('.check_all').prop("checked", false);
-        check();
+//        check();
         jsCalcular();
     });
     var i = $('#tableP tr').length;
