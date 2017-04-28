@@ -94,7 +94,7 @@ while ($row = $reader->read()) {
 
         document.getElementById("Factura_TOT_FACT_SIN_IGV").value = redondear2decimales(sumaSubTotal);
         document.getElementById("Factura_TOT_IGV").value = redondear2decimales(montoIGV);
-        document.getElementById("Factura_TOT_FACT").value = redondear2decimales(total);
+        document.getElementById("OC_TOT_FACT").value = isNaN( redondear2decimales(total) ) ? 0 : redondear2decimales(total);
     }
 
 
