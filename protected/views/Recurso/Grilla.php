@@ -24,11 +24,11 @@
 
 <html>
 <div style="margin-top: 2%"></div>
-<button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore'><a class="fa fa-plus fa-lg"
+<button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore' onclick="jsCalcular()"><a class="fa fa-plus fa-lg"
                                                                                   style="color: white;"></a> Agregar
     Productos
 </button>
-<button type="button" class='btn btn-danger btn-sm delete' onclick="jsCalcular(this)">
+<button type="button" class='btn btn-danger btn-sm delete' onclick="jsCalcular()">
     <a class="fa fa-close fa-lg" style="color: white;"></a>
     Eliminar
 </button>
@@ -72,7 +72,7 @@ while ($row = $reader->read()) {
         return result;
     }
 
-    function jsCalcular(ele) {
+    function jsCalcular() {
 
         var arr_uni = document.getElementsByName("NRO_UNID[]");
         var arr_pre = document.getElementsByName("VAL_PREC[]");
