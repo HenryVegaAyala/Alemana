@@ -28,7 +28,8 @@
                                                                                   style="color: white;"></a> Agregar
     Productos
 </button>
-<button type="button" class='btn btn-danger btn-sm delete'><a class="fa fa-close fa-lg" style="color: white;"></a>
+<button type="button" class='btn btn-danger btn-sm delete' onclick="jsCalcular()">
+    <a class="fa fa-close fa-lg" style="color: white;" onclick="jsCalcular()"></a>
     Eliminar
 </button>
 <br><br>
