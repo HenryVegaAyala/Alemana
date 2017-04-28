@@ -135,7 +135,7 @@ while ($row = $reader->read()) {
                                     <input type="text" id="DES_LARG_' + i + '" name="DES_LARG[]" size="45" class="form-control input-sm " />\n\
                                 </td> \n\
                                 <td>\n\
-                                    <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control input-sm " readonly="true"/>\n\
+                                    <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control input-sm " readonly="true" value="0"/>\n\
                                 </td>\n\
                                 <td>\n\
                                     <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" readonly="true"/>\n\
