@@ -81,6 +81,7 @@ class OcController extends Controller
 
                 $id = ($count);
 
+
                 if ($id > 0) {
                     Yii::app()->user->setFlash('error', 'La O/C ya ha sido ingresada para la relaciÃ³n cliente/tienda, por favor revisar');
                 } else {
@@ -88,7 +89,7 @@ class OcController extends Controller
                         for ($i = 0; $i < count($CODPRO); $i++) {
                             if ($CODPRO[$i] <> '') {
                                 $sqlStatement = "call PED_CREAR_DETAL_OC('" . $i . "',
-                     '" . $model->COD_ORDE . "',
+                     '" . $this->valor($model->COD_ORDE) . "',
                      '" . $model->COD_TIEN . "',
                      '" . $model->COD_CLIE . "',
                      '" . $CODPRO[$i] . "', 
@@ -115,6 +116,18 @@ class OcController extends Controller
         $this->render('create', array(
             'model' => $model,
         ));
+    }
+
+    public function valor($codigo)
+    {
+
+        if ($codigo == '') {
+            $codigo = '006';
+            return $codigo;
+        } else {
+            return $codigo;
+        }
+
     }
 
     public function actionUpdate($id)
@@ -409,7 +422,7 @@ class OcController extends Controller
 
         } else {
 
-            Yii::app()->user->setFlash('success', 'El N° de O.C - '. $this->ResultadoOc($numoc).', genero el N° de Guía - ' .$this->ResultadoGuia($numoc) . ' satisfactoriamente '."");
+            Yii::app()->user->setFlash('success', 'El N° de O.C - ' . $this->ResultadoOc($numoc) . ', genero el N° de Guía - ' . $this->ResultadoGuia($numoc) . ' satisfactoriamente ' . "");
             $this->render('index', array(
                 'model' => $model,
             ));
