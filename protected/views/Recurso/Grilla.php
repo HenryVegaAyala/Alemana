@@ -29,7 +29,7 @@
     Productos
 </button>
 <button type="button" class='btn btn-danger btn-sm delete' onclick="jsCalcular()">
-    <a class="fa fa-close fa-lg" style="color: white;"></a>
+    <a class="fa fa-close fa-lg" style="color: white;" onclick="jsCalcular()"></a>
     Eliminar
 </button>
 <br><br>
@@ -101,7 +101,7 @@ while ($row = $reader->read()) {
     $(".delete").on('click', function () {
         $('.case:checkbox:checked').parents("tr").remove();
         $('.check_all').prop("checked", false);
-        check();
+//        check();
         jsCalcular();
     });
     var i = $('#tableP tr').length;
