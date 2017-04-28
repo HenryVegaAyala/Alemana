@@ -80,7 +80,7 @@
             <td><input type='text' value=" . $row['COD_PROD'] . " id='COD_PROD_" . $count . "' name='COD_PROD[]' size='10' class='form-control input-sm' readonly='true'/></td>
             <td><input type='text' value=" . $row['NRO_UNID'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' id='NRO_UNID_" . $count . "' name='NRO_UNID[]' value='0' size='10' class='form-control input-sm' /></td>
             <td><input type='text' value=" . $row['VAL_PREC'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' onkeypress='jsAgregar(event);' id='VAL_PREC_" . $count . "' name='VAL_PREC[]' value='0' size='10' class='form-control input-sm'/> </td>
-            <td><input type='text' value=" . $row['VAL_MONT_UNID'] . " id='campo_VAL_MONT_UNID_" . $count . "' name='VAL_MONT_UNID[]' size='10' class='form-control input-sm' readonly='true'/> </td>
+            <td><input type='text' value=" . $row['VAL_MONT_UNID'] . " id='campo_VAL_MONT_UNID_" . $count . "' name='VAL_MONT_UNID[]' size='10' class='form-control input-sm' readonly='true' value='0'/> </td>
         </tr>";
 
 //            "crearFunciones( $count )";

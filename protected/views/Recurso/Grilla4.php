@@ -80,7 +80,7 @@
             <td><input type='text' value=" . $row['COD_PROD'] . " id='COD_PROD_" . $count . "' name='COD_PROD[]' size='10' class='form-control input-sm' readonly='true'/></td>
             <td><input type='text' value=" . $row['UNI_SOLI'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' id='NRO_UNID_" . $count . "' name='NRO_UNID[]' value='0' size='10' class='form-control input-sm' readonly='true' /></td>
             <td><input type='text' value=" . $row['VAL_PROD'] . " onchange='jsCalcular(this)' onkeyup='jsCalcular(this);' onkeypress='jsAgregar(event);' id='VAL_PREC_" . $count . "' name='VAL_PREC[]' value='0' size='10' class='form-control input-sm' readonly='true'/> </td>
-            <td><input type='text' value=" . $row['IMP_TOTA_PROD'] . " id='campo_VAL_MONT_UNID_" . $count . "' name='VAL_MONT_UNID[]' size='10' class='form-control input-sm' readonly='true'/> </td>
+            <td><input type='text' value=" . $row['IMP_TOTA_PROD'] . " id='campo_VAL_MONT_UNID_" . $count . "' name='VAL_MONT_UNID[]' size='10' class='form-control input-sm' value='0'readonly='true'/> </td>
         </tr>";
 
 //            "crearFunciones( $count )";
