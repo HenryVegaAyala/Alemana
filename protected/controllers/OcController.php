@@ -66,7 +66,7 @@ class OcController extends Controller
             $model->COD_ORDE = $model->au();
             $model->USU_DIGI = $usuario;
 
-            if (isset($_POST['COD_PROD'])) {
+            if (isset($_POST['COD_PROD']) or $_POST['COD_PROD'] == '' or $_POST['COD_PROD'] == null) {
 
                 $CODPRO = $_POST['COD_PROD'];
                 $DESCRI = $_POST['DES_LARG'];
