@@ -89,10 +89,10 @@ class OcController extends Controller
                         for ($i = 0; $i < count($CODPRO); $i++) {
                             if ($CODPRO[$i] <> '') {
                                 $sqlStatement = "call PED_CREAR_DETAL_OC('" . $i . "',
-                     '" . $this->valor($model->COD_ORDE) . "',
+                     '" . $model->COD_ORDE . "',
                      '" . $model->COD_TIEN . "',
                      '" . $model->COD_CLIE . "',
-                     '" . $CODPRO[$i] . "', 
+                     '" . $this->valor($CODPRO[$i]) . "', 
                      '" . $UND[$i] . "',
                      '" . $VALPRE[$i] . "', 
                      '" . $VALMOTUND[$i] . "',
