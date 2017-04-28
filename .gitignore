@@ -26,3 +26,8 @@ protected/vendor/
 themes/classic/
 assets/
 themes/
+modules.xml
+Alemana.iml
+dbnavigator.xml
+profiles_settings.xml
+frameworkRootSettings.xml
