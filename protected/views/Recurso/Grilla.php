@@ -75,6 +75,28 @@ while ($row = $reader->read()) {
         return result;
     }
 
+    function NumCheck(e, field) {
+        jsAgregar(e);
+        key = e.keyCode ? e.keyCode : e.which
+        // backspace
+        if (key == 8) return true
+        // 0-9
+        if (key > 47 && key < 58) {
+            if (field.value == "") return true
+            regexp = /.[0-9]{2}$/
+            return !(regexp.test(field.value))
+        }
+        // .
+        if (key == 46) {
+            if (field.value == "") return false
+            regexp = /^[0-9]+$/
+            return regexp.test(field.value)
+        }
+        // other key
+        return false
+
+    }
+
     function totalNaN(valor) {
         if (isNaN(valor)) {
             return '0.00';
@@ -109,6 +131,13 @@ while ($row = $reader->read()) {
         }
     }
 
+    var total = document.getElementsByName("VAL_MONT_UNID[]").value;
+    totalNaN(total);
+
+    var total = document.getElementsByName("NRO_UNID[]").value;
+    totalNaN(total);
+
+
     function jsCalcular() {
 
         var arr_uni = document.getElementsByName("NRO_UNID[]");
@@ -119,7 +148,7 @@ while ($row = $reader->read()) {
             cantidad = parseFloat(arr_uni[x].value, 2);
             precunit = parseFloat(arr_pre[x].value, 2);
             totalitem = parseFloat((precunit * cantidad), 2);
-            arr_total[x].value = redondear2decimales(totalitem);
+            arr_total[x].value = totalNaN(redondear2decimales(totalitem));
         }
 
         sumaSubTotal = eval(0);
@@ -127,16 +156,11 @@ while ($row = $reader->read()) {
             sumaSubTotal = parseFloat(sumaSubTotal, 2) + parseFloat(arr_total[x].value, 2);
         }
         montoIGV = parseFloat(parseFloat(sumaSubTotal, 2) * parseFloat(eval(<?PHP ECHO $NV ?>), 2), 2);
+        total = parseFloat(sumaSubTotal, 2) + parseFloat(montoIGV, 2);
 
-        console.log(validadorNaN(parseFloat(sumaSubTotal, 2), parseFloat(montoIGV, 2)));
-        total = validadorNaN(parseFloat(sumaSubTotal, 2), parseFloat(montoIGV, 2));
-
-//        document.getElementById("OC_TOT_MONT_ORDE").value = redondear2decimales(sumaSubTotal);
-        document.getElementById("OC_TOT_FACT").value = totalNaN(redondear2decimales(sumaSubTotal));
-//        document.getElementById("OC_TOT_MONT_IGV").value = redondear2decimales(montoIGV);
-        document.getElementById("OC_TOT_MONT_IGV").value = totalNaN(redondear2decimales(montoIGV));
-//        document.getElementById("OC_TOT_FACT").value = redondear2decimales(total);
-        document.getElementById("OC_TOT_FACT").value = totalNaN(redondear2decimales(total));
+        document.getElementById("OC_TOT_MONT_ORDE").value = redondear2decimales(sumaSubTotal);
+        document.getElementById("OC_TOT_MONT_IGV").value = redondear2decimales(montoIGV);
+        document.getElementById("OC_TOT_FACT").value = redondear2decimales(total);
     }
 
     $(".delete").on('click', function () {
@@ -179,10 +203,10 @@ while ($row = $reader->read()) {
                                     <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control input-sm " readonly="true" value="0.00"/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0.00" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular()"  onkeyup="jsCalcular();" onkeypress="return NumCheck(event, this);" value="0.00" />\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control input-sm " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0.00" />\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control input-sm " onchange="jsCalcular()"  onkeyup="jsCalcular();" onkeypress="return NumCheck(event, this);" value="0.00" />\n\
                                 </td>\n\
                                 <td>\n\
                                     <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control input-sm " readonly="true" value="0.00"/>\n\
