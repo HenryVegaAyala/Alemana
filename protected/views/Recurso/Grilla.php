@@ -95,7 +95,7 @@ while ($row = $reader->read()) {
         document.getElementById("OC_TOT_MONT_ORDE").value = redondear2decimales(sumaSubTotal);
         document.getElementById("OC_TOT_MONT_IGV").value = redondear2decimales(montoIGV);
 //        document.getElementById("OC_TOT_FACT").value = redondear2decimales(total);
-        document.getElementById("OC_TOT_FACT").value = isNaN( redondear2decimales(total) ) ? 0 : n;
+        document.getElementById("OC_TOT_FACT").value = isNaN( redondear2decimales(total) ) ? 0 : redondear2decimales(total);
     }
 
 
@@ -139,13 +139,13 @@ while ($row = $reader->read()) {
                                     <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control input-sm " readonly="true" value=""/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control input-sm " onchange="jsCalcular(this)"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control input-sm " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control input-sm " readonly="true" value='0'/>\n\
+                                    <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control input-sm " readonly="true" value="0"/>\n\
                                 </td>\n\
                                 </tr>';
         $('#tableP').append(data);

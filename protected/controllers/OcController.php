@@ -66,7 +66,7 @@ class OcController extends Controller
             $model->COD_ORDE = $model->au();
             $model->USU_DIGI = $usuario;
 
-            if (isset($_POST['COD_PROD']) or $_POST['COD_PROD'] == '' or $_POST['COD_PROD'] == null) {
+            if (isset($_POST['COD_PROD'])) {
 
                 $CODPRO = $_POST['COD_PROD'];
                 $DESCRI = $_POST['DES_LARG'];
@@ -81,7 +81,6 @@ class OcController extends Controller
 
                 $id = ($count);
 
-
                 if ($id > 0) {
                     Yii::app()->user->setFlash('error', 'La O/C ya ha sido ingresada para la relaciÃ³n cliente/tienda, por favor revisar');
                 } else {
@@ -92,7 +91,7 @@ class OcController extends Controller
                      '" . $model->COD_ORDE . "',
                      '" . $model->COD_TIEN . "',
                      '" . $model->COD_CLIE . "',
-                     '" . $this->valor($CODPRO[$i]) . "', 
+                     '" . $CODPRO[$i] . "', 
                      '" . $UND[$i] . "',
                      '" . $VALPRE[$i] . "', 
                      '" . $VALMOTUND[$i] . "',
@@ -116,18 +115,6 @@ class OcController extends Controller
         $this->render('create', array(
             'model' => $model,
         ));
-    }
-
-    public function valor($codigo)
-    {
-
-        if ($codigo == '') {
-            $codigo = '006';
-            return $codigo;
-        } else {
-            return $codigo;
-        }
-
     }
 
     public function actionUpdate($id)
@@ -422,7 +409,7 @@ class OcController extends Controller
 
         } else {
 
-            Yii::app()->user->setFlash('success', 'El N° de O.C - ' . $this->ResultadoOc($numoc) . ', genero el N° de Guía - ' . $this->ResultadoGuia($numoc) . ' satisfactoriamente ' . "");
+            Yii::app()->user->setFlash('success', 'El N° de O.C - '. $this->ResultadoOc($numoc).', genero el N° de Guía - ' .$this->ResultadoGuia($numoc) . ' satisfactoriamente '."");
             $this->render('index', array(
                 'model' => $model,
             ));
