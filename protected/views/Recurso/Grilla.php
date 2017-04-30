@@ -24,8 +24,9 @@
 
 <html>
 <div style="margin-top: 2%"></div>
-<button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore' onclick="jsCalcular()"><a class="fa fa-plus fa-lg"
-                                                                                  style="color: white;"></a> Agregar
+<button type="button" id="agregarCampo" class='btn btn-success btn-sm addmore'><a
+        class="fa fa-plus fa-lg"
+        style="color: white;"></a> Agregar
     Productos
 </button>
 <button type="button" class='btn btn-danger btn-sm delete' onclick="jsCalcular()">
@@ -66,10 +67,46 @@ while ($row = $reader->read()) {
 
 <script>
 
+    var valor;
+
     function redondear2decimales(numero) {
         var original = parseFloat(numero);
         var result = Math.round(original * 100) / 100;
         return result;
+    }
+
+    function totalNaN(valor) {
+        if (isNaN(valor)) {
+            return '0.00';
+        } else if (valor == '') {
+            return '0.00';
+        } else if (valor == null) {
+            return '0.00';
+        } else if (valor == '0.00') {
+            return '0.00';
+        } else if (valor === '0.00') {
+            return '0.00';
+        } else {
+            return valor;
+        }
+    }
+
+    function validadorNaN(Subtotal, Monto) {
+        var totales;
+        totales = Subtotal + Monto;
+        if (isNaN(totales)) {
+            return '0.00';
+        } else if (valor == '') {
+            return '0.00';
+        } else if (valor == null) {
+            return '0.00';
+        } else if (valor == '0.00') {
+            return '0.00';
+        } else if (valor === '0.00') {
+            return '0.00';
+        } else {
+            return totales;
+        }
     }
 
     function jsCalcular() {
@@ -90,14 +127,17 @@ while ($row = $reader->read()) {
             sumaSubTotal = parseFloat(sumaSubTotal, 2) + parseFloat(arr_total[x].value, 2);
         }
         montoIGV = parseFloat(parseFloat(sumaSubTotal, 2) * parseFloat(eval(<?PHP ECHO $NV ?>), 2), 2);
-        total = parseFloat(sumaSubTotal, 2) + parseFloat(montoIGV, 2);
 
-        document.getElementById("OC_TOT_MONT_ORDE").value = redondear2decimales(sumaSubTotal);
-        document.getElementById("OC_TOT_MONT_IGV").value = redondear2decimales(montoIGV);
+        console.log(validadorNaN(parseFloat(sumaSubTotal, 2), parseFloat(montoIGV, 2)));
+        total = validadorNaN(parseFloat(sumaSubTotal, 2), parseFloat(montoIGV, 2));
+
+//        document.getElementById("OC_TOT_MONT_ORDE").value = redondear2decimales(sumaSubTotal);
+        document.getElementById("OC_TOT_FACT").value = totalNaN(redondear2decimales(sumaSubTotal));
+//        document.getElementById("OC_TOT_MONT_IGV").value = redondear2decimales(montoIGV);
+        document.getElementById("OC_TOT_MONT_IGV").value = totalNaN(redondear2decimales(montoIGV));
 //        document.getElementById("OC_TOT_FACT").value = redondear2decimales(total);
-        document.getElementById("OC_TOT_FACT").value = isNaN( redondear2decimales(total) ) ? 0 : redondear2decimales(total);
+        document.getElementById("OC_TOT_FACT").value = totalNaN(redondear2decimales(total));
     }
-
 
     $(".delete").on('click', function () {
         $('.case:checkbox:checked').parents("tr").remove();
@@ -136,16 +176,16 @@ while ($row = $reader->read()) {
                                     <input type="text" id="DES_LARG_' + i + '" name="DES_LARG[]" size="45" class="form-control input-sm " />\n\
                                 </td> \n\
                                 <td>\n\
-                                    <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control input-sm " readonly="true" value=""/>\n\
+                                    <input type="text" id="COD_PROD_' + i + '" name="COD_PROD[]" size="10" class="form-control input-sm " readonly="true" value="0.00"/>\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
+                                    <input type="text" id="NRO_UNID_' + i + '" name="NRO_UNID[]" size="10" class="form-control input-sm  " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0.00" />\n\
                                 </td>   \n\
                                 <td>\n\
-                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control input-sm " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0" />\n\
+                                    <input type="text" id="VAL_PREC_' + i + '" name="VAL_PREC[]" size="10" class="form-control input-sm " onchange="jsCalcular()"  onkeyup="jsCalcular(this);" onkeypress="jsAgregar(event);" value="0.00" />\n\
                                 </td>\n\
                                 <td>\n\
-                                    <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control input-sm " readonly="true" value="0"/>\n\
+                                    <input type="text" id="campo_VAL_MONT_UNID' + i + '" name="VAL_MONT_UNID[]" size="10" class="form-control input-sm " readonly="true" value="0.00"/>\n\
                                 </td>\n\
                                 </tr>';
         $('#tableP').append(data);
@@ -200,7 +240,7 @@ while ($row = $reader->read()) {
             minLength: 0,
             select: function (event, ui) {
                 var names = ui.item.data.split("|");
-                console.log(names[1], names[2], names[3]);
+//                console.log(names[1], names[2], names[3]);
                 cad = names[1];
                 if (cad !== '') {
                     $('#COD_PROD_' + i).val(names[1]);

@@ -227,7 +227,7 @@
             minLength: 0,
             select: function (event, ui) {
                 var names = ui.item.data.split("|");
-                console.log(names[1], names[2], names[3]);
+//                console.log(names[1], names[2], names[3]);
                 cad = names[1];
                 if (cad !== '') {
                     $('#COD_PROD_' + i).val(names[1]);
